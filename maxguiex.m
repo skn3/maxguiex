@@ -221,7 +221,7 @@ int skn3_scrollTextAreaToTop(TextView *gadget) {
 
 int skn3_scrollTextAreaToBottom(TextView *gadget) {
 	//scroll textview to bottom
-	[gadget scrollRangeToVisible:NSMakeRange([[[gadget string] length],0)];
+	[gadget scrollRangeToVisible:NSMakeRange([[gadget string] length],0)];
 }
 
 int skn3_scrollTextAreaToCursor(TextView *gadget) {

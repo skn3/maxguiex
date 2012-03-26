@@ -24,7 +24,10 @@ skn3_removeScrollViewBorder%(Gadget%)="skn3_removeScrollViewBorder"
 skn3_removeTextFieldBorder%(Gadget%)="skn3_removeTextFieldBorder"
 skn3_installFontFromFileWithATS%(text$)="skn3_installFontFromFileWithATS"
 skn3_installFontFromFileWithCT%(text$)="skn3_installFontFromFileWithCT"
-skn3_setTextViewLineSpacing%(gadget%,spacing#)="skn3_setTextViewLineSpacing"
+skn3_setTextViewLineSpacing%(Gadget%,spacing#)="skn3_setTextViewLineSpacing"
+skn3_scrollTextAreaToTop%(Gadget%)="skn3_scrollTextAreaToTop"
+skn3_scrollTextAreaToBottom%(Gadget%)="skn3_scrollTextAreaToBottom"
+skn3_scrollTextAreaToCursor%(Gadget%)="skn3_scrollTextAreaToCursor"
 Skn3CustomPointer^Object{
 all:TMap&=mem:p("_skn3_maxguiex_Skn3CustomPointer_all")
 .path$&
@@ -62,3 +65,6 @@ RedrawGadgetFrame%(Gadget:TGadget)="skn3_maxguiex_RedrawGadgetFrame"
 HideGadgetBorder%(Gadget:TGadget)="skn3_maxguiex_HideGadgetBorder"
 InstallGuiFont%(path$)="skn3_maxguiex_InstallGuiFont"
 SetTextareaLineSpacing%(Gadget:TGadget,lineSpacing#)="skn3_maxguiex_SetTextareaLineSpacing"
+ScrollTextAreaToTop%(Gadget:TGadget)="skn3_maxguiex_ScrollTextAreaToTop"
+ScrollTextAreaToBottom%(Gadget:TGadget)="skn3_maxguiex_ScrollTextAreaToBottom"
+ScrollTextAreaToCursor%(Gadget:TGadget)="skn3_maxguiex_ScrollTextAreaToCursor"

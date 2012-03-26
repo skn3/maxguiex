@@ -55,6 +55,9 @@
 	.reference	_skn3_installFontFromFileWithCT
 	.reference	_skn3_loadCustomPointer
 	.reference	_skn3_removeTextFieldBorder
+	.reference	_skn3_scrollTextAreaToBottom
+	.reference	_skn3_scrollTextAreaToCursor
+	.reference	_skn3_scrollTextAreaToTop
 	.reference	_skn3_setColorPickerCustomColors
 	.reference	_skn3_setCustomPointer
 	.reference	_skn3_setMaxLength
@@ -92,6 +95,9 @@
 	.globl	_skn3_maxguiex_MessageBox
 	.globl	_skn3_maxguiex_RedrawGadgetFrame
 	.globl	_skn3_maxguiex_RequestScrollbarSize
+	.globl	_skn3_maxguiex_ScrollTextAreaToBottom
+	.globl	_skn3_maxguiex_ScrollTextAreaToCursor
+	.globl	_skn3_maxguiex_ScrollTextAreaToTop
 	.globl	_skn3_maxguiex_SetColorPickerCustomColors
 	.globl	_skn3_maxguiex_SetComboBoxHeight
 	.globl	_skn3_maxguiex_SetCustomPointer
@@ -105,14 +111,14 @@ ___bb_maxguiex_maxguiex:
 	push	%ebp
 	mov	%esp,%ebp
 	sub	$8,%esp
-	cmpl	$0,_219
-	je	_220
+	cmpl	$0,_228
+	je	_229
 	mov	$0,%eax
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
-_220:
-	movl	$1,_219
+_229:
+	movl	$1,_228
 	call	___bb_blitz_blitz
 	call	___bb_map_map
 	call	___bb_linkedlist_linkedlist
@@ -158,13 +164,13 @@ __skn3_maxguiex_Skn3CustomPointer_Delete:
 _103:
 	movl	8(%eax),%eax
 	decl	4(%eax)
-	jnz	_224
+	jnz	_233
 	movl	%eax,(%esp)
 	call	_bbGCFree
-_224:
+_233:
 	mov	$0,%eax
-	jmp	_222
-_222:
+	jmp	_231
+_231:
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
@@ -246,8 +252,8 @@ __skn3_maxguiex_PARAFORMAT2_Delete:
 	sub	$8,%esp
 _109:
 	mov	$0,%eax
-	jmp	_225
-_225:
+	jmp	_234
+_234:
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
@@ -260,10 +266,10 @@ _8:
 	movl	8(%ebp),%ebx
 	movl	12(%ebp),%esi
 	cmpl	$0,8(%ebx)
-	jne	_226
+	jne	_235
 	mov	$_1,%eax
 	jmp	_113
-_226:
+_235:
 	movl	$_7,8(%esp)
 	movl	$_9,4(%esp)
 	movl	%ebx,(%esp)
@@ -273,17 +279,17 @@ _226:
 	movl	%esi,(%esp)
 	call	_bbStringCompare
 	cmp	$0,%eax
-	je	_227
+	je	_236
 	movl	%esi,8(%esp)
 	movl	$_7,4(%esp)
 	movl	%ebx,(%esp)
 	call	_bbStringReplace
 	mov	%eax,%ebx
-_227:
+_236:
 	mov	$0,%esi
 	mov	$0,%edx
 	movl	8(%ebx),%ecx
-	jmp	_230
+	jmp	_239
 _12:
 	movzwl	12(%ebx,%edx,2),%eax
 	mov	%eax,%eax
@@ -291,23 +297,23 @@ _12:
 	setne	%al
 	movzbl	%al,%eax
 	cmp	$0,%eax
-	je	_232
+	je	_241
 	movzwl	12(%ebx,%edx,2),%eax
 	mov	%eax,%eax
 	cmp	$47,%eax
 	setne	%al
 	movzbl	%al,%eax
-_232:
+_241:
 	cmp	$0,%eax
-	je	_234
+	je	_243
 	jmp	_11
-_234:
+_243:
 	mov	%edx,%eax
 	add	$1,%eax
 	mov	%eax,%esi
 _10:
 	add	$1,%edx
-_230:
+_239:
 	cmp	%ecx,%edx
 	jl	_12
 _11:
@@ -317,7 +323,7 @@ _11:
 	movl	8(%ebx),%eax
 	sub	$1,%eax
 	mov	%eax,%edx
-	jmp	_236
+	jmp	_245
 _15:
 	movzwl	12(%ebx,%edx,2),%eax
 	mov	%eax,%eax
@@ -325,29 +331,29 @@ _15:
 	setne	%al
 	movzbl	%al,%eax
 	cmp	$0,%eax
-	je	_237
+	je	_246
 	movzwl	12(%ebx,%edx,2),%eax
 	mov	%eax,%eax
 	cmp	$47,%eax
 	setne	%al
 	movzbl	%al,%eax
-_237:
+_246:
 	cmp	$0,%eax
-	je	_239
+	je	_248
 	jmp	_14
-_239:
+_248:
 	sub	$1,%ecx
 _13:
 	add	$-1,%edx
-_236:
+_245:
 	cmp	$0,%edx
 	jge	_15
 _14:
 	cmp	$0,%ecx
-	jg	_240
+	jg	_249
 	mov	$_1,%eax
 	jmp	_113
-_240:
+_249:
 	mov	%esi,%eax
 	add	%ecx,%eax
 	movl	%eax,8(%esp)
@@ -380,7 +386,7 @@ _16:
 	movl	%eax,(%esp)
 	call	_bbStringCompare
 	cmp	$0,%eax
-	jne	_241
+	jne	_250
 	movl	$_7,4(%esp)
 	movl	$0,(%esp)
 	call	_skn3_systemex_GetTempDirectory
@@ -448,7 +454,7 @@ _19:
 	call	_brl_stream_CloseStream
 	mov	%edi,%eax
 	jmp	_116
-_241:
+_250:
 	mov	$_1,%eax
 	jmp	_116
 _116:
@@ -528,10 +534,10 @@ _skn3_maxguiex_MessageBox:
 	mov	%eax,%esi
 	movl	_bbAppTitle,%eax
 	decl	4(%eax)
-	jnz	_253
+	jnz	_262
 	movl	%eax,(%esp)
 	call	_bbGCFree
-_253:
+_262:
 	movl	%esi,_bbAppTitle
 	movl	$0,4(%esp)
 	movl	%edi,(%esp)
@@ -539,10 +545,10 @@ _253:
 	incl	4(%ebx)
 	movl	_bbAppTitle,%eax
 	decl	4(%eax)
-	jnz	_257
+	jnz	_266
 	movl	%eax,(%esp)
 	call	_bbGCFree
-_257:
+_266:
 	movl	%ebx,_bbAppTitle
 	mov	$0,%eax
 	jmp	_137
@@ -589,12 +595,12 @@ _skn3_maxguiex_GetCreationGroup:
 	movl	%ebx,(%esp)
 	call	_bbObjectDowncast
 	cmp	$_bbNullObject,%eax
-	je	_260
+	je	_269
 	movl	140(%eax),%eax
 	movl	%eax,(%esp)
 	call	_skn3_maxguiex_GetCreationGroup
 	jmp	_145
-_260:
+_269:
 	mov	%ebx,%eax
 	jmp	_145
 _145:
@@ -614,11 +620,11 @@ _skn3_maxguiex_SetGadgetReadOnly:
 	movl	%esi,(%esp)
 	call	_maxgui_maxgui_GadgetClass
 	cmp	$5,%eax
-	je	_263
+	je	_272
 	cmp	$4,%eax
-	je	_263
-	jmp	_262
-_263:
+	je	_272
+	jmp	_271
+_272:
 	cmp	$0,%ebx
 	sete	%al
 	movzbl	%al,%eax
@@ -629,8 +635,8 @@ _263:
 	movl	%ebx,4(%esp)
 	movl	%eax,(%esp)
 	call	_skn3_setReadOnly
-	jmp	_262
-_262:
+	jmp	_271
+_271:
 	mov	$0,%eax
 	jmp	_149
 _149:
@@ -651,23 +657,23 @@ _skn3_maxguiex_SetGadgetMaxLength:
 	movl	%esi,(%esp)
 	call	_maxgui_maxgui_GadgetClass
 	cmp	$4,%eax
-	je	_266
+	je	_275
 	cmp	$5,%eax
-	je	_266
-	jmp	_265
-_266:
+	je	_275
+	jmp	_274
+_275:
 	cmp	$0,%ebx
-	jge	_267
+	jge	_276
 	mov	$0,%ebx
-_267:
+_276:
 	movl	$3,4(%esp)
 	movl	%esi,(%esp)
 	call	_maxgui_maxgui_QueryGadget
 	movl	%ebx,4(%esp)
 	movl	%eax,(%esp)
 	call	_skn3_setMaxLength
-	jmp	_265
-_265:
+	jmp	_274
+_274:
 	mov	$0,%eax
 	jmp	_153
 _153:
@@ -686,12 +692,12 @@ _skn3_maxguiex_GetGadgetMaxLength:
 	movl	%ebx,(%esp)
 	call	_maxgui_maxgui_GadgetClass
 	cmp	$4,%eax
-	je	_270
+	je	_279
 	cmp	$5,%eax
-	je	_270
+	je	_279
 	mov	$0,%eax
 	jmp	_156
-_270:
+_279:
 	movl	$3,4(%esp)
 	movl	%ebx,(%esp)
 	call	_maxgui_maxgui_QueryGadget
@@ -720,26 +726,26 @@ _skn3_maxguiex_LoadCustomPointer:
 	movl	$0,-8(%ebp)
 	movl	-4(%ebp),%eax
 	cmpl	$0,8(%eax)
-	jne	_274
+	jne	_283
 	movl	%edi,-4(%ebp)
-	jmp	_275
-_274:
+	jmp	_284
+_283:
 	movl	$1,-8(%ebp)
-_275:
+_284:
 	cmpl	$_bbNullObject,__skn3_maxguiex_Skn3CustomPointer_all
-	jne	_276
+	jne	_285
 	call	_brl_map_CreateMap
 	incl	4(%eax)
 	mov	%eax,%ebx
 	movl	__skn3_maxguiex_Skn3CustomPointer_all,%eax
 	decl	4(%eax)
-	jnz	_280
+	jnz	_289
 	movl	%eax,(%esp)
 	call	_bbGCFree
-_280:
+_289:
 	movl	%ebx,__skn3_maxguiex_Skn3CustomPointer_all
-	jmp	_281
-_276:
+	jmp	_290
+_285:
 	movl	__skn3_maxguiex_Skn3CustomPointer_all,%eax
 	movl	%edi,4(%esp)
 	movl	%eax,(%esp)
@@ -749,9 +755,9 @@ _276:
 	movl	%eax,(%esp)
 	call	_bbObjectDowncast
 	mov	%eax,%esi
-_281:
+_290:
 	cmp	$_bbNullObject,%esi
-	jne	_283
+	jne	_292
 	movl	$_skn3_maxguiex_Skn3CustomPointer,(%esp)
 	call	_bbObjectNew
 	mov	%eax,%esi
@@ -760,10 +766,10 @@ _281:
 	mov	%eax,%ebx
 	movl	8(%esi),%eax
 	decl	4(%eax)
-	jnz	_287
+	jnz	_296
 	movl	%eax,(%esp)
 	call	_bbGCFree
-_287:
+_296:
 	movl	%ebx,8(%esi)
 	movl	__skn3_maxguiex_Skn3CustomPointer_all,%eax
 	movl	%esi,8(%esp)
@@ -783,19 +789,19 @@ _287:
 	movl	%eax,(%esp)
 	call	_skn3_loadCustomPointer
 	movl	%eax,12(%esi)
-_283:
+_292:
 	cmpl	$0,-8(%ebp)
-	je	_290
+	je	_299
 	movl	-4(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_brl_filesystem_DeleteFile
-_290:
+_299:
 	cmpl	$0,12(%esi)
-	je	_291
+	je	_300
 	addl	$1,16(%esi)
 	mov	%esi,%eax
 	jmp	_159
-_291:
+_300:
 	mov	$_bbNullObject,%eax
 	jmp	_159
 _159:
@@ -812,12 +818,12 @@ _skn3_maxguiex_SetCustomPointer:
 	sub	$8,%esp
 	movl	8(%ebp),%eax
 	cmp	$_bbNullObject,%eax
-	je	_292
+	je	_301
 	movl	$-1,_maxgui_maxgui_lastPointer
 	movl	12(%eax),%eax
 	movl	%eax,(%esp)
 	call	_skn3_setCustomPointer
-_292:
+_301:
 	mov	$0,%eax
 	jmp	_162
 _162:
@@ -831,10 +837,10 @@ _skn3_maxguiex_FreeCustomPointer:
 	sub	$20,%esp
 	movl	8(%ebp),%ebx
 	cmp	$_bbNullObject,%ebx
-	je	_293
+	je	_302
 	subl	$1,16(%ebx)
 	cmpl	$0,16(%ebx)
-	jne	_294
+	jne	_303
 	movl	__skn3_maxguiex_Skn3CustomPointer_all,%edx
 	movl	8(%ebx),%eax
 	movl	%eax,4(%esp)
@@ -843,15 +849,15 @@ _skn3_maxguiex_FreeCustomPointer:
 	calll	*68(%eax)
 	call	_skn3_currentCursor
 	cmpl	12(%ebx),%eax
-	jne	_296
+	jne	_305
 	movl	$0,(%esp)
 	call	_maxgui_maxgui_SetPointer
-_296:
+_305:
 	movl	12(%ebx),%eax
 	movl	%eax,(%esp)
 	call	_skn3_freeCustomPointer
-_294:
-_293:
+_303:
+_302:
 	mov	$0,%eax
 	jmp	_165
 _165:
@@ -871,7 +877,7 @@ _skn3_maxguiex_ExtractCursorHotspot:
 	movl	8(%ebp),%ebx
 	movl	12(%ebp),%edi
 	movl	$2,4(%esp)
-	movl	$_297,(%esp)
+	movl	$_306,(%esp)
 	call	_bbArrayNew1D
 	movl	%eax,-4(%ebp)
 	movl	%ebx,4(%esp)
@@ -881,7 +887,7 @@ _skn3_maxguiex_ExtractCursorHotspot:
 	call	_brl_filesystem_ReadFile
 	mov	%eax,%esi
 	cmp	$_bbNullObject,%esi
-	je	_300
+	je	_309
 	mov	%esi,%eax
 	movl	$2,4(%esp)
 	movl	%eax,(%esp)
@@ -893,14 +899,14 @@ _skn3_maxguiex_ExtractCursorHotspot:
 	calll	*100(%eax)
 	mov	%eax,%ebx
 	cmp	$2,%ebx
-	jne	_304
+	jne	_313
 	mov	%esi,%eax
 	movl	%eax,(%esp)
 	movl	(%eax),%eax
 	calll	*100(%eax)
 	mov	%eax,%ebx
 	cmp	%ebx,%edi
-	jge	_306
+	jge	_315
 	mov	%edi,%eax
 	imul	$12,%eax
 	add	$6,%eax
@@ -911,7 +917,7 @@ _skn3_maxguiex_ExtractCursorHotspot:
 	movl	(%eax),%eax
 	calll	*56(%eax)
 	cmp	%eax,%ebx
-	jge	_308
+	jge	_317
 	mov	%esi,%eax
 	movl	%ebx,4(%esp)
 	movl	%eax,(%esp)
@@ -929,14 +935,14 @@ _skn3_maxguiex_ExtractCursorHotspot:
 	calll	*100(%eax)
 	movl	-4(%ebp),%edx
 	movl	%eax,4+24(%edx)
-_308:
-_306:
-_304:
+_317:
+_315:
+_313:
 	mov	%esi,%eax
 	movl	%eax,(%esp)
 	movl	(%eax),%eax
 	calll	*68(%eax)
-_300:
+_309:
 	movl	-4(%ebp),%eax
 	jmp	_169
 _169:
@@ -1012,10 +1018,10 @@ _24:
 	call	_maxgui_maxgui_GadgetClass
 	add	$1,%eax
 	cmp	$0,%eax
-	je	_314
+	je	_323
 	mov	%ebx,%eax
 	jmp	_186
-_314:
+_323:
 	movl	%ebx,(%esp)
 	call	_maxgui_maxgui_GadgetGroup
 	mov	%eax,%ebx
@@ -1105,16 +1111,16 @@ _skn3_maxguiex_SetColorPickerCustomColors:
 	movl	8(%ebp),%edx
 	movl	16(%edx),%eax
 	cmp	$0,%eax
-	je	_315
+	je	_324
 	movl	20(%edx),%eax
 	cmp	$0,%eax
 	setg	%al
 	movzbl	%al,%eax
-_315:
+_324:
 	cmp	$0,%eax
-	je	_317
+	je	_326
 	cmpl	$15,20(%edx)
-	jge	_318
+	jge	_327
 	movl	20(%edx),%ebx
 	movl	$15,12(%esp)
 	movl	$0,8(%esp)
@@ -1122,19 +1128,19 @@ _315:
 	movl	$_33,(%esp)
 	call	_bbArraySlice
 	mov	%eax,%edx
-	jmp	_320
+	jmp	_329
 _27:
 	movl	$16777215,24(%edx,%ebx,4)
 _25:
 	add	$1,%ebx
-_320:
+_329:
 	cmp	$15,%ebx
 	jl	_27
 _26:
-_318:
+_327:
 	movl	%edx,(%esp)
 	call	_skn3_setColorPickerCustomColors
-_317:
+_326:
 	mov	$0,%eax
 	jmp	_202
 _202:
@@ -1172,19 +1178,19 @@ _skn3_maxguiex_HideGadgetBorder:
 	movl	%ebx,(%esp)
 	call	_maxgui_maxgui_GadgetClass
 	cmp	$4,%eax
-	je	_323
-	jmp	_322
-_323:
+	je	_332
+	jmp	_331
+_332:
 	movl	$3,4(%esp)
 	movl	%ebx,(%esp)
 	call	_maxgui_maxgui_QueryGadget
 	cmp	$0,%eax
-	je	_325
+	je	_334
 	movl	%eax,(%esp)
 	call	_skn3_removeTextFieldBorder
-_325:
-	jmp	_322
-_322:
+_334:
+	jmp	_331
+_331:
 	mov	$0,%eax
 	jmp	_210
 _210:
@@ -1208,34 +1214,34 @@ _skn3_maxguiex_InstallGuiFont:
 	mov	%eax,%esi
 	movl	$0,-4(%ebp)
 	cmpl	$0,8(%esi)
-	jne	_329
+	jne	_338
 	mov	%ebx,%esi
-	jmp	_330
-_329:
+	jmp	_339
+_338:
 	movl	$1,-4(%ebp)
-_330:
+_339:
 	movl	%esi,(%esp)
 	call	_brl_filesystem_FileType
 	cmp	$1,%eax
-	jne	_331
+	jne	_340
 	call	_skn3_systemex_GetOsVersion
 	cmp	$3,%eax
-	jge	_332
+	jge	_341
 	movl	%esi,(%esp)
 	call	_skn3_installFontFromFileWithATS
 	mov	%eax,%edi
-	jmp	_333
-_332:
+	jmp	_342
+_341:
 	movl	%esi,(%esp)
 	call	_skn3_installFontFromFileWithCT
 	mov	%eax,%edi
-_333:
-_331:
+_342:
+_340:
 	cmpl	$0,-4(%ebp)
-	je	_334
+	je	_343
 	movl	%esi,(%esp)
 	call	_brl_filesystem_DeleteFile
-_334:
+_343:
 	mov	%edi,%eax
 	jmp	_213
 _213:
@@ -1255,9 +1261,9 @@ _skn3_maxguiex_SetTextareaLineSpacing:
 	movl	%ebx,(%esp)
 	call	_maxgui_maxgui_GadgetClass
 	cmp	$5,%eax
-	jne	_335
+	jne	_344
 	flds	12(%ebp)
-	fsubs	_461
+	fsubs	_479
 	fstps	12(%ebp)
 	fldz
 	flds	12(%ebp)
@@ -1267,10 +1273,10 @@ _skn3_maxguiex_SetTextareaLineSpacing:
 	setae	%al
 	movzbl	%al,%eax
 	cmp	$0,%eax
-	jne	_336
-	flds	_462
+	jne	_345
+	flds	_480
 	fstps	12(%ebp)
-_336:
+_345:
 	movl	$3,4(%esp)
 	movl	%ebx,(%esp)
 	call	_maxgui_maxgui_QueryGadget
@@ -1279,7 +1285,7 @@ _336:
 	setne	%al
 	movzbl	%al,%eax
 	cmp	$0,%eax
-	je	_338
+	je	_347
 	flds	12(%ebp)
 	fstps	4(%esp)
 	movl	%edx,(%esp)
@@ -1287,9 +1293,9 @@ _336:
 	cmp	$1,%eax
 	sete	%al
 	movzbl	%al,%eax
-_338:
+_347:
 	jmp	_217
-_335:
+_344:
 	mov	$0,%eax
 	jmp	_217
 _217:
@@ -1298,9 +1304,90 @@ _217:
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
+_skn3_maxguiex_ScrollTextAreaToTop:
+	push	%ebp
+	mov	%esp,%ebp
+	push	%ebx
+	sub	$20,%esp
+	movl	8(%ebp),%ebx
+	movl	%ebx,(%esp)
+	call	_maxgui_maxgui_GadgetClass
+	cmp	$5,%eax
+	jne	_349
+	movl	$3,4(%esp)
+	movl	%ebx,(%esp)
+	call	_maxgui_maxgui_QueryGadget
+	cmp	$0,%eax
+	je	_351
+	movl	%eax,(%esp)
+	call	_skn3_scrollTextAreaToTop
+_351:
+_349:
+	mov	$0,%eax
+	jmp	_220
+_220:
+	add	$20,%esp
+	pop	%ebx
+	mov	%ebp,%esp
+	pop	%ebp
+	ret
+_skn3_maxguiex_ScrollTextAreaToBottom:
+	push	%ebp
+	mov	%esp,%ebp
+	push	%ebx
+	sub	$20,%esp
+	movl	8(%ebp),%ebx
+	movl	%ebx,(%esp)
+	call	_maxgui_maxgui_GadgetClass
+	cmp	$5,%eax
+	jne	_352
+	movl	$3,4(%esp)
+	movl	%ebx,(%esp)
+	call	_maxgui_maxgui_QueryGadget
+	cmp	$0,%eax
+	je	_354
+	movl	%eax,(%esp)
+	call	_skn3_scrollTextAreaToBottom
+_354:
+_352:
+	mov	$0,%eax
+	jmp	_223
+_223:
+	add	$20,%esp
+	pop	%ebx
+	mov	%ebp,%esp
+	pop	%ebp
+	ret
+_skn3_maxguiex_ScrollTextAreaToCursor:
+	push	%ebp
+	mov	%esp,%ebp
+	push	%ebx
+	sub	$20,%esp
+	movl	8(%ebp),%ebx
+	movl	%ebx,(%esp)
+	call	_maxgui_maxgui_GadgetClass
+	cmp	$5,%eax
+	jne	_355
+	movl	$3,4(%esp)
+	movl	%ebx,(%esp)
+	call	_maxgui_maxgui_QueryGadget
+	cmp	$0,%eax
+	je	_357
+	movl	%eax,(%esp)
+	call	_skn3_scrollTextAreaToCursor
+_357:
+_355:
+	mov	$0,%eax
+	jmp	_226
+_226:
+	add	$20,%esp
+	pop	%ebx
+	mov	%ebp,%esp
+	pop	%ebp
+	ret
 	.data	
 	.align	4
-_219:
+_228:
 	.long	0
 	.align	4
 __skn3_maxguiex_Skn3CustomPointer_all:
@@ -1748,7 +1835,7 @@ _17:
 	.long	2147483647
 	.long	8
 	.short	105,110,99,98,105,110,58,58
-_297:
+_306:
 	.asciz	"i"
 	.align	4
 _21:
@@ -1757,8 +1844,8 @@ _21:
 	.long	14
 	.short	108,105,116,116,108,101,101,110,100,105,97,110,58,58
 	.align	4
-_461:
+_479:
 	.long	0x3f800000
 	.align	4
-_462:
+_480:
 	.long	0x0
