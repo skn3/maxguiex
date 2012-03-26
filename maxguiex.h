@@ -22,4 +22,4 @@ void skn3_removeScrollViewBorder(NSScrollView *gadget);
 void skn3_removeTextFieldBorder(NSTextField *gadget);
 int skn3_installFontFromFileWithATS(BBString *path);
 int skn3_installFontFromFileWithCT(BBString *path);
-int skn3_setTextViewLineSpacing(NSTextView *gadget,CGFloat spacing);
+int skn3_setTextViewLineSpacing(NSTextView *gadget,float spacing);

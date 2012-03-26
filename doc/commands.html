@@ -93,11 +93,17 @@ Set the maximum number of characters a gadget can contain. <b>[Win Mac]</b>
 <tr><td class=docleft width=1%><a href=#SetGadgetReadOnly>SetGadgetReadOnly</a></td><td class=docright>
 Change a gadget to be readonly. <b>[Win Mac]</b>
 </td></tr>
+<tr><td class=docleft width=1%><a href=#SetTextareaLineSpacing>SetTextareaLineSpacing</a></td><td class=docright>
+change the linespacing for a textarea. <b>[Win Mac]</b>
+</td></tr>
 <tr><td class=docleft width=1%><a href=#SetWindowAlwaysOnTop>SetWindowAlwaysOnTop</a></td><td class=docright>
 Force a window to always be on the top of other windows. <b>[Win Mac]</b>
 </td></tr>
 </table>
 <h2><a name=types></a>Types Summary</h2><table class=doc width=100%>
+<tr><td class=docleft width=1%><a href=#PARAFORMAT2>PARAFORMAT2</a></td><td class=docright>
+A windows data structure.
+</td></tr>
 <tr><td class=docleft width=1%><a href=#Skn3CustomPointer>Skn3CustomPointer</a></td><td class=docright>
 An object that stores a custom cursor file.
 </td></tr>
@@ -299,7 +305,7 @@ A private type to store the state of a locked listbox.
 </ul>
 <b>Info</b>
 <p>This function will install the provided font file for the time the application is running. The font can then be loaded as normal with the LoadGuiFont() function. this function is confirmed to work with ttf on mac and windows but has not be confirmed with other font formats. It is important that when using LoadGuiFont that you are using the correct font face name. The font face name wont match the fonts file name so please double check this!</p>
-<p>Due to an issue with loading resources from a memory pointer on the mac the font will be saved to disk in a temp file. The temp file is handled via system calls so you should not face any security problems!</td></tr>
+<p>Due to an issue with loading resources from a memory pointer on the mac the font will be saved to disk in a temp file. The temp file is handled via system calls so you should not face any security problems!</p></td></tr>
 </table>
 <br>
 <table class=doc width=100% cellspacing=3 id=ListBatchAdd>
@@ -449,6 +455,19 @@ A private type to store the state of a locked listbox.
 <p>This currently works on textfields and textareas and sets the gadgets to be readonly without having a disabled style.</p></td></tr>
 </table>
 <br>
+<table class=doc width=100% cellspacing=3 id=SetTextareaLineSpacing>
+<tr><td class=doctop colspan=2>Function SetTextareaLineSpacing:Int(Gadget:TGadget,lineSpacing:Float)</td></tr>
+<tr><td class=docleft width=1%>Returns</td><td class=docright>True if success.</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>change the linespacing for a textarea. <b>[Win Mac]</b></td></tr>
+<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
+<ul>
+<li>Windows</li>
+<li>Mac</li>
+</ul>
+<b>Info</b>
+<p>Does what it says on the tin!</p></td></tr>
+</table>
+<br>
 <table class=doc width=100% cellspacing=3 id=SetWindowAlwaysOnTop>
 <tr><td class=doctop colspan=2>Function SetWindowAlwaysOnTop(Window:TGadget,State:Int=False)</td></tr>
 <tr><td class=docleft width=1%>Description</td><td class=docright>Force a window to always be on the top of other windows. <b>[Win Mac]</b></td></tr>
@@ -464,6 +483,17 @@ A private type to store the state of a locked listbox.
 <h2
  id=typesdet>Types
 </h2>
+<table class=doc width=100% cellspacing=3 id=PARAFORMAT2>
+<tr><td class=doctop colspan=2>Type PARAFORMAT2</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>A windows data structure.</td></tr>
+<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
+<ul>
+<li>Windows</li>
+</ul>
+<b>Info</b>
+<p>This is for modifying the rich edit control.</p></td></tr>
+</table>
+<br>
 <table class=doc width=100% cellspacing=3 id=Skn3CustomPointer>
 <tr><td class=doctop colspan=2>Type Skn3CustomPointer</td></tr>
 <tr><td class=docleft width=1%>Description</td><td class=docright>An object that stores a custom cursor file.</td></tr>
@@ -489,6 +519,8 @@ A private type to store the state of a locked listbox.
 <br>
 <h2 id=modinfo>Module Information</h2>
 <table width=100%>
+<tr><th width=1%>History</th><td>1.01</td></tr>
+<tr><th width=1%>History</th><td>Added SetTextAreaLineSpacing() function</td></tr>
 <tr><th width=1%>History</th><td>1.00</td></tr>
 <tr><th width=1%>History</th><td>Initial Release To Public</td></tr>
 </body></html>
