@@ -7,6 +7,8 @@ End Rem
 Module skn3.maxguiex
 SuperStrict
 
+ModuleInfo "History: 1.02"
+ModuleInfo "History: Added ScrollTextAreaToTop() ScrollTextAreaToBottom() ScrollTextAreaToCursor() functions"
 ModuleInfo "History: 1.01"
 ModuleInfo "History: Added SetTextAreaLineSpacing() function"
 ModuleInfo "History: 1.00"
@@ -1193,6 +1195,17 @@ Function SetTextareaLineSpacing:Int(Gadget:TGadget,lineSpacing:Float)
 	EndIf
 End Function
 
+Rem
+bbdoc: Scroll a textarea to the top. <b>[Win Mac]</b>
+about:
+<b>Supported Platforms</b>
+<ul>
+	<li>Windows</li>
+	<li>Mac</li>
+</ul>
+<b>Info</b>
+<p>This will scroll a text area to the top without changing the cursor position!</p>
+End Rem
 Function ScrollTextAreaToTop(Gadget:TGadget)
 	' --- change the scroll position of the textarea to top ---
 	If GadgetClass(Gadget) = GADGET_TEXTAREA
@@ -1206,6 +1219,17 @@ Function ScrollTextAreaToTop(Gadget:TGadget)
 	EndIf
 End Function
 
+Rem
+bbdoc: Scroll a textarea to the bottom. <b>[Win Mac]</b>
+about:
+<b>Supported Platforms</b>
+<ul>
+	<li>Windows</li>
+	<li>Mac</li>
+</ul>
+<b>Info</b>
+<p>This will scroll a text area to the bottom without changing the cursor position!</p>
+End Rem
 Function ScrollTextAreaToBottom(Gadget:TGadget)
 	' --- change the scroll position of the textarea to bottom ---
 	If GadgetClass(Gadget) = GADGET_TEXTAREA
@@ -1219,6 +1243,17 @@ Function ScrollTextAreaToBottom(Gadget:TGadget)
 	EndIf
 End Function
 
+Rem
+bbdoc: Scroll a textarea to the cursor. <b>[Win Mac]</b>
+about:
+<b>Supported Platforms</b>
+<ul>
+	<li>Windows</li>
+	<li>Mac</li>
+</ul>
+<b>Info</b>
+<p>This will scroll a text area to the current cursor position!</p>
+End Rem
 Function ScrollTextAreaToCursor(Gadget:TGadget)
 	' --- scroll the textarea to the position of the cursor ---
 	If GadgetClass(Gadget) = GADGET_TEXTAREA

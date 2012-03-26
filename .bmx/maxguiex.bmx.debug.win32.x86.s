@@ -4441,7 +4441,7 @@ _278:
 	align	4
 _277:
 	dd	_278
-	dd	80
+	dd	83
 	dd	2
 	align	4
 __skn3_maxguiex_Skn3ListBatchLock_all:
@@ -4551,7 +4551,7 @@ _16:
 	align	4
 _279:
 	dd	_278
-	dd	137
+	dd	140
 	dd	2
 	align	4
 __skn3_maxguiex_Skn3CustomPointer_all:
@@ -5012,7 +5012,7 @@ _328:
 	align	4
 _304:
 	dd	_278
-	dd	91
+	dd	94
 	dd	3
 	align	4
 _307:
@@ -5022,22 +5022,22 @@ _307:
 	align	4
 _306:
 	dd	_278
-	dd	91
+	dd	94
 	dd	17
 	align	4
 _308:
 	dd	_278
-	dd	93
+	dd	96
 	dd	3
 	align	4
 _310:
 	dd	_278
-	dd	94
+	dd	97
 	dd	3
 	align	4
 _314:
 	dd	_278
-	dd	95
+	dd	98
 	dd	3
 	align	4
 _327:
@@ -5047,12 +5047,12 @@ _327:
 	align	4
 _315:
 	dd	_278
-	dd	97
+	dd	100
 	dd	4
 	align	4
 _318:
 	dd	_278
-	dd	100
+	dd	103
 	dd	4
 	align	4
 _323:
@@ -5062,12 +5062,12 @@ _323:
 	align	4
 _322:
 	dd	_278
-	dd	100
+	dd	103
 	dd	36
 	align	4
 _324:
 	dd	_278
-	dd	103
+	dd	106
 	dd	4
 _352:
 	db	"Lock",0
@@ -5083,7 +5083,7 @@ _351:
 	align	4
 _333:
 	dd	_278
-	dd	109
+	dd	112
 	dd	3
 	align	4
 _340:
@@ -5093,12 +5093,12 @@ _340:
 	align	4
 _335:
 	dd	_278
-	dd	109
+	dd	112
 	dd	17
 	align	4
 _341:
 	dd	_278
-	dd	110
+	dd	113
 	dd	3
 	align	4
 _377:
@@ -5112,7 +5112,7 @@ _377:
 	align	4
 _353:
 	dd	_278
-	dd	115
+	dd	118
 	dd	3
 	align	4
 _376:
@@ -5122,17 +5122,17 @@ _376:
 	align	4
 _355:
 	dd	_278
-	dd	116
+	dd	119
 	dd	4
 	align	4
 _360:
 	dd	_278
-	dd	117
+	dd	120
 	dd	4
 	align	4
 _368:
 	dd	_278
-	dd	118
+	dd	121
 	dd	4
 _381:
 	db	":Skn3CustomPointer",0
@@ -5202,7 +5202,7 @@ _442:
 	align	4
 _389:
 	dd	_278
-	dd	196
+	dd	199
 	dd	2
 	align	4
 _392:
@@ -5212,7 +5212,7 @@ _392:
 	align	4
 _391:
 	dd	_278
-	dd	196
+	dd	199
 	dd	21
 	align	4
 _1:
@@ -5222,7 +5222,7 @@ _1:
 	align	4
 _393:
 	dd	_278
-	dd	199
+	dd	202
 	dd	2
 	align	4
 _21:
@@ -5239,7 +5239,7 @@ _23:
 	align	4
 _394:
 	dd	_278
-	dd	200
+	dd	203
 	dd	2
 	align	4
 _397:
@@ -5249,22 +5249,22 @@ _397:
 	align	4
 _396:
 	dd	_278
-	dd	200
+	dd	203
 	dd	18
 	align	4
 _398:
 	dd	_278
-	dd	203
+	dd	206
 	dd	2
 	align	4
 _400:
 	dd	_278
-	dd	204
+	dd	207
 	dd	2
 	align	4
 _402:
 	dd	_278
-	dd	205
+	dd	208
 	dd	2
 	align	4
 _418:
@@ -5274,7 +5274,7 @@ _418:
 	align	4
 _405:
 	dd	_278
-	dd	206
+	dd	209
 	dd	3
 	align	4
 _416:
@@ -5284,22 +5284,22 @@ _416:
 	align	4
 _415:
 	dd	_278
-	dd	206
+	dd	209
 	dd	46
 	align	4
 _417:
 	dd	_278
-	dd	207
+	dd	210
 	dd	3
 	align	4
 _419:
 	dd	_278
-	dd	210
+	dd	213
 	dd	2
 	align	4
 _421:
 	dd	_278
-	dd	211
+	dd	214
 	dd	2
 	align	4
 _436:
@@ -5309,7 +5309,7 @@ _436:
 	align	4
 _423:
 	dd	_278
-	dd	212
+	dd	215
 	dd	3
 	align	4
 _434:
@@ -5319,17 +5319,17 @@ _434:
 	align	4
 _433:
 	dd	_278
-	dd	212
+	dd	215
 	dd	46
 	align	4
 _435:
 	dd	_278
-	dd	213
+	dd	216
 	dd	3
 	align	4
 _437:
 	dd	_278
-	dd	215
+	dd	218
 	dd	2
 	align	4
 _440:
@@ -5339,12 +5339,12 @@ _440:
 	align	4
 _439:
 	dd	_278
-	dd	215
+	dd	218
 	dd	17
 	align	4
 _441:
 	dd	_278
-	dd	218
+	dd	221
 	dd	2
 _478:
 	db	"IncBinToDisk",0
@@ -5360,7 +5360,7 @@ _477:
 	align	4
 _447:
 	dd	_278
-	dd	223
+	dd	226
 	dd	2
 	align	4
 _31:
@@ -5414,22 +5414,22 @@ _468:
 	align	4
 _449:
 	dd	_278
-	dd	225
+	dd	228
 	dd	3
 	align	4
 _451:
 	dd	_278
-	dd	226
+	dd	229
 	dd	3
 	align	4
 _453:
 	dd	_278
-	dd	227
+	dd	230
 	dd	3
 	align	4
 _455:
 	dd	_278
-	dd	229
+	dd	232
 	dd	3
 	align	4
 _457:
@@ -5439,47 +5439,47 @@ _457:
 	align	4
 _456:
 	dd	_278
-	dd	230
+	dd	233
 	dd	4
 	align	4
 _458:
 	dd	_278
-	dd	234
+	dd	237
 	dd	3
 	align	4
 _460:
 	dd	_278
-	dd	237
+	dd	240
 	dd	3
 	align	4
 _462:
 	dd	_278
-	dd	238
+	dd	241
 	dd	3
 	align	4
 _464:
 	dd	_278
-	dd	239
+	dd	242
 	dd	3
 	align	4
 _465:
 	dd	_278
-	dd	240
+	dd	243
 	dd	3
 	align	4
 _466:
 	dd	_278
-	dd	241
+	dd	244
 	dd	3
 	align	4
 _467:
 	dd	_278
-	dd	244
+	dd	247
 	dd	3
 	align	4
 _476:
 	dd	_278
-	dd	248
+	dd	251
 	dd	2
 _481:
 	db	"RequestScrollbarSize",0
@@ -5491,7 +5491,7 @@ _480:
 	align	4
 _479:
 	dd	_278
-	dd	270
+	dd	273
 	dd	2
 _485:
 	db	"SetComboBoxHeight",0
@@ -5515,12 +5515,12 @@ _484:
 	align	4
 _482:
 	dd	_278
-	dd	287
+	dd	290
 	dd	3
 	align	4
 _483:
 	dd	_278
-	dd	288
+	dd	291
 	dd	3
 _514:
 	db	"GadgetScreenPosition",0
@@ -5560,12 +5560,12 @@ _513:
 	align	4
 _488:
 	dd	_278
-	dd	307
+	dd	310
 	dd	3
 	align	4
 _490:
 	dd	_278
-	dd	308
+	dd	311
 	dd	3
 	align	4
 _495:
@@ -5575,7 +5575,7 @@ _495:
 	align	4
 _492:
 	dd	_278
-	dd	309
+	dd	312
 	dd	4
 	align	4
 _500:
@@ -5585,29 +5585,29 @@ _500:
 	align	4
 _497:
 	dd	_278
-	dd	311
+	dd	314
 	dd	4
 	align	4
 _501:
 	dd	_278
-	dd	314
+	dd	317
 	dd	3
 _502:
 	db	"i",0
 	align	4
 _504:
 	dd	_278
-	dd	315
+	dd	318
 	dd	3
 	align	4
 _508:
 	dd	_278
-	dd	316
+	dd	319
 	dd	3
 	align	4
 _512:
 	dd	_278
-	dd	320
+	dd	323
 	dd	2
 _524:
 	db	"DisableGadgetRedraw",0
@@ -5623,12 +5623,12 @@ _523:
 	align	4
 _521:
 	dd	_278
-	dd	339
+	dd	342
 	dd	3
 	align	4
 _522:
 	dd	_278
-	dd	340
+	dd	343
 	dd	3
 _528:
 	db	"EnableGadgetRedraw",0
@@ -5644,12 +5644,12 @@ _527:
 	align	4
 _525:
 	dd	_278
-	dd	359
+	dd	362
 	dd	3
 	align	4
 _526:
 	dd	_278
-	dd	360
+	dd	363
 	dd	3
 _543:
 	db	"MessageBox",0
@@ -5685,22 +5685,22 @@ _542:
 	align	4
 _529:
 	dd	_278
-	dd	379
+	dd	382
 	dd	2
 	align	4
 _531:
 	dd	_278
-	dd	380
+	dd	383
 	dd	2
 	align	4
 _536:
 	dd	_278
-	dd	381
+	dd	384
 	dd	2
 	align	4
 _537:
 	dd	_278
-	dd	382
+	dd	385
 	dd	2
 _598:
 	db	"GadgetSizeForString",0
@@ -5732,12 +5732,12 @@ _597:
 	align	4
 _548:
 	dd	_278
-	dd	402
+	dd	405
 	dd	3
 	align	4
 _550:
 	dd	_278
-	dd	405
+	dd	408
 	dd	3
 _579:
 	db	"dc",0
@@ -5771,32 +5771,32 @@ _578:
 	align	4
 _554:
 	dd	_278
-	dd	428
+	dd	431
 	dd	5
 	align	4
 _556:
 	dd	_278
-	dd	431
+	dd	434
 	dd	5
 	align	4
 _558:
 	dd	_278
-	dd	432
+	dd	435
 	dd	5
 	align	4
 _559:
 	dd	_278
-	dd	435
+	dd	438
 	dd	5
 	align	4
 _562:
 	dd	_278
-	dd	437
+	dd	440
 	dd	5
 	align	4
 _564:
 	dd	_278
-	dd	438
+	dd	441
 	dd	5
 	align	4
 _567:
@@ -5806,22 +5806,22 @@ _567:
 	align	4
 _566:
 	dd	_278
-	dd	438
+	dd	441
 	dd	21
 	align	4
 _568:
 	dd	_278
-	dd	441
+	dd	444
 	dd	5
 	align	4
 _571:
 	dd	_278
-	dd	444
+	dd	447
 	dd	5
 	align	4
 _572:
 	dd	_278
-	dd	447
+	dd	450
 	dd	5
 _595:
 	db	"size",0
@@ -5843,42 +5843,42 @@ _594:
 	align	4
 _583:
 	dd	_278
-	dd	408
+	dd	411
 	dd	5
 	align	4
 _586:
 	dd	_278
-	dd	411
+	dd	414
 	dd	5
 	align	4
 _587:
 	dd	_278
-	dd	414
+	dd	417
 	dd	5
 	align	4
 _589:
 	dd	_278
-	dd	415
+	dd	418
 	dd	5
 	align	4
 _590:
 	dd	_278
-	dd	418
+	dd	421
 	dd	5
 	align	4
 _591:
 	dd	_278
-	dd	421
+	dd	424
 	dd	5
 	align	4
 _592:
 	dd	_278
-	dd	422
+	dd	425
 	dd	5
 	align	4
 _593:
 	dd	_278
-	dd	425
+	dd	428
 	dd	5
 _611:
 	db	"GetCreationGroup",0
@@ -5902,12 +5902,12 @@ _610:
 	align	4
 _601:
 	dd	_278
-	dd	470
+	dd	473
 	dd	2
 	align	4
 _603:
 	dd	_278
-	dd	471
+	dd	474
 	dd	2
 	align	4
 _608:
@@ -5917,12 +5917,12 @@ _608:
 	align	4
 _605:
 	dd	_278
-	dd	471
+	dd	474
 	dd	19
 	align	4
 _609:
 	dd	_278
-	dd	472
+	dd	475
 	dd	2
 _623:
 	db	"SetGadgetReadOnly",0
@@ -5944,7 +5944,7 @@ _622:
 	align	4
 _614:
 	dd	_278
-	dd	489
+	dd	492
 	dd	2
 	align	4
 _621:
@@ -5958,12 +5958,12 @@ _621:
 	align	4
 _618:
 	dd	_278
-	dd	492
+	dd	495
 	dd	5
 	align	4
 _620:
 	dd	_278
-	dd	493
+	dd	496
 	dd	5
 _636:
 	db	"SetGadgetMaxLength",0
@@ -5983,7 +5983,7 @@ _635:
 	align	4
 _625:
 	dd	_278
-	dd	513
+	dd	516
 	dd	2
 	align	4
 _634:
@@ -5993,7 +5993,7 @@ _634:
 	align	4
 _629:
 	dd	_278
-	dd	516
+	dd	519
 	dd	5
 	align	4
 _632:
@@ -6003,12 +6003,12 @@ _632:
 	align	4
 _631:
 	dd	_278
-	dd	516
+	dd	519
 	dd	19
 	align	4
 _633:
 	dd	_278
-	dd	517
+	dd	520
 	dd	5
 _646:
 	db	"GetGadgetMaxLength",0
@@ -6024,7 +6024,7 @@ _645:
 	align	4
 _637:
 	dd	_278
-	dd	539
+	dd	542
 	dd	2
 	align	4
 _642:
@@ -6034,7 +6034,7 @@ _642:
 	align	4
 _641:
 	dd	_278
-	dd	547
+	dd	550
 	dd	4
 	align	4
 _644:
@@ -6044,7 +6044,7 @@ _644:
 	align	4
 _643:
 	dd	_278
-	dd	542
+	dd	545
 	dd	5
 _709:
 	db	"LoadCustomPointer",0
@@ -6074,22 +6074,22 @@ _708:
 	align	4
 _647:
 	dd	_278
-	dd	565
+	dd	568
 	dd	2
 	align	4
 _649:
 	dd	_278
-	dd	566
+	dd	569
 	dd	2
 	align	4
 _651:
 	dd	_278
-	dd	567
+	dd	570
 	dd	2
 	align	4
 _653:
 	dd	_278
-	dd	568
+	dd	571
 	dd	2
 	align	4
 _656:
@@ -6099,7 +6099,7 @@ _656:
 	align	4
 _655:
 	dd	_278
-	dd	569
+	dd	572
 	dd	3
 	align	4
 _659:
@@ -6109,12 +6109,12 @@ _659:
 	align	4
 _658:
 	dd	_278
-	dd	571
+	dd	574
 	dd	3
 	align	4
 _660:
 	dd	_278
-	dd	575
+	dd	578
 	dd	2
 	align	4
 _667:
@@ -6124,7 +6124,7 @@ _667:
 	align	4
 _662:
 	dd	_278
-	dd	577
+	dd	580
 	dd	3
 	align	4
 _672:
@@ -6134,12 +6134,12 @@ _672:
 	align	4
 _669:
 	dd	_278
-	dd	580
+	dd	583
 	dd	3
 	align	4
 _673:
 	dd	_278
-	dd	584
+	dd	587
 	dd	2
 	align	4
 _693:
@@ -6149,27 +6149,27 @@ _693:
 	align	4
 _675:
 	dd	_278
-	dd	586
+	dd	589
 	dd	3
 	align	4
 _676:
 	dd	_278
-	dd	587
+	dd	590
 	dd	3
 	align	4
 _684:
 	dd	_278
-	dd	588
+	dd	591
 	dd	3
 	align	4
 _687:
 	dd	_278
-	dd	592
+	dd	595
 	dd	3
 	align	4
 _694:
 	dd	_278
-	dd	602
+	dd	605
 	dd	2
 	align	4
 _697:
@@ -6179,12 +6179,12 @@ _697:
 	align	4
 _696:
 	dd	_278
-	dd	602
+	dd	605
 	dd	17
 	align	4
 _698:
 	dd	_278
-	dd	605
+	dd	608
 	dd	2
 	align	4
 _707:
@@ -6194,12 +6194,12 @@ _707:
 	align	4
 _702:
 	dd	_278
-	dd	607
+	dd	610
 	dd	3
 	align	4
 _706:
 	dd	_278
-	dd	608
+	dd	611
 	dd	3
 _728:
 	db	"SetCustomPointer",0
@@ -6215,7 +6215,7 @@ _727:
 	align	4
 _711:
 	dd	_278
-	dd	625
+	dd	628
 	dd	2
 	align	4
 _726:
@@ -6225,22 +6225,22 @@ _726:
 	align	4
 _713:
 	dd	_278
-	dd	626
+	dd	629
 	dd	3
 	align	4
 _714:
 	dd	_278
-	dd	628
+	dd	631
 	dd	3
 	align	4
 _717:
 	dd	_278
-	dd	629
+	dd	632
 	dd	3
 	align	4
 _720:
 	dd	_278
-	dd	630
+	dd	633
 	dd	3
 	align	4
 _725:
@@ -6250,7 +6250,7 @@ _725:
 	align	4
 _722:
 	dd	_278
-	dd	630
+	dd	633
 	dd	39
 _760:
 	db	"FreeCustomPointer",0
@@ -6266,7 +6266,7 @@ _759:
 	align	4
 _729:
 	dd	_278
-	dd	650
+	dd	653
 	dd	2
 	align	4
 _758:
@@ -6276,12 +6276,12 @@ _758:
 	align	4
 _731:
 	dd	_278
-	dd	652
+	dd	655
 	dd	3
 	align	4
 _735:
 	dd	_278
-	dd	653
+	dd	656
 	dd	3
 	align	4
 _757:
@@ -6291,12 +6291,12 @@ _757:
 	align	4
 _739:
 	dd	_278
-	dd	655
+	dd	658
 	dd	4
 	align	4
 _744:
 	dd	_278
-	dd	660
+	dd	663
 	dd	4
 	align	4
 _749:
@@ -6306,17 +6306,17 @@ _749:
 	align	4
 _748:
 	dd	_278
-	dd	660
+	dd	663
 	dd	51
 	align	4
 _750:
 	dd	_278
-	dd	662
+	dd	665
 	dd	4
 	align	4
 _753:
 	dd	_278
-	dd	663
+	dd	666
 	dd	4
 _812:
 	db	"ExtractCursorHotspot",0
@@ -6348,14 +6348,14 @@ _811:
 	align	4
 _761:
 	dd	_278
-	dd	687
+	dd	690
 	dd	2
 _762:
 	db	"i",0
 	align	4
 _764:
 	dd	_278
-	dd	689
+	dd	692
 	dd	2
 	align	4
 _35:
@@ -6366,7 +6366,7 @@ _35:
 	align	4
 _766:
 	dd	_278
-	dd	690
+	dd	693
 	dd	2
 _809:
 	db	"temp",0
@@ -6382,17 +6382,17 @@ _808:
 	align	4
 _768:
 	dd	_278
-	dd	692
+	dd	695
 	dd	3
 	align	4
 _771:
 	dd	_278
-	dd	695
+	dd	698
 	dd	3
 	align	4
 _775:
 	dd	_278
-	dd	696
+	dd	699
 	dd	3
 	align	4
 _804:
@@ -6402,12 +6402,12 @@ _804:
 	align	4
 _777:
 	dd	_278
-	dd	698
+	dd	701
 	dd	4
 	align	4
 _780:
 	dd	_278
-	dd	699
+	dd	702
 	dd	4
 	align	4
 _803:
@@ -6417,12 +6417,12 @@ _803:
 	align	4
 _782:
 	dd	_278
-	dd	701
+	dd	704
 	dd	5
 	align	4
 _783:
 	dd	_278
-	dd	702
+	dd	705
 	dd	5
 	align	4
 _802:
@@ -6432,27 +6432,27 @@ _802:
 	align	4
 _787:
 	dd	_278
-	dd	703
+	dd	706
 	dd	6
 	align	4
 _790:
 	dd	_278
-	dd	704
+	dd	707
 	dd	6
 	align	4
 _796:
 	dd	_278
-	dd	705
+	dd	708
 	dd	6
 	align	4
 _805:
 	dd	_278
-	dd	711
+	dd	714
 	dd	3
 	align	4
 _810:
 	dd	_278
-	dd	715
+	dd	718
 	dd	2
 _867:
 	db	"ListBatchLock",0
@@ -6476,12 +6476,12 @@ _866:
 	align	4
 _815:
 	dd	_278
-	dd	732
+	dd	735
 	dd	3
 	align	4
 _817:
 	dd	_278
-	dd	733
+	dd	736
 	dd	3
 	align	4
 _824:
@@ -6491,22 +6491,22 @@ _824:
 	align	4
 _819:
 	dd	_278
-	dd	735
+	dd	738
 	dd	4
 	align	4
 _823:
 	dd	_278
-	dd	736
+	dd	739
 	dd	4
 	align	4
 _825:
 	dd	_278
-	dd	740
+	dd	743
 	dd	3
 	align	4
 _827:
 	dd	_278
-	dd	741
+	dd	744
 	dd	3
 	align	4
 _830:
@@ -6516,47 +6516,47 @@ _830:
 	align	4
 _829:
 	dd	_278
-	dd	741
+	dd	744
 	dd	21
 	align	4
 _831:
 	dd	_278
-	dd	744
+	dd	747
 	dd	3
 	align	4
 _832:
 	dd	_278
-	dd	745
+	dd	748
 	dd	3
 	align	4
 _836:
 	dd	_278
-	dd	746
+	dd	749
 	dd	3
 	align	4
 _844:
 	dd	_278
-	dd	747
+	dd	750
 	dd	3
 	align	4
 _850:
 	dd	_278
-	dd	748
+	dd	751
 	dd	3
 	align	4
 _858:
 	dd	_278
-	dd	749
+	dd	752
 	dd	3
 	align	4
 _862:
 	dd	_278
-	dd	752
+	dd	755
 	dd	3
 	align	4
 _865:
 	dd	_278
-	dd	755
+	dd	758
 	dd	3
 _958:
 	db	"ListBatchAdd",0
@@ -6612,12 +6612,12 @@ _957:
 	align	4
 _868:
 	dd	_278
-	dd	774
+	dd	777
 	dd	3
 	align	4
 _870:
 	dd	_278
-	dd	777
+	dd	780
 	dd	3
 	align	4
 _874:
@@ -6627,74 +6627,74 @@ _874:
 	align	4
 _872:
 	dd	_278
-	dd	778
+	dd	781
 	dd	4
 	align	4
 _873:
 	dd	_278
-	dd	779
+	dd	782
 	dd	4
 	align	4
 _875:
 	dd	_278
-	dd	784
+	dd	787
 	dd	3
 	align	4
 _877:
 	dd	_278
-	dd	785
+	dd	788
 	dd	3
 	align	4
 _880:
 	dd	_278
-	dd	788
+	dd	791
 	dd	3
 _888:
 	db	":TGadgetItem",0
 	align	4
 _893:
 	dd	_278
-	dd	789
+	dd	792
 	dd	3
 	align	4
 _906:
 	dd	_278
-	dd	792
+	dd	795
 	dd	3
 	align	4
 _912:
 	dd	_278
-	dd	793
+	dd	796
 	dd	3
 	align	4
 _920:
 	dd	_278
-	dd	794
+	dd	797
 	dd	3
 	align	4
 _928:
 	dd	_278
-	dd	797
+	dd	800
 	dd	4
 	align	4
 _934:
 	dd	_278
-	dd	798
+	dd	801
 	dd	4
 	align	4
 _942:
 	dd	_278
-	dd	801
+	dd	804
 	dd	3
 	align	4
 _948:
 	dd	_278
-	dd	802
+	dd	805
 	dd	3
 	align	4
 _953:
 	dd	_278
-	dd	805
+	dd	808
 	dd	3
 _1002:
 	db	"ListBatchUnlock",0
@@ -6714,12 +6714,12 @@ _1001:
 	align	4
 _965:
 	dd	_278
-	dd	827
+	dd	830
 	dd	3
 	align	4
 _967:
 	dd	_278
-	dd	828
+	dd	831
 	dd	3
 	align	4
 _970:
@@ -6729,17 +6729,17 @@ _970:
 	align	4
 _969:
 	dd	_278
-	dd	828
+	dd	831
 	dd	18
 	align	4
 _971:
 	dd	_278
-	dd	831
+	dd	834
 	dd	3
 	align	4
 _975:
 	dd	_278
-	dd	834
+	dd	837
 	dd	3
 	align	4
 _1000:
@@ -6749,12 +6749,12 @@ _1000:
 	align	4
 _979:
 	dd	_278
-	dd	836
+	dd	839
 	dd	4
 	align	4
 _982:
 	dd	_278
-	dd	837
+	dd	840
 	dd	4
 	align	4
 _993:
@@ -6764,17 +6764,17 @@ _993:
 	align	4
 _988:
 	dd	_278
-	dd	837
+	dd	840
 	dd	46
 	align	4
 _994:
 	dd	_278
-	dd	838
+	dd	841
 	dd	4
 	align	4
 _999:
 	dd	_278
-	dd	841
+	dd	844
 	dd	4
 _1013:
 	db	"GadgetWindow",0
@@ -6794,12 +6794,12 @@ _1012:
 	align	4
 _1003:
 	dd	_278
-	dd	861
+	dd	864
 	dd	2
 	align	4
 _1005:
 	dd	_278
-	dd	862
+	dd	865
 	dd	2
 	align	4
 _1011:
@@ -6809,7 +6809,7 @@ _1011:
 	align	4
 _1006:
 	dd	_278
-	dd	863
+	dd	866
 	dd	3
 	align	4
 _1009:
@@ -6819,12 +6819,12 @@ _1009:
 	align	4
 _1008:
 	dd	_278
-	dd	863
+	dd	866
 	dd	42
 	align	4
 _1010:
 	dd	_278
-	dd	864
+	dd	867
 	dd	3
 _1027:
 	db	"SetWindowAlwaysOnTop",0
@@ -6852,12 +6852,12 @@ _1026:
 	align	4
 _1014:
 	dd	_278
-	dd	882
+	dd	885
 	dd	3
 	align	4
 _1016:
 	dd	_278
-	dd	883
+	dd	886
 	dd	3
 	align	4
 _1025:
@@ -6867,7 +6867,7 @@ _1025:
 	align	4
 _1018:
 	dd	_278
-	dd	884
+	dd	887
 	dd	4
 	align	4
 _1021:
@@ -6877,7 +6877,7 @@ _1021:
 	align	4
 _1020:
 	dd	_278
-	dd	886
+	dd	889
 	dd	5
 	align	4
 _1024:
@@ -6887,7 +6887,7 @@ _1024:
 	align	4
 _1023:
 	dd	_278
-	dd	888
+	dd	891
 	dd	5
 _1037:
 	db	"BringWindowToTop",0
@@ -6907,12 +6907,12 @@ _1036:
 	align	4
 _1030:
 	dd	_278
-	dd	910
+	dd	913
 	dd	3
 	align	4
 _1032:
 	dd	_278
-	dd	911
+	dd	914
 	dd	3
 	align	4
 _1035:
@@ -6922,7 +6922,7 @@ _1035:
 	align	4
 _1034:
 	dd	_278
-	dd	911
+	dd	914
 	dd	11
 _1045:
 	db	"FocusWindow",0
@@ -6942,12 +6942,12 @@ _1044:
 	align	4
 _1038:
 	dd	_278
-	dd	931
+	dd	934
 	dd	3
 	align	4
 _1040:
 	dd	_278
-	dd	932
+	dd	935
 	dd	3
 	align	4
 _1043:
@@ -6957,7 +6957,7 @@ _1043:
 	align	4
 _1042:
 	dd	_278
-	dd	932
+	dd	935
 	dd	11
 _1048:
 	db	"GadgetToInt",0
@@ -6973,7 +6973,7 @@ _1047:
 	align	4
 _1046:
 	dd	_278
-	dd	955
+	dd	958
 	dd	3
 _1068:
 	db	"SetColorPickerCustomColors",0
@@ -6991,7 +6991,7 @@ _1067:
 	align	4
 _1049:
 	dd	_278
-	dd	980
+	dd	983
 	dd	3
 	align	4
 _1061:
@@ -7005,17 +7005,17 @@ _1061:
 	align	4
 _1051:
 	dd	_278
-	dd	981
+	dd	984
 	dd	4
 	align	4
 _1053:
 	dd	_278
-	dd	982
+	dd	985
 	dd	4
 	align	4
 _1054:
 	dd	_278
-	dd	983
+	dd	986
 	dd	4
 	align	4
 _1060:
@@ -7025,12 +7025,12 @@ _1060:
 	align	4
 _1056:
 	dd	_278
-	dd	984
+	dd	987
 	dd	5
 	align	4
 _1062:
 	dd	_278
-	dd	988
+	dd	991
 	dd	3
 _1079:
 	db	"ClearColorPickerCustomColors",0
@@ -7042,7 +7042,7 @@ _1078:
 	align	4
 _1070:
 	dd	_278
-	dd	1018
+	dd	1021
 	dd	3
 	align	4
 _1077:
@@ -7056,7 +7056,7 @@ _1077:
 	align	4
 _1073:
 	dd	_278
-	dd	1019
+	dd	1022
 	dd	4
 _1088:
 	db	"RedrawGadgetFrame",0
@@ -7076,12 +7076,12 @@ _1087:
 	align	4
 _1080:
 	dd	_278
-	dd	1038
+	dd	1041
 	dd	3
 	align	4
 _1082:
 	dd	_278
-	dd	1039
+	dd	1042
 	dd	3
 	align	4
 _1086:
@@ -7091,12 +7091,12 @@ _1086:
 	align	4
 _1084:
 	dd	_278
-	dd	1040
+	dd	1043
 	dd	4
 	align	4
 _1085:
 	dd	_278
-	dd	1041
+	dd	1044
 	dd	4
 _1124:
 	db	"HideGadgetBorder",0
@@ -7112,7 +7112,7 @@ _1123:
 	align	4
 _1089:
 	dd	_278
-	dd	1060
+	dd	1063
 	dd	3
 	align	4
 _1122:
@@ -7126,12 +7126,12 @@ _1122:
 	align	4
 _1093:
 	dd	_278
-	dd	1062
+	dd	1065
 	dd	5
 	align	4
 _1095:
 	dd	_278
-	dd	1063
+	dd	1066
 	dd	5
 _1119:
 	db	"Style",0
@@ -7159,7 +7159,7 @@ _1118:
 	align	4
 _1097:
 	dd	_278
-	dd	1064
+	dd	1067
 	dd	6
 	align	4
 _45:
@@ -7171,22 +7171,22 @@ _45:
 	align	4
 _1098:
 	dd	_278
-	dd	1065
+	dd	1068
 	dd	6
 	align	4
 _1100:
 	dd	_278
-	dd	1066
+	dd	1069
 	dd	6
 	align	4
 _1102:
 	dd	_278
-	dd	1069
+	dd	1072
 	dd	6
 	align	4
 _1104:
 	dd	_278
-	dd	1070
+	dd	1073
 	dd	6
 	align	4
 _1108:
@@ -7196,17 +7196,17 @@ _1108:
 	align	4
 _1106:
 	dd	_278
-	dd	1071
+	dd	1074
 	dd	7
 	align	4
 _1107:
 	dd	_278
-	dd	1072
+	dd	1075
 	dd	7
 	align	4
 _1109:
 	dd	_278
-	dd	1074
+	dd	1077
 	dd	6
 	align	4
 _1113:
@@ -7216,17 +7216,17 @@ _1113:
 	align	4
 _1111:
 	dd	_278
-	dd	1075
+	dd	1078
 	dd	7
 	align	4
 _1112:
 	dd	_278
-	dd	1076
+	dd	1079
 	dd	7
 	align	4
 _1114:
 	dd	_278
-	dd	1080
+	dd	1083
 	dd	6
 	align	4
 _1117:
@@ -7236,7 +7236,7 @@ _1117:
 	align	4
 _1116:
 	dd	_278
-	dd	1080
+	dd	1083
 	dd	17
 _1140:
 	db	"InstallGuiFont",0
@@ -7252,7 +7252,7 @@ _1139:
 	align	4
 _1125:
 	dd	_278
-	dd	1109
+	dd	1112
 	dd	3
 _1132:
 	db	"installed",0
@@ -7268,17 +7268,17 @@ _1131:
 	align	4
 _1127:
 	dd	_278
-	dd	1111
+	dd	1114
 	dd	4
 	align	4
 _1128:
 	dd	_278
-	dd	1112
+	dd	1115
 	dd	4
 	align	4
 _1130:
 	dd	_278
-	dd	1113
+	dd	1116
 	dd	4
 	align	4
 _1138:
@@ -7288,7 +7288,7 @@ _1138:
 	align	4
 _1134:
 	dd	_278
-	dd	1116
+	dd	1119
 	dd	4
 	align	4
 _46:
@@ -7299,7 +7299,7 @@ _46:
 	align	4
 _1135:
 	dd	_278
-	dd	1117
+	dd	1120
 	dd	4
 _1170:
 	db	"SetTextareaLineSpacing",0
@@ -7323,7 +7323,7 @@ _1169:
 	align	4
 _1141:
 	dd	_278
-	dd	1169
+	dd	1172
 	dd	2
 	align	4
 _1168:
@@ -7337,12 +7337,12 @@ _1168:
 	align	4
 _1143:
 	dd	_278
-	dd	1172
+	dd	1175
 	dd	4
 	align	4
 _1145:
 	dd	_278
-	dd	1173
+	dd	1176
 	dd	4
 _1167:
 	db	"P",0
@@ -7358,27 +7358,27 @@ _1166:
 	align	4
 _1147:
 	dd	_278
-	dd	1174
+	dd	1177
 	dd	5
 	align	4
 _1149:
 	dd	_278
-	dd	1175
+	dd	1178
 	dd	5
 	align	4
 _1153:
 	dd	_278
-	dd	1176
+	dd	1179
 	dd	5
 	align	4
 _1157:
 	dd	_278
-	dd	1177
+	dd	1180
 	dd	5
 	align	4
 _1161:
 	dd	_278
-	dd	1178
+	dd	1181
 	dd	5
 	align	4
 _1464:
@@ -7386,7 +7386,7 @@ _1464:
 	align	4
 _1165:
 	dd	_278
-	dd	1179
+	dd	1182
 	dd	5
 _1183:
 	db	"ScrollTextAreaToTop",0
@@ -7402,7 +7402,7 @@ _1182:
 	align	4
 _1173:
 	dd	_278
-	dd	1195
+	dd	1209
 	dd	2
 	align	4
 _1181:
@@ -7416,12 +7416,12 @@ _1181:
 	align	4
 _1175:
 	dd	_278
-	dd	1197
+	dd	1211
 	dd	4
 	align	4
 _1177:
 	dd	_278
-	dd	1198
+	dd	1212
 	dd	4
 	align	4
 _1180:
@@ -7431,7 +7431,7 @@ _1180:
 	align	4
 _1179:
 	dd	_278
-	dd	1198
+	dd	1212
 	dd	12
 _1194:
 	db	"ScrollTextAreaToBottom",0
@@ -7447,7 +7447,7 @@ _1193:
 	align	4
 _1184:
 	dd	_278
-	dd	1206
+	dd	1233
 	dd	2
 	align	4
 _1192:
@@ -7461,12 +7461,12 @@ _1192:
 	align	4
 _1186:
 	dd	_278
-	dd	1208
+	dd	1235
 	dd	4
 	align	4
 _1188:
 	dd	_278
-	dd	1209
+	dd	1236
 	dd	4
 	align	4
 _1191:
@@ -7476,7 +7476,7 @@ _1191:
 	align	4
 _1190:
 	dd	_278
-	dd	1209
+	dd	1236
 	dd	12
 _1205:
 	db	"ScrollTextAreaToCursor",0
@@ -7492,7 +7492,7 @@ _1204:
 	align	4
 _1195:
 	dd	_278
-	dd	1217
+	dd	1257
 	dd	2
 	align	4
 _1203:
@@ -7506,12 +7506,12 @@ _1203:
 	align	4
 _1197:
 	dd	_278
-	dd	1219
+	dd	1259
 	dd	4
 	align	4
 _1199:
 	dd	_278
-	dd	1220
+	dd	1260
 	dd	4
 	align	4
 _1202:
@@ -7521,5 +7521,5 @@ _1202:
 	align	4
 _1201:
 	dd	_278
-	dd	1220
+	dd	1260
 	dd	12

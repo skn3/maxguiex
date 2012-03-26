@@ -78,120 +78,14 @@ Redraw the frame/border/non-client part of a given gadget. <b>[Win]</b>
 <tr><td class=docleft width=1%><a href=#RequestScrollbarSize>RequestScrollbarSize</a></td><td class=docright>
 Request the size of the scrollbars for the current operating system. <b>[Win Mac Linux]</b>
 </td></tr>
-<tr><td class=docleft width=1%><a href=#SetColorPickerCustomColors>SetColorPickerCustomColors</a></td><td class=docright>
-Change the custom colors for the color picker dialogue. <b>[Win Mac]</b>
+<tr><td class=docleft width=1%><a href=#ScrollTextAreaToBottom>ScrollTextAreaToBottom</a></td><td class=docright>
+Scroll a textarea to the bottom. <b>[Win Mac]</b>
 </td></tr>
-<tr><td class=docleft width=1%><a href=#SetComboBoxHeight>SetComboBoxHeight</a></td><td class=docright>
-Change the height of a combobox. <b>[Win]</b>
+<tr><td class=docleft width=1%><a href=#ScrollTextAreaToCursor>ScrollTextAreaToCursor</a></td><td class=docright>
+Scroll a textarea to the cursor. <b>[Win Mac]</b>
 </td></tr>
-<tr><td class=docleft width=1%><a href=#SetCustomPointer>SetCustomPointer</a></td><td class=docright>
-Set the current pointer to a custom pointer loaded with LoadCustomPointer. <b>[Win Mac]</b>
-</td></tr>
-<tr><td class=docleft width=1%><a href=#SetGadgetMaxLength>SetGadgetMaxLength</a></td><td class=docright>
-Set the maximum number of characters a gadget can contain. <b>[Win Mac]</b>
-</td></tr>
-<tr><td class=docleft width=1%><a href=#SetGadgetReadOnly>SetGadgetReadOnly</a></td><td class=docright>
-Change a gadget to be readonly. <b>[Win Mac]</b>
-</td></tr>
-<tr><td class=docleft width=1%><a href=#SetTextareaLineSpacing>SetTextareaLineSpacing</a></td><td class=docright>
-change the linespacing for a textarea. <b>[Win Mac]</b>
-</td></tr>
-<tr><td class=docleft width=1%><a href=#SetWindowAlwaysOnTop>SetWindowAlwaysOnTop</a></td><td class=docright>
-Force a window to always be on the top of other windows. <b>[Win Mac]</b>
-</td></tr>
-</table>
-<h2><a name=types></a>Types Summary</h2><table class=doc width=100%>
-<tr><td class=docleft width=1%><a href=#PARAFORMAT2>PARAFORMAT2</a></td><td class=docright>
-A windows data structure.
-</td></tr>
-<tr><td class=docleft width=1%><a href=#Skn3CustomPointer>Skn3CustomPointer</a></td><td class=docright>
-An object that stores a custom cursor file.
-</td></tr>
-<tr><td class=docleft width=1%><a href=#Skn3ListBatchLock>Skn3ListBatchLock</a></td><td class=docright>
-A private type to store the state of a locked listbox.
-</td></tr>
-</table>
-<h2
-</h2>
-<html><head><title>Maxgui Extended Functions reference</title>
-<link rel=stylesheet Type=text/css href='../../../../doc/bmxstyle.css'>
-</head><body>
-<table width=100% cellspacing=0><tr align=center><td class=small>&nbsp;</td>
-<td class=small width=1%><b>skn3.maxguiex:</b></td>
-<td class=small width=1%><a href=#functions class=small>Functions</a></td>
-<td class=small width=1%><a href=#types class=small>Types</a></td>
-<td class=small width=1%><a href=#modinfo class=small>Modinfo</a></td>
-<td class=small width=1%><a href='../../../../mod/skn3.mod/maxguiex.mod/maxguiex.bmx' class=small>Source</a></td>
-<td class=small>&nbsp;</td></tr></table>
-<h1>Maxgui Extended Functions</h1>
-<p>This is a module to add extended functionality to the maxgui module. Most of the functions work for windows and mac (sorry no linux) but please check documentation for each function to confirm support for the platform.</p>
-<p><b>Important!</b><br />The module requires the skn3.systemex module and skn3.funcs module.</p>
-<h2><a name=functions></a>Functions Summary</h2><table class=doc width=100%>
-<tr><td class=docleft width=1%><a href=#BringWindowToTop>BringWindowToTop</a></td><td class=docright>
-Bring the provided window to the top of the screen (but dont stick it there). <b>[Win Mac]</b>
-</td></tr>
-<tr><td class=docleft width=1%><a href=#ClearColorPickerCustomColors>ClearColorPickerCustomColors</a></td><td class=docright>
-Reset all color picker dialogue custom colors to white. <b>[Win Mac]</b>
-</td></tr>
-<tr><td class=docleft width=1%><a href=#DisableGadgetRedraw>DisableGadgetRedraw</a></td><td class=docright>
-Disable redrawing of a gadget. <b>[Win]</b>
-</td></tr>
-<tr><td class=docleft width=1%><a href=#EnableGadgetRedraw>EnableGadgetRedraw</a></td><td class=docright>
-Enable redraw of the specified gadget. <b>[Win]</b>
-</td></tr>
-<tr><td class=docleft width=1%><a href=#ExtractCursorHotspot>ExtractCursorHotspot</a></td><td class=docright>
-Utility for extracting x,y representing the hotspot of a .cur file. <b>[Win Mac Linux]</b>
-</td></tr>
-<tr><td class=docleft width=1%><a href=#FocusWindow>FocusWindow</a></td><td class=docright>
-Forces a window to be focused. <b>[Win Mac]</b>
-</td></tr>
-<tr><td class=docleft width=1%><a href=#FreeCustomPointer>FreeCustomPointer</a></td><td class=docright>
-Free a Skn3CustomCursor custom cursor object. <b>[Win Mac]</b>
-</td></tr>
-<tr><td class=docleft width=1%><a href=#GadgetScreenPosition>GadgetScreenPosition</a></td><td class=docright>
-Get the screen position of a gadget. <b>[Win Mac]</b>
-</td></tr>
-<tr><td class=docleft width=1%><a href=#GadgetSizeForString>GadgetSizeForString</a></td><td class=docright>
-Get the size a gadget should be with the given text and max width. <b>[Win Mac]</b>
-</td></tr>
-<tr><td class=docleft width=1%><a href=#GadgetToInt>GadgetToInt</a></td><td class=docright>
-Helper function to turn a gadget into its respective os handle. <b>[Win Mac Linux]</b>
-</td></tr>
-<tr><td class=docleft width=1%><a href=#GadgetWindow>GadgetWindow</a></td><td class=docright>
-Find the first parent window the provided gadget belongs to. <b>[Win Mac Linux]</b>
-</td></tr>
-<tr><td class=docleft width=1%><a href=#GetCreationGroup>GetCreationGroup</a></td><td class=docright>
-This is mainly for use with custom proxy gadget constructor functions to get the real parent gadget/proxy of a given gadget/proxy. <b>[Win Mac Linux]</b>
-</td></tr>
-<tr><td class=docleft width=1%><a href=#GetGadgetMaxLength>GetGadgetMaxLength</a></td><td class=docright>
-Get the maximum number of characters a gadget can contain. <b>[Win Mac]</b>
-</td></tr>
-<tr><td class=docleft width=1%><a href=#HideGadgetBorder>HideGadgetBorder</a></td><td class=docright>
-Hide default os borders for gadgets. <b>[Win]</b>
-</td></tr>
-<tr><td class=docleft width=1%><a href=#InstallGuiFont>InstallGuiFont</a></td><td class=docright>
-Install a custom font file from disk or incbin. <b>[Win Mac]</b>
-</td></tr>
-<tr><td class=docleft width=1%><a href=#ListBatchAdd>ListBatchAdd</a></td><td class=docright>
-Add an item to a listbox in batch mode. <b>[Win]</b>
-</td></tr>
-<tr><td class=docleft width=1%><a href=#ListBatchLock>ListBatchLock</a></td><td class=docright>
-Lock a listbox and start a batch add operation. <b>[Win]</b>
-</td></tr>
-<tr><td class=docleft width=1%><a href=#ListBatchUnlock>ListBatchUnlock</a></td><td class=docright>
-Unlock a listbox and update for any items that were added with <a href=#ListBatchAdd>ListBatchAdd</a>. <b>[Win]</b>
-</td></tr>
-<tr><td class=docleft width=1%><a href=#LoadCustomPointer>LoadCustomPointer</a></td><td class=docright>
-Load a custom pointer file from disk or incbin. <b>[Win Mac]</b>
-</td></tr>
-<tr><td class=docleft width=1%><a href=#MessageBox>MessageBox</a></td><td class=docright>
-Open a system message box with title and message. <b>[Win Mac Linux]</b>
-</td></tr>
-<tr><td class=docleft width=1%><a href=#RedrawGadgetFrame>RedrawGadgetFrame</a></td><td class=docright>
-Redraw the frame/border/non-client part of a given gadget. <b>[Win]</b>
-</td></tr>
-<tr><td class=docleft width=1%><a href=#RequestScrollbarSize>RequestScrollbarSize</a></td><td class=docright>
-Request the size of the scrollbars for the current operating system. <b>[Win Mac Linux]</b>
+<tr><td class=docleft width=1%><a href=#ScrollTextAreaToTop>ScrollTextAreaToTop</a></td><td class=docright>
+Scroll a textarea to the top. <b>[Win Mac]</b>
 </td></tr>
 <tr><td class=docleft width=1%><a href=#SetColorPickerCustomColors>SetColorPickerCustomColors</a></td><td class=docright>
 Change the custom colors for the color picker dialogue. <b>[Win Mac]</b>
@@ -506,6 +400,42 @@ A private type to store the state of a locked listbox.
 </ul>
 <b>Info</b>
 <p>This function currently uses a hard coded value.</p></td></tr>
+</table>
+<br>
+<table class=doc width=100% cellspacing=3 id=ScrollTextAreaToBottom>
+<tr><td class=doctop colspan=2>Function ScrollTextAreaToBottom(Gadget:TGadget)</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Scroll a textarea to the bottom. <b>[Win Mac]</b></td></tr>
+<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
+<ul>
+<li>Windows</li>
+<li>Mac</li>
+</ul>
+<b>Info</b>
+<p>This will scroll a text area to the bottom without changing the cursor position!</p></td></tr>
+</table>
+<br>
+<table class=doc width=100% cellspacing=3 id=ScrollTextAreaToCursor>
+<tr><td class=doctop colspan=2>Function ScrollTextAreaToCursor(Gadget:TGadget)</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Scroll a textarea to the cursor. <b>[Win Mac]</b></td></tr>
+<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
+<ul>
+<li>Windows</li>
+<li>Mac</li>
+</ul>
+<b>Info</b>
+<p>This will scroll a text area to the current cursor position!</p></td></tr>
+</table>
+<br>
+<table class=doc width=100% cellspacing=3 id=ScrollTextAreaToTop>
+<tr><td class=doctop colspan=2>Function ScrollTextAreaToTop(Gadget:TGadget)</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Scroll a textarea to the top. <b>[Win Mac]</b></td></tr>
+<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
+<ul>
+<li>Windows</li>
+<li>Mac</li>
+</ul>
+<b>Info</b>
+<p>This will scroll a text area to the top without changing the cursor position!</p></td></tr>
 </table>
 <br>
 <table class=doc width=100% cellspacing=3 id=SetColorPickerCustomColors>
@@ -581,420 +511,6 @@ A private type to store the state of a locked listbox.
 </ul>
 <b>Info</b>
 <p>The value for spacing is the current line height multiple so if you provide a value of 1.0 the line spacing will be normal. If you provide a value of 2.0 the line spacing will be doubled!</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=SetWindowAlwaysOnTop>
-<tr><td class=doctop colspan=2>Function SetWindowAlwaysOnTop(Window:TGadget,State:Int=False)</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Force a window to always be on the top of other windows. <b>[Win Mac]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-<li>Mac</li>
-</ul>
-<b>Info</b>
-<p>This is like sticking a post it note on your monitor and will make your window stay above any other running applications.</p></td></tr>
-</table>
-<br>
-<h2
- id=typesdet>Types
-</h2>
-<table class=doc width=100% cellspacing=3 id=PARAFORMAT2>
-<tr><td class=doctop colspan=2>Type PARAFORMAT2</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>A windows data structure.</td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-</ul>
-<b>Info</b>
-<p>This is for modifying the rich edit control.</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=Skn3CustomPointer>
-<tr><td class=doctop colspan=2>Type Skn3CustomPointer</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>An object that stores a custom cursor file.</td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-<li>Mac</li>
-</ul>
-<b>Info</b>
-<p>This should be passed to <a href=#SetCustomPointer>SetCustomPointer</a> and <a href=#FreeCustomPointer>FreeCustomPointer</a>.</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=Skn3ListBatchLock>
-<tr><td class=doctop colspan=2>Type Skn3ListBatchLock</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>A private type to store the state of a locked listbox.</td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-</ul>
-<b>Info</b>
-<p>See <a href=#ListBatchLock>ListBatchLock</a>, <a href=#ListBatchAdd>ListBatchAdd</a> and <a href=#ListBatchUnlock>ListBatchUnlock</a>.</p></td></tr>
-</table>
-<br>
-<h2 id=modinfo>Module Information</h2>
-<table width=100%>
-<tr><th width=1%>History</th><td>1.01</td></tr>
-<tr><th width=1%>History</th><td>Added SetTextAreaLineSpacing() function</td></tr>
-<tr><th width=1%>History</th><td>1.00</td></tr>
-<tr><th width=1%>History</th><td>Initial Release To Public</td></tr>
-</body></html>
-<br>
-<h2
- id=functionsdet>Functions
-</h2>
-<table class=doc width=100% cellspacing=3 id=BringWindowToTop>
-<tr><td class=doctop colspan=2>Function BringWindowToTop(Window:TGadget)</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Bring the provided window to the top of the screen (but dont stick it there). <b>[Win Mac]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-<li>Mac</li>
-</ul>
-<b>Info</b>
-<p>This is useful if you need to force focus your window to the top of the desktop.</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=ClearColorPickerCustomColors>
-<tr><td class=doctop colspan=2>Function ClearColorPickerCustomColors()</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Reset all color picker dialogue custom colors to white. <b>[Win Mac]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-</ul>
-<b>Info</b>
-<p>Currently windows only it is a shortcut for changing all custom colors to white. See also <a href=#SetColorPickercustomColors>SetColorPickercustomColors</a></p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=DisableGadgetRedraw>
-<tr><td class=doctop colspan=2>Function DisableGadgetRedraw:Int(gadget:TGadget)</td></tr>
-<tr><td class=docleft width=1%>Returns</td><td class=docright>True if operation was supported by system.</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Disable redrawing of a gadget. <b>[Win]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-</ul>
-<b>Info</b>
-<p>This will disable any redraw operations on the gadget. This call must be followed by <a href=#EnableGadgetRedraw>EnableGadgetRedraw</a> to reenable painting.</p>
-<p>It is not required to disable gadget redrawing on mac as this is partly handled by the operating system anyway!</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=EnableGadgetRedraw>
-<tr><td class=doctop colspan=2>Function EnableGadgetRedraw:Int(gadget:TGadget)</td></tr>
-<tr><td class=docleft width=1%>Returns</td><td class=docright>True if operation was supported by system.</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Enable redraw of the specified gadget. <b>[Win]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-</ul>
-<b>Info</b>
-<p>This will renable redraw operations on a gadget. Remember to call RedrawGadget(gadget) after this so that your gadget paints any changes you have made. A good way to code this in a cross platform fashion is to see if <a href=#EnableGadgetRedraw>EnableGadgetRedraw</a> returns true in which case the operating system allowed the operation and the gadget needs repainting. Redrawing can be disabled using <a href=#DisableGadgetRedraw>DisableGadgetRedraw</a>.</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=ExtractCursorHotspot>
-<tr><td class=doctop colspan=2>Function ExtractCursorHotspot:Int[](path:String,index:Int=0)</td></tr>
-<tr><td class=docleft width=1%>Returns</td><td class=docright>An int array with 2 elements. 0 = x, 1 = y.</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Utility for extracting x,y representing the hotspot of a .cur file. <b>[Win Mac Linux]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-<li>Mac</li>
-<li>Linux</li>
-</ul>
-<b>Info</b>
-<p>This function will open the <b>.cur</b> file and extract the x,y offset from the file data.</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=FocusWindow>
-<tr><td class=doctop colspan=2>Function FocusWindow(Window:TGadget)</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Forces a window to be focused. <b>[Win Mac]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-<li>Mac</li>
-</ul>
-<b>Info</b>
-<p>This forces the provided window to be set to focused via HWND or NSVIEW and bypasses the maxgui internals. There are sometimes issues with the built in maxgui gadget focus/activation commands so this is a clean way of solving it.</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=FreeCustomPointer>
-<tr><td class=doctop colspan=2>Function FreeCustomPointer(pointer:Skn3CustomPointer)</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Free a Skn3CustomCursor custom cursor object. <b>[Win Mac]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-<li>Mac</li>
-</ul>
-<b>Info</b>
-<p>Frees a custom cursor previously loaded with <a href=#LoadCustomCursor>LoadCustomCursor</a>.</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=GadgetScreenPosition>
-<tr><td class=doctop colspan=2>Function GadgetScreenPosition:Int[](gadget:TGadget,client:Int=False)</td></tr>
-<tr><td class=docleft width=1%>Returns</td><td class=docright>An int array with 2 elements. 0 = x, 1 = y.</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Get the screen position of a gadget. <b>[Win Mac]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-<li>Mac</li>
-</ul>
-<b>Info</b>
-<p>This function gets the desktop x,y position of a given gadget.</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=GadgetSizeForString>
-<tr><td class=doctop colspan=2>Function GadgetSizeForString:Int[](gadget:TGadget,text:String,maxWidth:Int=0)</td></tr>
-<tr><td class=docleft width=1%>Returns</td><td class=docright>An int array with 2 elements. 0 = x,  1 = y.</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Get the size a gadget should be with the given text and max width. <b>[Win Mac]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-<li>Mac</li>
-</ul>
-<b>Info</b>
-<p>This function is very powerful and will let you resize your gadgets according to the text within! If you provide a max width then the function will work out the width and height for your gadget confined to that max width. If no max width is provided then the function will return a very wide gadget dimension</p>
-<p>If this function is used with a button that has images then this will be taken into account. The function currently is well supported for buttons and labels! Other gadgets may not work as well!</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=GadgetToInt>
-<tr><td class=doctop colspan=2>Function GadgetToInt:Int(Gadget:TGadget)</td></tr>
-<tr><td class=docleft width=1%>Returns</td><td class=docright>An int.</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Helper function to turn a gadget into its respective os handle. <b>[Win Mac Linux]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-<li>Mac</li>
-<li>Linux</li>
-</ul>
-<b>Info</b>
-<p>Just a shortcut for when developing cross-platform apps.</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=GadgetWindow>
-<tr><td class=doctop colspan=2>Function GadgetWindow:TGadget(Gadget:TGadget)</td></tr>
-<tr><td class=docleft width=1%>Returns</td><td class=docright>A TGadget or Null.</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Find the first parent window the provided gadget belongs to. <b>[Win Mac Linux]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-<li>Mac</li>
-<li>Linux</li>
-</ul>
-<b>Info</b>
-<p>This function will walk the parent tree to find the window the given gadget belogns to.</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=GetCreationGroup>
-<tr><td class=doctop colspan=2>Function GetCreationGroup:TGadget(Gadget:TGadget)</td></tr>
-<tr><td class=docleft width=1%>Returns</td><td class=docright>A TGadget.</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>This is mainly for use with custom proxy gadget constructor functions to get the real parent gadget/proxy of a given gadget/proxy. <b>[Win Mac Linux]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-<li>Mac</li>
-<li>Linux</li>
-</ul>
-<b>Info</b>
-<p>This is just a copy of the private function in maxgui.</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=GetGadgetMaxLength>
-<tr><td class=doctop colspan=2>Function GetGadgetMaxLength:Int(gadget:TGadget)</td></tr>
-<tr><td class=docleft width=1%>Returns</td><td class=docright>An int.</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Get the maximum number of characters a gadget can contain. <b>[Win Mac]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-<li>Mac</li>
-</ul>
-<b>Info</b>
-<p>This function currently works with textfields and text areas.</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=HideGadgetBorder>
-<tr><td class=doctop colspan=2>Function HideGadgetBorder(Gadget:TGadget)</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Hide default os borders for gadgets. <b>[Win]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-<li>Mac</li>
-</ul>
-<b>Info</b>
-<p>This will let you turn off borders for certain gadgets. It currently works for textareas and textfields only.</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=InstallGuiFont>
-<tr><td class=doctop colspan=2>Function InstallGuiFont:Int(path:String)</td></tr>
-<tr><td class=docleft width=1%>Returns</td><td class=docright>An int if successful.</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Install a custom font file from disk or incbin. <b>[Win Mac]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-<li>Mac</li>
-</ul>
-<b>Info</b>
-<p>This function will install the provided font file for the time the application is running. The font can then be loaded as normal with the LoadGuiFont() function. this function is confirmed to work with ttf on mac and windows but has not be confirmed with other font formats. It is important that when using LoadGuiFont that you are using the correct font face name. The font face name wont match the fonts file name so please double check this!</p>
-<p>Due to an issue with loading resources from a memory pointer on the mac the font will be saved to disk in a temp file. The temp file is handled via system calls so you should not face any security problems!</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=ListBatchAdd>
-<tr><td class=doctop colspan=2>Function ListBatchAdd(Gadget:TGadget,text:String,flags:Int,icon:Int,tip:String,extra:Object=Null)</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Add an item to a listbox in batch mode. <b>[Win]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-</ul>
-<b>Info</b>
-<p>If you call this in an unsupported platform then the default maxgui behaviour will be used</p>
-<p>When a lsitbox has been locked with <a href=#ListBatchLock>ListBatchLock</a> you can then use this function to add gadget items. The items wont properly appear in the listbox until <a href=#ListBatchUnlock>ListBatchUnlock</a> is called. Lock attempts are reference counted so can be nested</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=ListBatchLock>
-<tr><td class=doctop colspan=2>Function ListBatchLock(Gadget:TGadget)</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Lock a listbox and start a batch add operation. <b>[Win]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-</ul>
-<b>Info</b>
-<p>This function is used to prepare a locking session and lock a listbox gadget so items can be added to it in batch. See <a href=#ListBatchAdd>ListBatchAdd</a> and <a href=#ListBatchUnlock>ListBatchUnlock</a> for additional info.</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=ListBatchUnlock>
-<tr><td class=doctop colspan=2>Function ListBatchUnlock(Gadget:TGadget)</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Unlock a listbox and update for any items that were added with <a href=#ListBatchAdd>ListBatchAdd</a>. <b>[Win]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-</ul>
-<b>Info</b>
-<p>The locking is reference counted so the listbox will only unlock when its reference count reaches 0. Each call to <a href=#ListBatchLock>ListBatchLock</a> must be matched with <a href=#ListbatchUnlock>ListbatchUnlock</a>. See <a href=#ListBatchLock>ListBatchLock</a> and <a href=#ListBatchLock>ListBatchLock</a> for more info.</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=LoadCustomPointer>
-<tr><td class=doctop colspan=2>Function LoadCustomPointer:Skn3CustomPointer(path:String)</td></tr>
-<tr><td class=docleft width=1%>Returns</td><td class=docright>A <a href=#Skn3CustomPointer>Skn3CustomPointer</a> object.</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Load a custom pointer file from disk or incbin. <b>[Win Mac]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-<li>Mac</li>
-</ul>
-<b>Info</b>
-<p>This will attempt to load a <b>.cur</b> file and return an object to represent it. The cursor file should contain a single cursor and be of the <b>.cur</b> filetype. A cursor hotspot is supported on both windows and mac so you can have a center that is not 0,0. You must use your cursor creation software to set a hotspot. Use <a href=#SetCustomPointer>SetCustomPointer</a> to set the current pointer to this and <a href=#FreeCustomPointer>FreeCustomPointer</a>() to free it.</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=MessageBox>
-<tr><td class=doctop colspan=2>Function MessageBox(title:String,message:String,parent:TGadget=Null)</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Open a system message box with title and message. <b>[Win Mac Linux]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-<li>Mac</li>
-<li>Linux</li>
-</ul>
-<b>Info</b>
-<p>This uses the built in blitzmax Notify command but changes the apptitle to enable custom titles.</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=RedrawGadgetFrame>
-<tr><td class=doctop colspan=2>Function RedrawGadgetFrame(Gadget:TGadget)</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Redraw the frame/border/non-client part of a given gadget. <b>[Win]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-</ul>
-<b>Info</b>
-<p>If you are extending maxgui there are times you need to send a more detailed Redraw message to a speciffic gadget.</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=RequestScrollbarSize>
-<tr><td class=doctop colspan=2>Function RequestScrollbarSize:Int()</td></tr>
-<tr><td class=docleft width=1%>Returns</td><td class=docright>An int.</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Request the size of the scrollbars for the current operating system. <b>[Win Mac Linux]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-<li>Mac</li>
-<li>Linux</li>
-</ul>
-<b>Info</b>
-<p>This function currently uses a hard coded value.</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=SetColorPickerCustomColors>
-<tr><td class=doctop colspan=2>Function SetColorPickerCustomColors(colors:Int[])</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Change the custom colors for the color picker dialogue. <b>[Win Mac]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-<li>Mac (not fully)</li>
-</ul>
-<b>Info</b>
-<p>This function lets you specify the custom colors that will be displayed on the color picker dialogue. The function doesn't seem to fully work on the mac mode yet, if you change one of the custom colors via the dialogue then further changes by calling <a href=#SetcolorPickercustomColors>SetcolorPickercustomColors</a> to that particular color box will not work.</p>
-<p>On windows you can pass in upto 15 colors in hex <b>ffffff</b> format</p>
-<p>On mac you can pass in upto 14 colors in hex <b>ffffff</b> format</p>
-<p>Depending on your platform this function will speak to the os and also the maxgui driver. See also <a href=#ClearColorPickerCustomColors>ClearColorPickerCustomColors</a></p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=SetComboBoxHeight>
-<tr><td class=doctop colspan=2>Function SetComboBoxHeight(comboBox:TGadget,Height:Int)</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Change the height of a combobox. <b>[Win]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-</ul>
-<b>Info</b>
-<p>This changes the height of the combobox gadget.</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=SetCustomPointer>
-<tr><td class=doctop colspan=2>Function SetCustomPointer(pointer:Skn3CustomPointer)</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Set the current pointer to a custom pointer loaded with LoadCustomPointer. <b>[Win Mac]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-<li>Mac</li>
-</ul>
-<b>Info</b>
-<p>On mac please make sure you do not call this function at the start of execution as it will not work. Calling this function must be done in response to something else happening for example when the mouse enters a canvas. Use <a href=#LoadCustomCursor>LoadCustomCursor</a> to load a cursor file and <a href=#FreeCustomCursor>FreeCustomCursor</a> to free your loaded cursor.</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=SetGadgetMaxLength>
-<tr><td class=doctop colspan=2>Function SetGadgetMaxLength(gadget:TGadget,length:Int=0)</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Set the maximum number of characters a gadget can contain. <b>[Win Mac]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-<li>Mac</li>
-</ul>
-<b>Info</b>
-<p>This function currently works with textfields and textareas and allows you to specify a maximum number of characters the user can enter. This will work on the os level so you dont have to manually limit text with blitz events. Use <a href=#GetGadgetMaxLength>GetGadgetMaxLength</a> to get the current max length value.</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=SetGadgetReadOnly>
-<tr><td class=doctop colspan=2>Function SetGadgetReadOnly(gadget:TGadget,yes:Int)</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>Change a gadget to be readonly. <b>[Win Mac]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-<li>Mac</li>
-</ul>
-<b>Info</b>
-<p>This currently works on textfields and textareas and sets the gadgets to be readonly without having a disabled style.</p></td></tr>
-</table>
-<br>
-<table class=doc width=100% cellspacing=3 id=SetTextareaLineSpacing>
-<tr><td class=doctop colspan=2>Function SetTextareaLineSpacing:Int(Gadget:TGadget,lineSpacing:Float)</td></tr>
-<tr><td class=docleft width=1%>Returns</td><td class=docright>True if success.</td></tr>
-<tr><td class=docleft width=1%>Description</td><td class=docright>change the linespacing for a textarea. <b>[Win Mac]</b></td></tr>
-<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
-<ul>
-<li>Windows</li>
-<li>Mac</li>
-</ul>
-<b>Info</b>
-<p>Does what it says on the tin!</p></td></tr>
 </table>
 <br>
 <table class=doc width=100% cellspacing=3 id=SetWindowAlwaysOnTop>
