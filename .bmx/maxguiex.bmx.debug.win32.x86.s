@@ -29,6 +29,7 @@
 	extrn	_bbArraySlice
 	extrn	_bbEmptyArray
 	extrn	_bbEmptyString
+	extrn	_bbFloatToInt
 	extrn	_bbGCFree
 	extrn	_bbIncbinLen
 	extrn	_bbIncbinPtr
@@ -86,6 +87,8 @@
 	extrn	_pub_win32_LVITEMW
 	extrn	_skn3_systemex_GetTempDirectory
 	public	___bb_maxguiex_maxguiex
+	public	__skn3_maxguiex_PARAFORMAT2_Delete
+	public	__skn3_maxguiex_PARAFORMAT2_New
 	public	__skn3_maxguiex_Skn3CustomPointer_Delete
 	public	__skn3_maxguiex_Skn3CustomPointer_New
 	public	__skn3_maxguiex_Skn3CustomPointer_all
@@ -122,6 +125,7 @@
 	public	_skn3_maxguiex_SetCustomPointer
 	public	_skn3_maxguiex_SetGadgetMaxLength
 	public	_skn3_maxguiex_SetGadgetReadOnly
+	public	_skn3_maxguiex_SetTextareaLineSpacing
 	public	_skn3_maxguiex_SetWindowAlwaysOnTop
 	public	_skn3_maxguiex_Skn3CustomPointer
 	section	"code" code
@@ -129,17 +133,17 @@ ___bb_maxguiex_maxguiex:
 	push	ebp
 	mov	ebp,esp
 	push	ebx
-	cmp	dword [_209],0
-	je	_210
+	cmp	dword [_280],0
+	je	_281
 	mov	eax,0
 	pop	ebx
 	mov	esp,ebp
 	pop	ebp
 	ret
-_210:
-	mov	dword [_209],1
+_281:
+	mov	dword [_280],1
 	push	ebp
-	push	_201
+	push	_272
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
 	call	___bb_blitz_blitz
@@ -147,21 +151,24 @@ _210:
 	call	___bb_linkedlist_linkedlist
 	call	___bb_drivers_drivers
 	call	___bb_systemex_systemex
-	push	_198
+	push	_269
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	_16
 	call	_bbObjectRegisterType
 	add	esp,4
-	push	_200
+	push	_271
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	_skn3_maxguiex_Skn3CustomPointer
 	call	_bbObjectRegisterType
 	add	esp,4
+	push	_20
+	call	_bbObjectRegisterType
+	add	esp,4
 	mov	ebx,0
-	jmp	_71
-_71:
+	jmp	_132
+_132:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	ebx
@@ -176,7 +183,7 @@ __skn3_maxguiex_Skn3ListBatchLock_New:
 	mov	eax,dword [ebp+8]
 	mov	dword [ebp-4],eax
 	push	ebp
-	push	_215
+	push	_286
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
 	push	dword [ebp-4]
@@ -203,13 +210,13 @@ __skn3_maxguiex_Skn3ListBatchLock_New:
 	mov	eax,dword [ebp-4]
 	mov	dword [eax+28],0
 	push	ebp
-	push	_214
+	push	_285
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
 	call	dword [_bbOnDebugLeaveScope]
 	mov	ebx,0
-	jmp	_74
-_74:
+	jmp	_135
+_135:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	ebx
@@ -221,31 +228,31 @@ __skn3_maxguiex_Skn3ListBatchLock_Delete:
 	mov	ebp,esp
 	push	ebx
 	mov	ebx,dword [ebp+8]
-_77:
+_138:
 	mov	eax,dword [ebx+24]
 	dec	dword [eax+4]
-	jnz	_220
+	jnz	_291
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_220:
+_291:
 	mov	eax,dword [ebx+20]
 	dec	dword [eax+4]
-	jnz	_222
+	jnz	_293
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_222:
+_293:
 	mov	eax,dword [ebx+12]
 	dec	dword [eax+4]
-	jnz	_224
+	jnz	_295
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_224:
+_295:
 	mov	eax,0
-	jmp	_218
-_218:
+	jmp	_289
+_289:
 	pop	ebx
 	mov	esp,ebp
 	pop	ebp
@@ -260,59 +267,59 @@ __skn3_maxguiex_Skn3ListBatchLock_Find:
 	mov	dword [ebp-8],_bbNullObject
 	mov	dword [ebp-12],_bbNullObject
 	push	ebp
-	push	_249
+	push	_320
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_225
+	push	_296
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [__skn3_maxguiex_Skn3ListBatchLock_all],_bbNullObject
-	jne	_226
+	jne	_297
 	push	ebp
-	push	_228
+	push	_299
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_227
+	push	_298
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,_bbNullObject
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_80
-_226:
-	push	_229
+	jmp	_141
+_297:
+	push	_300
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	dword [ebp-8],_bbNullObject
-	push	_231
+	push	_302
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [__skn3_maxguiex_Skn3ListBatchLock_all]
 	cmp	ebx,_bbNullObject
-	jne	_233
+	jne	_304
 	call	_brl_blitz_NullObjectError
-_233:
+_304:
 	push	ebx
 	mov	eax,dword [ebx]
 	call	dword [eax+88]
 	add	esp,4
 	mov	dword [ebp-12],eax
-	push	_235
+	push	_306
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	jmp	_17
 _19:
 	push	ebp
-	push	_248
+	push	_319
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_236
+	push	_307
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-12]
 	cmp	ebx,_bbNullObject
-	jne	_238
+	jne	_309
 	call	_brl_blitz_NullObjectError
-_238:
+_309:
 	push	_16
 	push	ebx
 	mov	eax,dword [ebx]
@@ -322,37 +329,37 @@ _238:
 	call	_bbObjectDowncast
 	add	esp,8
 	mov	dword [ebp-8],eax
-	push	_239
+	push	_310
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-8]
 	cmp	ebx,_bbNullObject
-	jne	_241
+	jne	_312
 	call	_brl_blitz_NullObjectError
-_241:
+_312:
 	mov	eax,dword [ebp-4]
 	cmp	dword [ebx+12],eax
-	jne	_242
+	jne	_313
 	push	ebp
-	push	_244
+	push	_315
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_243
+	push	_314
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-8]
 	call	dword [_bbOnDebugLeaveScope]
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_80
-_242:
-	push	_245
+	jmp	_141
+_313:
+	push	_316
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-12]
 	cmp	ebx,_bbNullObject
-	jne	_247
+	jne	_318
 	call	_brl_blitz_NullObjectError
-_247:
+_318:
 	push	_16
 	push	ebx
 	mov	eax,dword [ebx]
@@ -368,8 +375,8 @@ _17:
 	jne	_19
 _18:
 	mov	ebx,_bbNullObject
-	jmp	_80
-_80:
+	jmp	_141
+_141:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	ebx
@@ -385,19 +392,19 @@ __skn3_maxguiex_Skn3ListBatchLock_add:
 	mov	eax,dword [ebp+8]
 	mov	dword [ebp-4],eax
 	push	ebp
-	push	_272
+	push	_343
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_254
+	push	_325
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [__skn3_maxguiex_Skn3ListBatchLock_all],_bbNullObject
-	jne	_255
+	jne	_326
 	push	ebp
-	push	_261
+	push	_332
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_256
+	push	_327
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	call	_brl_linkedlist_CreateList
@@ -405,27 +412,27 @@ __skn3_maxguiex_Skn3ListBatchLock_add:
 	mov	ebx,eax
 	mov	eax,dword [__skn3_maxguiex_Skn3ListBatchLock_all]
 	dec	dword [eax+4]
-	jnz	_260
+	jnz	_331
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_260:
+_331:
 	mov	dword [__skn3_maxguiex_Skn3ListBatchLock_all],ebx
 	call	dword [_bbOnDebugLeaveScope]
-_255:
-	push	_262
+_326:
+	push	_333
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-4]
 	cmp	ebx,_bbNullObject
-	jne	_264
+	jne	_335
 	call	_brl_blitz_NullObjectError
-_264:
+_335:
 	mov	esi,dword [__skn3_maxguiex_Skn3ListBatchLock_all]
 	cmp	esi,_bbNullObject
-	jne	_267
+	jne	_338
 	call	_brl_blitz_NullObjectError
-_267:
+_338:
 	push	dword [ebp-4]
 	push	esi
 	mov	eax,dword [esi]
@@ -435,15 +442,15 @@ _267:
 	mov	esi,eax
 	mov	eax,dword [ebx+20]
 	dec	dword [eax+4]
-	jnz	_271
+	jnz	_342
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_271:
+_342:
 	mov	dword [ebx+20],esi
 	mov	ebx,0
-	jmp	_83
-_83:
+	jmp	_144
+_144:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	esi
@@ -460,76 +467,76 @@ __skn3_maxguiex_Skn3ListBatchLock_remove:
 	mov	eax,dword [ebp+8]
 	mov	dword [ebp-4],eax
 	push	ebp
-	push	_298
+	push	_369
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_274
+	push	_345
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-4],_bbNullObject
-	je	_275
+	je	_346
 	push	ebp
-	push	_297
+	push	_368
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_276
+	push	_347
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-4]
 	cmp	ebx,_bbNullObject
-	jne	_278
+	jne	_349
 	call	_brl_blitz_NullObjectError
-_278:
+_349:
 	mov	ebx,dword [ebx+20]
 	cmp	ebx,_bbNullObject
-	jne	_280
+	jne	_351
 	call	_brl_blitz_NullObjectError
-_280:
+_351:
 	push	ebx
 	mov	eax,dword [ebx]
 	call	dword [eax+60]
 	add	esp,4
-	push	_281
+	push	_352
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	esi,dword [ebp-4]
 	cmp	esi,_bbNullObject
-	jne	_283
+	jne	_354
 	call	_brl_blitz_NullObjectError
-_283:
+_354:
 	mov	ebx,_bbNullObject
 	inc	dword [ebx+4]
 	mov	eax,dword [esi+12]
 	dec	dword [eax+4]
-	jnz	_288
+	jnz	_359
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_288:
+_359:
 	mov	dword [esi+12],ebx
-	push	_289
+	push	_360
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	esi,dword [ebp-4]
 	cmp	esi,_bbNullObject
-	jne	_291
+	jne	_362
 	call	_brl_blitz_NullObjectError
-_291:
+_362:
 	mov	ebx,_bbNullObject
 	inc	dword [ebx+4]
 	mov	eax,dword [esi+24]
 	dec	dword [eax+4]
-	jnz	_296
+	jnz	_367
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_296:
+_367:
 	mov	dword [esi+24],ebx
 	call	dword [_bbOnDebugLeaveScope]
-_275:
+_346:
 	mov	ebx,0
-	jmp	_86
-_86:
+	jmp	_147
+_147:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	esi
@@ -545,7 +552,7 @@ __skn3_maxguiex_Skn3CustomPointer_New:
 	mov	eax,dword [ebp+8]
 	mov	dword [ebp-4],eax
 	push	ebp
-	push	_301
+	push	_372
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
 	push	dword [ebp-4]
@@ -562,13 +569,13 @@ __skn3_maxguiex_Skn3CustomPointer_New:
 	mov	eax,dword [ebp-4]
 	mov	dword [eax+16],0
 	push	ebp
-	push	_300
+	push	_371
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
 	call	dword [_bbOnDebugLeaveScope]
 	mov	ebx,0
-	jmp	_89
-_89:
+	jmp	_150
+_150:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	ebx
@@ -579,21 +586,171 @@ __skn3_maxguiex_Skn3CustomPointer_Delete:
 	push	ebp
 	mov	ebp,esp
 	mov	eax,dword [ebp+8]
-_92:
+_153:
 	mov	eax,dword [eax+8]
 	dec	dword [eax+4]
-	jnz	_305
+	jnz	_376
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_305:
+_376:
 	mov	eax,0
-	jmp	_303
-_303:
+	jmp	_374
+_374:
 	mov	esp,ebp
 	pop	ebp
 	ret
-_21:
+__skn3_maxguiex_PARAFORMAT2_New:
+	push	ebp
+	mov	ebp,esp
+	sub	esp,4
+	push	ebx
+	mov	eax,dword [ebp+8]
+	mov	dword [ebp-4],eax
+	push	ebp
+	push	_378
+	call	dword [_bbOnDebugEnterScope]
+	add	esp,8
+	push	dword [ebp-4]
+	call	_bbObjectCtor
+	add	esp,4
+	mov	eax,dword [ebp-4]
+	mov	dword [eax],_20
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+8],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+12],0
+	mov	eax,dword [ebp-4]
+	mov	word [eax+16],0
+	mov	eax,dword [ebp-4]
+	mov	word [eax+18],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+20],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+24],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+28],0
+	mov	eax,dword [ebp-4]
+	mov	word [eax+32],0
+	mov	eax,dword [ebp-4]
+	mov	word [eax+34],32
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+36],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+40],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+44],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+48],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+52],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+56],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+60],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+64],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+68],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+72],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+76],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+80],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+84],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+88],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+92],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+96],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+100],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+104],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+108],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+112],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+116],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+120],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+124],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+128],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+132],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+136],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+140],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+144],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+148],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+152],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+156],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+160],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+164],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+168],0
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+172],0
+	mov	eax,dword [ebp-4]
+	mov	word [eax+176],0
+	mov	eax,dword [ebp-4]
+	mov	byte [eax+178],0
+	mov	eax,dword [ebp-4]
+	mov	byte [eax+179],0
+	mov	eax,dword [ebp-4]
+	mov	word [eax+180],0
+	mov	eax,dword [ebp-4]
+	mov	word [eax+182],0
+	mov	eax,dword [ebp-4]
+	mov	word [eax+184],0
+	mov	eax,dword [ebp-4]
+	mov	word [eax+186],0
+	mov	eax,dword [ebp-4]
+	mov	word [eax+188],0
+	mov	eax,dword [ebp-4]
+	mov	word [eax+190],0
+	mov	eax,dword [ebp-4]
+	mov	word [eax+192],0
+	mov	eax,dword [ebp-4]
+	mov	word [eax+194],0
+	push	ebp
+	push	_377
+	call	dword [_bbOnDebugEnterScope]
+	add	esp,8
+	call	dword [_bbOnDebugLeaveScope]
+	mov	ebx,0
+	jmp	_156
+_156:
+	call	dword [_bbOnDebugLeaveScope]
+	mov	eax,ebx
+	pop	ebx
+	mov	esp,ebp
+	pop	ebp
+	ret
+__skn3_maxguiex_PARAFORMAT2_Delete:
+	push	ebp
+	mov	ebp,esp
+_159:
+	mov	eax,0
+	jmp	_380
+_380:
+	mov	esp,ebp
+	pop	ebp
+	ret
+_22:
 	push	ebp
 	mov	ebp,esp
 	sub	esp,20
@@ -609,229 +766,229 @@ _21:
 	mov	dword [ebp-20],0
 	mov	eax,ebp
 	push	eax
-	push	_359
+	push	_434
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_306
+	push	_381
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-4]
 	cmp	dword [eax+8],0
-	jne	_307
+	jne	_382
 	mov	eax,ebp
 	push	eax
-	push	_309
+	push	_384
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_308
+	push	_383
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,_1
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_96
-_307:
-	push	_310
+	jmp	_163
+_382:
+	push	_385
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
-	push	_20
-	push	_22
+	push	_21
+	push	_23
 	push	dword [ebp-4]
 	call	_bbStringReplace
 	add	esp,12
 	mov	dword [ebp-4],eax
-	push	_311
+	push	_386
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
-	push	_20
+	push	_21
 	push	dword [ebp-8]
 	call	_bbStringCompare
 	add	esp,8
 	cmp	eax,0
-	je	_312
+	je	_387
 	mov	eax,ebp
 	push	eax
-	push	_314
+	push	_389
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_313
+	push	_388
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-8]
-	push	_20
+	push	_21
 	push	dword [ebp-4]
 	call	_bbStringReplace
 	add	esp,12
 	mov	dword [ebp-4],eax
 	call	dword [_bbOnDebugLeaveScope]
-_312:
-	push	_315
+_387:
+	push	_390
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	dword [ebp-12],0
-	push	_317
+	push	_392
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	dword [ebp-16],0
-	push	_319
+	push	_394
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	dword [ebp-12],0
 	mov	eax,dword [ebp-4]
 	mov	edi,dword [eax+8]
-	jmp	_320
-_25:
+	jmp	_395
+_26:
 	mov	eax,ebp
 	push	eax
-	push	_335
+	push	_410
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_322
+	push	_397
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	esi,dword [ebp-4]
 	mov	ebx,dword [ebp-12]
 	cmp	ebx,dword [esi+8]
-	jb	_325
+	jb	_400
 	call	_brl_blitz_ArrayBoundsError
-_325:
+_400:
 	movzx	eax,word [esi+ebx*2+12]
 	mov	eax,eax
 	cmp	eax,32
 	setne	al
 	movzx	eax,al
 	cmp	eax,0
-	je	_329
+	je	_404
 	mov	esi,dword [ebp-4]
 	mov	ebx,dword [ebp-12]
 	cmp	ebx,dword [esi+8]
-	jb	_328
+	jb	_403
 	call	_brl_blitz_ArrayBoundsError
-_328:
+_403:
 	movzx	eax,word [esi+ebx*2+12]
 	mov	eax,eax
 	cmp	eax,47
 	setne	al
 	movzx	eax,al
-_329:
+_404:
 	cmp	eax,0
-	je	_331
+	je	_406
 	mov	eax,ebp
 	push	eax
-	push	_333
+	push	_408
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_332
+	push	_407
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	call	dword [_bbOnDebugLeaveScope]
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_24
-_331:
-	push	_334
+	jmp	_25
+_406:
+	push	_409
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-12]
 	add	eax,1
 	mov	dword [ebp-16],eax
 	call	dword [_bbOnDebugLeaveScope]
-_23:
-	add	dword [ebp-12],1
-_320:
-	cmp	dword [ebp-12],edi
-	jl	_25
 _24:
-	push	_336
+	add	dword [ebp-12],1
+_395:
+	cmp	dword [ebp-12],edi
+	jl	_26
+_25:
+	push	_411
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-4]
 	mov	eax,dword [eax+8]
 	sub	eax,dword [ebp-16]
 	mov	dword [ebp-20],eax
-	push	_338
+	push	_413
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-4]
 	mov	eax,dword [eax+8]
 	sub	eax,1
 	mov	dword [ebp-12],eax
-	jmp	_339
-_28:
+	jmp	_414
+_29:
 	mov	eax,ebp
 	push	eax
-	push	_353
+	push	_428
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_340
+	push	_415
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	esi,dword [ebp-4]
 	mov	ebx,dword [ebp-12]
 	cmp	ebx,dword [esi+8]
-	jb	_343
+	jb	_418
 	call	_brl_blitz_ArrayBoundsError
-_343:
+_418:
 	movzx	eax,word [esi+ebx*2+12]
 	mov	eax,eax
 	cmp	eax,32
 	setne	al
 	movzx	eax,al
 	cmp	eax,0
-	je	_347
+	je	_422
 	mov	esi,dword [ebp-4]
 	mov	ebx,dword [ebp-12]
 	cmp	ebx,dword [esi+8]
-	jb	_346
+	jb	_421
 	call	_brl_blitz_ArrayBoundsError
-_346:
+_421:
 	movzx	eax,word [esi+ebx*2+12]
 	mov	eax,eax
 	cmp	eax,47
 	setne	al
 	movzx	eax,al
-_347:
+_422:
 	cmp	eax,0
-	je	_349
+	je	_424
 	mov	eax,ebp
 	push	eax
-	push	_351
+	push	_426
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_350
+	push	_425
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	call	dword [_bbOnDebugLeaveScope]
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_27
-_349:
-	push	_352
+	jmp	_28
+_424:
+	push	_427
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	sub	dword [ebp-20],1
 	call	dword [_bbOnDebugLeaveScope]
-_26:
-	add	dword [ebp-12],-1
-_339:
-	cmp	dword [ebp-12],0
-	jge	_28
 _27:
-	push	_354
+	add	dword [ebp-12],-1
+_414:
+	cmp	dword [ebp-12],0
+	jge	_29
+_28:
+	push	_429
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-20],0
-	jg	_355
+	jg	_430
 	mov	eax,ebp
 	push	eax
-	push	_357
+	push	_432
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_356
+	push	_431
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,_1
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_96
-_355:
-	push	_358
+	jmp	_163
+_430:
+	push	_433
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-16]
@@ -842,8 +999,8 @@ _355:
 	call	_bbStringSlice
 	add	esp,12
 	mov	ebx,eax
-	jmp	_96
-_96:
+	jmp	_163
+_163:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	edi
@@ -852,7 +1009,7 @@ _96:
 	mov	esp,ebp
 	pop	ebp
 	ret
-_29:
+_30:
 	push	ebp
 	mov	ebp,esp
 	sub	esp,28
@@ -866,13 +1023,13 @@ _29:
 	mov	dword [ebp-24],_bbNullObject
 	mov	dword [ebp-28],_bbNullObject
 	push	ebp
-	push	_394
+	push	_469
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_364
+	push	_439
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
-	push	_30
+	push	_31
 	push	8
 	push	0
 	push	dword [ebp-4]
@@ -885,35 +1042,35 @@ _29:
 	call	_bbStringCompare
 	add	esp,8
 	cmp	eax,0
-	jne	_365
+	jne	_440
 	push	ebp
-	push	_385
+	push	_460
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_366
+	push	_441
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
-	push	_20
-	push	_20
+	push	_21
+	push	_21
 	push	0
 	call	_skn3_systemex_GetTempDirectory
 	add	esp,4
 	push	eax
-	call	_21
+	call	_22
 	add	esp,8
 	push	eax
-	push	_20
+	push	_21
 	call	_bbStringConcat
 	add	esp,8
 	push	eax
 	call	_bbStringConcat
 	add	esp,8
 	mov	dword [ebp-8],eax
-	push	_368
+	push	_443
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	dword [ebp-12],_1
-	push	_370
+	push	_445
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-4]
@@ -926,16 +1083,16 @@ _29:
 	call	_brl_filesystem_StripDir
 	add	esp,4
 	mov	dword [ebp-16],eax
-	push	_372
+	push	_447
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
-	jmp	_31
-_33:
+	jmp	_32
+_34:
 	push	ebp
-	push	_374
+	push	_449
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_373
+	push	_448
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-12]
@@ -947,7 +1104,7 @@ _33:
 	add	esp,4
 	mov	dword [ebp-12],eax
 	call	dword [_bbOnDebugLeaveScope]
-_31:
+_32:
 	push	dword [ebp-16]
 	push	dword [ebp-12]
 	push	dword [ebp-8]
@@ -960,9 +1117,9 @@ _31:
 	call	_brl_filesystem_FileType
 	add	esp,4
 	cmp	eax,0
-	jne	_33
-_32:
-	push	_375
+	jne	_34
+_33:
+	push	_450
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-16]
@@ -974,21 +1131,21 @@ _32:
 	call	_bbStringConcat
 	add	esp,8
 	mov	dword [ebp-20],eax
-	push	_377
+	push	_452
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-4]
 	call	_brl_stream_ReadStream
 	add	esp,4
 	mov	dword [ebp-24],eax
-	push	_379
+	push	_454
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-20]
 	call	_brl_stream_WriteStream
 	add	esp,4
 	mov	dword [ebp-28],eax
-	push	_381
+	push	_456
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	4096
@@ -996,31 +1153,31 @@ _32:
 	push	dword [ebp-24]
 	call	_brl_stream_CopyStream
 	add	esp,12
-	push	_382
+	push	_457
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-28]
 	call	_brl_filesystem_CloseFile
 	add	esp,4
-	push	_383
+	push	_458
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-24]
 	call	_brl_stream_CloseStream
 	add	esp,4
-	push	_384
+	push	_459
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-20]
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_99
-_365:
-	push	_393
+	jmp	_166
+_440:
+	push	_468
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,_1
-	jmp	_99
-_99:
+	jmp	_166
+_166:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	ebx
@@ -1032,15 +1189,15 @@ _skn3_maxguiex_RequestScrollbarSize:
 	mov	ebp,esp
 	push	ebx
 	push	ebp
-	push	_397
+	push	_472
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_396
+	push	_471
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,18
-	jmp	_101
-_101:
+	jmp	_168
+_168:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	ebx
@@ -1059,10 +1216,10 @@ _skn3_maxguiex_SetComboBoxHeight:
 	mov	eax,dword [ebp+12]
 	mov	dword [ebp-8],eax
 	push	ebp
-	push	_401
+	push	_476
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_399
+	push	_474
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-8]
@@ -1076,15 +1233,15 @@ _skn3_maxguiex_SetComboBoxHeight:
 	add	esp,8
 	push	eax
 	call	_SendMessageA@16
-	push	_400
+	push	_475
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-4]
 	call	_maxgui_maxgui_RedrawGadget
 	add	esp,4
 	mov	ebx,0
-	jmp	_105
-_105:
+	jmp	_172
+_172:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	edi
@@ -1108,31 +1265,31 @@ _skn3_maxguiex_GadgetScreenPosition:
 	mov	dword [ebp-4],0
 	mov	dword [ebp-20],_bbEmptyArray
 	push	ebp
-	push	_430
+	push	_505
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_405
+	push	_480
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	dword [ebp-8],0
 	mov	dword [ebp-4],0
-	push	_407
+	push	_482
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-16],0
-	je	_408
+	je	_483
 	push	ebp
-	push	_412
+	push	_487
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_409
+	push	_484
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-12]
 	cmp	ebx,_bbNullObject
-	jne	_411
+	jne	_486
 	call	_brl_blitz_NullObjectError
-_411:
+_486:
 	lea	eax,dword [ebp-8]
 	push	eax
 	push	2
@@ -1143,20 +1300,20 @@ _411:
 	push	eax
 	call	_ClientToScreen@8
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_413
-_408:
+	jmp	_488
+_483:
 	push	ebp
-	push	_417
+	push	_492
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_414
+	push	_489
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-12]
 	cmp	ebx,_bbNullObject
-	jne	_416
+	jne	_491
 	call	_brl_blitz_NullObjectError
-_416:
+_491:
 	lea	eax,dword [ebp-8]
 	push	eax
 	push	1
@@ -1167,51 +1324,51 @@ _416:
 	push	eax
 	call	_ClientToScreen@8
 	call	dword [_bbOnDebugLeaveScope]
-_413:
-	push	_418
+_488:
+	push	_493
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	2
-	push	_419
+	push	_494
 	call	_bbArrayNew1D
 	add	esp,8
 	mov	dword [ebp-20],eax
-	push	_421
+	push	_496
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,0
 	mov	eax,dword [ebp-20]
 	cmp	ebx,dword [eax+20]
-	jb	_423
+	jb	_498
 	call	_brl_blitz_ArrayBoundsError
-_423:
+_498:
 	mov	eax,dword [ebp-20]
 	shl	ebx,2
 	add	eax,ebx
 	lea	edx,dword [ebp-8]
 	mov	edx,dword [edx]
 	mov	dword [eax+24],edx
-	push	_425
+	push	_500
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,1
 	mov	eax,dword [ebp-20]
 	cmp	ebx,dword [eax+20]
-	jb	_427
+	jb	_502
 	call	_brl_blitz_ArrayBoundsError
-_427:
+_502:
 	mov	eax,dword [ebp-20]
 	shl	ebx,2
 	add	eax,ebx
 	lea	edx,dword [ebp-8]
 	mov	edx,dword [edx+4]
 	mov	dword [eax+24],edx
-	push	_429
+	push	_504
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-20]
-	jmp	_109
-_109:
+	jmp	_176
+_176:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	edi
@@ -1230,10 +1387,10 @@ _skn3_maxguiex_DisableGadgetRedraw:
 	mov	eax,dword [ebp+8]
 	mov	dword [ebp-4],eax
 	push	ebp
-	push	_440
+	push	_515
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_438
+	push	_513
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	0
@@ -1245,12 +1402,12 @@ _skn3_maxguiex_DisableGadgetRedraw:
 	add	esp,8
 	push	eax
 	call	_SendMessageW@16
-	push	_439
+	push	_514
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,1
-	jmp	_112
-_112:
+	jmp	_179
+_179:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	edi
@@ -1269,10 +1426,10 @@ _skn3_maxguiex_EnableGadgetRedraw:
 	mov	eax,dword [ebp+8]
 	mov	dword [ebp-4],eax
 	push	ebp
-	push	_444
+	push	_519
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_442
+	push	_517
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	0
@@ -1284,12 +1441,12 @@ _skn3_maxguiex_EnableGadgetRedraw:
 	add	esp,8
 	push	eax
 	call	_SendMessageW@16
-	push	_443
+	push	_518
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,1
-	jmp	_115
-_115:
+	jmp	_182
+_182:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	edi
@@ -1311,50 +1468,50 @@ _skn3_maxguiex_MessageBox:
 	mov	dword [ebp-12],eax
 	mov	dword [ebp-16],_bbEmptyString
 	push	ebp
-	push	_459
+	push	_534
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_446
+	push	_521
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [_bbAppTitle]
 	mov	dword [ebp-16],eax
-	push	_448
+	push	_523
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-4]
 	inc	dword [ebx+4]
 	mov	eax,dword [_bbAppTitle]
 	dec	dword [eax+4]
-	jnz	_452
+	jnz	_527
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_452:
+_527:
 	mov	dword [_bbAppTitle],ebx
-	push	_453
+	push	_528
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	0
 	push	dword [ebp-8]
 	call	_brl_system_Notify
 	add	esp,8
-	push	_454
+	push	_529
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-16]
 	inc	dword [ebx+4]
 	mov	eax,dword [_bbAppTitle]
 	dec	dword [eax+4]
-	jnz	_458
+	jnz	_533
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_458:
+_533:
 	mov	dword [_bbAppTitle],ebx
 	mov	ebx,0
-	jmp	_120
-_120:
+	jmp	_187
+_187:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	ebx
@@ -1382,10 +1539,10 @@ _skn3_maxguiex_GadgetSizeForString:
 	mov	dword [ebp-36],_bbEmptyArray
 	mov	dword [ebp-40],_bbEmptyString
 	push	ebp
-	push	_514
+	push	_589
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_465
+	push	_540
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	1
@@ -1393,25 +1550,25 @@ _skn3_maxguiex_GadgetSizeForString:
 	call	_maxgui_maxgui_QueryGadget
 	add	esp,8
 	mov	dword [ebp-16],eax
-	push	_467
+	push	_542
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-4]
 	call	_maxgui_maxgui_GadgetClass
 	add	esp,4
 	cmp	eax,2
-	je	_470
+	je	_545
 	push	ebp
-	push	_495
+	push	_570
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_471
+	push	_546
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-16]
 	call	_GetDC@4
 	mov	dword [ebp-20],eax
-	push	_473
+	push	_548
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	0
@@ -1420,17 +1577,17 @@ _skn3_maxguiex_GadgetSizeForString:
 	push	dword [ebp-16]
 	call	_SendMessageW@16
 	mov	dword [ebp-24],eax
-	push	_475
+	push	_550
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-24]
 	push	dword [ebp-20]
 	call	_SelectObject@8
-	push	_476
+	push	_551
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	4
-	push	_49
+	push	_51
 	call	_bbArrayNew1D
 	add	esp,8
 	mov	dword [eax+24],0
@@ -1439,26 +1596,26 @@ _skn3_maxguiex_GadgetSizeForString:
 	mov	dword [eax+32],edx
 	mov	dword [eax+36],0
 	mov	dword [ebp-28],eax
-	push	_479
+	push	_554
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	dword [ebp-32],1280
-	push	_481
+	push	_556
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-12],0
-	jle	_482
+	jle	_557
 	push	ebp
-	push	_484
+	push	_559
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_483
+	push	_558
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	or	dword [ebp-32],16
 	call	dword [_bbOnDebugLeaveScope]
-_482:
-	push	_485
+_557:
+	push	_560
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-8]
@@ -1476,57 +1633,57 @@ _482:
 	push	ebx
 	call	_bbMemFree
 	add	esp,4
-	push	_488
+	push	_563
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-20]
 	push	dword [ebp-16]
 	call	_ReleaseDC@8
-	push	_489
+	push	_564
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	2
-	push	_49
+	push	_51
 	call	_bbArrayNew1D
 	add	esp,8
 	mov	ebx,eax
 	mov	esi,2
 	mov	eax,dword [ebp-28]
 	cmp	esi,dword [eax+20]
-	jb	_491
+	jb	_566
 	call	_brl_blitz_ArrayBoundsError
-_491:
+_566:
 	mov	eax,dword [ebp-28]
 	mov	eax,dword [eax+esi*4+24]
 	mov	dword [ebx+24],eax
 	mov	esi,3
 	mov	eax,dword [ebp-28]
 	cmp	esi,dword [eax+20]
-	jb	_493
+	jb	_568
 	call	_brl_blitz_ArrayBoundsError
-_493:
+_568:
 	mov	eax,dword [ebp-28]
 	mov	eax,dword [eax+esi*4+24]
 	mov	dword [ebx+28],eax
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_125
-_470:
+	jmp	_192
+_545:
 	push	ebp
-	push	_511
+	push	_586
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_500
+	push	_575
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	2
-	push	_49
+	push	_51
 	call	_bbArrayNew1D
 	add	esp,8
 	mov	edx,dword [ebp-12]
 	mov	dword [eax+24],edx
 	mov	dword [eax+28],0
 	mov	dword [ebp-36],eax
-	push	_503
+	push	_578
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	0
@@ -1534,21 +1691,21 @@ _470:
 	push	11
 	push	dword [ebp-16]
 	call	_SendMessageW@16
-	push	_504
+	push	_579
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-4]
 	call	_maxgui_maxgui_GadgetText
 	add	esp,4
 	mov	dword [ebp-40],eax
-	push	_506
+	push	_581
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-8]
 	push	dword [ebp-4]
 	call	_maxgui_maxgui_SetGadgetText
 	add	esp,8
-	push	_507
+	push	_582
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-36]
@@ -1558,14 +1715,14 @@ _470:
 	push	5633
 	push	dword [ebp-16]
 	call	_SendMessageW@16
-	push	_508
+	push	_583
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-40]
 	push	dword [ebp-4]
 	call	_maxgui_maxgui_SetGadgetText
 	add	esp,8
-	push	_509
+	push	_584
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	0
@@ -1573,13 +1730,13 @@ _470:
 	push	11
 	push	dword [ebp-16]
 	call	_SendMessageW@16
-	push	_510
+	push	_585
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-36]
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_125
-_125:
+	jmp	_192
+_192:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	edi
@@ -1597,10 +1754,10 @@ _skn3_maxguiex_GetCreationGroup:
 	mov	dword [ebp-4],eax
 	mov	dword [ebp-8],_bbNullObject
 	push	ebp
-	push	_527
+	push	_602
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_518
+	push	_593
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	_maxgui_maxgui_TProxyGadget
@@ -1608,36 +1765,36 @@ _skn3_maxguiex_GetCreationGroup:
 	call	_bbObjectDowncast
 	add	esp,8
 	mov	dword [ebp-8],eax
-	push	_520
+	push	_595
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-8],_bbNullObject
-	je	_521
+	je	_596
 	push	ebp
-	push	_525
+	push	_600
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_522
+	push	_597
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-8]
 	cmp	ebx,_bbNullObject
-	jne	_524
+	jne	_599
 	call	_brl_blitz_NullObjectError
-_524:
+_599:
 	push	dword [ebx+140]
 	call	_skn3_maxguiex_GetCreationGroup
 	add	esp,4
 	mov	ebx,eax
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_128
-_521:
-	push	_526
+	jmp	_195
+_596:
+	push	_601
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-4]
-	jmp	_128
-_128:
+	jmp	_195
+_195:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	ebx
@@ -1657,26 +1814,26 @@ _skn3_maxguiex_SetGadgetReadOnly:
 	mov	dword [ebp-8],eax
 	mov	dword [ebp-12],0
 	push	ebp
-	push	_539
+	push	_614
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_531
+	push	_606
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-4]
 	call	_maxgui_maxgui_GadgetClass
 	add	esp,4
 	cmp	eax,5
-	je	_534
+	je	_609
 	cmp	eax,4
-	je	_534
-	jmp	_533
-_534:
+	je	_609
+	jmp	_608
+_609:
 	push	ebp
-	push	_538
+	push	_613
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_535
+	push	_610
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	1
@@ -1684,7 +1841,7 @@ _534:
 	call	_maxgui_maxgui_QueryGadget
 	add	esp,8
 	mov	dword [ebp-12],eax
-	push	_537
+	push	_612
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	0
@@ -1693,11 +1850,11 @@ _534:
 	push	dword [ebp-12]
 	call	_SendMessageW@16
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_533
-_533:
+	jmp	_608
+_608:
 	mov	ebx,0
-	jmp	_132
-_132:
+	jmp	_199
+_199:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	edi
@@ -1718,41 +1875,41 @@ _skn3_maxguiex_SetGadgetMaxLength:
 	mov	eax,dword [ebp+12]
 	mov	dword [ebp-8],eax
 	push	ebp
-	push	_552
+	push	_627
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_542
+	push	_617
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-4]
 	call	_maxgui_maxgui_GadgetClass
 	add	esp,4
 	cmp	eax,4
-	je	_545
+	je	_620
 	cmp	eax,5
-	je	_545
-	jmp	_544
-_545:
+	je	_620
+	jmp	_619
+_620:
 	push	ebp
-	push	_551
+	push	_626
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_546
+	push	_621
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-8],0
-	jge	_547
+	jge	_622
 	push	ebp
-	push	_549
+	push	_624
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_548
+	push	_623
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	dword [ebp-8],0
 	call	dword [_bbOnDebugLeaveScope]
-_547:
-	push	_550
+_622:
+	push	_625
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	0
@@ -1765,11 +1922,11 @@ _547:
 	push	eax
 	call	_SendMessageW@16
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_544
-_544:
+	jmp	_619
+_619:
 	mov	ebx,0
-	jmp	_136
-_136:
+	jmp	_203
+_203:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	edi
@@ -1788,35 +1945,35 @@ _skn3_maxguiex_GetGadgetMaxLength:
 	mov	eax,dword [ebp+8]
 	mov	dword [ebp-4],eax
 	push	ebp
-	push	_562
+	push	_637
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_554
+	push	_629
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-4]
 	call	_maxgui_maxgui_GadgetClass
 	add	esp,4
 	cmp	eax,4
-	je	_557
+	je	_632
 	cmp	eax,5
-	je	_557
+	je	_632
 	push	ebp
-	push	_559
+	push	_634
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_558
+	push	_633
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,0
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_139
-_557:
+	jmp	_206
+_632:
 	push	ebp
-	push	_561
+	push	_636
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_560
+	push	_635
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	0
@@ -1830,8 +1987,8 @@ _557:
 	call	_SendMessageW@16
 	mov	ebx,eax
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_139
-_139:
+	jmp	_206
+_206:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	edi
@@ -1854,65 +2011,65 @@ _skn3_maxguiex_LoadCustomPointer:
 	mov	dword [ebp-16],0
 	mov	eax,ebp
 	push	eax
-	push	_625
+	push	_700
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_564
+	push	_639
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	dword [ebp-8],_bbNullObject
-	push	_566
+	push	_641
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-4]
-	call	_29
+	call	_30
 	add	esp,4
 	mov	dword [ebp-12],eax
-	push	_568
+	push	_643
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	dword [ebp-16],0
-	push	_570
+	push	_645
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-12]
 	cmp	dword [eax+8],0
-	jne	_571
+	jne	_646
 	mov	eax,ebp
 	push	eax
-	push	_573
+	push	_648
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_572
+	push	_647
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-4]
 	mov	dword [ebp-12],eax
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_574
-_571:
+	jmp	_649
+_646:
 	mov	eax,ebp
 	push	eax
-	push	_576
+	push	_651
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_575
+	push	_650
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	dword [ebp-16],1
 	call	dword [_bbOnDebugLeaveScope]
-_574:
-	push	_577
+_649:
+	push	_652
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [__skn3_maxguiex_Skn3CustomPointer_all],_bbNullObject
-	jne	_578
+	jne	_653
 	mov	eax,ebp
 	push	eax
-	push	_584
+	push	_659
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_579
+	push	_654
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	call	_brl_map_CreateMap
@@ -1920,28 +2077,28 @@ _574:
 	inc	dword [ebx+4]
 	mov	eax,dword [__skn3_maxguiex_Skn3CustomPointer_all]
 	dec	dword [eax+4]
-	jnz	_583
+	jnz	_658
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_583:
+_658:
 	mov	dword [__skn3_maxguiex_Skn3CustomPointer_all],ebx
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_585
-_578:
+	jmp	_660
+_653:
 	mov	eax,ebp
 	push	eax
-	push	_589
+	push	_664
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_586
+	push	_661
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [__skn3_maxguiex_Skn3CustomPointer_all]
 	cmp	ebx,_bbNullObject
-	jne	_588
+	jne	_663
 	call	_brl_blitz_NullObjectError
-_588:
+_663:
 	push	_skn3_maxguiex_Skn3CustomPointer
 	push	dword [ebp-4]
 	push	ebx
@@ -1953,64 +2110,64 @@ _588:
 	add	esp,8
 	mov	dword [ebp-8],eax
 	call	dword [_bbOnDebugLeaveScope]
-_585:
-	push	_590
+_660:
+	push	_665
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-8],_bbNullObject
-	jne	_591
+	jne	_666
 	mov	eax,ebp
 	push	eax
-	push	_610
+	push	_685
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_592
+	push	_667
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	_skn3_maxguiex_Skn3CustomPointer
 	call	_bbObjectNew
 	add	esp,4
 	mov	dword [ebp-8],eax
-	push	_593
+	push	_668
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	esi,dword [ebp-8]
 	cmp	esi,_bbNullObject
-	jne	_595
+	jne	_670
 	call	_brl_blitz_NullObjectError
-_595:
+_670:
 	mov	ebx,dword [ebp-4]
 	inc	dword [ebx+4]
 	mov	eax,dword [esi+8]
 	dec	dword [eax+4]
-	jnz	_600
+	jnz	_675
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_600:
+_675:
 	mov	dword [esi+8],ebx
-	push	_601
+	push	_676
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [__skn3_maxguiex_Skn3CustomPointer_all]
 	cmp	ebx,_bbNullObject
-	jne	_603
+	jne	_678
 	call	_brl_blitz_NullObjectError
-_603:
+_678:
 	push	dword [ebp-8]
 	push	dword [ebp-4]
 	push	ebx
 	mov	eax,dword [ebx]
 	call	dword [eax+56]
 	add	esp,12
-	push	_604
+	push	_679
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-8]
 	cmp	ebx,_bbNullObject
-	jne	_606
+	jne	_681
 	call	_brl_blitz_NullObjectError
-_606:
+_681:
 	mov	edi,ebx
 	push	dword [ebp-12]
 	call	_bbStringToWString
@@ -2024,59 +2181,59 @@ _606:
 	add	esp,4
 	mov	dword [edi+12],ebx
 	call	dword [_bbOnDebugLeaveScope]
-_591:
-	push	_611
+_666:
+	push	_686
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-16],0
-	je	_612
+	je	_687
 	mov	eax,ebp
 	push	eax
-	push	_614
+	push	_689
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_613
+	push	_688
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-12]
 	call	_brl_filesystem_DeleteFile
 	add	esp,4
 	call	dword [_bbOnDebugLeaveScope]
-_612:
-	push	_615
+_687:
+	push	_690
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-8]
 	cmp	ebx,_bbNullObject
-	jne	_617
+	jne	_692
 	call	_brl_blitz_NullObjectError
-_617:
+_692:
 	cmp	dword [ebx+12],0
-	je	_618
+	je	_693
 	mov	eax,ebp
 	push	eax
-	push	_624
+	push	_699
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_619
+	push	_694
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-8]
 	cmp	ebx,_bbNullObject
-	jne	_621
+	jne	_696
 	call	_brl_blitz_NullObjectError
-_621:
+_696:
 	add	dword [ebx+16],1
-	push	_623
+	push	_698
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-8]
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_142
-_618:
+	jmp	_209
+_693:
 	mov	ebx,_bbNullObject
-	jmp	_142
-_142:
+	jmp	_209
+_209:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	edi
@@ -2095,68 +2252,68 @@ _skn3_maxguiex_SetCustomPointer:
 	mov	eax,dword [ebp+8]
 	mov	dword [ebp-4],eax
 	push	ebp
-	push	_644
+	push	_719
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_628
+	push	_703
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-4],_bbNullObject
-	je	_629
+	je	_704
 	push	ebp
-	push	_643
+	push	_718
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_630
+	push	_705
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	dword [_maxgui_maxgui_lastPointer],-1
-	push	_631
+	push	_706
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-4]
 	cmp	ebx,_bbNullObject
-	jne	_633
+	jne	_708
 	call	_brl_blitz_NullObjectError
-_633:
+_708:
 	push	dword [ebx+12]
 	call	_SetCursor@4
-	push	_634
+	push	_709
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-4]
 	cmp	ebx,_bbNullObject
-	jne	_636
+	jne	_711
 	call	_brl_blitz_NullObjectError
-_636:
+_711:
 	mov	eax,dword [ebx+12]
 	mov	dword [__maxgui_win32maxguiex_TWindowsGUIDriver__cursor],eax
-	push	_637
+	push	_712
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [__maxgui_win32maxguiex_TWindowsTextArea__oldCursor],0
-	je	_638
+	je	_713
 	push	ebp
-	push	_642
+	push	_717
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_639
+	push	_714
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-4]
 	cmp	ebx,_bbNullObject
-	jne	_641
+	jne	_716
 	call	_brl_blitz_NullObjectError
-_641:
+_716:
 	mov	eax,dword [ebx+12]
 	mov	dword [__maxgui_win32maxguiex_TWindowsTextArea__oldCursor],eax
 	call	dword [_bbOnDebugLeaveScope]
-_638:
+_713:
 	call	dword [_bbOnDebugLeaveScope]
-_629:
+_704:
 	mov	ebx,0
-	jmp	_145
-_145:
+	jmp	_212
+_212:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	edi
@@ -2175,108 +2332,108 @@ _skn3_maxguiex_FreeCustomPointer:
 	mov	eax,dword [ebp+8]
 	mov	dword [ebp-4],eax
 	push	ebp
-	push	_676
+	push	_751
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_646
+	push	_721
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-4],_bbNullObject
-	je	_647
+	je	_722
 	push	ebp
-	push	_675
+	push	_750
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_648
+	push	_723
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-4]
 	cmp	ebx,_bbNullObject
-	jne	_650
+	jne	_725
 	call	_brl_blitz_NullObjectError
-_650:
+_725:
 	sub	dword [ebx+16],1
-	push	_652
+	push	_727
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-4]
 	cmp	ebx,_bbNullObject
-	jne	_654
+	jne	_729
 	call	_brl_blitz_NullObjectError
-_654:
+_729:
 	cmp	dword [ebx+16],0
-	jne	_655
+	jne	_730
 	push	ebp
-	push	_674
+	push	_749
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_656
+	push	_731
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	esi,dword [__skn3_maxguiex_Skn3CustomPointer_all]
 	cmp	esi,_bbNullObject
-	jne	_658
+	jne	_733
 	call	_brl_blitz_NullObjectError
-_658:
+_733:
 	mov	ebx,dword [ebp-4]
 	cmp	ebx,_bbNullObject
-	jne	_660
+	jne	_735
 	call	_brl_blitz_NullObjectError
-_660:
+_735:
 	push	dword [ebx+8]
 	push	esi
 	mov	eax,dword [esi]
 	call	dword [eax+68]
 	add	esp,8
-	push	_661
+	push	_736
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-4]
 	cmp	ebx,_bbNullObject
-	jne	_663
+	jne	_738
 	call	_brl_blitz_NullObjectError
-_663:
+_738:
 	mov	eax,dword [ebx+12]
 	cmp	dword [__maxgui_win32maxguiex_TWindowsGUIDriver__cursor],eax
-	jne	_664
+	jne	_739
 	push	ebp
-	push	_666
+	push	_741
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_665
+	push	_740
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	0
 	call	_maxgui_maxgui_SetPointer
 	add	esp,4
 	call	dword [_bbOnDebugLeaveScope]
-_664:
-	push	_667
+_739:
+	push	_742
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-4]
 	cmp	ebx,_bbNullObject
-	jne	_669
+	jne	_744
 	call	_brl_blitz_NullObjectError
-_669:
+_744:
 	push	dword [ebx+12]
 	call	_DestroyCursor@4
-	push	_670
+	push	_745
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-4]
 	cmp	ebx,_bbNullObject
-	jne	_672
+	jne	_747
 	call	_brl_blitz_NullObjectError
-_672:
+_747:
 	mov	dword [ebx+12],0
 	call	dword [_bbOnDebugLeaveScope]
-_655:
+_730:
 	call	dword [_bbOnDebugLeaveScope]
-_647:
+_722:
 	mov	ebx,0
-	jmp	_148
-_148:
+	jmp	_215
+_215:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	edi
@@ -2299,96 +2456,96 @@ _skn3_maxguiex_ExtractCursorHotspot:
 	mov	dword [ebp-16],_bbNullObject
 	mov	dword [ebp-20],0
 	push	ebp
-	push	_728
+	push	_803
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_678
+	push	_753
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	2
-	push	_679
+	push	_754
 	call	_bbArrayNew1D
 	add	esp,8
 	mov	dword [ebp-12],eax
-	push	_681
+	push	_756
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-4]
-	push	_34
+	push	_35
 	call	_bbStringConcat
 	add	esp,8
 	push	eax
 	call	_brl_filesystem_ReadFile
 	add	esp,4
 	mov	dword [ebp-16],eax
-	push	_683
+	push	_758
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-16],_bbNullObject
-	je	_684
+	je	_759
 	push	ebp
-	push	_725
+	push	_800
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_685
+	push	_760
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-16]
 	cmp	ebx,_bbNullObject
-	jne	_687
+	jne	_762
 	call	_brl_blitz_NullObjectError
-_687:
+_762:
 	push	2
 	push	ebx
 	mov	eax,dword [ebx]
 	call	dword [eax+60]
 	add	esp,8
-	push	_688
+	push	_763
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-16]
 	cmp	ebx,_bbNullObject
-	jne	_690
+	jne	_765
 	call	_brl_blitz_NullObjectError
-_690:
+_765:
 	push	ebx
 	mov	eax,dword [ebx]
 	call	dword [eax+100]
 	add	esp,4
 	mov	dword [ebp-20],eax
-	push	_692
+	push	_767
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-20],2
-	jne	_693
+	jne	_768
 	push	ebp
-	push	_721
+	push	_796
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_694
+	push	_769
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-16]
 	cmp	ebx,_bbNullObject
-	jne	_696
+	jne	_771
 	call	_brl_blitz_NullObjectError
-_696:
+_771:
 	push	ebx
 	mov	eax,dword [ebx]
 	call	dword [eax+100]
 	add	esp,4
 	mov	dword [ebp-20],eax
-	push	_697
+	push	_772
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-20]
 	cmp	dword [ebp-8],eax
-	jge	_698
+	jge	_773
 	push	ebp
-	push	_720
+	push	_795
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_699
+	push	_774
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-8]
@@ -2396,107 +2553,107 @@ _696:
 	add	eax,6
 	add	eax,4
 	mov	dword [ebp-20],eax
-	push	_700
+	push	_775
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-16]
 	cmp	ebx,_bbNullObject
-	jne	_702
+	jne	_777
 	call	_brl_blitz_NullObjectError
-_702:
+_777:
 	push	ebx
 	mov	eax,dword [ebx]
 	call	dword [eax+56]
 	add	esp,4
 	cmp	dword [ebp-20],eax
-	jge	_703
+	jge	_778
 	push	ebp
-	push	_719
+	push	_794
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_704
+	push	_779
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-16]
 	cmp	ebx,_bbNullObject
-	jne	_706
+	jne	_781
 	call	_brl_blitz_NullObjectError
-_706:
+_781:
 	push	dword [ebp-20]
 	push	ebx
 	mov	eax,dword [ebx]
 	call	dword [eax+60]
 	add	esp,8
-	push	_707
+	push	_782
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	esi,0
 	mov	eax,dword [ebp-12]
 	cmp	esi,dword [eax+20]
-	jb	_709
+	jb	_784
 	call	_brl_blitz_ArrayBoundsError
-_709:
+_784:
 	mov	ebx,dword [ebp-12]
 	shl	esi,2
 	add	ebx,esi
 	mov	esi,dword [ebp-16]
 	cmp	esi,_bbNullObject
-	jne	_712
+	jne	_787
 	call	_brl_blitz_NullObjectError
-_712:
+_787:
 	push	esi
 	mov	eax,dword [esi]
 	call	dword [eax+100]
 	add	esp,4
 	mov	dword [ebx+24],eax
-	push	_713
+	push	_788
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	esi,1
 	mov	eax,dword [ebp-12]
 	cmp	esi,dword [eax+20]
-	jb	_715
+	jb	_790
 	call	_brl_blitz_ArrayBoundsError
-_715:
+_790:
 	mov	ebx,dword [ebp-12]
 	shl	esi,2
 	add	ebx,esi
 	mov	esi,dword [ebp-16]
 	cmp	esi,_bbNullObject
-	jne	_718
+	jne	_793
 	call	_brl_blitz_NullObjectError
-_718:
+_793:
 	push	esi
 	mov	eax,dword [esi]
 	call	dword [eax+100]
 	add	esp,4
 	mov	dword [ebx+24],eax
 	call	dword [_bbOnDebugLeaveScope]
-_703:
+_778:
 	call	dword [_bbOnDebugLeaveScope]
-_698:
+_773:
 	call	dword [_bbOnDebugLeaveScope]
-_693:
-	push	_722
+_768:
+	push	_797
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-16]
 	cmp	ebx,_bbNullObject
-	jne	_724
+	jne	_799
 	call	_brl_blitz_NullObjectError
-_724:
+_799:
 	push	ebx
 	mov	eax,dword [ebx]
 	call	dword [eax+68]
 	add	esp,4
 	call	dword [_bbOnDebugLeaveScope]
-_684:
-	push	_727
+_759:
+	push	_802
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-12]
-	jmp	_152
-_152:
+	jmp	_219
+_219:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	esi
@@ -2515,42 +2672,42 @@ _skn3_maxguiex_ListBatchLock:
 	mov	dword [ebp-8],_bbNullObject
 	mov	dword [ebp-12],_bbNullObject
 	push	ebp
-	push	_783
+	push	_858
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_732
+	push	_807
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-4]
 	call	dword [_16+48]
 	add	esp,4
 	mov	dword [ebp-8],eax
-	push	_734
+	push	_809
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-8],_bbNullObject
-	je	_735
+	je	_810
 	push	ebp
-	push	_741
+	push	_816
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_736
+	push	_811
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-8]
 	cmp	ebx,_bbNullObject
-	jne	_738
+	jne	_813
 	call	_brl_blitz_NullObjectError
-_738:
+_813:
 	add	dword [ebx+8],1
-	push	_740
+	push	_815
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,0
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_155
-_735:
-	push	_742
+	jmp	_222
+_810:
+	push	_817
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	_maxgui_win32maxguiex_TWindowsListBox
@@ -2558,80 +2715,80 @@ _735:
 	call	_bbObjectDowncast
 	add	esp,8
 	mov	dword [ebp-12],eax
-	push	_744
+	push	_819
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-12],_bbNullObject
-	jne	_745
+	jne	_820
 	push	ebp
-	push	_747
+	push	_822
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_746
+	push	_821
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,0
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_155
-_745:
-	push	_748
+	jmp	_222
+_820:
+	push	_823
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	_16
 	call	_bbObjectNew
 	add	esp,4
 	mov	dword [ebp-8],eax
-	push	_749
+	push	_824
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-8]
 	cmp	ebx,_bbNullObject
-	jne	_751
+	jne	_826
 	call	_brl_blitz_NullObjectError
-_751:
+_826:
 	mov	dword [ebx+8],1
-	push	_753
+	push	_828
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	esi,dword [ebp-8]
 	cmp	esi,_bbNullObject
-	jne	_755
+	jne	_830
 	call	_brl_blitz_NullObjectError
-_755:
+_830:
 	mov	ebx,dword [ebp-12]
 	inc	dword [ebx+4]
 	mov	eax,dword [esi+12]
 	dec	dword [eax+4]
-	jnz	_760
+	jnz	_835
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_760:
+_835:
 	mov	dword [esi+12],ebx
-	push	_761
+	push	_836
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-8]
 	cmp	ebx,_bbNullObject
-	jne	_763
+	jne	_838
 	call	_brl_blitz_NullObjectError
-_763:
+_838:
 	mov	esi,dword [ebp-12]
 	cmp	esi,_bbNullObject
-	jne	_766
+	jne	_841
 	call	_brl_blitz_NullObjectError
-_766:
+_841:
 	mov	eax,dword [esi+124]
 	mov	eax,dword [eax+20]
 	mov	dword [ebx+16],eax
-	push	_767
+	push	_842
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-8]
 	cmp	ebx,_bbNullObject
-	jne	_769
+	jne	_844
 	call	_brl_blitz_NullObjectError
-_769:
+_844:
 	push	_pub_win32_LVITEMW
 	call	_bbObjectNew
 	add	esp,4
@@ -2639,46 +2796,46 @@ _769:
 	mov	esi,eax
 	mov	eax,dword [ebx+24]
 	dec	dword [eax+4]
-	jnz	_774
+	jnz	_849
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_774:
+_849:
 	mov	dword [ebx+24],esi
-	push	_775
+	push	_850
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-8]
 	cmp	ebx,_bbNullObject
-	jne	_777
+	jne	_852
 	call	_brl_blitz_NullObjectError
-_777:
+_852:
 	push	1
 	push	dword [ebp-12]
 	call	_maxgui_maxgui_QueryGadget
 	add	esp,8
 	mov	dword [ebx+28],eax
-	push	_779
+	push	_854
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-12]
 	cmp	ebx,_bbNullObject
-	jne	_781
+	jne	_856
 	call	_brl_blitz_NullObjectError
-_781:
+_856:
 	push	ebx
 	mov	eax,dword [ebx]
 	call	dword [eax+552]
 	add	esp,4
-	push	_782
+	push	_857
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-8]
 	call	dword [_16+52]
 	add	esp,4
 	mov	ebx,0
-	jmp	_155
-_155:
+	jmp	_222
+_222:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	esi
@@ -2709,27 +2866,27 @@ _skn3_maxguiex_ListBatchAdd:
 	mov	dword [ebp-32],_bbNullObject
 	mov	eax,ebp
 	push	eax
-	push	_874
+	push	_949
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_785
+	push	_860
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-4]
 	call	dword [_16+48]
 	add	esp,4
 	mov	dword [ebp-28],eax
-	push	_787
+	push	_862
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-28],_bbNullObject
-	jne	_788
+	jne	_863
 	mov	eax,ebp
 	push	eax
-	push	_791
+	push	_866
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_789
+	push	_864
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-24]
@@ -2740,28 +2897,28 @@ _skn3_maxguiex_ListBatchAdd:
 	push	dword [ebp-4]
 	call	_maxgui_maxgui_AddGadgetItem
 	add	esp,24
-	push	_790
+	push	_865
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,0
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_163
-_788:
-	push	_792
+	jmp	_230
+_863:
+	push	_867
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	_maxgui_maxgui_TGadgetItem
 	call	_bbObjectNew
 	add	esp,4
 	mov	dword [ebp-32],eax
-	push	_794
+	push	_869
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-32]
 	cmp	ebx,_bbNullObject
-	jne	_796
+	jne	_871
 	call	_brl_blitz_NullObjectError
-_796:
+_871:
 	push	dword [ebp-12]
 	push	dword [ebp-24]
 	push	dword [ebp-16]
@@ -2771,177 +2928,177 @@ _796:
 	mov	eax,dword [ebx]
 	call	dword [eax+48]
 	add	esp,24
-	push	_797
+	push	_872
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-4]
 	cmp	ebx,_bbNullObject
-	jne	_799
+	jne	_874
 	call	_brl_blitz_NullObjectError
-_799:
+_874:
 	mov	edi,ebx
 	mov	esi,dword [ebp-4]
 	cmp	esi,_bbNullObject
-	jne	_802
+	jne	_877
 	call	_brl_blitz_NullObjectError
-_802:
+_877:
 	mov	ebx,dword [ebp-28]
 	cmp	ebx,_bbNullObject
-	jne	_804
+	jne	_879
 	call	_brl_blitz_NullObjectError
-_804:
+_879:
 	mov	eax,dword [ebx+16]
 	add	eax,1
 	push	eax
 	push	0
 	push	dword [esi+124]
-	push	_805
+	push	_880
 	call	_bbArraySlice
 	add	esp,16
 	mov	ebx,eax
 	inc	dword [ebx+4]
 	mov	eax,dword [edi+124]
 	dec	dword [eax+4]
-	jnz	_809
+	jnz	_884
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_809:
+_884:
 	mov	dword [edi+124],ebx
-	push	_810
+	push	_885
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-4]
 	cmp	ebx,_bbNullObject
-	jne	_812
+	jne	_887
 	call	_brl_blitz_NullObjectError
-_812:
+_887:
 	mov	esi,dword [ebx+124]
 	mov	ebx,dword [ebp-28]
 	cmp	ebx,_bbNullObject
-	jne	_815
+	jne	_890
 	call	_brl_blitz_NullObjectError
-_815:
+_890:
 	mov	ebx,dword [ebx+16]
 	cmp	ebx,dword [esi+20]
-	jb	_817
+	jb	_892
 	call	_brl_blitz_ArrayBoundsError
-_817:
+_892:
 	shl	ebx,2
 	add	esi,ebx
 	mov	ebx,dword [ebp-32]
 	inc	dword [ebx+4]
 	mov	eax,dword [esi+24]
 	dec	dword [eax+4]
-	jnz	_822
+	jnz	_897
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_822:
+_897:
 	mov	dword [esi+24],ebx
-	push	_823
+	push	_898
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-28]
 	cmp	ebx,_bbNullObject
-	jne	_825
+	jne	_900
 	call	_brl_blitz_NullObjectError
-_825:
+_900:
 	mov	ebx,dword [ebx+24]
 	cmp	ebx,_bbNullObject
-	jne	_827
+	jne	_902
 	call	_brl_blitz_NullObjectError
-_827:
+_902:
 	mov	dword [ebx+8],4097
-	push	_829
+	push	_904
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-28]
 	cmp	ebx,_bbNullObject
-	jne	_831
+	jne	_906
 	call	_brl_blitz_NullObjectError
-_831:
+_906:
 	mov	ebx,dword [ebx+24]
 	cmp	ebx,_bbNullObject
-	jne	_833
+	jne	_908
 	call	_brl_blitz_NullObjectError
-_833:
+_908:
 	mov	esi,dword [ebp-28]
 	cmp	esi,_bbNullObject
-	jne	_836
+	jne	_911
 	call	_brl_blitz_NullObjectError
-_836:
+_911:
 	mov	eax,dword [esi+16]
 	mov	dword [ebx+12],eax
-	push	_837
+	push	_912
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-28]
 	cmp	ebx,_bbNullObject
-	jne	_839
+	jne	_914
 	call	_brl_blitz_NullObjectError
-_839:
+_914:
 	mov	ebx,dword [ebx+24]
 	cmp	ebx,_bbNullObject
-	jne	_841
+	jne	_916
 	call	_brl_blitz_NullObjectError
-_841:
+_916:
 	mov	esi,dword [ebp-32]
 	cmp	esi,_bbNullObject
-	jne	_844
+	jne	_919
 	call	_brl_blitz_NullObjectError
-_844:
+_919:
 	push	dword [esi+8]
 	call	_bbStringToWString
 	add	esp,4
 	mov	dword [ebx+28],eax
-	push	_845
+	push	_920
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-28]
 	cmp	ebx,_bbNullObject
-	jne	_847
+	jne	_922
 	call	_brl_blitz_NullObjectError
-_847:
+_922:
 	mov	ebx,dword [ebx+24]
 	cmp	ebx,_bbNullObject
-	jne	_849
+	jne	_924
 	call	_brl_blitz_NullObjectError
-_849:
+_924:
 	or	dword [ebx+8],2
-	push	_851
+	push	_926
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-28]
 	cmp	ebx,_bbNullObject
-	jne	_853
+	jne	_928
 	call	_brl_blitz_NullObjectError
-_853:
+_928:
 	mov	ebx,dword [ebx+24]
 	cmp	ebx,_bbNullObject
-	jne	_855
+	jne	_930
 	call	_brl_blitz_NullObjectError
-_855:
+_930:
 	mov	esi,dword [ebp-32]
 	cmp	esi,_bbNullObject
-	jne	_858
+	jne	_933
 	call	_brl_blitz_NullObjectError
-_858:
+_933:
 	mov	eax,dword [esi+16]
 	mov	dword [ebx+36],eax
-	push	_859
+	push	_934
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-28]
 	cmp	ebx,_bbNullObject
-	jne	_861
+	jne	_936
 	call	_brl_blitz_NullObjectError
-_861:
+_936:
 	mov	esi,dword [ebp-28]
 	cmp	esi,_bbNullObject
-	jne	_863
+	jne	_938
 	call	_brl_blitz_NullObjectError
-_863:
+_938:
 	mov	eax,dword [esi+24]
 	mov	dword [ebp-36],eax
 	mov	eax,dword [ebp-36]
@@ -2951,34 +3108,34 @@ _863:
 	push	4173
 	push	dword [ebx+28]
 	call	_SendMessageW@16
-	push	_865
+	push	_940
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-28]
 	cmp	ebx,_bbNullObject
-	jne	_867
+	jne	_942
 	call	_brl_blitz_NullObjectError
-_867:
+_942:
 	mov	ebx,dword [ebx+24]
 	cmp	ebx,_bbNullObject
-	jne	_869
+	jne	_944
 	call	_brl_blitz_NullObjectError
-_869:
+_944:
 	push	dword [ebx+28]
 	call	_bbMemFree
 	add	esp,4
-	push	_870
+	push	_945
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-28]
 	cmp	ebx,_bbNullObject
-	jne	_872
+	jne	_947
 	call	_brl_blitz_NullObjectError
-_872:
+_947:
 	add	dword [ebx+16],1
 	mov	ebx,0
-	jmp	_163
-_163:
+	jmp	_230
+_230:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	edi
@@ -2998,138 +3155,138 @@ _skn3_maxguiex_ListBatchUnlock:
 	mov	dword [ebp-4],eax
 	mov	dword [ebp-8],_bbNullObject
 	push	ebp
-	push	_918
+	push	_993
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_882
+	push	_957
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-4]
 	call	dword [_16+48]
 	add	esp,4
 	mov	dword [ebp-8],eax
-	push	_884
+	push	_959
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-8],_bbNullObject
-	jne	_885
+	jne	_960
 	push	ebp
-	push	_887
+	push	_962
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_886
+	push	_961
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,0
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_166
-_885:
-	push	_888
+	jmp	_233
+_960:
+	push	_963
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-8]
 	cmp	ebx,_bbNullObject
-	jne	_890
+	jne	_965
 	call	_brl_blitz_NullObjectError
-_890:
+_965:
 	sub	dword [ebx+8],1
-	push	_892
+	push	_967
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-8]
 	cmp	ebx,_bbNullObject
-	jne	_894
+	jne	_969
 	call	_brl_blitz_NullObjectError
-_894:
+_969:
 	cmp	dword [ebx+8],0
-	jne	_895
+	jne	_970
 	push	ebp
-	push	_917
+	push	_992
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_896
+	push	_971
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-8]
 	cmp	ebx,_bbNullObject
-	jne	_898
+	jne	_973
 	call	_brl_blitz_NullObjectError
-_898:
+_973:
 	push	-2
 	push	0
 	push	4126
 	push	dword [ebx+28]
 	call	_SendMessageW@16
-	push	_899
+	push	_974
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-8]
 	cmp	ebx,_bbNullObject
-	jne	_901
+	jne	_976
 	call	_brl_blitz_NullObjectError
-_901:
+_976:
 	mov	ebx,dword [ebx+12]
 	cmp	ebx,_bbNullObject
-	jne	_903
+	jne	_978
 	call	_brl_blitz_NullObjectError
-_903:
+_978:
 	push	ebx
 	mov	eax,dword [ebx]
 	call	dword [eax+580]
 	add	esp,4
 	cmp	eax,0
-	jne	_904
+	jne	_979
 	push	ebp
-	push	_910
+	push	_985
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_905
+	push	_980
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-8]
 	cmp	ebx,_bbNullObject
-	jne	_907
+	jne	_982
 	call	_brl_blitz_NullObjectError
-_907:
+_982:
 	mov	ebx,dword [ebx+12]
 	cmp	ebx,_bbNullObject
-	jne	_909
+	jne	_984
 	call	_brl_blitz_NullObjectError
-_909:
+_984:
 	push	ebx
 	mov	eax,dword [ebx]
 	call	dword [eax+60]
 	add	esp,4
 	call	dword [_bbOnDebugLeaveScope]
-_904:
-	push	_911
+_979:
+	push	_986
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-8]
 	cmp	ebx,_bbNullObject
-	jne	_913
+	jne	_988
 	call	_brl_blitz_NullObjectError
-_913:
+_988:
 	mov	ebx,dword [ebx+12]
 	cmp	ebx,_bbNullObject
-	jne	_915
+	jne	_990
 	call	_brl_blitz_NullObjectError
-_915:
+_990:
 	push	ebx
 	mov	eax,dword [ebx]
 	call	dword [eax+548]
 	add	esp,4
-	push	_916
+	push	_991
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-8]
 	call	dword [_16+56]
 	add	esp,4
 	call	dword [_bbOnDebugLeaveScope]
-_895:
+_970:
 	mov	ebx,0
-	jmp	_166
-_166:
+	jmp	_233
+_233:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	edi
@@ -3147,26 +3304,26 @@ _skn3_maxguiex_GadgetWindow:
 	mov	dword [ebp-4],eax
 	mov	dword [ebp-8],_bbNullObject
 	push	ebp
-	push	_929
+	push	_1004
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_920
+	push	_995
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-4]
 	call	_maxgui_maxgui_GadgetGroup
 	add	esp,4
 	mov	dword [ebp-8],eax
-	push	_922
+	push	_997
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
-	jmp	_35
-_37:
+	jmp	_36
+_38:
 	push	ebp
-	push	_928
+	push	_1003
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_923
+	push	_998
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-8]
@@ -3174,20 +3331,20 @@ _37:
 	add	esp,4
 	add	eax,1
 	cmp	eax,0
-	je	_924
+	je	_999
 	push	ebp
-	push	_926
+	push	_1001
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_925
+	push	_1000
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-8]
 	call	dword [_bbOnDebugLeaveScope]
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_169
-_924:
-	push	_927
+	jmp	_236
+_999:
+	push	_1002
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-8]
@@ -3195,13 +3352,13 @@ _924:
 	add	esp,4
 	mov	dword [ebp-8],eax
 	call	dword [_bbOnDebugLeaveScope]
-_35:
-	cmp	dword [ebp-8],_bbNullObject
-	jne	_37
 _36:
+	cmp	dword [ebp-8],_bbNullObject
+	jne	_38
+_37:
 	mov	ebx,_bbNullObject
-	jmp	_169
-_169:
+	jmp	_236
+_236:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	ebx
@@ -3221,10 +3378,10 @@ _skn3_maxguiex_SetWindowAlwaysOnTop:
 	mov	dword [ebp-8],eax
 	mov	dword [ebp-12],0
 	push	ebp
-	push	_943
+	push	_1018
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_931
+	push	_1006
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	1
@@ -3232,25 +3389,25 @@ _skn3_maxguiex_SetWindowAlwaysOnTop:
 	call	_maxgui_maxgui_QueryGadget
 	add	esp,8
 	mov	dword [ebp-12],eax
-	push	_933
+	push	_1008
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-12],0
-	je	_934
+	je	_1009
 	push	ebp
-	push	_942
+	push	_1017
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_935
+	push	_1010
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-8],0
-	je	_936
+	je	_1011
 	push	ebp
-	push	_938
+	push	_1013
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_937
+	push	_1012
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	19
@@ -3262,13 +3419,13 @@ _skn3_maxguiex_SetWindowAlwaysOnTop:
 	push	dword [ebp-12]
 	call	_SetWindowPos@28
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_939
-_936:
+	jmp	_1014
+_1011:
 	push	ebp
-	push	_941
+	push	_1016
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_940
+	push	_1015
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	19
@@ -3280,12 +3437,12 @@ _936:
 	push	dword [ebp-12]
 	call	_SetWindowPos@28
 	call	dword [_bbOnDebugLeaveScope]
-_939:
+_1014:
 	call	dword [_bbOnDebugLeaveScope]
-_934:
+_1009:
 	mov	ebx,0
-	jmp	_173
-_173:
+	jmp	_240
+_240:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	edi
@@ -3305,10 +3462,10 @@ _skn3_maxguiex_BringWindowToTop:
 	mov	dword [ebp-4],eax
 	mov	dword [ebp-8],0
 	push	ebp
-	push	_953
+	push	_1028
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_947
+	push	_1022
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	1
@@ -3316,16 +3473,16 @@ _skn3_maxguiex_BringWindowToTop:
 	call	_maxgui_maxgui_QueryGadget
 	add	esp,8
 	mov	dword [ebp-8],eax
-	push	_949
+	push	_1024
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-8],0
-	je	_950
+	je	_1025
 	push	ebp
-	push	_952
+	push	_1027
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_951
+	push	_1026
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	19
@@ -3337,10 +3494,10 @@ _skn3_maxguiex_BringWindowToTop:
 	push	dword [ebp-8]
 	call	_SetWindowPos@28
 	call	dword [_bbOnDebugLeaveScope]
-_950:
+_1025:
 	mov	ebx,0
-	jmp	_176
-_176:
+	jmp	_243
+_243:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	edi
@@ -3360,10 +3517,10 @@ _skn3_maxguiex_FocusWindow:
 	mov	dword [ebp-4],eax
 	mov	dword [ebp-8],0
 	push	ebp
-	push	_961
+	push	_1036
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_955
+	push	_1030
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	1
@@ -3371,25 +3528,25 @@ _skn3_maxguiex_FocusWindow:
 	call	_maxgui_maxgui_QueryGadget
 	add	esp,8
 	mov	dword [ebp-8],eax
-	push	_957
+	push	_1032
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-8],0
-	je	_958
+	je	_1033
 	push	ebp
-	push	_960
+	push	_1035
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_959
+	push	_1034
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-8]
 	call	_SetFocus@4
 	call	dword [_bbOnDebugLeaveScope]
-_958:
+_1033:
 	mov	ebx,0
-	jmp	_179
-_179:
+	jmp	_246
+_246:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	edi
@@ -3406,10 +3563,10 @@ _skn3_maxguiex_GadgetToInt:
 	mov	eax,dword [ebp+8]
 	mov	dword [ebp-4],eax
 	push	ebp
-	push	_964
+	push	_1039
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_963
+	push	_1038
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	1
@@ -3417,8 +3574,8 @@ _skn3_maxguiex_GadgetToInt:
 	call	_maxgui_maxgui_QueryGadget
 	add	esp,8
 	mov	ebx,eax
-	jmp	_182
-_182:
+	jmp	_249
+_249:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	ebx
@@ -3434,82 +3591,82 @@ _skn3_maxguiex_SetColorPickerCustomColors:
 	mov	dword [ebp-4],eax
 	mov	dword [ebp-8],0
 	push	ebp
-	push	_984
+	push	_1059
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_966
+	push	_1041
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-4]
 	cmp	dword [eax+20],16
-	jge	_967
+	jge	_1042
 	push	ebp
-	push	_978
+	push	_1053
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_968
+	push	_1043
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-4]
 	mov	eax,dword [eax+20]
 	mov	dword [ebp-8],eax
-	push	_970
+	push	_1045
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	16
 	push	0
 	push	dword [ebp-4]
-	push	_49
+	push	_51
 	call	_bbArraySlice
 	add	esp,16
 	mov	dword [ebp-4],eax
-	push	_971
+	push	_1046
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
-	jmp	_972
-_40:
+	jmp	_1047
+_41:
 	push	ebp
-	push	_977
+	push	_1052
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_973
+	push	_1048
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-8]
 	mov	eax,dword [ebp-4]
 	cmp	ebx,dword [eax+20]
-	jb	_975
+	jb	_1050
 	call	_brl_blitz_ArrayBoundsError
-_975:
+_1050:
 	mov	eax,dword [ebp-4]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],16777215
 	call	dword [_bbOnDebugLeaveScope]
-_38:
-	add	dword [ebp-8],1
-_972:
-	cmp	dword [ebp-8],16
-	jl	_40
 _39:
+	add	dword [ebp-8],1
+_1047:
+	cmp	dword [ebp-8],16
+	jl	_41
+_40:
 	call	dword [_bbOnDebugLeaveScope]
-_967:
-	push	_979
+_1042:
+	push	_1054
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-4]
 	inc	dword [ebx+4]
 	mov	eax,dword [__maxgui_win32maxguiex_TWindowsGUIDriver__customcolors]
 	dec	dword [eax+4]
-	jnz	_983
+	jnz	_1058
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_983:
+_1058:
 	mov	dword [__maxgui_win32maxguiex_TWindowsGUIDriver__customcolors],ebx
 	mov	ebx,0
-	jmp	_185
-_185:
+	jmp	_252
+_252:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	ebx
@@ -3523,43 +3680,43 @@ _skn3_maxguiex_ClearColorPickerCustomColors:
 	push	ebx
 	mov	dword [ebp-4],0
 	push	ebp
-	push	_995
+	push	_1070
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_987
+	push	_1062
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	dword [ebp-4],0
 	mov	dword [ebp-4],0
-	jmp	_989
-_43:
+	jmp	_1064
+_44:
 	push	ebp
-	push	_994
+	push	_1069
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_990
+	push	_1065
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-4]
 	mov	eax,dword [__maxgui_win32maxguiex_TWindowsGUIDriver__customcolors]
 	cmp	ebx,dword [eax+20]
-	jb	_992
+	jb	_1067
 	call	_brl_blitz_ArrayBoundsError
-_992:
+_1067:
 	mov	eax,dword [__maxgui_win32maxguiex_TWindowsGUIDriver__customcolors]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],16777215
 	call	dword [_bbOnDebugLeaveScope]
-_41:
-	add	dword [ebp-4],1
-_989:
-	cmp	dword [ebp-4],16
-	jl	_43
 _42:
+	add	dword [ebp-4],1
+_1064:
+	cmp	dword [ebp-4],16
+	jl	_44
+_43:
 	mov	ebx,0
-	jmp	_187
-_187:
+	jmp	_254
+_254:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	ebx
@@ -3577,10 +3734,10 @@ _skn3_maxguiex_RedrawGadgetFrame:
 	mov	dword [ebp-4],eax
 	mov	dword [ebp-8],0
 	push	ebp
-	push	_1004
+	push	_1079
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_997
+	push	_1072
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	1
@@ -3588,16 +3745,16 @@ _skn3_maxguiex_RedrawGadgetFrame:
 	call	_maxgui_maxgui_QueryGadget
 	add	esp,8
 	mov	dword [ebp-8],eax
-	push	_999
+	push	_1074
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-8],0
-	je	_1000
+	je	_1075
 	push	ebp
-	push	_1003
+	push	_1078
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_1001
+	push	_1076
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	55
@@ -3608,7 +3765,7 @@ _skn3_maxguiex_RedrawGadgetFrame:
 	push	0
 	push	dword [ebp-8]
 	call	_SetWindowPos@28
-	push	_1002
+	push	_1077
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	1345
@@ -3617,10 +3774,10 @@ _skn3_maxguiex_RedrawGadgetFrame:
 	push	dword [ebp-8]
 	call	_RedrawWindow@16
 	call	dword [_bbOnDebugLeaveScope]
-_1000:
+_1075:
 	mov	ebx,0
-	jmp	_190
-_190:
+	jmp	_257
+_257:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	edi
@@ -3643,26 +3800,26 @@ _skn3_maxguiex_HideGadgetBorder:
 	mov	dword [ebp-16],0
 	mov	dword [ebp-20],0
 	push	ebp
-	push	_1040
+	push	_1115
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_1006
+	push	_1081
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-4]
 	call	_maxgui_maxgui_GadgetClass
 	add	esp,4
 	cmp	eax,5
-	je	_1009
+	je	_1084
 	cmp	eax,4
-	je	_1009
-	jmp	_1008
-_1009:
+	je	_1084
+	jmp	_1083
+_1084:
 	push	ebp
-	push	_1039
+	push	_1114
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_1010
+	push	_1085
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	1
@@ -3670,51 +3827,51 @@ _1009:
 	call	_maxgui_maxgui_QueryGadget
 	add	esp,8
 	mov	dword [ebp-8],eax
-	push	_1012
+	push	_1087
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-8],0
-	je	_1013
+	je	_1088
 	push	ebp
-	push	_1035
+	push	_1110
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_1014
+	push	_1089
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
-	push	_44
+	push	_45
 	call	_brl_standardio_Print
 	add	esp,4
-	push	_1015
+	push	_1090
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	-16
 	push	dword [ebp-8]
 	call	_GetWindowLongW@8
 	mov	dword [ebp-12],eax
-	push	_1017
+	push	_1092
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	-20
 	push	dword [ebp-8]
 	call	_GetWindowLongW@8
 	mov	dword [ebp-16],eax
-	push	_1019
+	push	_1094
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	dword [ebp-20],0
-	push	_1021
+	push	_1096
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-12]
 	and	eax,8388608
 	cmp	eax,0
-	je	_1022
+	je	_1097
 	push	ebp
-	push	_1025
+	push	_1100
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_1023
+	push	_1098
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-12]
@@ -3723,24 +3880,24 @@ _1009:
 	push	-16
 	push	dword [ebp-8]
 	call	_SetWindowLongW@12
-	push	_1024
+	push	_1099
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	dword [ebp-20],1
 	call	dword [_bbOnDebugLeaveScope]
-_1022:
-	push	_1026
+_1097:
+	push	_1101
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-16]
 	and	eax,512
 	cmp	eax,0
-	je	_1027
+	je	_1102
 	push	ebp
-	push	_1030
+	push	_1105
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_1028
+	push	_1103
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-16]
@@ -3749,37 +3906,37 @@ _1022:
 	push	-20
 	push	dword [ebp-8]
 	call	_SetWindowLongW@12
-	push	_1029
+	push	_1104
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	dword [ebp-20],1
 	call	dword [_bbOnDebugLeaveScope]
-_1027:
-	push	_1031
+_1102:
+	push	_1106
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-20],0
-	je	_1032
+	je	_1107
 	push	ebp
-	push	_1034
+	push	_1109
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_1033
+	push	_1108
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-4]
 	call	_skn3_maxguiex_RedrawGadgetFrame
 	add	esp,4
 	call	dword [_bbOnDebugLeaveScope]
-_1032:
+_1107:
 	call	dword [_bbOnDebugLeaveScope]
-_1013:
+_1088:
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_1008
-_1008:
+	jmp	_1083
+_1083:
 	mov	ebx,0
-	jmp	_193
-_193:
+	jmp	_260
+_260:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	edi
@@ -3799,13 +3956,13 @@ _skn3_maxguiex_InstallGuiFont:
 	mov	dword [ebp-4],eax
 	mov	dword [ebp-8],0
 	push	ebp
-	push	_1056
+	push	_1131
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_1042
+	push	_1117
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
-	push	_30
+	push	_31
 	push	8
 	push	0
 	push	dword [ebp-4]
@@ -3818,12 +3975,12 @@ _skn3_maxguiex_InstallGuiFont:
 	call	_bbStringCompare
 	add	esp,8
 	cmp	eax,0
-	jne	_1043
+	jne	_1118
 	push	ebp
-	push	_1048
+	push	_1123
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_1044
+	push	_1119
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-4]
@@ -3833,11 +3990,11 @@ _skn3_maxguiex_InstallGuiFont:
 	call	_bbStringSlice
 	add	esp,12
 	mov	dword [ebp-4],eax
-	push	_1045
+	push	_1120
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	dword [ebp-8],0
-	push	_1047
+	push	_1122
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	lea	eax,dword [ebp-8]
@@ -3857,23 +4014,23 @@ _skn3_maxguiex_InstallGuiFont:
 	movzx	eax,al
 	mov	ebx,eax
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_196
-_1043:
+	jmp	_263
+_1118:
 	push	ebp
-	push	_1055
+	push	_1130
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_1051
+	push	_1126
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-4]
-	push	_45
+	push	_46
 	call	_bbStringConcat
 	add	esp,8
 	push	eax
 	call	_brl_standardio_Print
 	add	esp,4
-	push	_1052
+	push	_1127
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-4]
@@ -3893,8 +4050,152 @@ _1043:
 	movzx	eax,al
 	mov	ebx,eax
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_196
-_196:
+	jmp	_263
+_263:
+	call	dword [_bbOnDebugLeaveScope]
+	mov	eax,ebx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp,ebp
+	pop	ebp
+	ret
+_skn3_maxguiex_SetTextareaLineSpacing:
+	push	ebp
+	mov	ebp,esp
+	sub	esp,16
+	push	ebx
+	push	esi
+	push	edi
+	mov	eax,dword [ebp+8]
+	mov	dword [ebp-4],eax
+	fld	dword [ebp+12]
+	fstp	dword [ebp-8]
+	mov	dword [ebp-12],0
+	mov	dword [ebp-16],_bbNullObject
+	push	ebp
+	push	_1164
+	call	dword [_bbOnDebugEnterScope]
+	add	esp,8
+	push	_1133
+	call	dword [_bbOnDebugEnterStm]
+	add	esp,4
+	push	dword [ebp-4]
+	call	_maxgui_maxgui_GadgetClass
+	add	esp,4
+	cmp	eax,5
+	jne	_1134
+	push	ebp
+	push	_1163
+	call	dword [_bbOnDebugEnterScope]
+	add	esp,8
+	push	_1135
+	call	dword [_bbOnDebugEnterStm]
+	add	esp,4
+	push	1
+	push	dword [ebp-4]
+	call	_maxgui_maxgui_QueryGadget
+	add	esp,8
+	mov	dword [ebp-12],eax
+	push	_1137
+	call	dword [_bbOnDebugEnterStm]
+	add	esp,4
+	cmp	dword [ebp-12],0
+	je	_1138
+	push	ebp
+	push	_1161
+	call	dword [_bbOnDebugEnterScope]
+	add	esp,8
+	push	_1139
+	call	dword [_bbOnDebugEnterStm]
+	add	esp,4
+	push	_20
+	call	_bbObjectNew
+	add	esp,4
+	mov	dword [ebp-16],eax
+	push	_1141
+	call	dword [_bbOnDebugEnterStm]
+	add	esp,4
+	mov	ebx,dword [ebp-16]
+	cmp	ebx,_bbNullObject
+	jne	_1143
+	call	_brl_blitz_NullObjectError
+_1143:
+	mov	dword [ebx+8],188
+	push	_1145
+	call	dword [_bbOnDebugEnterStm]
+	add	esp,4
+	mov	ebx,dword [ebp-16]
+	cmp	ebx,_bbNullObject
+	jne	_1147
+	call	_brl_blitz_NullObjectError
+_1147:
+	push	dword [ebx+8]
+	call	_bbStringFromInt
+	add	esp,4
+	push	eax
+	push	_47
+	call	_bbStringConcat
+	add	esp,8
+	push	eax
+	call	_brl_standardio_Print
+	add	esp,4
+	push	_1148
+	call	dword [_bbOnDebugEnterStm]
+	add	esp,4
+	mov	ebx,dword [ebp-16]
+	cmp	ebx,_bbNullObject
+	jne	_1150
+	call	_brl_blitz_NullObjectError
+_1150:
+	mov	dword [ebx+12],256
+	push	_1152
+	call	dword [_bbOnDebugEnterStm]
+	add	esp,4
+	mov	ebx,dword [ebp-16]
+	cmp	ebx,_bbNullObject
+	jne	_1154
+	call	_brl_blitz_NullObjectError
+_1154:
+	mov	byte [ebx+178],5
+	push	_1156
+	call	dword [_bbOnDebugEnterStm]
+	add	esp,4
+	mov	ebx,dword [ebp-16]
+	cmp	ebx,_bbNullObject
+	jne	_1158
+	call	_brl_blitz_NullObjectError
+_1158:
+	fld	dword [ebp-8]
+	fmul	dword [_1426]
+	sub	esp,8
+	fstp	qword [esp]
+	call	_bbFloatToInt
+	add	esp,8
+	mov	dword [ebx+172],eax
+	push	_1160
+	call	dword [_bbOnDebugEnterStm]
+	add	esp,4
+	mov	eax,dword [ebp-16]
+	lea	eax,dword [eax+8]
+	push	eax
+	push	0
+	push	1095
+	push	dword [ebp-12]
+	call	_SendMessageW@16
+	cmp	eax,0
+	setne	al
+	movzx	eax,al
+	mov	ebx,eax
+	call	dword [_bbOnDebugLeaveScope]
+	call	dword [_bbOnDebugLeaveScope]
+	jmp	_267
+_1138:
+	call	dword [_bbOnDebugLeaveScope]
+_1134:
+	mov	ebx,0
+	jmp	_267
+_267:
 	call	dword [_bbOnDebugLeaveScope]
 	mov	eax,ebx
 	pop	edi
@@ -3905,153 +4206,153 @@ _196:
 	ret
 	section	"data" data writeable align 8
 	align	4
-_209:
+_280:
 	dd	0
-_202:
+_273:
 	db	"maxguiex",0
-_203:
+_274:
 	db	"BCM_GETIDEALSIZE",0
-_49:
+_51:
 	db	"i",0
 	align	4
-_204:
+_275:
 	dd	_bbStringClass
 	dd	2147483646
 	dd	4
 	dw	53,54,51,51
-_205:
+_276:
 	db	"BCM_GETTEXTMARGIN",0
 	align	4
-_206:
+_277:
 	dd	_bbStringClass
 	dd	2147483646
 	dd	4
 	dw	53,54,51,55
-_207:
+_278:
 	db	"FR_PRIVATE",0
 	align	4
-_208:
+_279:
 	dd	_bbStringClass
 	dd	2147483646
 	dd	2
 	dw	49,54
 	align	4
-_201:
+_272:
 	dd	1
-	dd	_202
+	dd	_273
 	dd	1
-	dd	_203
-	dd	_49
-	dd	_204
+	dd	_274
+	dd	_51
+	dd	_275
 	dd	1
-	dd	_205
-	dd	_49
-	dd	_206
+	dd	_276
+	dd	_51
+	dd	_277
 	dd	1
-	dd	_207
-	dd	_49
-	dd	_208
+	dd	_278
+	dd	_51
+	dd	_279
 	dd	0
-_199:
+_270:
 	db	"$BMXPATH/mod/skn3.mod/maxguiex.mod/maxguiex.bmx",0
 	align	4
-_198:
-	dd	_199
-	dd	76
+_269:
+	dd	_270
+	dd	79
 	dd	2
 	align	4
 __skn3_maxguiex_Skn3ListBatchLock_all:
 	dd	_bbNullObject
-_47:
+_49:
 	db	"Skn3ListBatchLock",0
-_48:
-	db	"refCount",0
 _50:
-	db	"listBox",0
-_51:
-	db	":maxgui.win32maxguiex.TWindowsListBox",0
+	db	"refCount",0
 _52:
-	db	"index",0
+	db	"listBox",0
 _53:
-	db	"link",0
+	db	":maxgui.win32maxguiex.TWindowsListBox",0
 _54:
-	db	":brl.linkedlist.TLink",0
+	db	"index",0
 _55:
-	db	"it",0
+	db	"link",0
 _56:
-	db	":pub.win32.LVITEMW",0
+	db	":brl.linkedlist.TLink",0
 _57:
-	db	"hwnd",0
+	db	"it",0
 _58:
-	db	"New",0
+	db	":pub.win32.LVITEMW",0
 _59:
-	db	"()i",0
+	db	"hwnd",0
 _60:
-	db	"Delete",0
+	db	"New",0
 _61:
-	db	"Find",0
+	db	"()i",0
 _62:
-	db	"(:maxgui.maxgui.TGadget):Skn3ListBatchLock",0
+	db	"Delete",0
 _63:
-	db	"add",0
+	db	"Find",0
 _64:
-	db	"(:Skn3ListBatchLock)i",0
+	db	"(:maxgui.maxgui.TGadget):Skn3ListBatchLock",0
 _65:
+	db	"add",0
+_66:
+	db	"(:Skn3ListBatchLock)i",0
+_67:
 	db	"remove",0
 	align	4
-_46:
+_48:
 	dd	2
-	dd	_47
-	dd	3
-	dd	_48
 	dd	_49
-	dd	8
 	dd	3
 	dd	_50
 	dd	_51
-	dd	12
+	dd	8
 	dd	3
 	dd	_52
-	dd	_49
-	dd	16
-	dd	3
 	dd	_53
+	dd	12
+	dd	3
 	dd	_54
-	dd	20
+	dd	_51
+	dd	16
 	dd	3
 	dd	_55
 	dd	_56
-	dd	24
+	dd	20
 	dd	3
 	dd	_57
-	dd	_49
+	dd	_58
+	dd	24
+	dd	3
+	dd	_59
+	dd	_51
 	dd	28
 	dd	6
-	dd	_58
-	dd	_59
+	dd	_60
+	dd	_61
 	dd	16
 	dd	6
-	dd	_60
-	dd	_59
-	dd	20
-	dd	7
-	dd	_61
 	dd	_62
-	dd	48
+	dd	_61
+	dd	20
 	dd	7
 	dd	_63
 	dd	_64
-	dd	52
+	dd	48
 	dd	7
 	dd	_65
-	dd	_64
+	dd	_66
+	dd	52
+	dd	7
+	dd	_67
+	dd	_66
 	dd	56
 	dd	0
 	align	4
 _16:
 	dd	_bbObjectClass
 	dd	_bbObjectFree
-	dd	_46
+	dd	_48
 	dd	32
 	dd	__skn3_maxguiex_Skn3ListBatchLock_New
 	dd	__skn3_maxguiex_Skn3ListBatchLock_Delete
@@ -4065,51 +4366,51 @@ _16:
 	dd	__skn3_maxguiex_Skn3ListBatchLock_add
 	dd	__skn3_maxguiex_Skn3ListBatchLock_remove
 	align	4
-_200:
-	dd	_199
-	dd	133
+_271:
+	dd	_270
+	dd	136
 	dd	2
 	align	4
 __skn3_maxguiex_Skn3CustomPointer_all:
 	dd	_bbNullObject
-_67:
-	db	"Skn3CustomPointer",0
-_68:
-	db	"path",0
 _69:
-	db	"$",0
+	db	"Skn3CustomPointer",0
 _70:
+	db	"path",0
+_71:
+	db	"$",0
+_72:
 	db	"pointer",0
 	align	4
-_66:
+_68:
 	dd	2
-	dd	_67
-	dd	3
-	dd	_68
 	dd	_69
-	dd	8
 	dd	3
 	dd	_70
-	dd	_49
+	dd	_71
+	dd	8
+	dd	3
+	dd	_72
+	dd	_51
 	dd	12
 	dd	3
-	dd	_48
-	dd	_49
-	dd	16
-	dd	6
-	dd	_58
-	dd	_59
+	dd	_50
+	dd	_51
 	dd	16
 	dd	6
 	dd	_60
-	dd	_59
+	dd	_61
+	dd	16
+	dd	6
+	dd	_62
+	dd	_61
 	dd	20
 	dd	0
 	align	4
 _skn3_maxguiex_Skn3CustomPointer:
 	dd	_bbObjectClass
 	dd	_bbObjectFree
-	dd	_66
+	dd	_68
 	dd	20
 	dd	__skn3_maxguiex_Skn3CustomPointer_New
 	dd	__skn3_maxguiex_Skn3CustomPointer_Delete
@@ -4119,237 +4420,616 @@ _skn3_maxguiex_Skn3CustomPointer:
 	dd	_bbObjectReserved
 	dd	_bbObjectReserved
 	dd	_bbObjectReserved
-_216:
+_74:
+	db	"PARAFORMAT2",0
+_75:
+	db	"cbSize",0
+_76:
+	db	"dwMask",0
+_77:
+	db	"wNumbering",0
+_78:
+	db	"s",0
+_79:
+	db	"wEffects",0
+_80:
+	db	"dxStartIndent",0
+_81:
+	db	"dxRightIndent",0
+_82:
+	db	"dxOffset",0
+_83:
+	db	"wAlignment",0
+_84:
+	db	"cTabCount",0
+_85:
+	db	"rgxTabs00",0
+_86:
+	db	"rgxTabs01",0
+_87:
+	db	"rgxTabs02",0
+_88:
+	db	"rgxTabs03",0
+_89:
+	db	"rgxTabs10",0
+_90:
+	db	"rgxTabs11",0
+_91:
+	db	"rgxTabs12",0
+_92:
+	db	"rgxTabs13",0
+_93:
+	db	"rgxTabs20",0
+_94:
+	db	"rgxTabs21",0
+_95:
+	db	"rgxTabs22",0
+_96:
+	db	"rgxTabs23",0
+_97:
+	db	"rgxTabs30",0
+_98:
+	db	"rgxTabs31",0
+_99:
+	db	"rgxTabs32",0
+_100:
+	db	"rgxTabs33",0
+_101:
+	db	"rgxTabs40",0
+_102:
+	db	"rgxTabs41",0
+_103:
+	db	"rgxTabs42",0
+_104:
+	db	"rgxTabs43",0
+_105:
+	db	"rgxTabs50",0
+_106:
+	db	"rgxTabs51",0
+_107:
+	db	"rgxTabs52",0
+_108:
+	db	"rgxTabs53",0
+_109:
+	db	"rgxTabs60",0
+_110:
+	db	"rgxTabs61",0
+_111:
+	db	"rgxTabs62",0
+_112:
+	db	"rgxTabs63",0
+_113:
+	db	"rgxTabs70",0
+_114:
+	db	"rgxTabs71",0
+_115:
+	db	"rgxTabs72",0
+_116:
+	db	"rgxTabs73",0
+_117:
+	db	"dySpaceBefore",0
+_118:
+	db	"dySpaceAfter",0
+_119:
+	db	"dyLineSpacing",0
+_120:
+	db	"sStyle",0
+_121:
+	db	"bLineSpacingRule",0
+_122:
+	db	"b",0
+_123:
+	db	"bOutlineLevel",0
+_124:
+	db	"wShadingWeight",0
+_125:
+	db	"wShadingStyle",0
+_126:
+	db	"wNumberingStart",0
+_127:
+	db	"wNumberingStyle",0
+_128:
+	db	"wNumberingTab",0
+_129:
+	db	"wBorderSpace",0
+_130:
+	db	"wBorderWidth",0
+_131:
+	db	"wBorders",0
+	align	4
+_73:
+	dd	2
+	dd	_74
+	dd	3
+	dd	_75
+	dd	_51
+	dd	8
+	dd	3
+	dd	_76
+	dd	_51
+	dd	12
+	dd	3
+	dd	_77
+	dd	_78
+	dd	16
+	dd	3
+	dd	_79
+	dd	_78
+	dd	18
+	dd	3
+	dd	_80
+	dd	_51
+	dd	20
+	dd	3
+	dd	_81
+	dd	_51
+	dd	24
+	dd	3
+	dd	_82
+	dd	_51
+	dd	28
+	dd	3
+	dd	_83
+	dd	_78
+	dd	32
+	dd	3
+	dd	_84
+	dd	_78
+	dd	34
+	dd	3
+	dd	_85
+	dd	_51
+	dd	36
+	dd	3
+	dd	_86
+	dd	_51
+	dd	40
+	dd	3
+	dd	_87
+	dd	_51
+	dd	44
+	dd	3
+	dd	_88
+	dd	_51
+	dd	48
+	dd	3
+	dd	_89
+	dd	_51
+	dd	52
+	dd	3
+	dd	_90
+	dd	_51
+	dd	56
+	dd	3
+	dd	_91
+	dd	_51
+	dd	60
+	dd	3
+	dd	_92
+	dd	_51
+	dd	64
+	dd	3
+	dd	_93
+	dd	_51
+	dd	68
+	dd	3
+	dd	_94
+	dd	_51
+	dd	72
+	dd	3
+	dd	_95
+	dd	_51
+	dd	76
+	dd	3
+	dd	_96
+	dd	_51
+	dd	80
+	dd	3
+	dd	_97
+	dd	_51
+	dd	84
+	dd	3
+	dd	_98
+	dd	_51
+	dd	88
+	dd	3
+	dd	_99
+	dd	_51
+	dd	92
+	dd	3
+	dd	_100
+	dd	_51
+	dd	96
+	dd	3
+	dd	_101
+	dd	_51
+	dd	100
+	dd	3
+	dd	_102
+	dd	_51
+	dd	104
+	dd	3
+	dd	_103
+	dd	_51
+	dd	108
+	dd	3
+	dd	_104
+	dd	_51
+	dd	112
+	dd	3
+	dd	_105
+	dd	_51
+	dd	116
+	dd	3
+	dd	_106
+	dd	_51
+	dd	120
+	dd	3
+	dd	_107
+	dd	_51
+	dd	124
+	dd	3
+	dd	_108
+	dd	_51
+	dd	128
+	dd	3
+	dd	_109
+	dd	_51
+	dd	132
+	dd	3
+	dd	_110
+	dd	_51
+	dd	136
+	dd	3
+	dd	_111
+	dd	_51
+	dd	140
+	dd	3
+	dd	_112
+	dd	_51
+	dd	144
+	dd	3
+	dd	_113
+	dd	_51
+	dd	148
+	dd	3
+	dd	_114
+	dd	_51
+	dd	152
+	dd	3
+	dd	_115
+	dd	_51
+	dd	156
+	dd	3
+	dd	_116
+	dd	_51
+	dd	160
+	dd	3
+	dd	_117
+	dd	_51
+	dd	164
+	dd	3
+	dd	_118
+	dd	_51
+	dd	168
+	dd	3
+	dd	_119
+	dd	_51
+	dd	172
+	dd	3
+	dd	_120
+	dd	_78
+	dd	176
+	dd	3
+	dd	_121
+	dd	_122
+	dd	178
+	dd	3
+	dd	_123
+	dd	_122
+	dd	179
+	dd	3
+	dd	_124
+	dd	_78
+	dd	180
+	dd	3
+	dd	_125
+	dd	_78
+	dd	182
+	dd	3
+	dd	_126
+	dd	_78
+	dd	184
+	dd	3
+	dd	_127
+	dd	_78
+	dd	186
+	dd	3
+	dd	_128
+	dd	_78
+	dd	188
+	dd	3
+	dd	_129
+	dd	_78
+	dd	190
+	dd	3
+	dd	_130
+	dd	_78
+	dd	192
+	dd	3
+	dd	_131
+	dd	_78
+	dd	194
+	dd	6
+	dd	_60
+	dd	_61
+	dd	16
+	dd	6
+	dd	_62
+	dd	_61
+	dd	20
+	dd	0
+	align	4
+_20:
+	dd	_bbObjectClass
+	dd	_bbObjectFree
+	dd	_73
+	dd	196
+	dd	__skn3_maxguiex_PARAFORMAT2_New
+	dd	__skn3_maxguiex_PARAFORMAT2_Delete
+	dd	_bbObjectToString
+	dd	_bbObjectCompare
+	dd	_bbObjectSendMessage
+	dd	_bbObjectReserved
+	dd	_bbObjectReserved
+	dd	_bbObjectReserved
+_287:
 	db	"Self",0
-_217:
+_288:
 	db	":Skn3ListBatchLock",0
 	align	4
-_215:
+_286:
 	dd	1
-	dd	_58
+	dd	_60
 	dd	2
-	dd	_216
-	dd	_217
+	dd	_287
+	dd	_288
 	dd	-4
 	dd	0
 	align	4
-_214:
+_285:
 	dd	3
 	dd	0
 	dd	0
-_250:
+_321:
 	db	"Gadget",0
-_251:
+_322:
 	db	":maxgui.maxgui.TGadget",0
-_252:
+_323:
 	db	"listBoxLock",0
-_253:
+_324:
 	db	"listBoxLockLink",0
 	align	4
-_249:
-	dd	1
-	dd	_61
-	dd	2
-	dd	_250
-	dd	_251
-	dd	-4
-	dd	2
-	dd	_252
-	dd	_217
-	dd	-8
-	dd	2
-	dd	_253
-	dd	_54
-	dd	-12
-	dd	0
-	align	4
-_225:
-	dd	_199
-	dd	87
-	dd	3
-	align	4
-_228:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_227:
-	dd	_199
-	dd	87
-	dd	17
-	align	4
-_229:
-	dd	_199
-	dd	89
-	dd	3
-	align	4
-_231:
-	dd	_199
-	dd	90
-	dd	3
-	align	4
-_235:
-	dd	_199
-	dd	91
-	dd	3
-	align	4
-_248:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_236:
-	dd	_199
-	dd	93
-	dd	4
-	align	4
-_239:
-	dd	_199
-	dd	96
-	dd	4
-	align	4
-_244:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_243:
-	dd	_199
-	dd	96
-	dd	36
-	align	4
-_245:
-	dd	_199
-	dd	99
-	dd	4
-_273:
-	db	"Lock",0
-	align	4
-_272:
+_320:
 	dd	1
 	dd	_63
 	dd	2
-	dd	_273
-	dd	_217
+	dd	_321
+	dd	_322
 	dd	-4
+	dd	2
+	dd	_323
+	dd	_288
+	dd	-8
+	dd	2
+	dd	_324
+	dd	_56
+	dd	-12
 	dd	0
 	align	4
-_254:
-	dd	_199
-	dd	105
+_296:
+	dd	_270
+	dd	90
 	dd	3
 	align	4
-_261:
+_299:
 	dd	3
 	dd	0
 	dd	0
-	align	4
-_256:
-	dd	_199
-	dd	105
-	dd	17
-	align	4
-_262:
-	dd	_199
-	dd	106
-	dd	3
 	align	4
 _298:
+	dd	_270
+	dd	90
+	dd	17
+	align	4
+_300:
+	dd	_270
+	dd	92
+	dd	3
+	align	4
+_302:
+	dd	_270
+	dd	93
+	dd	3
+	align	4
+_306:
+	dd	_270
+	dd	94
+	dd	3
+	align	4
+_319:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_307:
+	dd	_270
+	dd	96
+	dd	4
+	align	4
+_310:
+	dd	_270
+	dd	99
+	dd	4
+	align	4
+_315:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_314:
+	dd	_270
+	dd	99
+	dd	36
+	align	4
+_316:
+	dd	_270
+	dd	102
+	dd	4
+_344:
+	db	"Lock",0
+	align	4
+_343:
 	dd	1
 	dd	_65
 	dd	2
-	dd	_273
-	dd	_217
+	dd	_344
+	dd	_288
 	dd	-4
 	dd	0
 	align	4
-_274:
-	dd	_199
-	dd	111
+_325:
+	dd	_270
+	dd	108
 	dd	3
 	align	4
-_297:
+_332:
 	dd	3
 	dd	0
 	dd	0
 	align	4
-_276:
-	dd	_199
-	dd	112
-	dd	4
+_327:
+	dd	_270
+	dd	108
+	dd	17
 	align	4
-_281:
-	dd	_199
-	dd	113
-	dd	4
+_333:
+	dd	_270
+	dd	109
+	dd	3
 	align	4
-_289:
-	dd	_199
+_369:
+	dd	1
+	dd	_67
+	dd	2
+	dd	_344
+	dd	_288
+	dd	-4
+	dd	0
+	align	4
+_345:
+	dd	_270
 	dd	114
+	dd	3
+	align	4
+_368:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_347:
+	dd	_270
+	dd	115
 	dd	4
-_302:
+	align	4
+_352:
+	dd	_270
+	dd	116
+	dd	4
+	align	4
+_360:
+	dd	_270
+	dd	117
+	dd	4
+_373:
 	db	":Skn3CustomPointer",0
 	align	4
-_301:
+_372:
 	dd	1
-	dd	_58
+	dd	_60
 	dd	2
-	dd	_216
-	dd	_302
+	dd	_287
+	dd	_373
 	dd	-4
 	dd	0
 	align	4
-_300:
+_371:
 	dd	3
 	dd	0
 	dd	0
-_360:
+_379:
+	db	":PARAFORMAT2",0
+	align	4
+_378:
+	dd	1
+	dd	_60
+	dd	2
+	dd	_287
+	dd	_379
+	dd	-4
+	dd	0
+	align	4
+_377:
+	dd	3
+	dd	0
+	dd	0
+_435:
 	db	"TrimAndFixPath",0
-_361:
+_436:
 	db	"slash",0
-_362:
+_437:
 	db	"startIndex",0
-_363:
+_438:
 	db	"length",0
 	align	4
-_359:
+_434:
 	dd	1
-	dd	_360
+	dd	_435
 	dd	2
-	dd	_68
-	dd	_69
+	dd	_70
+	dd	_71
 	dd	-4
 	dd	2
-	dd	_361
-	dd	_69
+	dd	_436
+	dd	_71
 	dd	-8
 	dd	2
-	dd	_52
-	dd	_49
+	dd	_54
+	dd	_51
 	dd	-12
 	dd	2
-	dd	_362
-	dd	_49
+	dd	_437
+	dd	_51
 	dd	-16
 	dd	2
-	dd	_363
-	dd	_49
+	dd	_438
+	dd	_51
 	dd	-20
 	dd	0
 	align	4
-_306:
-	dd	_199
-	dd	146
+_381:
+	dd	_270
+	dd	195
 	dd	2
 	align	4
-_309:
+_384:
 	dd	3
 	dd	0
 	dd	0
 	align	4
-_308:
-	dd	_199
-	dd	146
+_383:
+	dd	_270
+	dd	195
 	dd	21
 	align	4
 _1:
@@ -4357,812 +5037,584 @@ _1:
 	dd	2147483647
 	dd	0
 	align	4
-_310:
-	dd	_199
-	dd	149
+_385:
+	dd	_270
+	dd	198
 	dd	2
 	align	4
-_20:
+_21:
 	dd	_bbStringClass
 	dd	2147483647
 	dd	1
 	dw	47
 	align	4
-_22:
+_23:
 	dd	_bbStringClass
 	dd	2147483647
 	dd	1
 	dw	92
 	align	4
-_311:
-	dd	_199
-	dd	150
+_386:
+	dd	_270
+	dd	199
 	dd	2
 	align	4
-_314:
+_389:
 	dd	3
 	dd	0
 	dd	0
 	align	4
-_313:
-	dd	_199
-	dd	150
+_388:
+	dd	_270
+	dd	199
 	dd	18
 	align	4
-_315:
-	dd	_199
-	dd	153
+_390:
+	dd	_270
+	dd	202
 	dd	2
 	align	4
-_317:
-	dd	_199
-	dd	154
+_392:
+	dd	_270
+	dd	203
 	dd	2
-	align	4
-_319:
-	dd	_199
-	dd	155
-	dd	2
-	align	4
-_335:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_322:
-	dd	_199
-	dd	156
-	dd	3
-	align	4
-_333:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_332:
-	dd	_199
-	dd	156
-	dd	46
-	align	4
-_334:
-	dd	_199
-	dd	157
-	dd	3
-	align	4
-_336:
-	dd	_199
-	dd	160
-	dd	2
-	align	4
-_338:
-	dd	_199
-	dd	161
-	dd	2
-	align	4
-_353:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_340:
-	dd	_199
-	dd	162
-	dd	3
-	align	4
-_351:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_350:
-	dd	_199
-	dd	162
-	dd	46
-	align	4
-_352:
-	dd	_199
-	dd	163
-	dd	3
-	align	4
-_354:
-	dd	_199
-	dd	165
-	dd	2
-	align	4
-_357:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_356:
-	dd	_199
-	dd	165
-	dd	17
-	align	4
-_358:
-	dd	_199
-	dd	168
-	dd	2
-_395:
-	db	"IncBinToDisk",0
 	align	4
 _394:
-	dd	1
-	dd	_395
+	dd	_270
+	dd	204
 	dd	2
-	dd	_68
-	dd	_69
+	align	4
+_410:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_397:
+	dd	_270
+	dd	205
+	dd	3
+	align	4
+_408:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_407:
+	dd	_270
+	dd	205
+	dd	46
+	align	4
+_409:
+	dd	_270
+	dd	206
+	dd	3
+	align	4
+_411:
+	dd	_270
+	dd	209
+	dd	2
+	align	4
+_413:
+	dd	_270
+	dd	210
+	dd	2
+	align	4
+_428:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_415:
+	dd	_270
+	dd	211
+	dd	3
+	align	4
+_426:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_425:
+	dd	_270
+	dd	211
+	dd	46
+	align	4
+_427:
+	dd	_270
+	dd	212
+	dd	3
+	align	4
+_429:
+	dd	_270
+	dd	214
+	dd	2
+	align	4
+_432:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_431:
+	dd	_270
+	dd	214
+	dd	17
+	align	4
+_433:
+	dd	_270
+	dd	217
+	dd	2
+_470:
+	db	"IncBinToDisk",0
+	align	4
+_469:
+	dd	1
+	dd	_470
+	dd	2
+	dd	_70
+	dd	_71
 	dd	-4
 	dd	0
 	align	4
-_364:
-	dd	_199
-	dd	173
+_439:
+	dd	_270
+	dd	222
 	dd	2
 	align	4
-_30:
+_31:
 	dd	_bbStringClass
 	dd	2147483647
 	dd	8
 	dw	105,110,99,98,105,110,58,58
-_386:
+_461:
 	db	"pathBase",0
-_387:
+_462:
 	db	"pathCount",0
-_388:
+_463:
 	db	"pathFile",0
-_389:
+_464:
 	db	"path2",0
-_390:
+_465:
 	db	"in",0
-_391:
+_466:
 	db	":brl.stream.TStream",0
-_392:
+_467:
 	db	"out",0
 	align	4
-_385:
+_460:
 	dd	3
 	dd	0
 	dd	2
-	dd	_386
-	dd	_69
+	dd	_461
+	dd	_71
 	dd	-8
 	dd	2
-	dd	_387
-	dd	_69
+	dd	_462
+	dd	_71
 	dd	-12
 	dd	2
-	dd	_388
-	dd	_69
+	dd	_463
+	dd	_71
 	dd	-16
 	dd	2
-	dd	_389
-	dd	_69
+	dd	_464
+	dd	_71
 	dd	-20
 	dd	2
-	dd	_390
-	dd	_391
+	dd	_465
+	dd	_466
 	dd	-24
 	dd	2
-	dd	_392
-	dd	_391
+	dd	_467
+	dd	_466
 	dd	-28
 	dd	0
 	align	4
-_366:
-	dd	_199
-	dd	175
-	dd	3
-	align	4
-_368:
-	dd	_199
-	dd	176
-	dd	3
-	align	4
-_370:
-	dd	_199
-	dd	177
-	dd	3
-	align	4
-_372:
-	dd	_199
-	dd	179
-	dd	3
-	align	4
-_374:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_373:
-	dd	_199
-	dd	180
-	dd	4
-	align	4
-_375:
-	dd	_199
-	dd	184
-	dd	3
-	align	4
-_377:
-	dd	_199
-	dd	187
-	dd	3
-	align	4
-_379:
-	dd	_199
-	dd	188
-	dd	3
-	align	4
-_381:
-	dd	_199
-	dd	189
-	dd	3
-	align	4
-_382:
-	dd	_199
-	dd	190
-	dd	3
-	align	4
-_383:
-	dd	_199
-	dd	191
-	dd	3
-	align	4
-_384:
-	dd	_199
-	dd	194
-	dd	3
-	align	4
-_393:
-	dd	_199
-	dd	198
-	dd	2
-_398:
-	db	"RequestScrollbarSize",0
-	align	4
-_397:
-	dd	1
-	dd	_398
-	dd	0
-	align	4
-_396:
-	dd	_199
-	dd	220
-	dd	2
-_402:
-	db	"SetComboBoxHeight",0
-_403:
-	db	"comboBox",0
-_404:
-	db	"Height",0
-	align	4
-_401:
-	dd	1
-	dd	_402
-	dd	2
-	dd	_403
-	dd	_251
-	dd	-4
-	dd	2
-	dd	_404
-	dd	_49
-	dd	-8
-	dd	0
-	align	4
-_399:
-	dd	_199
-	dd	237
-	dd	3
-	align	4
-_400:
-	dd	_199
-	dd	238
-	dd	3
-_431:
-	db	"GadgetScreenPosition",0
-_432:
-	db	"gadget",0
-_433:
-	db	"client",0
-_434:
-	db	"point",0
-_435:
-	db	"l",0
-_436:
-	db	"Position",0
-_437:
-	db	"[]i",0
-	align	4
-_430:
-	dd	1
-	dd	_431
-	dd	2
-	dd	_432
-	dd	_251
-	dd	-12
-	dd	2
-	dd	_433
-	dd	_49
-	dd	-16
-	dd	2
-	dd	_434
-	dd	_435
-	dd	-8
-	dd	2
-	dd	_436
-	dd	_437
-	dd	-20
-	dd	0
-	align	4
-_405:
-	dd	_199
-	dd	257
-	dd	3
-	align	4
-_407:
-	dd	_199
-	dd	258
-	dd	3
-	align	4
-_412:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_409:
-	dd	_199
-	dd	259
-	dd	4
-	align	4
-_417:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_414:
-	dd	_199
-	dd	261
-	dd	4
-	align	4
-_418:
-	dd	_199
-	dd	264
-	dd	3
-_419:
-	db	"i",0
-	align	4
-_421:
-	dd	_199
-	dd	265
-	dd	3
-	align	4
-_425:
-	dd	_199
-	dd	266
-	dd	3
-	align	4
-_429:
-	dd	_199
-	dd	270
-	dd	2
 _441:
-	db	"DisableGadgetRedraw",0
-	align	4
-_440:
-	dd	1
-	dd	_441
-	dd	2
-	dd	_432
-	dd	_251
-	dd	-4
-	dd	0
-	align	4
-_438:
-	dd	_199
-	dd	289
-	dd	3
-	align	4
-_439:
-	dd	_199
-	dd	290
-	dd	3
-_445:
-	db	"EnableGadgetRedraw",0
-	align	4
-_444:
-	dd	1
-	dd	_445
-	dd	2
-	dd	_432
-	dd	_251
-	dd	-4
-	dd	0
-	align	4
-_442:
-	dd	_199
-	dd	309
+	dd	_270
+	dd	224
 	dd	3
 	align	4
 _443:
-	dd	_199
-	dd	310
+	dd	_270
+	dd	225
 	dd	3
-_460:
-	db	"MessageBox",0
-_461:
-	db	"title",0
-_462:
-	db	"message",0
-_463:
-	db	"parent",0
-_464:
-	db	"oldTitle",0
 	align	4
-_459:
-	dd	1
-	dd	_460
-	dd	2
-	dd	_461
-	dd	_69
-	dd	-4
-	dd	2
-	dd	_462
-	dd	_69
-	dd	-8
-	dd	2
-	dd	_463
-	dd	_251
-	dd	-12
-	dd	2
-	dd	_464
-	dd	_69
-	dd	-16
+_445:
+	dd	_270
+	dd	226
+	dd	3
+	align	4
+_447:
+	dd	_270
+	dd	228
+	dd	3
+	align	4
+_449:
+	dd	3
 	dd	0
-	align	4
-_446:
-	dd	_199
-	dd	329
-	dd	2
+	dd	0
 	align	4
 _448:
-	dd	_199
-	dd	330
-	dd	2
+	dd	_270
+	dd	229
+	dd	4
 	align	4
-_453:
-	dd	_199
-	dd	331
-	dd	2
+_450:
+	dd	_270
+	dd	233
+	dd	3
+	align	4
+_452:
+	dd	_270
+	dd	236
+	dd	3
 	align	4
 _454:
-	dd	_199
-	dd	332
-	dd	2
-_515:
-	db	"GadgetSizeForString",0
-_516:
-	db	"text",0
-_517:
-	db	"maxWidth",0
+	dd	_270
+	dd	237
+	dd	3
 	align	4
-_514:
+_456:
+	dd	_270
+	dd	238
+	dd	3
+	align	4
+_457:
+	dd	_270
+	dd	239
+	dd	3
+	align	4
+_458:
+	dd	_270
+	dd	240
+	dd	3
+	align	4
+_459:
+	dd	_270
+	dd	243
+	dd	3
+	align	4
+_468:
+	dd	_270
+	dd	247
+	dd	2
+_473:
+	db	"RequestScrollbarSize",0
+	align	4
+_472:
 	dd	1
-	dd	_515
-	dd	2
-	dd	_432
-	dd	_251
-	dd	-4
-	dd	2
-	dd	_516
-	dd	_69
-	dd	-8
-	dd	2
-	dd	_517
-	dd	_49
-	dd	-12
-	dd	2
-	dd	_57
-	dd	_49
-	dd	-16
-	dd	0
-	align	4
-_465:
-	dd	_199
-	dd	352
-	dd	3
-	align	4
-_467:
-	dd	_199
-	dd	355
-	dd	3
-_496:
-	db	"dc",0
-_497:
-	db	"font",0
-_498:
-	db	"rect",0
-_499:
-	db	"flags",0
-	align	4
-_495:
-	dd	3
-	dd	0
-	dd	2
-	dd	_496
-	dd	_49
-	dd	-20
-	dd	2
-	dd	_497
-	dd	_49
-	dd	-24
-	dd	2
-	dd	_498
-	dd	_437
-	dd	-28
-	dd	2
-	dd	_499
-	dd	_49
-	dd	-32
+	dd	_473
 	dd	0
 	align	4
 _471:
-	dd	_199
-	dd	378
-	dd	5
-	align	4
-_473:
-	dd	_199
-	dd	381
-	dd	5
-	align	4
-_475:
-	dd	_199
-	dd	382
-	dd	5
+	dd	_270
+	dd	269
+	dd	2
+_477:
+	db	"SetComboBoxHeight",0
+_478:
+	db	"comboBox",0
+_479:
+	db	"Height",0
 	align	4
 _476:
-	dd	_199
-	dd	385
-	dd	5
+	dd	1
+	dd	_477
+	dd	2
+	dd	_478
+	dd	_322
+	dd	-4
+	dd	2
+	dd	_479
+	dd	_51
+	dd	-8
+	dd	0
 	align	4
-_479:
-	dd	_199
-	dd	387
-	dd	5
+_474:
+	dd	_270
+	dd	286
+	dd	3
 	align	4
-_481:
-	dd	_199
-	dd	388
-	dd	5
+_475:
+	dd	_270
+	dd	287
+	dd	3
+_506:
+	db	"GadgetScreenPosition",0
+_507:
+	db	"gadget",0
+_508:
+	db	"client",0
+_509:
+	db	"point",0
+_510:
+	db	"l",0
+_511:
+	db	"Position",0
+_512:
+	db	"[]i",0
+	align	4
+_505:
+	dd	1
+	dd	_506
+	dd	2
+	dd	_507
+	dd	_322
+	dd	-12
+	dd	2
+	dd	_508
+	dd	_51
+	dd	-16
+	dd	2
+	dd	_509
+	dd	_510
+	dd	-8
+	dd	2
+	dd	_511
+	dd	_512
+	dd	-20
+	dd	0
+	align	4
+_480:
+	dd	_270
+	dd	306
+	dd	3
+	align	4
+_482:
+	dd	_270
+	dd	307
+	dd	3
+	align	4
+_487:
+	dd	3
+	dd	0
+	dd	0
 	align	4
 _484:
+	dd	_270
+	dd	308
+	dd	4
+	align	4
+_492:
 	dd	3
 	dd	0
 	dd	0
-	align	4
-_483:
-	dd	_199
-	dd	388
-	dd	21
-	align	4
-_485:
-	dd	_199
-	dd	391
-	dd	5
-	align	4
-_488:
-	dd	_199
-	dd	394
-	dd	5
 	align	4
 _489:
-	dd	_199
-	dd	397
-	dd	5
-_512:
-	db	"size",0
-_513:
-	db	"oldText",0
+	dd	_270
+	dd	310
+	dd	4
 	align	4
-_511:
+_493:
+	dd	_270
+	dd	313
 	dd	3
-	dd	0
-	dd	2
-	dd	_512
-	dd	_437
-	dd	-36
-	dd	2
-	dd	_513
-	dd	_69
-	dd	-40
-	dd	0
+_494:
+	db	"i",0
+	align	4
+_496:
+	dd	_270
+	dd	314
+	dd	3
 	align	4
 _500:
-	dd	_199
-	dd	358
-	dd	5
-	align	4
-_503:
-	dd	_199
-	dd	361
-	dd	5
+	dd	_270
+	dd	315
+	dd	3
 	align	4
 _504:
-	dd	_199
-	dd	364
-	dd	5
+	dd	_270
+	dd	319
+	dd	2
+_516:
+	db	"DisableGadgetRedraw",0
 	align	4
-_506:
-	dd	_199
-	dd	365
-	dd	5
-	align	4
-_507:
-	dd	_199
-	dd	368
-	dd	5
-	align	4
-_508:
-	dd	_199
-	dd	371
-	dd	5
-	align	4
-_509:
-	dd	_199
-	dd	372
-	dd	5
-	align	4
-_510:
-	dd	_199
-	dd	375
-	dd	5
-_528:
-	db	"GetCreationGroup",0
-_529:
-	db	"tmpProxy",0
-_530:
-	db	":maxgui.maxgui.TProxyGadget",0
-	align	4
-_527:
+_515:
 	dd	1
-	dd	_528
+	dd	_516
 	dd	2
-	dd	_250
-	dd	_251
+	dd	_507
+	dd	_322
 	dd	-4
-	dd	2
-	dd	_529
-	dd	_530
-	dd	-8
 	dd	0
+	align	4
+_513:
+	dd	_270
+	dd	338
+	dd	3
+	align	4
+_514:
+	dd	_270
+	dd	339
+	dd	3
+_520:
+	db	"EnableGadgetRedraw",0
+	align	4
+_519:
+	dd	1
+	dd	_520
+	dd	2
+	dd	_507
+	dd	_322
+	dd	-4
+	dd	0
+	align	4
+_517:
+	dd	_270
+	dd	358
+	dd	3
 	align	4
 _518:
-	dd	_199
-	dd	420
-	dd	2
-	align	4
-_520:
-	dd	_199
-	dd	421
-	dd	2
-	align	4
-_525:
+	dd	_270
+	dd	359
 	dd	3
-	dd	0
-	dd	0
-	align	4
-_522:
-	dd	_199
-	dd	421
-	dd	19
-	align	4
-_526:
-	dd	_199
-	dd	422
-	dd	2
-_540:
-	db	"SetGadgetReadOnly",0
-_541:
-	db	"yes",0
-	align	4
-_539:
-	dd	1
-	dd	_540
-	dd	2
-	dd	_432
-	dd	_251
-	dd	-4
-	dd	2
-	dd	_541
-	dd	_49
-	dd	-8
-	dd	0
-	align	4
-_531:
-	dd	_199
-	dd	439
-	dd	2
-	align	4
-_538:
-	dd	3
-	dd	0
-	dd	2
-	dd	_57
-	dd	_49
-	dd	-12
-	dd	0
-	align	4
 _535:
-	dd	_199
-	dd	442
-	dd	5
-	align	4
+	db	"MessageBox",0
+_536:
+	db	"title",0
 _537:
-	dd	_199
-	dd	443
-	dd	5
-_553:
-	db	"SetGadgetMaxLength",0
+	db	"message",0
+_538:
+	db	"parent",0
+_539:
+	db	"oldTitle",0
 	align	4
-_552:
+_534:
 	dd	1
-	dd	_553
+	dd	_535
 	dd	2
-	dd	_432
-	dd	_251
+	dd	_536
+	dd	_71
 	dd	-4
 	dd	2
-	dd	_363
-	dd	_49
+	dd	_537
+	dd	_71
 	dd	-8
+	dd	2
+	dd	_538
+	dd	_322
+	dd	-12
+	dd	2
+	dd	_539
+	dd	_71
+	dd	-16
 	dd	0
+	align	4
+_521:
+	dd	_270
+	dd	378
+	dd	2
+	align	4
+_523:
+	dd	_270
+	dd	379
+	dd	2
+	align	4
+_528:
+	dd	_270
+	dd	380
+	dd	2
+	align	4
+_529:
+	dd	_270
+	dd	381
+	dd	2
+_590:
+	db	"GadgetSizeForString",0
+_591:
+	db	"text",0
+_592:
+	db	"maxWidth",0
+	align	4
+_589:
+	dd	1
+	dd	_590
+	dd	2
+	dd	_507
+	dd	_322
+	dd	-4
+	dd	2
+	dd	_591
+	dd	_71
+	dd	-8
+	dd	2
+	dd	_592
+	dd	_51
+	dd	-12
+	dd	2
+	dd	_59
+	dd	_51
+	dd	-16
+	dd	0
+	align	4
+_540:
+	dd	_270
+	dd	401
+	dd	3
 	align	4
 _542:
-	dd	_199
-	dd	463
-	dd	2
+	dd	_270
+	dd	404
+	dd	3
+_571:
+	db	"dc",0
+_572:
+	db	"font",0
+_573:
+	db	"rect",0
+_574:
+	db	"flags",0
 	align	4
-_551:
+_570:
 	dd	3
 	dd	0
+	dd	2
+	dd	_571
+	dd	_51
+	dd	-20
+	dd	2
+	dd	_572
+	dd	_51
+	dd	-24
+	dd	2
+	dd	_573
+	dd	_512
+	dd	-28
+	dd	2
+	dd	_574
+	dd	_51
+	dd	-32
 	dd	0
 	align	4
 _546:
-	dd	_199
-	dd	466
+	dd	_270
+	dd	427
 	dd	5
-	align	4
-_549:
-	dd	3
-	dd	0
-	dd	0
 	align	4
 _548:
-	dd	_199
-	dd	466
-	dd	19
+	dd	_270
+	dd	430
+	dd	5
 	align	4
 _550:
-	dd	_199
-	dd	467
+	dd	_270
+	dd	431
 	dd	5
-_563:
-	db	"GetGadgetMaxLength",0
 	align	4
-_562:
-	dd	1
-	dd	_563
-	dd	2
-	dd	_432
-	dd	_251
-	dd	-4
-	dd	0
+_551:
+	dd	_270
+	dd	434
+	dd	5
 	align	4
 _554:
-	dd	_199
-	dd	489
-	dd	2
+	dd	_270
+	dd	436
+	dd	5
+	align	4
+_556:
+	dd	_270
+	dd	437
+	dd	5
 	align	4
 _559:
 	dd	3
@@ -5170,1271 +5622,1597 @@ _559:
 	dd	0
 	align	4
 _558:
-	dd	_199
-	dd	497
-	dd	4
-	align	4
-_561:
-	dd	3
-	dd	0
-	dd	0
+	dd	_270
+	dd	437
+	dd	21
 	align	4
 _560:
-	dd	_199
-	dd	492
+	dd	_270
+	dd	440
 	dd	5
-_626:
-	db	"LoadCustomPointer",0
-_627:
-	db	"deletePath2",0
 	align	4
-_625:
-	dd	1
-	dd	_626
-	dd	2
-	dd	_68
-	dd	_69
-	dd	-4
-	dd	2
-	dd	_70
-	dd	_302
-	dd	-8
-	dd	2
-	dd	_389
-	dd	_69
-	dd	-12
-	dd	2
-	dd	_627
-	dd	_49
-	dd	-16
-	dd	0
+_563:
+	dd	_270
+	dd	443
+	dd	5
 	align	4
 _564:
-	dd	_199
-	dd	515
-	dd	2
+	dd	_270
+	dd	446
+	dd	5
+_587:
+	db	"size",0
+_588:
+	db	"oldText",0
 	align	4
-_566:
-	dd	_199
-	dd	516
-	dd	2
-	align	4
-_568:
-	dd	_199
-	dd	517
-	dd	2
-	align	4
-_570:
-	dd	_199
-	dd	518
-	dd	2
-	align	4
-_573:
+_586:
 	dd	3
 	dd	0
-	dd	0
-	align	4
-_572:
-	dd	_199
-	dd	519
-	dd	3
-	align	4
-_576:
-	dd	3
-	dd	0
+	dd	2
+	dd	_587
+	dd	_512
+	dd	-36
+	dd	2
+	dd	_588
+	dd	_71
+	dd	-40
 	dd	0
 	align	4
 _575:
-	dd	_199
-	dd	521
-	dd	3
+	dd	_270
+	dd	407
+	dd	5
 	align	4
-_577:
-	dd	_199
-	dd	525
-	dd	2
-	align	4
-_584:
-	dd	3
-	dd	0
-	dd	0
+_578:
+	dd	_270
+	dd	410
+	dd	5
 	align	4
 _579:
-	dd	_199
-	dd	527
-	dd	3
+	dd	_270
+	dd	413
+	dd	5
 	align	4
-_589:
-	dd	3
-	dd	0
-	dd	0
+_581:
+	dd	_270
+	dd	414
+	dd	5
 	align	4
-_586:
-	dd	_199
-	dd	530
-	dd	3
+_582:
+	dd	_270
+	dd	417
+	dd	5
 	align	4
-_590:
-	dd	_199
-	dd	534
+_583:
+	dd	_270
+	dd	420
+	dd	5
+	align	4
+_584:
+	dd	_270
+	dd	421
+	dd	5
+	align	4
+_585:
+	dd	_270
+	dd	424
+	dd	5
+_603:
+	db	"GetCreationGroup",0
+_604:
+	db	"tmpProxy",0
+_605:
+	db	":maxgui.maxgui.TProxyGadget",0
+	align	4
+_602:
+	dd	1
+	dd	_603
 	dd	2
-	align	4
-_610:
-	dd	3
+	dd	_321
+	dd	_322
+	dd	-4
+	dd	2
+	dd	_604
+	dd	_605
+	dd	-8
 	dd	0
-	dd	0
-	align	4
-_592:
-	dd	_199
-	dd	536
-	dd	3
 	align	4
 _593:
-	dd	_199
-	dd	537
+	dd	_270
+	dd	469
+	dd	2
+	align	4
+_595:
+	dd	_270
+	dd	470
+	dd	2
+	align	4
+_600:
 	dd	3
+	dd	0
+	dd	0
+	align	4
+_597:
+	dd	_270
+	dd	470
+	dd	19
 	align	4
 _601:
-	dd	_199
-	dd	538
-	dd	3
-	align	4
-_604:
-	dd	_199
-	dd	542
-	dd	3
-	align	4
-_611:
-	dd	_199
-	dd	552
+	dd	_270
+	dd	471
 	dd	2
+_615:
+	db	"SetGadgetReadOnly",0
+_616:
+	db	"yes",0
 	align	4
 _614:
+	dd	1
+	dd	_615
+	dd	2
+	dd	_507
+	dd	_322
+	dd	-4
+	dd	2
+	dd	_616
+	dd	_51
+	dd	-8
+	dd	0
+	align	4
+_606:
+	dd	_270
+	dd	488
+	dd	2
+	align	4
+_613:
+	dd	3
+	dd	0
+	dd	2
+	dd	_59
+	dd	_51
+	dd	-12
+	dd	0
+	align	4
+_610:
+	dd	_270
+	dd	491
+	dd	5
+	align	4
+_612:
+	dd	_270
+	dd	492
+	dd	5
+_628:
+	db	"SetGadgetMaxLength",0
+	align	4
+_627:
+	dd	1
+	dd	_628
+	dd	2
+	dd	_507
+	dd	_322
+	dd	-4
+	dd	2
+	dd	_438
+	dd	_51
+	dd	-8
+	dd	0
+	align	4
+_617:
+	dd	_270
+	dd	512
+	dd	2
+	align	4
+_626:
 	dd	3
 	dd	0
 	dd	0
 	align	4
-_613:
-	dd	_199
-	dd	552
-	dd	17
-	align	4
-_615:
-	dd	_199
-	dd	555
-	dd	2
+_621:
+	dd	_270
+	dd	515
+	dd	5
 	align	4
 _624:
 	dd	3
 	dd	0
 	dd	0
 	align	4
-_619:
-	dd	_199
-	dd	557
-	dd	3
-	align	4
 _623:
-	dd	_199
-	dd	558
-	dd	3
-_645:
-	db	"SetCustomPointer",0
+	dd	_270
+	dd	515
+	dd	19
 	align	4
-_644:
-	dd	1
-	dd	_645
-	dd	2
-	dd	_70
-	dd	_302
-	dd	-4
-	dd	0
-	align	4
-_628:
-	dd	_199
-	dd	575
-	dd	2
-	align	4
-_643:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_630:
-	dd	_199
-	dd	576
-	dd	3
-	align	4
-_631:
-	dd	_199
-	dd	578
-	dd	3
-	align	4
-_634:
-	dd	_199
-	dd	579
-	dd	3
+_625:
+	dd	_270
+	dd	516
+	dd	5
+_638:
+	db	"GetGadgetMaxLength",0
 	align	4
 _637:
-	dd	_199
-	dd	580
-	dd	3
-	align	4
-_642:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_639:
-	dd	_199
-	dd	580
-	dd	39
-_677:
-	db	"FreeCustomPointer",0
-	align	4
-_676:
 	dd	1
-	dd	_677
+	dd	_638
+	dd	2
+	dd	_507
+	dd	_322
+	dd	-4
+	dd	0
+	align	4
+_629:
+	dd	_270
+	dd	538
+	dd	2
+	align	4
+_634:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_633:
+	dd	_270
+	dd	546
+	dd	4
+	align	4
+_636:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_635:
+	dd	_270
+	dd	541
+	dd	5
+_701:
+	db	"LoadCustomPointer",0
+_702:
+	db	"deletePath2",0
+	align	4
+_700:
+	dd	1
+	dd	_701
 	dd	2
 	dd	_70
-	dd	_302
-	dd	-4
-	dd	0
-	align	4
-_646:
-	dd	_199
-	dd	600
-	dd	2
-	align	4
-_675:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_648:
-	dd	_199
-	dd	602
-	dd	3
-	align	4
-_652:
-	dd	_199
-	dd	603
-	dd	3
-	align	4
-_674:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_656:
-	dd	_199
-	dd	605
-	dd	4
-	align	4
-_661:
-	dd	_199
-	dd	610
-	dd	4
-	align	4
-_666:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_665:
-	dd	_199
-	dd	610
-	dd	51
-	align	4
-_667:
-	dd	_199
-	dd	612
-	dd	4
-	align	4
-_670:
-	dd	_199
-	dd	613
-	dd	4
-_729:
-	db	"ExtractCursorHotspot",0
-_730:
-	db	"result",0
-_731:
-	db	"file",0
-	align	4
-_728:
-	dd	1
-	dd	_729
-	dd	2
-	dd	_68
-	dd	_69
+	dd	_71
 	dd	-4
 	dd	2
-	dd	_52
-	dd	_49
+	dd	_72
+	dd	_373
 	dd	-8
 	dd	2
-	dd	_730
-	dd	_437
+	dd	_464
+	dd	_71
 	dd	-12
 	dd	2
-	dd	_731
-	dd	_391
+	dd	_702
+	dd	_51
 	dd	-16
 	dd	0
 	align	4
-_678:
-	dd	_199
-	dd	637
-	dd	2
-_679:
-	db	"i",0
-	align	4
-_681:
-	dd	_199
-	dd	639
+_639:
+	dd	_270
+	dd	564
 	dd	2
 	align	4
-_34:
-	dd	_bbStringClass
-	dd	2147483647
-	dd	14
-	dw	108,105,116,116,108,101,101,110,100,105,97,110,58,58
-	align	4
-_683:
-	dd	_199
-	dd	640
+_641:
+	dd	_270
+	dd	565
 	dd	2
-_726:
-	db	"temp",0
 	align	4
-_725:
+_643:
+	dd	_270
+	dd	566
+	dd	2
+	align	4
+_645:
+	dd	_270
+	dd	567
+	dd	2
+	align	4
+_648:
 	dd	3
 	dd	0
-	dd	2
-	dd	_726
-	dd	_49
-	dd	-20
 	dd	0
+	align	4
+_647:
+	dd	_270
+	dd	568
+	dd	3
+	align	4
+_651:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_650:
+	dd	_270
+	dd	570
+	dd	3
+	align	4
+_652:
+	dd	_270
+	dd	574
+	dd	2
+	align	4
+_659:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_654:
+	dd	_270
+	dd	576
+	dd	3
+	align	4
+_664:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_661:
+	dd	_270
+	dd	579
+	dd	3
+	align	4
+_665:
+	dd	_270
+	dd	583
+	dd	2
 	align	4
 _685:
-	dd	_199
-	dd	642
 	dd	3
+	dd	0
+	dd	0
+	align	4
+_667:
+	dd	_270
+	dd	585
+	dd	3
+	align	4
+_668:
+	dd	_270
+	dd	586
+	dd	3
+	align	4
+_676:
+	dd	_270
+	dd	587
+	dd	3
+	align	4
+_679:
+	dd	_270
+	dd	591
+	dd	3
+	align	4
+_686:
+	dd	_270
+	dd	601
+	dd	2
+	align	4
+_689:
+	dd	3
+	dd	0
+	dd	0
 	align	4
 _688:
-	dd	_199
-	dd	645
-	dd	3
+	dd	_270
+	dd	601
+	dd	17
 	align	4
-_692:
-	dd	_199
-	dd	646
-	dd	3
+_690:
+	dd	_270
+	dd	604
+	dd	2
 	align	4
-_721:
+_699:
 	dd	3
 	dd	0
 	dd	0
 	align	4
 _694:
-	dd	_199
-	dd	648
-	dd	4
-	align	4
-_697:
-	dd	_199
-	dd	649
-	dd	4
-	align	4
-_720:
+	dd	_270
+	dd	606
 	dd	3
-	dd	0
-	dd	0
 	align	4
-_699:
-	dd	_199
-	dd	651
-	dd	5
-	align	4
-_700:
-	dd	_199
-	dd	652
-	dd	5
+_698:
+	dd	_270
+	dd	607
+	dd	3
+_720:
+	db	"SetCustomPointer",0
 	align	4
 _719:
+	dd	1
+	dd	_720
+	dd	2
+	dd	_72
+	dd	_373
+	dd	-4
+	dd	0
+	align	4
+_703:
+	dd	_270
+	dd	624
+	dd	2
+	align	4
+_718:
 	dd	3
 	dd	0
 	dd	0
 	align	4
-_704:
-	dd	_199
-	dd	653
-	dd	6
+_705:
+	dd	_270
+	dd	625
+	dd	3
 	align	4
-_707:
-	dd	_199
-	dd	654
-	dd	6
+_706:
+	dd	_270
+	dd	627
+	dd	3
 	align	4
-_713:
-	dd	_199
-	dd	655
-	dd	6
+_709:
+	dd	_270
+	dd	628
+	dd	3
 	align	4
-_722:
-	dd	_199
-	dd	661
+_712:
+	dd	_270
+	dd	629
+	dd	3
+	align	4
+_717:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_714:
+	dd	_270
+	dd	629
+	dd	39
+_752:
+	db	"FreeCustomPointer",0
+	align	4
+_751:
+	dd	1
+	dd	_752
+	dd	2
+	dd	_72
+	dd	_373
+	dd	-4
+	dd	0
+	align	4
+_721:
+	dd	_270
+	dd	649
+	dd	2
+	align	4
+_750:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_723:
+	dd	_270
+	dd	651
 	dd	3
 	align	4
 _727:
-	dd	_199
-	dd	665
-	dd	2
-_784:
-	db	"ListBatchLock",0
+	dd	_270
+	dd	652
+	dd	3
 	align	4
-_783:
-	dd	1
-	dd	_784
-	dd	2
-	dd	_250
-	dd	_251
-	dd	-4
-	dd	2
-	dd	_273
-	dd	_217
-	dd	-8
-	dd	2
-	dd	_50
-	dd	_51
-	dd	-12
+_749:
+	dd	3
+	dd	0
 	dd	0
 	align	4
-_732:
-	dd	_199
-	dd	682
-	dd	3
+_731:
+	dd	_270
+	dd	654
+	dd	4
 	align	4
-_734:
-	dd	_199
-	dd	683
-	dd	3
+_736:
+	dd	_270
+	dd	659
+	dd	4
 	align	4
 _741:
 	dd	3
 	dd	0
 	dd	0
 	align	4
-_736:
-	dd	_199
-	dd	685
-	dd	4
-	align	4
 _740:
-	dd	_199
-	dd	686
-	dd	4
+	dd	_270
+	dd	659
+	dd	51
 	align	4
 _742:
-	dd	_199
-	dd	690
-	dd	3
+	dd	_270
+	dd	661
+	dd	4
 	align	4
-_744:
-	dd	_199
+_745:
+	dd	_270
+	dd	662
+	dd	4
+_804:
+	db	"ExtractCursorHotspot",0
+_805:
+	db	"result",0
+_806:
+	db	"file",0
+	align	4
+_803:
+	dd	1
+	dd	_804
+	dd	2
+	dd	_70
+	dd	_71
+	dd	-4
+	dd	2
+	dd	_54
+	dd	_51
+	dd	-8
+	dd	2
+	dd	_805
+	dd	_512
+	dd	-12
+	dd	2
+	dd	_806
+	dd	_466
+	dd	-16
+	dd	0
+	align	4
+_753:
+	dd	_270
+	dd	686
+	dd	2
+_754:
+	db	"i",0
+	align	4
+_756:
+	dd	_270
+	dd	688
+	dd	2
+	align	4
+_35:
+	dd	_bbStringClass
+	dd	2147483647
+	dd	14
+	dw	108,105,116,116,108,101,101,110,100,105,97,110,58,58
+	align	4
+_758:
+	dd	_270
+	dd	689
+	dd	2
+_801:
+	db	"temp",0
+	align	4
+_800:
+	dd	3
+	dd	0
+	dd	2
+	dd	_801
+	dd	_51
+	dd	-20
+	dd	0
+	align	4
+_760:
+	dd	_270
 	dd	691
 	dd	3
 	align	4
-_747:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_746:
-	dd	_199
-	dd	691
-	dd	21
-	align	4
-_748:
-	dd	_199
+_763:
+	dd	_270
 	dd	694
 	dd	3
 	align	4
-_749:
-	dd	_199
+_767:
+	dd	_270
 	dd	695
 	dd	3
 	align	4
-_753:
-	dd	_199
-	dd	696
+_796:
 	dd	3
+	dd	0
+	dd	0
 	align	4
-_761:
-	dd	_199
+_769:
+	dd	_270
 	dd	697
-	dd	3
+	dd	4
 	align	4
-_767:
-	dd	_199
+_772:
+	dd	_270
 	dd	698
+	dd	4
+	align	4
+_795:
 	dd	3
+	dd	0
+	dd	0
+	align	4
+_774:
+	dd	_270
+	dd	700
+	dd	5
 	align	4
 _775:
-	dd	_199
-	dd	699
-	dd	3
-	align	4
-_779:
-	dd	_199
-	dd	702
-	dd	3
-	align	4
-_782:
-	dd	_199
-	dd	705
-	dd	3
-_875:
-	db	"ListBatchAdd",0
-_876:
-	db	"icon",0
-_877:
-	db	"tip",0
-_878:
-	db	"extra",0
-_879:
-	db	":Object",0
-_880:
-	db	"item",0
-_881:
-	db	":maxgui.maxgui.TGadgetItem",0
-	align	4
-_874:
-	dd	1
-	dd	_875
-	dd	2
-	dd	_250
-	dd	_251
-	dd	-4
-	dd	2
-	dd	_516
-	dd	_69
-	dd	-8
-	dd	2
-	dd	_499
-	dd	_49
-	dd	-12
-	dd	2
-	dd	_876
-	dd	_49
-	dd	-16
-	dd	2
-	dd	_877
-	dd	_69
-	dd	-20
-	dd	2
-	dd	_878
-	dd	_879
-	dd	-24
-	dd	2
-	dd	_273
-	dd	_217
-	dd	-28
-	dd	2
-	dd	_880
-	dd	_881
-	dd	-32
-	dd	0
-	align	4
-_785:
-	dd	_199
-	dd	724
-	dd	3
-	align	4
-_787:
-	dd	_199
-	dd	727
-	dd	3
-	align	4
-_791:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_789:
-	dd	_199
-	dd	728
-	dd	4
-	align	4
-_790:
-	dd	_199
-	dd	729
-	dd	4
-	align	4
-_792:
-	dd	_199
-	dd	734
-	dd	3
+	dd	_270
+	dd	701
+	dd	5
 	align	4
 _794:
-	dd	_199
-	dd	735
 	dd	3
+	dd	0
+	dd	0
+	align	4
+_779:
+	dd	_270
+	dd	702
+	dd	6
+	align	4
+_782:
+	dd	_270
+	dd	703
+	dd	6
+	align	4
+_788:
+	dd	_270
+	dd	704
+	dd	6
 	align	4
 _797:
-	dd	_199
-	dd	738
+	dd	_270
+	dd	710
 	dd	3
-_805:
-	db	":TGadgetItem",0
 	align	4
-_810:
-	dd	_199
+_802:
+	dd	_270
+	dd	714
+	dd	2
+_859:
+	db	"ListBatchLock",0
+	align	4
+_858:
+	dd	1
+	dd	_859
+	dd	2
+	dd	_321
+	dd	_322
+	dd	-4
+	dd	2
+	dd	_344
+	dd	_288
+	dd	-8
+	dd	2
+	dd	_52
+	dd	_53
+	dd	-12
+	dd	0
+	align	4
+_807:
+	dd	_270
+	dd	731
+	dd	3
+	align	4
+_809:
+	dd	_270
+	dd	732
+	dd	3
+	align	4
+_816:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_811:
+	dd	_270
+	dd	734
+	dd	4
+	align	4
+_815:
+	dd	_270
+	dd	735
+	dd	4
+	align	4
+_817:
+	dd	_270
 	dd	739
 	dd	3
 	align	4
-_823:
-	dd	_199
-	dd	742
+_819:
+	dd	_270
+	dd	740
 	dd	3
 	align	4
-_829:
-	dd	_199
+_822:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_821:
+	dd	_270
+	dd	740
+	dd	21
+	align	4
+_823:
+	dd	_270
 	dd	743
 	dd	3
 	align	4
-_837:
-	dd	_199
+_824:
+	dd	_270
 	dd	744
 	dd	3
 	align	4
-_845:
-	dd	_199
+_828:
+	dd	_270
+	dd	745
+	dd	3
+	align	4
+_836:
+	dd	_270
+	dd	746
+	dd	3
+	align	4
+_842:
+	dd	_270
 	dd	747
-	dd	4
+	dd	3
 	align	4
-_851:
-	dd	_199
+_850:
+	dd	_270
 	dd	748
-	dd	4
+	dd	3
 	align	4
-_859:
-	dd	_199
+_854:
+	dd	_270
 	dd	751
 	dd	3
 	align	4
-_865:
-	dd	_199
-	dd	752
+_857:
+	dd	_270
+	dd	754
 	dd	3
+_950:
+	db	"ListBatchAdd",0
+_951:
+	db	"icon",0
+_952:
+	db	"tip",0
+_953:
+	db	"extra",0
+_954:
+	db	":Object",0
+_955:
+	db	"item",0
+_956:
+	db	":maxgui.maxgui.TGadgetItem",0
 	align	4
-_870:
-	dd	_199
-	dd	755
-	dd	3
-_919:
-	db	"ListBatchUnlock",0
-	align	4
-_918:
+_949:
 	dd	1
-	dd	_919
+	dd	_950
 	dd	2
-	dd	_250
-	dd	_251
+	dd	_321
+	dd	_322
 	dd	-4
 	dd	2
-	dd	_273
-	dd	_217
+	dd	_591
+	dd	_71
 	dd	-8
+	dd	2
+	dd	_574
+	dd	_51
+	dd	-12
+	dd	2
+	dd	_951
+	dd	_51
+	dd	-16
+	dd	2
+	dd	_952
+	dd	_71
+	dd	-20
+	dd	2
+	dd	_953
+	dd	_954
+	dd	-24
+	dd	2
+	dd	_344
+	dd	_288
+	dd	-28
+	dd	2
+	dd	_955
+	dd	_956
+	dd	-32
 	dd	0
 	align	4
-_882:
-	dd	_199
+_860:
+	dd	_270
+	dd	773
+	dd	3
+	align	4
+_862:
+	dd	_270
+	dd	776
+	dd	3
+	align	4
+_866:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_864:
+	dd	_270
 	dd	777
-	dd	3
+	dd	4
 	align	4
-_884:
-	dd	_199
+_865:
+	dd	_270
 	dd	778
+	dd	4
+	align	4
+_867:
+	dd	_270
+	dd	783
 	dd	3
 	align	4
-_887:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_886:
-	dd	_199
-	dd	778
-	dd	18
-	align	4
-_888:
-	dd	_199
-	dd	781
-	dd	3
-	align	4
-_892:
-	dd	_199
+_869:
+	dd	_270
 	dd	784
 	dd	3
 	align	4
-_917:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_896:
-	dd	_199
-	dd	786
-	dd	4
-	align	4
-_899:
-	dd	_199
+_872:
+	dd	_270
 	dd	787
-	dd	4
-	align	4
-_910:
 	dd	3
-	dd	0
-	dd	0
+_880:
+	db	":TGadgetItem",0
 	align	4
-_905:
-	dd	_199
-	dd	787
-	dd	46
-	align	4
-_911:
-	dd	_199
+_885:
+	dd	_270
 	dd	788
-	dd	4
+	dd	3
 	align	4
-_916:
-	dd	_199
+_898:
+	dd	_270
 	dd	791
-	dd	4
-_930:
-	db	"GadgetWindow",0
+	dd	3
 	align	4
-_929:
-	dd	1
-	dd	_930
-	dd	2
-	dd	_250
-	dd	_251
-	dd	-4
-	dd	2
-	dd	_463
-	dd	_251
-	dd	-8
-	dd	0
+_904:
+	dd	_270
+	dd	792
+	dd	3
+	align	4
+_912:
+	dd	_270
+	dd	793
+	dd	3
 	align	4
 _920:
-	dd	_199
-	dd	811
-	dd	2
-	align	4
-_922:
-	dd	_199
-	dd	812
-	dd	2
-	align	4
-_928:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_923:
-	dd	_199
-	dd	813
-	dd	3
+	dd	_270
+	dd	796
+	dd	4
 	align	4
 _926:
-	dd	3
-	dd	0
-	dd	0
+	dd	_270
+	dd	797
+	dd	4
 	align	4
-_925:
-	dd	_199
-	dd	813
-	dd	42
-	align	4
-_927:
-	dd	_199
-	dd	814
+_934:
+	dd	_270
+	dd	800
 	dd	3
-_944:
-	db	"SetWindowAlwaysOnTop",0
+	align	4
+_940:
+	dd	_270
+	dd	801
+	dd	3
+	align	4
 _945:
-	db	"Window",0
-_946:
-	db	"State",0
+	dd	_270
+	dd	804
+	dd	3
+_994:
+	db	"ListBatchUnlock",0
 	align	4
-_943:
+_993:
 	dd	1
-	dd	_944
+	dd	_994
 	dd	2
-	dd	_945
-	dd	_251
+	dd	_321
+	dd	_322
 	dd	-4
 	dd	2
-	dd	_946
-	dd	_49
+	dd	_344
+	dd	_288
 	dd	-8
-	dd	2
-	dd	_57
-	dd	_49
-	dd	-12
 	dd	0
 	align	4
-_931:
-	dd	_199
-	dd	832
+_957:
+	dd	_270
+	dd	826
 	dd	3
 	align	4
-_933:
-	dd	_199
+_959:
+	dd	_270
+	dd	827
+	dd	3
+	align	4
+_962:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_961:
+	dd	_270
+	dd	827
+	dd	18
+	align	4
+_963:
+	dd	_270
+	dd	830
+	dd	3
+	align	4
+_967:
+	dd	_270
 	dd	833
 	dd	3
 	align	4
-_942:
+_992:
 	dd	3
 	dd	0
 	dd	0
-	align	4
-_935:
-	dd	_199
-	dd	834
-	dd	4
-	align	4
-_938:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_937:
-	dd	_199
-	dd	836
-	dd	5
-	align	4
-_941:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_940:
-	dd	_199
-	dd	838
-	dd	5
-_954:
-	db	"BringWindowToTop",0
-	align	4
-_953:
-	dd	1
-	dd	_954
-	dd	2
-	dd	_945
-	dd	_251
-	dd	-4
-	dd	2
-	dd	_57
-	dd	_49
-	dd	-8
-	dd	0
-	align	4
-_947:
-	dd	_199
-	dd	860
-	dd	3
-	align	4
-_949:
-	dd	_199
-	dd	861
-	dd	3
-	align	4
-_952:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_951:
-	dd	_199
-	dd	861
-	dd	11
-_962:
-	db	"FocusWindow",0
-	align	4
-_961:
-	dd	1
-	dd	_962
-	dd	2
-	dd	_945
-	dd	_251
-	dd	-4
-	dd	2
-	dd	_57
-	dd	_49
-	dd	-8
-	dd	0
-	align	4
-_955:
-	dd	_199
-	dd	881
-	dd	3
-	align	4
-_957:
-	dd	_199
-	dd	882
-	dd	3
-	align	4
-_960:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_959:
-	dd	_199
-	dd	882
-	dd	11
-_965:
-	db	"GadgetToInt",0
-	align	4
-_964:
-	dd	1
-	dd	_965
-	dd	2
-	dd	_250
-	dd	_251
-	dd	-4
-	dd	0
-	align	4
-_963:
-	dd	_199
-	dd	905
-	dd	3
-_985:
-	db	"SetColorPickerCustomColors",0
-_986:
-	db	"colors",0
-	align	4
-_984:
-	dd	1
-	dd	_985
-	dd	2
-	dd	_986
-	dd	_437
-	dd	-4
-	dd	0
-	align	4
-_966:
-	dd	_199
-	dd	930
-	dd	3
-	align	4
-_978:
-	dd	3
-	dd	0
-	dd	2
-	dd	_52
-	dd	_49
-	dd	-8
-	dd	0
-	align	4
-_968:
-	dd	_199
-	dd	931
-	dd	4
-	align	4
-_970:
-	dd	_199
-	dd	932
-	dd	4
 	align	4
 _971:
-	dd	_199
-	dd	933
+	dd	_270
+	dd	835
 	dd	4
 	align	4
-_977:
+_974:
+	dd	_270
+	dd	836
+	dd	4
+	align	4
+_985:
 	dd	3
 	dd	0
 	dd	0
 	align	4
-_973:
-	dd	_199
-	dd	934
-	dd	5
+_980:
+	dd	_270
+	dd	836
+	dd	46
 	align	4
-_979:
-	dd	_199
-	dd	938
-	dd	3
-_996:
-	db	"ClearColorPickerCustomColors",0
+_986:
+	dd	_270
+	dd	837
+	dd	4
 	align	4
-_995:
-	dd	1
-	dd	_996
-	dd	0
-	align	4
-_987:
-	dd	_199
-	dd	968
-	dd	3
-	align	4
-_994:
-	dd	3
-	dd	0
-	dd	2
-	dd	_52
-	dd	_49
-	dd	-4
-	dd	0
-	align	4
-_990:
-	dd	_199
-	dd	969
+_991:
+	dd	_270
+	dd	840
 	dd	4
 _1005:
-	db	"RedrawGadgetFrame",0
+	db	"GadgetWindow",0
 	align	4
 _1004:
 	dd	1
 	dd	_1005
 	dd	2
-	dd	_250
-	dd	_251
+	dd	_321
+	dd	_322
 	dd	-4
 	dd	2
-	dd	_57
-	dd	_49
+	dd	_538
+	dd	_322
 	dd	-8
 	dd	0
 	align	4
-_997:
-	dd	_199
-	dd	988
-	dd	3
+_995:
+	dd	_270
+	dd	860
+	dd	2
 	align	4
-_999:
-	dd	_199
-	dd	989
-	dd	3
+_997:
+	dd	_270
+	dd	861
+	dd	2
 	align	4
 _1003:
 	dd	3
 	dd	0
 	dd	0
 	align	4
+_998:
+	dd	_270
+	dd	862
+	dd	3
+	align	4
 _1001:
-	dd	_199
-	dd	990
-	dd	4
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_1000:
+	dd	_270
+	dd	862
+	dd	42
 	align	4
 _1002:
-	dd	_199
-	dd	991
-	dd	4
-_1041:
-	db	"HideGadgetBorder",0
+	dd	_270
+	dd	863
+	dd	3
+_1019:
+	db	"SetWindowAlwaysOnTop",0
+_1020:
+	db	"Window",0
+_1021:
+	db	"State",0
 	align	4
-_1040:
+_1018:
 	dd	1
-	dd	_1041
+	dd	_1019
 	dd	2
-	dd	_250
-	dd	_251
+	dd	_1020
+	dd	_322
 	dd	-4
+	dd	2
+	dd	_1021
+	dd	_51
+	dd	-8
+	dd	2
+	dd	_59
+	dd	_51
+	dd	-12
 	dd	0
 	align	4
 _1006:
-	dd	_199
-	dd	1010
+	dd	_270
+	dd	881
 	dd	3
 	align	4
-_1039:
+_1008:
+	dd	_270
+	dd	882
+	dd	3
+	align	4
+_1017:
 	dd	3
 	dd	0
-	dd	2
-	dd	_57
-	dd	_49
-	dd	-8
 	dd	0
 	align	4
 _1010:
-	dd	_199
-	dd	1012
-	dd	5
+	dd	_270
+	dd	883
+	dd	4
+	align	4
+_1013:
+	dd	3
+	dd	0
+	dd	0
 	align	4
 _1012:
-	dd	_199
-	dd	1013
+	dd	_270
+	dd	885
 	dd	5
-_1036:
-	db	"Style",0
+	align	4
+_1016:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_1015:
+	dd	_270
+	dd	887
+	dd	5
+_1029:
+	db	"BringWindowToTop",0
+	align	4
+_1028:
+	dd	1
+	dd	_1029
+	dd	2
+	dd	_1020
+	dd	_322
+	dd	-4
+	dd	2
+	dd	_59
+	dd	_51
+	dd	-8
+	dd	0
+	align	4
+_1022:
+	dd	_270
+	dd	909
+	dd	3
+	align	4
+_1024:
+	dd	_270
+	dd	910
+	dd	3
+	align	4
+_1027:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_1026:
+	dd	_270
+	dd	910
+	dd	11
 _1037:
-	db	"styleEx",0
-_1038:
-	db	"changed",0
+	db	"FocusWindow",0
+	align	4
+_1036:
+	dd	1
+	dd	_1037
+	dd	2
+	dd	_1020
+	dd	_322
+	dd	-4
+	dd	2
+	dd	_59
+	dd	_51
+	dd	-8
+	dd	0
+	align	4
+_1030:
+	dd	_270
+	dd	930
+	dd	3
+	align	4
+_1032:
+	dd	_270
+	dd	931
+	dd	3
 	align	4
 _1035:
 	dd	3
 	dd	0
+	dd	0
+	align	4
+_1034:
+	dd	_270
+	dd	931
+	dd	11
+_1040:
+	db	"GadgetToInt",0
+	align	4
+_1039:
+	dd	1
+	dd	_1040
 	dd	2
-	dd	_1036
-	dd	_49
+	dd	_321
+	dd	_322
+	dd	-4
+	dd	0
+	align	4
+_1038:
+	dd	_270
+	dd	954
+	dd	3
+_1060:
+	db	"SetColorPickerCustomColors",0
+_1061:
+	db	"colors",0
+	align	4
+_1059:
+	dd	1
+	dd	_1060
+	dd	2
+	dd	_1061
+	dd	_512
+	dd	-4
+	dd	0
+	align	4
+_1041:
+	dd	_270
+	dd	979
+	dd	3
+	align	4
+_1053:
+	dd	3
+	dd	0
+	dd	2
+	dd	_54
+	dd	_51
+	dd	-8
+	dd	0
+	align	4
+_1043:
+	dd	_270
+	dd	980
+	dd	4
+	align	4
+_1045:
+	dd	_270
+	dd	981
+	dd	4
+	align	4
+_1046:
+	dd	_270
+	dd	982
+	dd	4
+	align	4
+_1052:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_1048:
+	dd	_270
+	dd	983
+	dd	5
+	align	4
+_1054:
+	dd	_270
+	dd	987
+	dd	3
+_1071:
+	db	"ClearColorPickerCustomColors",0
+	align	4
+_1070:
+	dd	1
+	dd	_1071
+	dd	0
+	align	4
+_1062:
+	dd	_270
+	dd	1017
+	dd	3
+	align	4
+_1069:
+	dd	3
+	dd	0
+	dd	2
+	dd	_54
+	dd	_51
+	dd	-4
+	dd	0
+	align	4
+_1065:
+	dd	_270
+	dd	1018
+	dd	4
+_1080:
+	db	"RedrawGadgetFrame",0
+	align	4
+_1079:
+	dd	1
+	dd	_1080
+	dd	2
+	dd	_321
+	dd	_322
+	dd	-4
+	dd	2
+	dd	_59
+	dd	_51
+	dd	-8
+	dd	0
+	align	4
+_1072:
+	dd	_270
+	dd	1037
+	dd	3
+	align	4
+_1074:
+	dd	_270
+	dd	1038
+	dd	3
+	align	4
+_1078:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_1076:
+	dd	_270
+	dd	1039
+	dd	4
+	align	4
+_1077:
+	dd	_270
+	dd	1040
+	dd	4
+_1116:
+	db	"HideGadgetBorder",0
+	align	4
+_1115:
+	dd	1
+	dd	_1116
+	dd	2
+	dd	_321
+	dd	_322
+	dd	-4
+	dd	0
+	align	4
+_1081:
+	dd	_270
+	dd	1059
+	dd	3
+	align	4
+_1114:
+	dd	3
+	dd	0
+	dd	2
+	dd	_59
+	dd	_51
+	dd	-8
+	dd	0
+	align	4
+_1085:
+	dd	_270
+	dd	1061
+	dd	5
+	align	4
+_1087:
+	dd	_270
+	dd	1062
+	dd	5
+_1111:
+	db	"Style",0
+_1112:
+	db	"styleEx",0
+_1113:
+	db	"changed",0
+	align	4
+_1110:
+	dd	3
+	dd	0
+	dd	2
+	dd	_1111
+	dd	_51
 	dd	-12
 	dd	2
-	dd	_1037
-	dd	_49
+	dd	_1112
+	dd	_51
 	dd	-16
 	dd	2
-	dd	_1038
-	dd	_49
+	dd	_1113
+	dd	_51
 	dd	-20
 	dd	0
 	align	4
-_1014:
-	dd	_199
-	dd	1014
+_1089:
+	dd	_270
+	dd	1063
 	dd	6
 	align	4
-_44:
+_45:
 	dd	_bbStringClass
 	dd	2147483647
 	dd	27
 	dw	104,105,100,105,110,103,32,116,104,101,32,98,111,114,100,101
 	dw	114,32,104,111,112,101,102,117,108,108,121
 	align	4
-_1015:
-	dd	_199
-	dd	1015
+_1090:
+	dd	_270
+	dd	1064
 	dd	6
 	align	4
-_1017:
-	dd	_199
-	dd	1016
+_1092:
+	dd	_270
+	dd	1065
 	dd	6
 	align	4
-_1019:
-	dd	_199
-	dd	1019
+_1094:
+	dd	_270
+	dd	1068
 	dd	6
 	align	4
-_1021:
-	dd	_199
-	dd	1020
+_1096:
+	dd	_270
+	dd	1069
 	dd	6
 	align	4
-_1025:
+_1100:
 	dd	3
 	dd	0
 	dd	0
 	align	4
-_1023:
-	dd	_199
-	dd	1021
+_1098:
+	dd	_270
+	dd	1070
 	dd	7
 	align	4
-_1024:
-	dd	_199
-	dd	1022
+_1099:
+	dd	_270
+	dd	1071
 	dd	7
 	align	4
-_1026:
-	dd	_199
-	dd	1024
+_1101:
+	dd	_270
+	dd	1073
 	dd	6
 	align	4
-_1030:
+_1105:
 	dd	3
 	dd	0
 	dd	0
 	align	4
-_1028:
-	dd	_199
-	dd	1025
+_1103:
+	dd	_270
+	dd	1074
 	dd	7
 	align	4
-_1029:
-	dd	_199
-	dd	1026
+_1104:
+	dd	_270
+	dd	1075
 	dd	7
 	align	4
-_1031:
-	dd	_199
-	dd	1030
+_1106:
+	dd	_270
+	dd	1079
 	dd	6
 	align	4
-_1034:
+_1109:
 	dd	3
 	dd	0
 	dd	0
 	align	4
-_1033:
-	dd	_199
-	dd	1030
+_1108:
+	dd	_270
+	dd	1079
 	dd	17
-_1057:
+_1132:
 	db	"InstallGuiFont",0
 	align	4
-_1056:
+_1131:
 	dd	1
-	dd	_1057
+	dd	_1132
 	dd	2
-	dd	_68
-	dd	_69
+	dd	_70
+	dd	_71
 	dd	-4
 	dd	0
 	align	4
-_1042:
-	dd	_199
-	dd	1059
+_1117:
+	dd	_270
+	dd	1108
 	dd	3
-_1049:
+_1124:
 	db	"installed",0
 	align	4
-_1048:
+_1123:
 	dd	3
 	dd	0
 	dd	2
-	dd	_1049
-	dd	_49
+	dd	_1124
+	dd	_51
 	dd	-8
 	dd	0
 	align	4
-_1044:
-	dd	_199
-	dd	1061
+_1119:
+	dd	_270
+	dd	1110
 	dd	4
 	align	4
-_1045:
-	dd	_199
-	dd	1062
+_1120:
+	dd	_270
+	dd	1111
 	dd	4
 	align	4
-_1047:
-	dd	_199
-	dd	1063
+_1122:
+	dd	_270
+	dd	1112
 	dd	4
 	align	4
-_1055:
+_1130:
 	dd	3
 	dd	0
 	dd	0
 	align	4
-_1051:
-	dd	_199
-	dd	1066
+_1126:
+	dd	_270
+	dd	1115
 	dd	4
 	align	4
-_45:
+_46:
 	dd	_bbStringClass
 	dd	2147483647
 	dd	7
 	dw	112,97,116,104,32,61,32
 	align	4
-_1052:
-	dd	_199
-	dd	1067
+_1127:
+	dd	_270
+	dd	1116
 	dd	4
+_1165:
+	db	"SetTextareaLineSpacing",0
+_1166:
+	db	"lineSpacing",0
+_1167:
+	db	"f",0
+	align	4
+_1164:
+	dd	1
+	dd	_1165
+	dd	2
+	dd	_321
+	dd	_322
+	dd	-4
+	dd	2
+	dd	_1166
+	dd	_1167
+	dd	-8
+	dd	0
+	align	4
+_1133:
+	dd	_270
+	dd	1168
+	dd	2
+	align	4
+_1163:
+	dd	3
+	dd	0
+	dd	2
+	dd	_59
+	dd	_51
+	dd	-12
+	dd	0
+	align	4
+_1135:
+	dd	_270
+	dd	1170
+	dd	4
+	align	4
+_1137:
+	dd	_270
+	dd	1171
+	dd	4
+_1162:
+	db	"P",0
+	align	4
+_1161:
+	dd	3
+	dd	0
+	dd	2
+	dd	_1162
+	dd	_379
+	dd	-16
+	dd	0
+	align	4
+_1139:
+	dd	_270
+	dd	1172
+	dd	5
+	align	4
+_1141:
+	dd	_270
+	dd	1173
+	dd	5
+	align	4
+_1145:
+	dd	_270
+	dd	1174
+	dd	5
+	align	4
+_47:
+	dd	_bbStringClass
+	dd	2147483647
+	dd	7
+	dw	115,105,122,101,32,61,32
+	align	4
+_1148:
+	dd	_270
+	dd	1175
+	dd	5
+	align	4
+_1152:
+	dd	_270
+	dd	1176
+	dd	5
+	align	4
+_1156:
+	dd	_270
+	dd	1177
+	dd	5
+	align	4
+_1426:
+	dd	0x41a00000
+	align	4
+_1160:
+	dd	_270
+	dd	1178
+	dd	5

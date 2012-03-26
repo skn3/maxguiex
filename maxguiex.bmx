@@ -7,6 +7,8 @@ End Rem
 Module skn3.maxguiex
 SuperStrict
 
+ModuleInfo "History: 1.01"
+ModuleInfo "History: Added SetTextAreaLineSpacing() function"
 ModuleInfo "History: 1.00"
 ModuleInfo "History: Initial Release To Public"
 
@@ -23,11 +25,12 @@ Import skn3.systemex
 'platform stuff
 ?Win32
 Extern "Win32"
-	Function Skn3ClientToScreen:Int( hwnd:Int, point:Long Var) = "ClientToScreen@8"
-	Function Skn3LoadCursorFromFile:Int(path$w) = "LoadCursorFromFileW@4"
-	Function Skn3DestroyCursor:Int(hcursor:Int) = "DestroyCursor@4"
-	Function Skn3AddFontResourceEx:Int(path$w,fl:Int,pdv:Int) = "AddFontResourceExW@12"
-	Function Skn3AddFontMemResourceEx:Int(pbFont:Byte Ptr,cbFont:Int,pdv:Int,pcFonts:Byte Ptr) = "AddFontMemResourceEx@16"
+	Function skn3_clientToScreen:Int( hwnd:Int, point:Long Var) = "ClientToScreen@8"
+	Function skn3_loadCursorFromFile:Int(path$w) = "LoadCursorFromFileW@4"
+	Function skn3_destroyCursor:Int(hcursor:Int) = "DestroyCursor@4"
+	Function skn3_addFontResourceEx:Int(path$w,fl:Int,pdv:Int) = "AddFontResourceExW@12"
+	Function skn3_addFontMemResourceEx:Int(pbFont:Byte Ptr,cbFont:Int,pdv:Int,pcFonts:Byte Ptr) = "AddFontMemResourceEx@16"
+	Function skn3_sendMessagePtr:Int(hwnd:Int,MSG:Int,wParam:Byte Ptr,lParam:Byte ptr) = "SendMessageW@16"
 End Extern
 
 Const BCM_GETIDEALSIZE:Int = BCM_FIRST + 1
@@ -135,6 +138,52 @@ Type Skn3CustomPointer
 	Field pointer:Int
 	Field refCount:Int
 End Type
+
+Private
+Rem
+bbdoc: A windows data structure.
+about:
+<b>Supported Platforms</b>
+<ul>
+	<li>Windows</li>
+</ul>
+<b>Info</b>
+<p>This is for modifying the rich edit control.</p>
+End Rem
+Type PARAFORMAT2
+	Field cbSize:Int
+	Field dwMask:Int
+	Field wNumbering:Short
+	Field wEffects:Short
+	Field dxStartIndent:Int
+	Field dxRightIndent:Int
+	Field dxOffset:Int
+	Field wAlignment:Short
+	Field cTabCount:Short = 32
+	Field rgxTabs00:Int,rgxTabs01:Int,rgxTabs02:Int,rgxTabs03:Int
+	Field rgxTabs10:Int,rgxTabs11:Int,rgxTabs12:Int,rgxTabs13:Int
+	Field rgxTabs20:Int,rgxTabs21:Int,rgxTabs22:Int,rgxTabs23:Int
+	Field rgxTabs30:Int,rgxTabs31:Int,rgxTabs32:Int,rgxTabs33:Int
+	Field rgxTabs40:Int,rgxTabs41:Int,rgxTabs42:Int,rgxTabs43:Int
+	Field rgxTabs50:Int,rgxTabs51:Int,rgxTabs52:Int,rgxTabs53:Int
+	Field rgxTabs60:Int,rgxTabs61:Int,rgxTabs62:Int,rgxTabs63:Int
+	Field rgxTabs70:Int,rgxTabs71:Int,rgxTabs72:Int,rgxTabs73:Int
+	Field dySpaceBefore:Int
+	Field dySpaceAfter:Int
+	Field dyLineSpacing:Int
+	Field sStyle:Short
+	Field bLineSpacingRule:Byte
+	Field bOutlineLevel:Byte
+	Field wShadingWeight:Short
+	Field wShadingStyle:Short
+	Field wNumberingStart:Short
+	Field wNumberingStyle:Short
+	Field wNumberingTab:Short
+	Field wBorderSpace:Short
+	Field wBorderWidth:Short
+	Field wBorders:Short
+End Type
+Public
 
 
 
@@ -256,9 +305,9 @@ Function GadgetScreenPosition:Int[](gadget:TGadget,client:Int=False)
 	?Win32
 		Local point:Long
 		If client
-			Skn3ClientToScreen(Gadget.Query(QUERY_HWND_CLIENT),point)
+			skn3_clientToScreen(Gadget.Query(QUERY_HWND_CLIENT),point)
 		Else
-			Skn3ClientToScreen(Gadget.Query(QUERY_HWND),point)
+			skn3_clientToScreen(Gadget.Query(QUERY_HWND),point)
 		EndIf
 		
 		Local Position:Int[2]
@@ -539,7 +588,7 @@ Function LoadCustomPointer:Skn3CustomPointer(path:String)
 
 		'load in os (using path2)
 		?Win32
-		pointer.pointer = Skn3LoadCursorFromFile(path2)
+		pointer.pointer = skn3_loadCursorFromFile(path2)
 		?MacOs
 		'first get the offset
 		Local offset:Int[] = ExtractCursorHotspot(path2)
@@ -609,7 +658,7 @@ Function FreeCustomPointer(pointer:Skn3CustomPointer)
 			'check if we need to reset in maxgui
 			If TWindowsGUIDriver._cursor = pointer.pointer SetPointer(POINTER_DEFAULT)
 			
-			Skn3DestroyCursor(pointer.pointer)
+			skn3_destroyCursor(pointer.pointer)
 			pointer.pointer = 0
 			?MacOs
 			If skn3_currentCursor() = pointer.pointer SetPointer(POINTER_DEFAULT)
@@ -1050,7 +1099,7 @@ about:
 </ul>
 <b>Info</b>
 <p>This function will install the provided font file for the time the application is running. The font can then be loaded as normal with the LoadGuiFont() function. this function is confirmed to work with ttf on mac and windows but has not be confirmed with other font formats. It is important that when using LoadGuiFont that you are using the correct font face name. The font face name wont match the fonts file name so please double check this!</p>
-<p>Due to an issue with loading resources from a memory pointer on the mac the font will be saved to disk in a temp file. The temp file is handled via system calls so you should not face any security problems!
+<p>Due to an issue with loading resources from a memory pointer on the mac the font will be saved to disk in a temp file. The temp file is handled via system calls so you should not face any security problems!</p>
 End Rem
 Function InstallGuiFont:Int(path:String)
 	' --- this allows temporary font installation ---
@@ -1060,11 +1109,11 @@ Function InstallGuiFont:Int(path:String)
 			'install the font from incbin
 			path = path[8..]
 			Local installed:Int
-			Return Skn3AddFontMemResourceEx(IncbinPtr(path),IncbinLen(path),0,Varptr(installed)) <> 0
+			Return skn3_addFontMemResourceEx(IncbinPtr(path),IncbinLen(path),0,Varptr(installed)) <> 0
 		Else
 			'install the font from disk
 			Print "path = "+path
-			Return Skn3AddFontResourceEx(path,FR_PRIVATE,0) <> 0
+			Return skn3_addFontResourceEx(path,FR_PRIVATE,0) <> 0
 		EndIf
 	?MacOs
 		'unforuntately seems to be a bug outside of my knowledge with incbin files
@@ -1100,4 +1149,38 @@ Function InstallGuiFont:Int(path:String)
 		
 		Return result
 	?
+End Function
+
+Rem
+bbdoc: change the linespacing for a textarea. <b>[Win Mac]</b>
+returns: True if success.
+about:
+<b>Supported Platforms</b>
+<ul>
+	<li>Windows</li>
+	<li>Mac</li>
+</ul>
+<b>Info</b>
+<p>Does what it says on the tin!</p>
+End Rem
+Function SetTextareaLineSpacing:Int(Gadget:TGadget,lineSpacing:Float)
+	' --- change the line spacing of a textarea ---
+	If GadgetClass(Gadget) = GADGET_TEXTAREA
+		?Win32
+			'use a paraformat2 object to message teh text area
+			Local hwnd:Int = QueryGadget(Gadget,QUERY_HWND)
+			If hwnd
+				Local P:PARAFORMAT2 = New PARAFORMAT2
+				P.cbSize = SizeOf(P)
+				P.dwMask = PFM_LINESPACING
+				P.bLineSpacingRule = 5
+				P.dyLineSpacing = lineSpacing * 20
+				Return skn3_sendMessagePtr(hwnd,EM_SETPARAFORMAT,Null,P) <> 0
+			EndIf
+		?MacOs
+			'call glue code to do the hard work
+			Local nsView:Int = QueryGadget(Gadget,QUERY_NSVIEW)
+			Return nsView And skn3_setTextViewLineSpacing(nsView,lineSpacing)
+		?
+	EndIf
 End Function

@@ -1,3 +1,5 @@
+ModuleInfo "History: 1.01"
+ModuleInfo "History: Added SetTextAreaLineSpacing() function"
 ModuleInfo "History: 1.00"
 ModuleInfo "History: Initial Release To Public"
 import brl.blitz
@@ -5,11 +7,12 @@ import brl.map
 import brl.linkedlist
 import maxgui.drivers
 import skn3.systemex
-Skn3ClientToScreen%(hwnd%,point%% Var)S="ClientToScreen@8"
-Skn3LoadCursorFromFile%(path$w)S="LoadCursorFromFileW@4"
-Skn3DestroyCursor%(hcursor%)S="DestroyCursor@4"
-Skn3AddFontResourceEx%(path$w,fl%,pdv%)S="AddFontResourceExW@12"
-Skn3AddFontMemResourceEx%(pbFont@*,cbFont%,pdv%,pcFonts@*)S="AddFontMemResourceEx@16"
+skn3_clientToScreen%(hwnd%,point%% Var)S="ClientToScreen@8"
+skn3_loadCursorFromFile%(path$w)S="LoadCursorFromFileW@4"
+skn3_destroyCursor%(hcursor%)S="DestroyCursor@4"
+skn3_addFontResourceEx%(path$w,fl%,pdv%)S="AddFontResourceExW@12"
+skn3_addFontMemResourceEx%(pbFont@*,cbFont%,pdv%,pcFonts@*)S="AddFontMemResourceEx@16"
+skn3_sendMessagePtr%(hwnd%,MSG%,wParam@*,lParam@*)S="SendMessageW@16"
 BCM_GETIDEALSIZE%=5633
 BCM_GETTEXTMARGIN%=5637
 FR_PRIVATE%=16
@@ -49,3 +52,4 @@ ClearColorPickerCustomColors%()="skn3_maxguiex_ClearColorPickerCustomColors"
 RedrawGadgetFrame%(Gadget:maxgui.maxgui.TGadget)="skn3_maxguiex_RedrawGadgetFrame"
 HideGadgetBorder%(Gadget:maxgui.maxgui.TGadget)="skn3_maxguiex_HideGadgetBorder"
 InstallGuiFont%(path$)="skn3_maxguiex_InstallGuiFont"
+SetTextareaLineSpacing%(Gadget:maxgui.maxgui.TGadget,lineSpacing#)="skn3_maxguiex_SetTextareaLineSpacing"

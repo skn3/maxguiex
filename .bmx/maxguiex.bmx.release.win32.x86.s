@@ -28,6 +28,7 @@
 	extrn	_bbArrayNew1D
 	extrn	_bbArraySlice
 	extrn	_bbEmptyString
+	extrn	_bbFloatToInt
 	extrn	_bbGCFree
 	extrn	_bbIncbinLen
 	extrn	_bbIncbinPtr
@@ -80,6 +81,8 @@
 	extrn	_pub_win32_LVITEMW
 	extrn	_skn3_systemex_GetTempDirectory
 	public	___bb_maxguiex_maxguiex
+	public	__skn3_maxguiex_PARAFORMAT2_Delete
+	public	__skn3_maxguiex_PARAFORMAT2_New
 	public	__skn3_maxguiex_Skn3CustomPointer_Delete
 	public	__skn3_maxguiex_Skn3CustomPointer_New
 	public	__skn3_maxguiex_Skn3CustomPointer_all
@@ -116,20 +119,21 @@
 	public	_skn3_maxguiex_SetCustomPointer
 	public	_skn3_maxguiex_SetGadgetMaxLength
 	public	_skn3_maxguiex_SetGadgetReadOnly
+	public	_skn3_maxguiex_SetTextareaLineSpacing
 	public	_skn3_maxguiex_SetWindowAlwaysOnTop
 	public	_skn3_maxguiex_Skn3CustomPointer
 	section	"code" code
 ___bb_maxguiex_maxguiex:
 	push	ebp
 	mov	ebp,esp
-	cmp	dword [_198],0
-	je	_199
+	cmp	dword [_269],0
+	je	_270
 	mov	eax,0
 	mov	esp,ebp
 	pop	ebp
 	ret
-_199:
-	mov	dword [_198],1
+_270:
+	mov	dword [_269],1
 	call	___bb_blitz_blitz
 	call	___bb_map_map
 	call	___bb_linkedlist_linkedlist
@@ -141,9 +145,12 @@ _199:
 	push	_skn3_maxguiex_Skn3CustomPointer
 	call	_bbObjectRegisterType
 	add	esp,4
+	push	_20
+	call	_bbObjectRegisterType
+	add	esp,4
 	mov	eax,0
-	jmp	_71
-_71:
+	jmp	_132
+_132:
 	mov	esp,ebp
 	pop	ebp
 	ret
@@ -169,8 +176,8 @@ __skn3_maxguiex_Skn3ListBatchLock_New:
 	mov	dword [ebx+24],eax
 	mov	dword [ebx+28],0
 	mov	eax,0
-	jmp	_74
-_74:
+	jmp	_135
+_135:
 	pop	ebx
 	mov	esp,ebp
 	pop	ebp
@@ -180,31 +187,31 @@ __skn3_maxguiex_Skn3ListBatchLock_Delete:
 	mov	ebp,esp
 	push	ebx
 	mov	ebx,dword [ebp+8]
-_77:
+_138:
 	mov	eax,dword [ebx+24]
 	dec	dword [eax+4]
-	jnz	_205
+	jnz	_276
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_205:
+_276:
 	mov	eax,dword [ebx+20]
 	dec	dword [eax+4]
-	jnz	_207
+	jnz	_278
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_207:
+_278:
 	mov	eax,dword [ebx+12]
 	dec	dword [eax+4]
-	jnz	_209
+	jnz	_280
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_209:
+_280:
 	mov	eax,0
-	jmp	_203
-_203:
+	jmp	_274
+_274:
 	pop	ebx
 	mov	esp,ebp
 	pop	ebp
@@ -216,10 +223,10 @@ __skn3_maxguiex_Skn3ListBatchLock_Find:
 	push	esi
 	mov	esi,dword [ebp+8]
 	cmp	dword [__skn3_maxguiex_Skn3ListBatchLock_all],_bbNullObject
-	jne	_210
+	jne	_281
 	mov	eax,_bbNullObject
-	jmp	_80
-_210:
+	jmp	_141
+_281:
 	mov	eax,dword [__skn3_maxguiex_Skn3ListBatchLock_all]
 	push	eax
 	mov	eax,dword [eax]
@@ -237,9 +244,9 @@ _19:
 	call	_bbObjectDowncast
 	add	esp,8
 	cmp	dword [eax+12],esi
-	jne	_215
-	jmp	_80
-_215:
+	jne	_286
+	jmp	_141
+_286:
 	push	_16
 	push	ebx
 	mov	eax,dword [ebx]
@@ -253,8 +260,8 @@ _17:
 	jne	_19
 _18:
 	mov	eax,_bbNullObject
-	jmp	_80
-_80:
+	jmp	_141
+_141:
 	pop	esi
 	pop	ebx
 	mov	esp,ebp
@@ -267,19 +274,19 @@ __skn3_maxguiex_Skn3ListBatchLock_add:
 	push	esi
 	mov	ebx,dword [ebp+8]
 	cmp	dword [__skn3_maxguiex_Skn3ListBatchLock_all],_bbNullObject
-	jne	_217
+	jne	_288
 	call	_brl_linkedlist_CreateList
 	inc	dword [eax+4]
 	mov	esi,eax
 	mov	eax,dword [__skn3_maxguiex_Skn3ListBatchLock_all]
 	dec	dword [eax+4]
-	jnz	_221
+	jnz	_292
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_221:
+_292:
 	mov	dword [__skn3_maxguiex_Skn3ListBatchLock_all],esi
-_217:
+_288:
 	mov	eax,dword [__skn3_maxguiex_Skn3ListBatchLock_all]
 	push	ebx
 	push	eax
@@ -290,15 +297,15 @@ _217:
 	mov	esi,eax
 	mov	eax,dword [ebx+20]
 	dec	dword [eax+4]
-	jnz	_226
+	jnz	_297
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_226:
+_297:
 	mov	dword [ebx+20],esi
 	mov	eax,0
-	jmp	_83
-_83:
+	jmp	_144
+_144:
 	pop	esi
 	pop	ebx
 	mov	esp,ebp
@@ -311,7 +318,7 @@ __skn3_maxguiex_Skn3ListBatchLock_remove:
 	push	esi
 	mov	esi,dword [ebp+8]
 	cmp	esi,_bbNullObject
-	je	_227
+	je	_298
 	mov	eax,dword [esi+20]
 	push	eax
 	mov	eax,dword [eax]
@@ -321,26 +328,26 @@ __skn3_maxguiex_Skn3ListBatchLock_remove:
 	inc	dword [ebx+4]
 	mov	eax,dword [esi+12]
 	dec	dword [eax+4]
-	jnz	_232
+	jnz	_303
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_232:
+_303:
 	mov	dword [esi+12],ebx
 	mov	ebx,_bbNullObject
 	inc	dword [ebx+4]
 	mov	eax,dword [esi+24]
 	dec	dword [eax+4]
-	jnz	_236
+	jnz	_307
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_236:
+_307:
 	mov	dword [esi+24],ebx
-_227:
+_298:
 	mov	eax,0
-	jmp	_86
-_86:
+	jmp	_147
+_147:
 	pop	esi
 	pop	ebx
 	mov	esp,ebp
@@ -361,8 +368,8 @@ __skn3_maxguiex_Skn3CustomPointer_New:
 	mov	dword [ebx+12],0
 	mov	dword [ebx+16],0
 	mov	eax,0
-	jmp	_89
-_89:
+	jmp	_150
+_150:
 	pop	ebx
 	mov	esp,ebp
 	pop	ebp
@@ -371,21 +378,102 @@ __skn3_maxguiex_Skn3CustomPointer_Delete:
 	push	ebp
 	mov	ebp,esp
 	mov	eax,dword [ebp+8]
-_92:
+_153:
 	mov	eax,dword [eax+8]
 	dec	dword [eax+4]
-	jnz	_240
+	jnz	_311
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_240:
+_311:
 	mov	eax,0
-	jmp	_238
-_238:
+	jmp	_309
+_309:
 	mov	esp,ebp
 	pop	ebp
 	ret
-_21:
+__skn3_maxguiex_PARAFORMAT2_New:
+	push	ebp
+	mov	ebp,esp
+	push	ebx
+	mov	ebx,dword [ebp+8]
+	push	ebx
+	call	_bbObjectCtor
+	add	esp,4
+	mov	dword [ebx],_20
+	mov	dword [ebx+8],0
+	mov	dword [ebx+12],0
+	mov	word [ebx+16],0
+	mov	word [ebx+18],0
+	mov	dword [ebx+20],0
+	mov	dword [ebx+24],0
+	mov	dword [ebx+28],0
+	mov	word [ebx+32],0
+	mov	word [ebx+34],32
+	mov	dword [ebx+36],0
+	mov	dword [ebx+40],0
+	mov	dword [ebx+44],0
+	mov	dword [ebx+48],0
+	mov	dword [ebx+52],0
+	mov	dword [ebx+56],0
+	mov	dword [ebx+60],0
+	mov	dword [ebx+64],0
+	mov	dword [ebx+68],0
+	mov	dword [ebx+72],0
+	mov	dword [ebx+76],0
+	mov	dword [ebx+80],0
+	mov	dword [ebx+84],0
+	mov	dword [ebx+88],0
+	mov	dword [ebx+92],0
+	mov	dword [ebx+96],0
+	mov	dword [ebx+100],0
+	mov	dword [ebx+104],0
+	mov	dword [ebx+108],0
+	mov	dword [ebx+112],0
+	mov	dword [ebx+116],0
+	mov	dword [ebx+120],0
+	mov	dword [ebx+124],0
+	mov	dword [ebx+128],0
+	mov	dword [ebx+132],0
+	mov	dword [ebx+136],0
+	mov	dword [ebx+140],0
+	mov	dword [ebx+144],0
+	mov	dword [ebx+148],0
+	mov	dword [ebx+152],0
+	mov	dword [ebx+156],0
+	mov	dword [ebx+160],0
+	mov	dword [ebx+164],0
+	mov	dword [ebx+168],0
+	mov	dword [ebx+172],0
+	mov	word [ebx+176],0
+	mov	byte [ebx+178],0
+	mov	byte [ebx+179],0
+	mov	word [ebx+180],0
+	mov	word [ebx+182],0
+	mov	word [ebx+184],0
+	mov	word [ebx+186],0
+	mov	word [ebx+188],0
+	mov	word [ebx+190],0
+	mov	word [ebx+192],0
+	mov	word [ebx+194],0
+	mov	eax,0
+	jmp	_156
+_156:
+	pop	ebx
+	mov	esp,ebp
+	pop	ebp
+	ret
+__skn3_maxguiex_PARAFORMAT2_Delete:
+	push	ebp
+	mov	ebp,esp
+_159:
+	mov	eax,0
+	jmp	_312
+_312:
+	mov	esp,ebp
+	pop	ebp
+	ret
+_22:
 	push	ebp
 	mov	ebp,esp
 	push	ebx
@@ -393,96 +481,96 @@ _21:
 	mov	ebx,dword [ebp+8]
 	mov	esi,dword [ebp+12]
 	cmp	dword [ebx+8],0
-	jne	_241
+	jne	_313
 	mov	eax,_1
-	jmp	_96
-_241:
-	push	_20
-	push	_22
+	jmp	_163
+_313:
+	push	_21
+	push	_23
 	push	ebx
 	call	_bbStringReplace
 	add	esp,12
 	mov	ebx,eax
-	push	_20
+	push	_21
 	push	esi
 	call	_bbStringCompare
 	add	esp,8
 	cmp	eax,0
-	je	_242
+	je	_314
 	push	esi
-	push	_20
+	push	_21
 	push	ebx
 	call	_bbStringReplace
 	add	esp,12
 	mov	ebx,eax
-_242:
+_314:
 	mov	ecx,0
 	mov	esi,0
 	mov	edx,dword [ebx+8]
-	jmp	_245
-_25:
+	jmp	_317
+_26:
 	movzx	eax,word [ebx+esi*2+12]
 	mov	eax,eax
 	cmp	eax,32
 	setne	al
 	movzx	eax,al
 	cmp	eax,0
-	je	_247
+	je	_319
 	movzx	eax,word [ebx+esi*2+12]
 	mov	eax,eax
 	cmp	eax,47
 	setne	al
 	movzx	eax,al
-_247:
+_319:
 	cmp	eax,0
-	je	_249
-	jmp	_24
-_249:
+	je	_321
+	jmp	_25
+_321:
 	mov	eax,esi
 	add	eax,1
 	mov	ecx,eax
-_23:
-	add	esi,1
-_245:
-	cmp	esi,edx
-	jl	_25
 _24:
+	add	esi,1
+_317:
+	cmp	esi,edx
+	jl	_26
+_25:
 	mov	edx,dword [ebx+8]
 	sub	edx,ecx
 	mov	eax,dword [ebx+8]
 	sub	eax,1
 	mov	esi,eax
-	jmp	_251
-_28:
+	jmp	_323
+_29:
 	movzx	eax,word [ebx+esi*2+12]
 	mov	eax,eax
 	cmp	eax,32
 	setne	al
 	movzx	eax,al
 	cmp	eax,0
-	je	_252
+	je	_324
 	movzx	eax,word [ebx+esi*2+12]
 	mov	eax,eax
 	cmp	eax,47
 	setne	al
 	movzx	eax,al
-_252:
+_324:
 	cmp	eax,0
-	je	_254
-	jmp	_27
-_254:
+	je	_326
+	jmp	_28
+_326:
 	sub	edx,1
-_26:
-	add	esi,-1
-_251:
-	cmp	esi,0
-	jge	_28
 _27:
+	add	esi,-1
+_323:
+	cmp	esi,0
+	jge	_29
+_28:
 	cmp	edx,0
-	jg	_255
+	jg	_327
 	mov	eax,_1
-	jmp	_96
-_255:
+	jmp	_163
+_327:
 	mov	eax,ecx
 	add	eax,edx
 	push	eax
@@ -490,20 +578,20 @@ _255:
 	push	ebx
 	call	_bbStringSlice
 	add	esp,12
-	jmp	_96
-_96:
+	jmp	_163
+_163:
 	pop	esi
 	pop	ebx
 	mov	esp,ebp
 	pop	ebp
 	ret
-_29:
+_30:
 	push	ebp
 	mov	ebp,esp
 	push	ebx
 	push	esi
 	push	edi
-	push	_30
+	push	_31
 	push	8
 	push	0
 	push	dword [ebp+8]
@@ -516,17 +604,17 @@ _29:
 	call	_bbStringCompare
 	add	esp,8
 	cmp	eax,0
-	jne	_256
-	push	_20
-	push	_20
+	jne	_328
+	push	_21
+	push	_21
 	push	0
 	call	_skn3_systemex_GetTempDirectory
 	add	esp,4
 	push	eax
-	call	_21
+	call	_22
 	add	esp,8
 	push	eax
-	push	_20
+	push	_21
 	call	_bbStringConcat
 	add	esp,8
 	push	eax
@@ -544,8 +632,8 @@ _29:
 	call	_brl_filesystem_StripDir
 	add	esp,4
 	mov	edi,eax
-	jmp	_31
-_33:
+	jmp	_32
+_34:
 	push	ebx
 	call	_bbStringToInt
 	add	esp,4
@@ -554,7 +642,7 @@ _33:
 	call	_bbStringFromInt
 	add	esp,4
 	mov	ebx,eax
-_31:
+_32:
 	push	edi
 	push	ebx
 	push	esi
@@ -567,8 +655,8 @@ _31:
 	call	_brl_filesystem_FileType
 	add	esp,4
 	cmp	eax,0
-	jne	_33
-_32:
+	jne	_34
+_33:
 	push	edi
 	push	ebx
 	push	esi
@@ -598,11 +686,11 @@ _32:
 	call	_brl_stream_CloseStream
 	add	esp,4
 	mov	eax,edi
-	jmp	_99
-_256:
+	jmp	_166
+_328:
 	mov	eax,_1
-	jmp	_99
-_99:
+	jmp	_166
+_166:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -613,8 +701,8 @@ _skn3_maxguiex_RequestScrollbarSize:
 	push	ebp
 	mov	ebp,esp
 	mov	eax,18
-	jmp	_101
-_101:
+	jmp	_168
+_168:
 	mov	esp,ebp
 	pop	ebp
 	ret
@@ -640,8 +728,8 @@ _skn3_maxguiex_SetComboBoxHeight:
 	call	_maxgui_maxgui_RedrawGadget
 	add	esp,4
 	mov	eax,0
-	jmp	_105
-_105:
+	jmp	_172
+_172:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -660,7 +748,7 @@ _skn3_maxguiex_GadgetScreenPosition:
 	mov	dword [ebp-8],0
 	mov	dword [ebp-4],0
 	cmp	edx,0
-	je	_264
+	je	_336
 	lea	edx,dword [ebp-8]
 	push	edx
 	push	2
@@ -670,8 +758,8 @@ _skn3_maxguiex_GadgetScreenPosition:
 	add	esp,8
 	push	eax
 	call	_ClientToScreen@8
-	jmp	_266
-_264:
+	jmp	_338
+_336:
 	lea	edx,dword [ebp-8]
 	push	edx
 	push	1
@@ -681,9 +769,9 @@ _264:
 	add	esp,8
 	push	eax
 	call	_ClientToScreen@8
-_266:
+_338:
 	push	2
-	push	_268
+	push	_340
 	call	_bbArrayNew1D
 	add	esp,8
 	lea	edx,dword [ebp-8]
@@ -692,8 +780,8 @@ _266:
 	lea	edx,dword [ebp-8]
 	mov	edx,dword [edx+4]
 	mov	dword [eax+4+24],edx
-	jmp	_109
-_109:
+	jmp	_176
+_176:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -717,8 +805,8 @@ _skn3_maxguiex_DisableGadgetRedraw:
 	push	eax
 	call	_SendMessageW@16
 	mov	eax,1
-	jmp	_112
-_112:
+	jmp	_179
+_179:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -742,8 +830,8 @@ _skn3_maxguiex_EnableGadgetRedraw:
 	push	eax
 	call	_SendMessageW@16
 	mov	eax,1
-	jmp	_115
-_115:
+	jmp	_182
+_182:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -763,11 +851,11 @@ _skn3_maxguiex_MessageBox:
 	mov	ebx,eax
 	mov	eax,dword [_bbAppTitle]
 	dec	dword [eax+4]
-	jnz	_274
+	jnz	_346
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_274:
+_346:
 	mov	dword [_bbAppTitle],ebx
 	push	0
 	push	esi
@@ -777,15 +865,15 @@ _274:
 	inc	dword [ebx+4]
 	mov	eax,dword [_bbAppTitle]
 	dec	dword [eax+4]
-	jnz	_278
+	jnz	_350
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_278:
+_350:
 	mov	dword [_bbAppTitle],ebx
 	mov	eax,0
-	jmp	_120
-_120:
+	jmp	_187
+_187:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -810,7 +898,7 @@ _skn3_maxguiex_GadgetSizeForString:
 	call	_maxgui_maxgui_GadgetClass
 	add	esp,4
 	cmp	eax,2
-	je	_282
+	je	_354
 	push	dword [ebp-12]
 	call	_GetDC@4
 	mov	edi,eax
@@ -823,7 +911,7 @@ _skn3_maxguiex_GadgetSizeForString:
 	push	edi
 	call	_SelectObject@8
 	push	4
-	push	_49
+	push	_51
 	call	_bbArrayNew1D
 	add	esp,8
 	mov	dword [eax+24],0
@@ -833,9 +921,9 @@ _skn3_maxguiex_GadgetSizeForString:
 	mov	dword [ebp-4],eax
 	mov	ebx,1280
 	cmp	esi,0
-	jle	_288
+	jle	_360
 	or	ebx,16
-_288:
+_360:
 	push	dword [ebp+12]
 	call	_bbStringToWString
 	add	esp,4
@@ -855,7 +943,7 @@ _288:
 	push	dword [ebp-12]
 	call	_ReleaseDC@8
 	push	2
-	push	_49
+	push	_51
 	call	_bbArrayNew1D
 	add	esp,8
 	mov	edx,dword [ebp-4]
@@ -864,10 +952,10 @@ _288:
 	mov	edx,dword [ebp-4]
 	mov	edx,dword [edx+12+24]
 	mov	dword [eax+28],edx
-	jmp	_125
-_282:
+	jmp	_192
+_354:
 	push	2
-	push	_49
+	push	_51
 	call	_bbArrayNew1D
 	add	esp,8
 	mov	dword [eax+24],esi
@@ -903,8 +991,8 @@ _282:
 	push	dword [ebp-12]
 	call	_SendMessageW@16
 	mov	eax,dword [ebp-8]
-	jmp	_125
-_125:
+	jmp	_192
+_192:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -921,15 +1009,15 @@ _skn3_maxguiex_GetCreationGroup:
 	call	_bbObjectDowncast
 	add	esp,8
 	cmp	eax,_bbNullObject
-	je	_296
+	je	_368
 	push	dword [eax+140]
 	call	_skn3_maxguiex_GetCreationGroup
 	add	esp,4
-	jmp	_128
-_296:
+	jmp	_195
+_368:
 	mov	eax,ebx
-	jmp	_128
-_128:
+	jmp	_195
+_195:
 	pop	ebx
 	mov	esp,ebp
 	pop	ebp
@@ -946,11 +1034,11 @@ _skn3_maxguiex_SetGadgetReadOnly:
 	call	_maxgui_maxgui_GadgetClass
 	add	esp,4
 	cmp	eax,5
-	je	_299
+	je	_371
 	cmp	eax,4
-	je	_299
-	jmp	_298
-_299:
+	je	_371
+	jmp	_370
+_371:
 	push	1
 	push	esi
 	call	_maxgui_maxgui_QueryGadget
@@ -960,11 +1048,11 @@ _299:
 	push	207
 	push	eax
 	call	_SendMessageW@16
-	jmp	_298
-_298:
+	jmp	_370
+_370:
 	mov	eax,0
-	jmp	_132
-_132:
+	jmp	_199
+_199:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -983,15 +1071,15 @@ _skn3_maxguiex_SetGadgetMaxLength:
 	call	_maxgui_maxgui_GadgetClass
 	add	esp,4
 	cmp	eax,4
-	je	_303
+	je	_375
 	cmp	eax,5
-	je	_303
-	jmp	_302
-_303:
+	je	_375
+	jmp	_374
+_375:
 	cmp	ebx,0
-	jge	_304
+	jge	_376
 	mov	ebx,0
-_304:
+_376:
 	push	0
 	push	ebx
 	push	197
@@ -1001,11 +1089,11 @@ _304:
 	add	esp,8
 	push	eax
 	call	_SendMessageW@16
-	jmp	_302
-_302:
+	jmp	_374
+_374:
 	mov	eax,0
-	jmp	_136
-_136:
+	jmp	_203
+_203:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -1023,12 +1111,12 @@ _skn3_maxguiex_GetGadgetMaxLength:
 	call	_maxgui_maxgui_GadgetClass
 	add	esp,4
 	cmp	eax,4
-	je	_307
+	je	_379
 	cmp	eax,5
-	je	_307
+	je	_379
 	mov	eax,0
-	jmp	_139
-_307:
+	jmp	_206
+_379:
 	push	0
 	push	0
 	push	213
@@ -1038,8 +1126,8 @@ _307:
 	add	esp,8
 	push	eax
 	call	_SendMessageW@16
-	jmp	_139
-_139:
+	jmp	_206
+_206:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -1056,33 +1144,33 @@ _skn3_maxguiex_LoadCustomPointer:
 	mov	esi,dword [ebp+8]
 	mov	edi,_bbNullObject
 	push	esi
-	call	_29
+	call	_30
 	add	esp,4
 	mov	dword [ebp-4],eax
 	mov	dword [ebp-8],0
 	mov	eax,dword [ebp-4]
 	cmp	dword [eax+8],0
-	jne	_311
+	jne	_383
 	mov	dword [ebp-4],esi
-	jmp	_312
-_311:
+	jmp	_384
+_383:
 	mov	dword [ebp-8],1
-_312:
+_384:
 	cmp	dword [__skn3_maxguiex_Skn3CustomPointer_all],_bbNullObject
-	jne	_313
+	jne	_385
 	call	_brl_map_CreateMap
 	inc	dword [eax+4]
 	mov	ebx,eax
 	mov	eax,dword [__skn3_maxguiex_Skn3CustomPointer_all]
 	dec	dword [eax+4]
-	jnz	_317
+	jnz	_389
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_317:
+_389:
 	mov	dword [__skn3_maxguiex_Skn3CustomPointer_all],ebx
-	jmp	_318
-_313:
+	jmp	_390
+_385:
 	mov	eax,dword [__skn3_maxguiex_Skn3CustomPointer_all]
 	push	_skn3_maxguiex_Skn3CustomPointer
 	push	esi
@@ -1094,9 +1182,9 @@ _313:
 	call	_bbObjectDowncast
 	add	esp,8
 	mov	edi,eax
-_318:
+_390:
 	cmp	edi,_bbNullObject
-	jne	_320
+	jne	_392
 	push	_skn3_maxguiex_Skn3CustomPointer
 	call	_bbObjectNew
 	add	esp,4
@@ -1106,11 +1194,11 @@ _318:
 	mov	ebx,eax
 	mov	eax,dword [edi+8]
 	dec	dword [eax+4]
-	jnz	_324
+	jnz	_396
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_324:
+_396:
 	mov	dword [edi+8],ebx
 	mov	eax,dword [__skn3_maxguiex_Skn3CustomPointer_all]
 	push	edi
@@ -1130,22 +1218,22 @@ _324:
 	call	_bbMemFree
 	add	esp,4
 	mov	dword [edi+12],ebx
-_320:
+_392:
 	cmp	dword [ebp-8],0
-	je	_328
+	je	_400
 	push	dword [ebp-4]
 	call	_brl_filesystem_DeleteFile
 	add	esp,4
-_328:
+_400:
 	cmp	dword [edi+12],0
-	je	_329
+	je	_401
 	add	dword [edi+16],1
 	mov	eax,edi
-	jmp	_142
-_329:
+	jmp	_209
+_401:
 	mov	eax,_bbNullObject
-	jmp	_142
-_142:
+	jmp	_209
+_209:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -1160,21 +1248,21 @@ _skn3_maxguiex_SetCustomPointer:
 	push	edi
 	mov	ebx,dword [ebp+8]
 	cmp	ebx,_bbNullObject
-	je	_330
+	je	_402
 	mov	dword [_maxgui_maxgui_lastPointer],-1
 	push	dword [ebx+12]
 	call	_SetCursor@4
 	mov	eax,dword [ebx+12]
 	mov	dword [__maxgui_win32maxguiex_TWindowsGUIDriver__cursor],eax
 	cmp	dword [__maxgui_win32maxguiex_TWindowsTextArea__oldCursor],0
-	je	_331
+	je	_403
 	mov	eax,dword [ebx+12]
 	mov	dword [__maxgui_win32maxguiex_TWindowsTextArea__oldCursor],eax
-_331:
-_330:
+_403:
+_402:
 	mov	eax,0
-	jmp	_145
-_145:
+	jmp	_212
+_212:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -1189,10 +1277,10 @@ _skn3_maxguiex_FreeCustomPointer:
 	push	edi
 	mov	ebx,dword [ebp+8]
 	cmp	ebx,_bbNullObject
-	je	_332
+	je	_404
 	sub	dword [ebx+16],1
 	cmp	dword [ebx+16],0
-	jne	_333
+	jne	_405
 	mov	eax,dword [__skn3_maxguiex_Skn3CustomPointer_all]
 	push	dword [ebx+8]
 	push	eax
@@ -1201,19 +1289,19 @@ _skn3_maxguiex_FreeCustomPointer:
 	add	esp,8
 	mov	eax,dword [ebx+12]
 	cmp	dword [__maxgui_win32maxguiex_TWindowsGUIDriver__cursor],eax
-	jne	_335
+	jne	_407
 	push	0
 	call	_maxgui_maxgui_SetPointer
 	add	esp,4
-_335:
+_407:
 	push	dword [ebx+12]
 	call	_DestroyCursor@4
 	mov	dword [ebx+12],0
-_333:
-_332:
+_405:
+_404:
 	mov	eax,0
-	jmp	_148
-_148:
+	jmp	_215
+_215:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -1230,12 +1318,12 @@ _skn3_maxguiex_ExtractCursorHotspot:
 	mov	ebx,dword [ebp+8]
 	mov	edi,dword [ebp+12]
 	push	2
-	push	_336
+	push	_408
 	call	_bbArrayNew1D
 	add	esp,8
 	mov	dword [ebp-4],eax
 	push	ebx
-	push	_34
+	push	_35
 	call	_bbStringConcat
 	add	esp,8
 	push	eax
@@ -1243,7 +1331,7 @@ _skn3_maxguiex_ExtractCursorHotspot:
 	add	esp,4
 	mov	esi,eax
 	cmp	esi,_bbNullObject
-	je	_339
+	je	_411
 	mov	eax,esi
 	push	2
 	push	eax
@@ -1257,7 +1345,7 @@ _skn3_maxguiex_ExtractCursorHotspot:
 	add	esp,4
 	mov	ebx,eax
 	cmp	ebx,2
-	jne	_343
+	jne	_415
 	mov	eax,esi
 	push	eax
 	mov	eax,dword [eax]
@@ -1265,7 +1353,7 @@ _skn3_maxguiex_ExtractCursorHotspot:
 	add	esp,4
 	mov	ebx,eax
 	cmp	edi,ebx
-	jge	_345
+	jge	_417
 	mov	eax,edi
 	imul	eax,12
 	add	eax,6
@@ -1277,7 +1365,7 @@ _skn3_maxguiex_ExtractCursorHotspot:
 	call	dword [eax+56]
 	add	esp,4
 	cmp	ebx,eax
-	jge	_347
+	jge	_419
 	mov	eax,esi
 	push	ebx
 	push	eax
@@ -1298,18 +1386,18 @@ _skn3_maxguiex_ExtractCursorHotspot:
 	add	esp,4
 	mov	edx,dword [ebp-4]
 	mov	dword [edx+4+24],eax
-_347:
-_345:
-_343:
+_419:
+_417:
+_415:
 	mov	eax,esi
 	push	eax
 	mov	eax,dword [eax]
 	call	dword [eax+68]
 	add	esp,4
-_339:
+_411:
 	mov	eax,dword [ebp-4]
-	jmp	_152
-_152:
+	jmp	_219
+_219:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -1328,21 +1416,21 @@ _skn3_maxguiex_ListBatchLock:
 	add	esp,4
 	mov	ebx,eax
 	cmp	ebx,_bbNullObject
-	je	_353
+	je	_425
 	add	dword [ebx+8],1
 	mov	eax,0
-	jmp	_155
-_353:
+	jmp	_222
+_425:
 	push	_maxgui_win32maxguiex_TWindowsListBox
 	push	esi
 	call	_bbObjectDowncast
 	add	esp,8
 	mov	edi,eax
 	cmp	edi,_bbNullObject
-	jne	_355
+	jne	_427
 	mov	eax,0
-	jmp	_155
-_355:
+	jmp	_222
+_427:
 	push	_16
 	call	_bbObjectNew
 	add	esp,4
@@ -1353,11 +1441,11 @@ _355:
 	mov	esi,eax
 	mov	eax,dword [ebx+12]
 	dec	dword [eax+4]
-	jnz	_359
+	jnz	_431
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_359:
+_431:
 	mov	dword [ebx+12],esi
 	mov	eax,dword [edi+124]
 	mov	eax,dword [eax+20]
@@ -1369,11 +1457,11 @@ _359:
 	mov	esi,eax
 	mov	eax,dword [ebx+24]
 	dec	dword [eax+4]
-	jnz	_363
+	jnz	_435
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_363:
+_435:
 	mov	dword [ebx+24],esi
 	push	1
 	push	edi
@@ -1389,8 +1477,8 @@ _363:
 	call	dword [_16+52]
 	add	esp,4
 	mov	eax,0
-	jmp	_155
-_155:
+	jmp	_222
+_222:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -1411,7 +1499,7 @@ _skn3_maxguiex_ListBatchAdd:
 	add	esp,4
 	mov	ebx,eax
 	cmp	ebx,_bbNullObject
-	jne	_366
+	jne	_438
 	push	dword [ebp+28]
 	push	dword [ebp+24]
 	push	esi
@@ -1421,8 +1509,8 @@ _skn3_maxguiex_ListBatchAdd:
 	call	_maxgui_maxgui_AddGadgetItem
 	add	esp,24
 	mov	eax,0
-	jmp	_163
-_366:
+	jmp	_230
+_438:
 	push	_maxgui_maxgui_TGadgetItem
 	call	_bbObjectNew
 	add	esp,4
@@ -1443,7 +1531,7 @@ _366:
 	push	0
 	mov	eax,dword [ebp+8]
 	push	dword [eax+124]
-	push	_369
+	push	_441
 	call	_bbArraySlice
 	add	esp,16
 	mov	esi,eax
@@ -1451,11 +1539,11 @@ _366:
 	mov	eax,dword [ebp+8]
 	mov	eax,dword [eax+124]
 	dec	dword [eax+4]
-	jnz	_373
+	jnz	_445
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_373:
+_445:
 	mov	eax,dword [ebp+8]
 	mov	dword [eax+124],esi
 	mov	esi,dword [ebp-4]
@@ -1465,11 +1553,11 @@ _373:
 	mov	eax,dword [ebx+16]
 	mov	eax,dword [edx+eax*4+24]
 	dec	dword [eax+4]
-	jnz	_377
+	jnz	_449
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_377:
+_449:
 	mov	eax,dword [ebp+8]
 	mov	edx,dword [eax+124]
 	mov	eax,dword [ebx+16]
@@ -1507,8 +1595,8 @@ _377:
 	add	esp,4
 	add	dword [ebx+16],1
 	mov	eax,0
-	jmp	_163
-_163:
+	jmp	_230
+_230:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -1527,13 +1615,13 @@ _skn3_maxguiex_ListBatchUnlock:
 	add	esp,4
 	mov	ebx,eax
 	cmp	ebx,_bbNullObject
-	jne	_379
+	jne	_451
 	mov	eax,0
-	jmp	_166
-_379:
+	jmp	_233
+_451:
 	sub	dword [ebx+8],1
 	cmp	dword [ebx+8],0
-	jne	_380
+	jne	_452
 	push	-2
 	push	0
 	push	4126
@@ -1545,13 +1633,13 @@ _379:
 	call	dword [eax+580]
 	add	esp,4
 	cmp	eax,0
-	jne	_382
+	jne	_454
 	mov	eax,dword [ebx+12]
 	push	eax
 	mov	eax,dword [eax]
 	call	dword [eax+60]
 	add	esp,4
-_382:
+_454:
 	mov	eax,dword [ebx+12]
 	push	eax
 	mov	eax,dword [eax]
@@ -1560,10 +1648,10 @@ _382:
 	push	ebx
 	call	dword [_16+56]
 	add	esp,4
-_380:
+_452:
 	mov	eax,0
-	jmp	_166
-_166:
+	jmp	_233
+_233:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -1579,28 +1667,28 @@ _skn3_maxguiex_GadgetWindow:
 	call	_maxgui_maxgui_GadgetGroup
 	add	esp,4
 	mov	ebx,eax
-	jmp	_35
-_37:
+	jmp	_36
+_38:
 	push	ebx
 	call	_maxgui_maxgui_GadgetClass
 	add	esp,4
 	add	eax,1
 	cmp	eax,0
-	je	_386
+	je	_458
 	mov	eax,ebx
-	jmp	_169
-_386:
+	jmp	_236
+_458:
 	push	ebx
 	call	_maxgui_maxgui_GadgetGroup
 	add	esp,4
 	mov	ebx,eax
-_35:
-	cmp	ebx,_bbNullObject
-	jne	_37
 _36:
+	cmp	ebx,_bbNullObject
+	jne	_38
+_37:
 	mov	eax,_bbNullObject
-	jmp	_169
-_169:
+	jmp	_236
+_236:
 	pop	ebx
 	mov	esp,ebp
 	pop	ebp
@@ -1618,9 +1706,9 @@ _skn3_maxguiex_SetWindowAlwaysOnTop:
 	call	_maxgui_maxgui_QueryGadget
 	add	esp,8
 	cmp	eax,0
-	je	_388
+	je	_460
 	cmp	ebx,0
-	je	_389
+	je	_461
 	push	19
 	push	0
 	push	0
@@ -1629,8 +1717,8 @@ _skn3_maxguiex_SetWindowAlwaysOnTop:
 	push	-1
 	push	eax
 	call	_SetWindowPos@28
-	jmp	_390
-_389:
+	jmp	_462
+_461:
 	push	19
 	push	0
 	push	0
@@ -1639,11 +1727,11 @@ _389:
 	push	-2
 	push	eax
 	call	_SetWindowPos@28
-_390:
-_388:
+_462:
+_460:
 	mov	eax,0
-	jmp	_173
-_173:
+	jmp	_240
+_240:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -1662,7 +1750,7 @@ _skn3_maxguiex_BringWindowToTop:
 	call	_maxgui_maxgui_QueryGadget
 	add	esp,8
 	cmp	eax,0
-	je	_392
+	je	_464
 	push	19
 	push	0
 	push	0
@@ -1671,10 +1759,10 @@ _skn3_maxguiex_BringWindowToTop:
 	push	0
 	push	eax
 	call	_SetWindowPos@28
-_392:
+_464:
 	mov	eax,0
-	jmp	_176
-_176:
+	jmp	_243
+_243:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -1693,13 +1781,13 @@ _skn3_maxguiex_FocusWindow:
 	call	_maxgui_maxgui_QueryGadget
 	add	esp,8
 	cmp	eax,0
-	je	_394
+	je	_466
 	push	eax
 	call	_SetFocus@4
-_394:
+_466:
 	mov	eax,0
-	jmp	_179
-_179:
+	jmp	_246
+_246:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -1714,8 +1802,8 @@ _skn3_maxguiex_GadgetToInt:
 	push	eax
 	call	_maxgui_maxgui_QueryGadget
 	add	esp,8
-	jmp	_182
-_182:
+	jmp	_249
+_249:
 	mov	esp,ebp
 	pop	ebp
 	ret
@@ -1725,37 +1813,37 @@ _skn3_maxguiex_SetColorPickerCustomColors:
 	push	ebx
 	mov	eax,dword [ebp+8]
 	cmp	dword [eax+20],16
-	jge	_395
+	jge	_467
 	mov	ebx,dword [eax+20]
 	push	16
 	push	0
 	push	eax
-	push	_49
+	push	_51
 	call	_bbArraySlice
 	add	esp,16
-	jmp	_397
-_40:
+	jmp	_469
+_41:
 	mov	dword [eax+ebx*4+24],16777215
-_38:
-	add	ebx,1
-_397:
-	cmp	ebx,16
-	jl	_40
 _39:
-_395:
+	add	ebx,1
+_469:
+	cmp	ebx,16
+	jl	_41
+_40:
+_467:
 	inc	dword [eax+4]
 	mov	ebx,eax
 	mov	eax,dword [__maxgui_win32maxguiex_TWindowsGUIDriver__customcolors]
 	dec	dword [eax+4]
-	jnz	_401
+	jnz	_473
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_401:
+_473:
 	mov	dword [__maxgui_win32maxguiex_TWindowsGUIDriver__customcolors],ebx
 	mov	eax,0
-	jmp	_185
-_185:
+	jmp	_252
+_252:
 	pop	ebx
 	mov	esp,ebp
 	pop	ebp
@@ -1764,19 +1852,19 @@ _skn3_maxguiex_ClearColorPickerCustomColors:
 	push	ebp
 	mov	ebp,esp
 	mov	edx,0
-	jmp	_403
-_43:
+	jmp	_475
+_44:
 	mov	eax,dword [__maxgui_win32maxguiex_TWindowsGUIDriver__customcolors]
 	mov	dword [eax+edx*4+24],16777215
-_41:
-	add	edx,1
-_403:
-	cmp	edx,16
-	jl	_43
 _42:
+	add	edx,1
+_475:
+	cmp	edx,16
+	jl	_44
+_43:
 	mov	eax,0
-	jmp	_187
-_187:
+	jmp	_254
+_254:
 	mov	esp,ebp
 	pop	ebp
 	ret
@@ -1793,7 +1881,7 @@ _skn3_maxguiex_RedrawGadgetFrame:
 	add	esp,8
 	mov	ebx,eax
 	cmp	ebx,0
-	je	_405
+	je	_477
 	push	55
 	push	0
 	push	0
@@ -1807,10 +1895,10 @@ _skn3_maxguiex_RedrawGadgetFrame:
 	push	0
 	push	ebx
 	call	_RedrawWindow@16
-_405:
+_477:
 	mov	eax,0
-	jmp	_190
-_190:
+	jmp	_257
+_257:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -1827,19 +1915,19 @@ _skn3_maxguiex_HideGadgetBorder:
 	call	_maxgui_maxgui_GadgetClass
 	add	esp,4
 	cmp	eax,5
-	je	_408
+	je	_480
 	cmp	eax,4
-	je	_408
-	jmp	_407
-_408:
+	je	_480
+	jmp	_479
+_480:
 	push	1
 	push	dword [ebp+8]
 	call	_maxgui_maxgui_QueryGadget
 	add	esp,8
 	mov	esi,eax
 	cmp	esi,0
-	je	_410
-	push	_44
+	je	_482
+	push	_45
 	call	_brl_standardio_Print
 	add	esp,4
 	push	-16
@@ -1854,7 +1942,7 @@ _408:
 	mov	edx,ebx
 	and	edx,8388608
 	cmp	edx,0
-	je	_414
+	je	_486
 	mov	eax,ebx
 	and	eax,-8388609
 	push	eax
@@ -1862,11 +1950,11 @@ _408:
 	push	esi
 	call	_SetWindowLongW@12
 	mov	eax,1
-_414:
+_486:
 	mov	edx,edi
 	and	edx,512
 	cmp	edx,0
-	je	_415
+	je	_487
 	mov	eax,edi
 	and	eax,-513
 	push	eax
@@ -1874,19 +1962,19 @@ _414:
 	push	esi
 	call	_SetWindowLongW@12
 	mov	eax,1
-_415:
+_487:
 	cmp	eax,0
-	je	_416
+	je	_488
 	push	dword [ebp+8]
 	call	_skn3_maxguiex_RedrawGadgetFrame
 	add	esp,4
-_416:
-_410:
-	jmp	_407
-_407:
+_488:
+_482:
+	jmp	_479
+_479:
 	mov	eax,0
-	jmp	_193
-_193:
+	jmp	_260
+_260:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -1901,7 +1989,7 @@ _skn3_maxguiex_InstallGuiFont:
 	push	esi
 	push	edi
 	mov	ebx,dword [ebp+8]
-	push	_30
+	push	_31
 	push	8
 	push	0
 	push	ebx
@@ -1914,7 +2002,7 @@ _skn3_maxguiex_InstallGuiFont:
 	call	_bbStringCompare
 	add	esp,8
 	cmp	eax,0
-	jne	_417
+	jne	_489
 	push	dword [ebx+8]
 	push	8
 	push	ebx
@@ -1937,10 +2025,10 @@ _skn3_maxguiex_InstallGuiFont:
 	cmp	eax,0
 	setne	al
 	movzx	eax,al
-	jmp	_196
-_417:
+	jmp	_263
+_489:
 	push	ebx
-	push	_45
+	push	_46
 	call	_bbStringConcat
 	add	esp,8
 	push	eax
@@ -1961,8 +2049,79 @@ _417:
 	cmp	esi,0
 	setne	al
 	movzx	eax,al
-	jmp	_196
-_196:
+	jmp	_263
+_263:
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp,ebp
+	pop	ebp
+	ret
+_skn3_maxguiex_SetTextareaLineSpacing:
+	push	ebp
+	mov	ebp,esp
+	sub	esp,4
+	push	ebx
+	push	esi
+	push	edi
+	mov	ebx,dword [ebp+8]
+	push	ebx
+	call	_maxgui_maxgui_GadgetClass
+	add	esp,4
+	cmp	eax,5
+	jne	_494
+	push	1
+	push	ebx
+	call	_maxgui_maxgui_QueryGadget
+	add	esp,8
+	mov	esi,eax
+	cmp	esi,0
+	je	_496
+	push	_20
+	call	_bbObjectNew
+	add	esp,4
+	mov	dword [ebp-4],eax
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+8],188
+	mov	eax,dword [ebp-4]
+	push	dword [eax+8]
+	call	_bbStringFromInt
+	add	esp,4
+	push	eax
+	push	_47
+	call	_bbStringConcat
+	add	esp,8
+	push	eax
+	call	_brl_standardio_Print
+	add	esp,4
+	mov	eax,dword [ebp-4]
+	mov	dword [eax+12],256
+	mov	eax,dword [ebp-4]
+	mov	byte [eax+178],5
+	mov	ebx,dword [ebp-4]
+	fld	dword [ebp+12]
+	fmul	dword [_650]
+	sub	esp,8
+	fstp	qword [esp]
+	call	_bbFloatToInt
+	add	esp,8
+	mov	dword [ebx+172],eax
+	mov	eax,dword [ebp-4]
+	lea	eax,dword [eax+8]
+	push	eax
+	push	0
+	push	1095
+	push	esi
+	call	_SendMessageW@16
+	cmp	eax,0
+	setne	al
+	movzx	eax,al
+	jmp	_267
+_496:
+_494:
+	mov	eax,0
+	jmp	_267
+_267:
 	pop	edi
 	pop	esi
 	pop	ebx
@@ -1971,103 +2130,103 @@ _196:
 	ret
 	section	"data" data writeable align 8
 	align	4
-_198:
+_269:
 	dd	0
 	align	4
 __skn3_maxguiex_Skn3ListBatchLock_all:
 	dd	_bbNullObject
-_47:
-	db	"Skn3ListBatchLock",0
-_48:
-	db	"refCount",0
 _49:
-	db	"i",0
+	db	"Skn3ListBatchLock",0
 _50:
-	db	"listBox",0
+	db	"refCount",0
 _51:
-	db	":maxgui.win32maxguiex.TWindowsListBox",0
+	db	"i",0
 _52:
-	db	"index",0
+	db	"listBox",0
 _53:
-	db	"link",0
+	db	":maxgui.win32maxguiex.TWindowsListBox",0
 _54:
-	db	":brl.linkedlist.TLink",0
+	db	"index",0
 _55:
-	db	"it",0
+	db	"link",0
 _56:
-	db	":pub.win32.LVITEMW",0
+	db	":brl.linkedlist.TLink",0
 _57:
-	db	"hwnd",0
+	db	"it",0
 _58:
-	db	"New",0
+	db	":pub.win32.LVITEMW",0
 _59:
-	db	"()i",0
+	db	"hwnd",0
 _60:
-	db	"Delete",0
+	db	"New",0
 _61:
-	db	"Find",0
+	db	"()i",0
 _62:
-	db	"(:maxgui.maxgui.TGadget):Skn3ListBatchLock",0
+	db	"Delete",0
 _63:
-	db	"add",0
+	db	"Find",0
 _64:
-	db	"(:Skn3ListBatchLock)i",0
+	db	"(:maxgui.maxgui.TGadget):Skn3ListBatchLock",0
 _65:
+	db	"add",0
+_66:
+	db	"(:Skn3ListBatchLock)i",0
+_67:
 	db	"remove",0
 	align	4
-_46:
+_48:
 	dd	2
-	dd	_47
-	dd	3
-	dd	_48
 	dd	_49
-	dd	8
 	dd	3
 	dd	_50
 	dd	_51
-	dd	12
+	dd	8
 	dd	3
 	dd	_52
-	dd	_49
-	dd	16
-	dd	3
 	dd	_53
+	dd	12
+	dd	3
 	dd	_54
-	dd	20
+	dd	_51
+	dd	16
 	dd	3
 	dd	_55
 	dd	_56
-	dd	24
+	dd	20
 	dd	3
 	dd	_57
-	dd	_49
+	dd	_58
+	dd	24
+	dd	3
+	dd	_59
+	dd	_51
 	dd	28
 	dd	6
-	dd	_58
-	dd	_59
+	dd	_60
+	dd	_61
 	dd	16
 	dd	6
-	dd	_60
-	dd	_59
-	dd	20
-	dd	7
-	dd	_61
 	dd	_62
-	dd	48
+	dd	_61
+	dd	20
 	dd	7
 	dd	_63
 	dd	_64
-	dd	52
+	dd	48
 	dd	7
 	dd	_65
-	dd	_64
+	dd	_66
+	dd	52
+	dd	7
+	dd	_67
+	dd	_66
 	dd	56
 	dd	0
 	align	4
 _16:
 	dd	_bbObjectClass
 	dd	_bbObjectFree
-	dd	_46
+	dd	_48
 	dd	32
 	dd	__skn3_maxguiex_Skn3ListBatchLock_New
 	dd	__skn3_maxguiex_Skn3ListBatchLock_Delete
@@ -2083,47 +2242,410 @@ _16:
 	align	4
 __skn3_maxguiex_Skn3CustomPointer_all:
 	dd	_bbNullObject
-_67:
-	db	"Skn3CustomPointer",0
-_68:
-	db	"path",0
 _69:
-	db	"$",0
+	db	"Skn3CustomPointer",0
 _70:
+	db	"path",0
+_71:
+	db	"$",0
+_72:
 	db	"pointer",0
 	align	4
-_66:
+_68:
 	dd	2
-	dd	_67
-	dd	3
-	dd	_68
 	dd	_69
-	dd	8
 	dd	3
 	dd	_70
-	dd	_49
+	dd	_71
+	dd	8
+	dd	3
+	dd	_72
+	dd	_51
 	dd	12
 	dd	3
-	dd	_48
-	dd	_49
-	dd	16
-	dd	6
-	dd	_58
-	dd	_59
+	dd	_50
+	dd	_51
 	dd	16
 	dd	6
 	dd	_60
-	dd	_59
+	dd	_61
+	dd	16
+	dd	6
+	dd	_62
+	dd	_61
 	dd	20
 	dd	0
 	align	4
 _skn3_maxguiex_Skn3CustomPointer:
 	dd	_bbObjectClass
 	dd	_bbObjectFree
-	dd	_66
+	dd	_68
 	dd	20
 	dd	__skn3_maxguiex_Skn3CustomPointer_New
 	dd	__skn3_maxguiex_Skn3CustomPointer_Delete
+	dd	_bbObjectToString
+	dd	_bbObjectCompare
+	dd	_bbObjectSendMessage
+	dd	_bbObjectReserved
+	dd	_bbObjectReserved
+	dd	_bbObjectReserved
+_74:
+	db	"PARAFORMAT2",0
+_75:
+	db	"cbSize",0
+_76:
+	db	"dwMask",0
+_77:
+	db	"wNumbering",0
+_78:
+	db	"s",0
+_79:
+	db	"wEffects",0
+_80:
+	db	"dxStartIndent",0
+_81:
+	db	"dxRightIndent",0
+_82:
+	db	"dxOffset",0
+_83:
+	db	"wAlignment",0
+_84:
+	db	"cTabCount",0
+_85:
+	db	"rgxTabs00",0
+_86:
+	db	"rgxTabs01",0
+_87:
+	db	"rgxTabs02",0
+_88:
+	db	"rgxTabs03",0
+_89:
+	db	"rgxTabs10",0
+_90:
+	db	"rgxTabs11",0
+_91:
+	db	"rgxTabs12",0
+_92:
+	db	"rgxTabs13",0
+_93:
+	db	"rgxTabs20",0
+_94:
+	db	"rgxTabs21",0
+_95:
+	db	"rgxTabs22",0
+_96:
+	db	"rgxTabs23",0
+_97:
+	db	"rgxTabs30",0
+_98:
+	db	"rgxTabs31",0
+_99:
+	db	"rgxTabs32",0
+_100:
+	db	"rgxTabs33",0
+_101:
+	db	"rgxTabs40",0
+_102:
+	db	"rgxTabs41",0
+_103:
+	db	"rgxTabs42",0
+_104:
+	db	"rgxTabs43",0
+_105:
+	db	"rgxTabs50",0
+_106:
+	db	"rgxTabs51",0
+_107:
+	db	"rgxTabs52",0
+_108:
+	db	"rgxTabs53",0
+_109:
+	db	"rgxTabs60",0
+_110:
+	db	"rgxTabs61",0
+_111:
+	db	"rgxTabs62",0
+_112:
+	db	"rgxTabs63",0
+_113:
+	db	"rgxTabs70",0
+_114:
+	db	"rgxTabs71",0
+_115:
+	db	"rgxTabs72",0
+_116:
+	db	"rgxTabs73",0
+_117:
+	db	"dySpaceBefore",0
+_118:
+	db	"dySpaceAfter",0
+_119:
+	db	"dyLineSpacing",0
+_120:
+	db	"sStyle",0
+_121:
+	db	"bLineSpacingRule",0
+_122:
+	db	"b",0
+_123:
+	db	"bOutlineLevel",0
+_124:
+	db	"wShadingWeight",0
+_125:
+	db	"wShadingStyle",0
+_126:
+	db	"wNumberingStart",0
+_127:
+	db	"wNumberingStyle",0
+_128:
+	db	"wNumberingTab",0
+_129:
+	db	"wBorderSpace",0
+_130:
+	db	"wBorderWidth",0
+_131:
+	db	"wBorders",0
+	align	4
+_73:
+	dd	2
+	dd	_74
+	dd	3
+	dd	_75
+	dd	_51
+	dd	8
+	dd	3
+	dd	_76
+	dd	_51
+	dd	12
+	dd	3
+	dd	_77
+	dd	_78
+	dd	16
+	dd	3
+	dd	_79
+	dd	_78
+	dd	18
+	dd	3
+	dd	_80
+	dd	_51
+	dd	20
+	dd	3
+	dd	_81
+	dd	_51
+	dd	24
+	dd	3
+	dd	_82
+	dd	_51
+	dd	28
+	dd	3
+	dd	_83
+	dd	_78
+	dd	32
+	dd	3
+	dd	_84
+	dd	_78
+	dd	34
+	dd	3
+	dd	_85
+	dd	_51
+	dd	36
+	dd	3
+	dd	_86
+	dd	_51
+	dd	40
+	dd	3
+	dd	_87
+	dd	_51
+	dd	44
+	dd	3
+	dd	_88
+	dd	_51
+	dd	48
+	dd	3
+	dd	_89
+	dd	_51
+	dd	52
+	dd	3
+	dd	_90
+	dd	_51
+	dd	56
+	dd	3
+	dd	_91
+	dd	_51
+	dd	60
+	dd	3
+	dd	_92
+	dd	_51
+	dd	64
+	dd	3
+	dd	_93
+	dd	_51
+	dd	68
+	dd	3
+	dd	_94
+	dd	_51
+	dd	72
+	dd	3
+	dd	_95
+	dd	_51
+	dd	76
+	dd	3
+	dd	_96
+	dd	_51
+	dd	80
+	dd	3
+	dd	_97
+	dd	_51
+	dd	84
+	dd	3
+	dd	_98
+	dd	_51
+	dd	88
+	dd	3
+	dd	_99
+	dd	_51
+	dd	92
+	dd	3
+	dd	_100
+	dd	_51
+	dd	96
+	dd	3
+	dd	_101
+	dd	_51
+	dd	100
+	dd	3
+	dd	_102
+	dd	_51
+	dd	104
+	dd	3
+	dd	_103
+	dd	_51
+	dd	108
+	dd	3
+	dd	_104
+	dd	_51
+	dd	112
+	dd	3
+	dd	_105
+	dd	_51
+	dd	116
+	dd	3
+	dd	_106
+	dd	_51
+	dd	120
+	dd	3
+	dd	_107
+	dd	_51
+	dd	124
+	dd	3
+	dd	_108
+	dd	_51
+	dd	128
+	dd	3
+	dd	_109
+	dd	_51
+	dd	132
+	dd	3
+	dd	_110
+	dd	_51
+	dd	136
+	dd	3
+	dd	_111
+	dd	_51
+	dd	140
+	dd	3
+	dd	_112
+	dd	_51
+	dd	144
+	dd	3
+	dd	_113
+	dd	_51
+	dd	148
+	dd	3
+	dd	_114
+	dd	_51
+	dd	152
+	dd	3
+	dd	_115
+	dd	_51
+	dd	156
+	dd	3
+	dd	_116
+	dd	_51
+	dd	160
+	dd	3
+	dd	_117
+	dd	_51
+	dd	164
+	dd	3
+	dd	_118
+	dd	_51
+	dd	168
+	dd	3
+	dd	_119
+	dd	_51
+	dd	172
+	dd	3
+	dd	_120
+	dd	_78
+	dd	176
+	dd	3
+	dd	_121
+	dd	_122
+	dd	178
+	dd	3
+	dd	_123
+	dd	_122
+	dd	179
+	dd	3
+	dd	_124
+	dd	_78
+	dd	180
+	dd	3
+	dd	_125
+	dd	_78
+	dd	182
+	dd	3
+	dd	_126
+	dd	_78
+	dd	184
+	dd	3
+	dd	_127
+	dd	_78
+	dd	186
+	dd	3
+	dd	_128
+	dd	_78
+	dd	188
+	dd	3
+	dd	_129
+	dd	_78
+	dd	190
+	dd	3
+	dd	_130
+	dd	_78
+	dd	192
+	dd	3
+	dd	_131
+	dd	_78
+	dd	194
+	dd	6
+	dd	_60
+	dd	_61
+	dd	16
+	dd	6
+	dd	_62
+	dd	_61
+	dd	20
+	dd	0
+	align	4
+_20:
+	dd	_bbObjectClass
+	dd	_bbObjectFree
+	dd	_73
+	dd	196
+	dd	__skn3_maxguiex_PARAFORMAT2_New
+	dd	__skn3_maxguiex_PARAFORMAT2_Delete
 	dd	_bbObjectToString
 	dd	_bbObjectCompare
 	dd	_bbObjectSendMessage
@@ -2136,45 +2658,54 @@ _1:
 	dd	2147483647
 	dd	0
 	align	4
-_20:
+_21:
 	dd	_bbStringClass
 	dd	2147483647
 	dd	1
 	dw	47
 	align	4
-_22:
+_23:
 	dd	_bbStringClass
 	dd	2147483647
 	dd	1
 	dw	92
 	align	4
-_30:
+_31:
 	dd	_bbStringClass
 	dd	2147483647
 	dd	8
 	dw	105,110,99,98,105,110,58,58
-_268:
+_340:
 	db	"i",0
-_336:
+_408:
 	db	"i",0
 	align	4
-_34:
+_35:
 	dd	_bbStringClass
 	dd	2147483647
 	dd	14
 	dw	108,105,116,116,108,101,101,110,100,105,97,110,58,58
-_369:
+_441:
 	db	":TGadgetItem",0
 	align	4
-_44:
+_45:
 	dd	_bbStringClass
 	dd	2147483647
 	dd	27
 	dw	104,105,100,105,110,103,32,116,104,101,32,98,111,114,100,101
 	dw	114,32,104,111,112,101,102,117,108,108,121
 	align	4
-_45:
+_46:
 	dd	_bbStringClass
 	dd	2147483647
 	dd	7
 	dw	112,97,116,104,32,61,32
+	align	4
+_47:
+	dd	_bbStringClass
+	dd	2147483647
+	dd	7
+	dw	115,105,122,101,32,61,32
+	align	4
+_650:
+	dd	0x41a00000
