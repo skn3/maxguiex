@@ -25,3 +25,6 @@ void skn3_removeTextFieldBorder(NSTextField *gadget);
 int skn3_installFontFromFileWithATS(BBString *path);
 int skn3_installFontFromFileWithCT(BBString *path);
 int skn3_setTextViewLineSpacing(TextView *gadget,float spacing);
+int skn3_scrollTextAreaToTop(TextView *gadget);
+int skn3_scrollTextAreaToBottom(TextView *gadget);
+int skn3_scrollTextAreaToCursor(TextView *gadget);

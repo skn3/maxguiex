@@ -57,7 +57,10 @@ Extern "macos"
 	Function skn3_removeTextFieldBorder(Gadget:Int)
 	Function skn3_installFontFromFileWithATS:Int(text:String)
 	Function skn3_installFontFromFileWithCT:Int(text:String)
-	Function skn3_setTextViewLineSpacing:Int(gadget:Int,spacing:Float)
+	Function skn3_setTextViewLineSpacing:Int(Gadget:Int,spacing:Float)
+	Function skn3_scrollTextAreaToTop(Gadget:Int)
+	Function skn3_scrollTextAreaToBottom(Gadget:Int)
+	Function skn3_scrollTextAreaToCursor(Gadget:Int)
 EndExtern
 ?
 	
@@ -1186,6 +1189,45 @@ Function SetTextareaLineSpacing:Int(Gadget:TGadget,lineSpacing:Float)
 			
 			Local nsView:Int = QueryGadget(Gadget,QUERY_NSVIEW)
 			Return nsView <> 0 And skn3_setTextViewLineSpacing(nsView,lineSpacing) = True
+		?
+	EndIf
+End Function
+
+Function ScrollTextAreaToTop(Gadget:TGadget)
+	' --- change the scroll position of the textarea to top ---
+	If GadgetClass(Gadget) = GADGET_TEXTAREA
+		?Win32
+			Local hwnd:Int = QueryGadget(Gadget,QUERY_HWND)
+			If hwnd SendMessageW(hwnd,EM_SCROLL,SB_TOP,0)
+		?MacOs
+			Local nsView:Int = QueryGadget(Gadget,QUERY_NSVIEW)
+			If nsView skn3_scrollTextAreaToTop(nsView)
+		?
+	EndIf
+End Function
+
+Function ScrollTextAreaToBottom(Gadget:TGadget)
+	' --- change the scroll position of the textarea to bottom ---
+	If GadgetClass(Gadget) = GADGET_TEXTAREA
+		?Win32
+			Local hwnd:Int = QueryGadget(Gadget,QUERY_HWND)
+			If hwnd SendMessageW(hwnd,EM_SCROLL,SB_BOTTOM,0)
+		?MacOs
+			Local nsView:Int = QueryGadget(Gadget,QUERY_NSVIEW)
+			If nsView skn3_scrollTextAreaToBottom(nsView)
+		?
+	EndIf
+End Function
+
+Function ScrollTextAreaToCursor(Gadget:TGadget)
+	' --- scroll the textarea to the position of the cursor ---
+	If GadgetClass(Gadget) = GADGET_TEXTAREA
+		?Win32
+			Local hwnd:Int = QueryGadget(Gadget,QUERY_HWND)
+			If hwnd SendMessageW(hwnd,EM_SCROLLCARET,0,0)
+		?MacOs
+			Local nsView:Int = QueryGadget(Gadget,QUERY_NSVIEW)
+			If nsView skn3_scrollTextAreaToCursor(nsView)
 		?
 	EndIf
 End Function

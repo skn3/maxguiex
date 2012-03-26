@@ -213,3 +213,21 @@ int skn3_setTextViewLineSpacing(TextView *gadget,float spacing) {
 	if ([style lineHeightMultiple] == spacing) { return 1; }
 	return 0;
 }
+
+int skn3_scrollTextAreaToTop(TextView *gadget) {
+	//scroll textview to top
+	[gadget scrollRangeToVisible:NSMakeRange(0,0)];
+}
+
+int skn3_scrollTextAreaToBottom(TextView *gadget) {
+	//scroll textview to bottom
+	[gadget scrollRangeToVisible:NSMakeRange([[[gadget string] length],0)];
+}
+
+int skn3_scrollTextAreaToCursor(TextView *gadget) {
+	//scroll textview to cursor
+	NSRange range = [gadget rangeForUserTextChange];
+	if (range.location == NSNotFound) { range.location = 0; }
+	range.length = 0;
+	[gadget scrollRangeToVisible:range];
+}

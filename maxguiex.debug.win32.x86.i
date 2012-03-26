@@ -53,3 +53,6 @@ RedrawGadgetFrame%(Gadget:maxgui.maxgui.TGadget)="skn3_maxguiex_RedrawGadgetFram
 HideGadgetBorder%(Gadget:maxgui.maxgui.TGadget)="skn3_maxguiex_HideGadgetBorder"
 InstallGuiFont%(path$)="skn3_maxguiex_InstallGuiFont"
 SetTextareaLineSpacing%(Gadget:maxgui.maxgui.TGadget,lineSpacing#)="skn3_maxguiex_SetTextareaLineSpacing"
+ScrollTextAreaToTop%(Gadget:maxgui.maxgui.TGadget)="skn3_maxguiex_ScrollTextAreaToTop"
+ScrollTextAreaToBottom%(Gadget:maxgui.maxgui.TGadget)="skn3_maxguiex_ScrollTextAreaToBottom"
+ScrollTextAreaToCursor%(Gadget:maxgui.maxgui.TGadget)="skn3_maxguiex_ScrollTextAreaToCursor"
