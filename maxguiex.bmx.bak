@@ -2350,7 +2350,7 @@ about:
 	<li>Mac</li>
 </ul>
 <b>Info</b>
-<p>Does what it says on the tin!</p>
+<p>The value for spacing is the current line height multiple so if you provide a value of 1.0 the line spacing will be normal. If you provide a value of 2.0 the line spacing will be doubled!</p>
 End Rem
 Function SetTextareaLineSpacing:Int(Gadget:TGadget,lineSpacing:Float)
 	' --- change the line spacing of a textarea ---
