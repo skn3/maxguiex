@@ -1,3 +1,5 @@
+ModuleInfo "History: 1.01"
+ModuleInfo "History: Added SetTextAreaLineSpacing() function"
 ModuleInfo "History: 1.00"
 ModuleInfo "History: Initial Release To Public"
 import brl.blitz
@@ -22,6 +24,7 @@ skn3_removeScrollViewBorder%(Gadget%)="skn3_removeScrollViewBorder"
 skn3_removeTextFieldBorder%(Gadget%)="skn3_removeTextFieldBorder"
 skn3_installFontFromFileWithATS%(text$)="skn3_installFontFromFileWithATS"
 skn3_installFontFromFileWithCT%(text$)="skn3_installFontFromFileWithCT"
+skn3_setTextViewLineSpacing%(gadget%,spacing#)="skn3_setTextViewLineSpacing"
 Skn3CustomPointer^Object{
 all:TMap&=mem:p("_skn3_maxguiex_Skn3CustomPointer_all")
 .path$&
@@ -58,3 +61,4 @@ ClearColorPickerCustomColors%()="skn3_maxguiex_ClearColorPickerCustomColors"
 RedrawGadgetFrame%(Gadget:TGadget)="skn3_maxguiex_RedrawGadgetFrame"
 HideGadgetBorder%(Gadget:TGadget)="skn3_maxguiex_HideGadgetBorder"
 InstallGuiFont%(path$)="skn3_maxguiex_InstallGuiFont"
+SetTextareaLineSpacing%(Gadget:TGadget,lineSpacing#)="skn3_maxguiex_SetTextareaLineSpacing"

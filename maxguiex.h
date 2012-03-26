@@ -1,3 +1,5 @@
+#import <maxgui.mod/cocoamaxgui.mod/cocoa.macos.m>
+
 @interface skn3TextFieldFormatter : NSFormatter {
 	int maxLength;
 }
@@ -22,4 +24,8 @@ void skn3_removeScrollViewBorder(NSScrollView *gadget);
 void skn3_removeTextFieldBorder(NSTextField *gadget);
 int skn3_installFontFromFileWithATS(BBString *path);
 int skn3_installFontFromFileWithCT(BBString *path);
+<<<<<<< HEAD
 int skn3_setTextViewLineSpacing(NSTextView *gadget,float spacing);
+=======
+int skn3_setTextViewLineSpacing(TextView *gadget,float spacing);
+>>>>>>> a7107938afb804ea2527adf970a3bfba0031aad9
