@@ -204,9 +204,12 @@ int skn3_installFontFromFileWithCT(BBString *path) {
 	return 0;
 }
 
-int skn3_setTextViewLineSpacing(NSTextView *gadget,CGFloat spacing) {
+int skn3_setTextViewLineSpacing(TextView *gadget,float spacing) {
 	//change the line spacing of a textview
-	NSMutableParagraphStyle *paragraphStyle =[[[NSParagraphStyle defaultParagraphStyle] mutableCopy] autorelease];
-	[paragraphStyle setLineHeightMultiple:spacing];
-	[gadget setDefaultParagraphStyle:paragraphStyle];
+	NSMutableParagraphStyle *style = gadget->style;
+	[style setMinimumLineHeight:0];
+	[style setMaximumLineHeight:0];
+	[style setLineHeightMultiple:spacing];
+	if ([style lineHeightMultiple] == spacing) { return 1; }
+	return 0;
 }
