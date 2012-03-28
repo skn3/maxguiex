@@ -28,3 +28,4 @@ int skn3_setTextViewLineSpacing(TextView *gadget,float spacing);
 int skn3_scrollTextAreaToTop(TextView *gadget);
 int skn3_scrollTextAreaToBottom(TextView *gadget);
 int skn3_scrollTextAreaToCursor(TextView *gadget);
+BBString *skn3_getBundlePath();

@@ -63,6 +63,7 @@ Extern "macos"
 	Function skn3_scrollTextAreaToTop(Gadget:Int)
 	Function skn3_scrollTextAreaToBottom(Gadget:Int)
 	Function skn3_scrollTextAreaToCursor(Gadget:Int)
+	Function skn3_getBundlePath:String()
 EndExtern
 ?
 	
@@ -1265,4 +1266,14 @@ Function ScrollTextAreaToCursor(Gadget:TGadget)
 			If nsView skn3_scrollTextAreaToCursor(nsView)
 		?
 	EndIf
+End Function
+
+Function GetAppResourcesPath:String()
+	' --- get the path to resources ---
+	'on windows this will assume that you are using incbin
+	?Win32
+		Return "incbin::"
+	?MacOs
+		Return skn3_getBundlePath()
+	?
 End Function

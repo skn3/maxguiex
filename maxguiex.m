@@ -231,3 +231,8 @@ int skn3_scrollTextAreaToCursor(TextView *gadget) {
 	range.length = 0;
 	[gadget scrollRangeToVisible:range];
 }
+
+BBString *skn3_getBundlePath() {
+	//return a path to the application bundle
+	return stringFromNSString([[NSBundle mainBundle] resourcePath]);
+}
