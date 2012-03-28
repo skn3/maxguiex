@@ -7,6 +7,8 @@ End Rem
 Module skn3.maxguiex
 SuperStrict
 
+ModuleInfo "History: 1.03"
+ModuleInfo "History: Added GetAppResourcesPath() and tweaked h files"
 ModuleInfo "History: 1.02"
 ModuleInfo "History: Added ScrollTextAreaToTop() ScrollTextAreaToBottom() ScrollTextAreaToCursor() functions"
 ModuleInfo "History: 1.01"

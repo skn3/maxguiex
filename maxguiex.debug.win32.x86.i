@@ -1,3 +1,7 @@
+ModuleInfo "History: 1.03"
+ModuleInfo "History: Added GetAppResourcesPath() and tweaked h files"
+ModuleInfo "History: 1.02"
+ModuleInfo "History: Added ScrollTextAreaToTop() ScrollTextAreaToBottom() ScrollTextAreaToCursor() functions"
 ModuleInfo "History: 1.01"
 ModuleInfo "History: Added SetTextAreaLineSpacing() function"
 ModuleInfo "History: 1.00"
@@ -56,3 +60,4 @@ SetTextareaLineSpacing%(Gadget:maxgui.maxgui.TGadget,lineSpacing#)="skn3_maxguie
 ScrollTextAreaToTop%(Gadget:maxgui.maxgui.TGadget)="skn3_maxguiex_ScrollTextAreaToTop"
 ScrollTextAreaToBottom%(Gadget:maxgui.maxgui.TGadget)="skn3_maxguiex_ScrollTextAreaToBottom"
 ScrollTextAreaToCursor%(Gadget:maxgui.maxgui.TGadget)="skn3_maxguiex_ScrollTextAreaToCursor"
+GetAppResourcesPath$()="skn3_maxguiex_GetAppResourcesPath"
