@@ -1062,10 +1062,9 @@ Function HideGadgetBorder(Gadget:TGadget)
 	' --- this will hide the border on certain gadgets ---
 	?Win32
 		Select GadgetClass(Gadget)
-			Case GADGET_TEXTAREA,GADGET_TEXTFIELD
+			Case GADGET_TEXTAREA,GADGET_TEXTFIELD,GADGET_LISTBOX
 				Local hwnd:Int = QueryGadget(Gadget,QUERY_HWND)
 				If hwnd
-					Print "hiding the border hopefully"
 					Local Style:Int = GetWindowLongW(hwnd,GWL_STYLE)
 					Local styleEx:Int = GetWindowLongW(hwnd,GWL_EXSTYLE)
 					
