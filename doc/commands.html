@@ -45,6 +45,9 @@ Helper function to turn a gadget into its respective os handle. <b>[Win Mac Linu
 <tr><td class=docleft width=1%><a href=#GadgetWindow>GadgetWindow</a></td><td class=docright>
 Find the first parent window the provided gadget belongs to. <b>[Win Mac Linux]</b>
 </td></tr>
+<tr><td class=docleft width=1%><a href=#GetAppResourcesPath>GetAppResourcesPath</a></td><td class=docright>
+Get a path to the resources for this app. <b>[Win Mac]</b>
+</td></tr>
 <tr><td class=docleft width=1%><a href=#GetCreationGroup>GetCreationGroup</a></td><td class=docright>
 This is mainly for use with custom proxy gadget constructor functions to get the real parent gadget/proxy of a given gadget/proxy. <b>[Win Mac Linux]</b>
 </td></tr>
@@ -262,6 +265,19 @@ A private type to store the state of a locked listbox.
 </ul>
 <b>Info</b>
 <p>This function will walk the parent tree to find the window the given gadget belogns to.</p></td></tr>
+</table>
+<br>
+<table class=doc width=100% cellspacing=3 id=GetAppResourcesPath>
+<tr><td class=doctop colspan=2>Function GetAppResourcesPath:String()</td></tr>
+<tr><td class=docleft width=1%>Returns</td><td class=docright>a string continaing a path.</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Get a path to the resources for this app. <b>[Win Mac]</b></td></tr>
+<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
+<ul>
+<li>Windows</li>
+<li>Mac</li>
+</ul>
+<b>Info</b>
+<p>A path will be returned which will indicate where resources are stored for this app on the speciffic target. In windows the path will always be <i>incbin::</i> and it is expected for you to incbin your resources.</p></td></tr>
 </table>
 <br>
 <table class=doc width=100% cellspacing=3 id=GetCreationGroup>

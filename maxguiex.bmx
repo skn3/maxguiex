@@ -14,18 +14,13 @@ ModuleInfo "History: Added SetTextAreaLineSpacing() function"
 ModuleInfo "History: 1.00"
 ModuleInfo "History: Initial Release To Public"
 
-
-
-'imports
+'platform stuff
+?Win32
 Import brl.map
 Import brl.linkedlist
 Import maxgui.drivers
 Import skn3.systemex
 
-
-
-'platform stuff
-?Win32
 Extern "Win32"
 	Function skn3_clientToScreen:Int( hwnd:Int, point:Long Var) = "ClientToScreen@8"
 	Function skn3_loadCursorFromFile:Int(path$w) = "LoadCursorFromFileW@4"
@@ -39,38 +34,6 @@ Const BCM_GETIDEALSIZE:Int = BCM_FIRST + 1
 Const BCM_GETTEXTMARGIN:Int = BCM_FIRST + 5
 Const FR_PRIVATE:Int = 16
 
-?MacOs
-Import "maxguiex.m"
-Extern "macos"
-	Function skn3_absoluteFrom:Int[](gadget:Int)
-	Function skn3_stringDimensions:Int[](Gadget:Int,text:String,Width:Float)
-	Function skn3_setWindowAlwaysOnTop(Window:Int,State:Int)
-	Function skn3_bringWindowToTop(Window:Int)
-	Function skn3_focusWindow(Window:Int)
-	Function skn3_setReadOnly(gadget:Int,yes:Int)
-	Function skn3_setMaxLength(gadget:Int,length:Int)
-	Function skn3_getMaxLength:Int(gadget:Int)
-	Function skn3_loadCustomPointer:Int(path:String,cursorX:Int,cursorY:Int)
-	Function skn3_setCustomPointer:Int(cursor:Int)
-	Function skn3_freeCustomPointer:Int(cursor:Int)
-	Function skn3_currentCursor:Int()
-	Function skn3_setColorPickerCustomColors(colors:Int[])
-	Function skn3_removeScrollViewBorder(Gadget:Int)
-	Function skn3_removeTextFieldBorder(Gadget:Int)
-	Function skn3_installFontFromFileWithATS:Int(text:String)
-	Function skn3_installFontFromFileWithCT:Int(text:String)
-	Function skn3_setTextViewLineSpacing:Int(Gadget:Int,spacing:Float)
-	Function skn3_scrollTextAreaToTop(Gadget:Int)
-	Function skn3_scrollTextAreaToBottom(Gadget:Int)
-	Function skn3_scrollTextAreaToCursor(Gadget:Int)
-	Function skn3_getBundlePath:String()
-EndExtern
-?
-	
-	
-	
-'types
-?Win32
 Private
 Rem
 bbdoc: A private type to store the state of a locked listbox.
@@ -126,7 +89,40 @@ Type Skn3ListBatchLock
 	End Function
 End Type
 Public
+
+?MacOs
+Import "maxguiex.m"
+Import brl.map
+Import brl.linkedlist
+Import maxgui.drivers
+Import skn3.systemex
+
+Extern "macos"
+	Function skn3_absoluteFrom:Int[](gadget:Int)
+	Function skn3_stringDimensions:Int[](Gadget:Int,text:String,Width:Float)
+	Function skn3_setWindowAlwaysOnTop(Window:Int,State:Int)
+	Function skn3_bringWindowToTop(Window:Int)
+	Function skn3_focusWindow(Window:Int)
+	Function skn3_setReadOnly(gadget:Int,yes:Int)
+	Function skn3_setMaxLength(gadget:Int,length:Int)
+	Function skn3_getMaxLength:Int(gadget:Int)
+	Function skn3_loadCustomPointer:Int(path:String,cursorX:Int,cursorY:Int)
+	Function skn3_setCustomPointer:Int(cursor:Int)
+	Function skn3_freeCustomPointer:Int(cursor:Int)
+	Function skn3_currentCursor:Int()
+	Function skn3_setColorPickerCustomColors(colors:Int[])
+	Function skn3_removeScrollViewBorder(Gadget:Int)
+	Function skn3_removeTextFieldBorder(Gadget:Int)
+	Function skn3_installFontFromFileWithATS:Int(text:String)
+	Function skn3_installFontFromFileWithCT:Int(text:String)
+	Function skn3_setTextViewLineSpacing:Int(Gadget:Int,spacing:Float)
+	Function skn3_scrollTextAreaToTop(Gadget:Int)
+	Function skn3_scrollTextAreaToBottom(Gadget:Int)
+	Function skn3_scrollTextAreaToCursor(Gadget:Int)
+	Function skn3_getBundlePath:String()
+EndExtern
 ?
+
 
 Rem
 bbdoc: An object that stores a custom cursor file.
@@ -1268,6 +1264,18 @@ Function ScrollTextAreaToCursor(Gadget:TGadget)
 	EndIf
 End Function
 
+Rem
+bbdoc: Get a path to the resources for this app. <b>[Win Mac]</b>
+returns: a string continaing a path.
+about:
+<b>Supported Platforms</b>
+<ul>
+	<li>Windows</li>
+	<li>Mac</li>
+</ul>
+<b>Info</b>
+<p>A path will be returned which will indicate where resources are stored for this app on the speciffic target. In windows the path will always be <i>incbin::</i> and it is expected for you to incbin your resources.</p>
+End Rem
 Function GetAppResourcesPath:String()
 	' --- get the path to resources ---
 	'on windows this will assume that you are using incbin

@@ -56,6 +56,7 @@
 	.reference	_skn3_currentCursor
 	.reference	_skn3_focusWindow
 	.reference	_skn3_freeCustomPointer
+	.reference	_skn3_getBundlePath
 	.reference	_skn3_getMaxLength
 	.reference	_skn3_installFontFromFileWithATS
 	.reference	_skn3_installFontFromFileWithCT
@@ -90,6 +91,7 @@
 	.globl	_skn3_maxguiex_GadgetSizeForString
 	.globl	_skn3_maxguiex_GadgetToInt
 	.globl	_skn3_maxguiex_GadgetWindow
+	.globl	_skn3_maxguiex_GetAppResourcesPath
 	.globl	_skn3_maxguiex_GetCreationGroup
 	.globl	_skn3_maxguiex_GetGadgetMaxLength
 	.globl	_skn3_maxguiex_HideGadgetBorder
@@ -118,25 +120,25 @@ ___bb_maxguiex_maxguiex:
 	mov	%esp,%ebp
 	push	%ebx
 	sub	$20,%esp
-	cmpl	$0,_232
-	je	_233
+	cmpl	$0,_234
+	je	_235
 	mov	$0,%eax
 	add	$20,%esp
 	pop	%ebx
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
-_233:
-	movl	$1,_232
+_235:
+	movl	$1,_234
 	movl	%ebp,4(%esp)
-	movl	$_230,(%esp)
+	movl	$_232,(%esp)
 	calll	*_bbOnDebugEnterScope
 	call	___bb_blitz_blitz
 	call	___bb_map_map
 	call	___bb_linkedlist_linkedlist
 	call	___bb_drivers_drivers
 	call	___bb_systemex_systemex
-	movl	$_228,(%esp)
+	movl	$_230,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$_skn3_maxguiex_Skn3CustomPointer,(%esp)
 	call	_bbObjectRegisterType
@@ -161,7 +163,7 @@ __skn3_maxguiex_Skn3CustomPointer_New:
 	movl	8(%ebp),%eax
 	movl	%eax,-4(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_236,(%esp)
+	movl	$_238,(%esp)
 	calll	*_bbOnDebugEnterScope
 	movl	-4(%ebp),%eax
 	movl	%eax,(%esp)
@@ -177,7 +179,7 @@ __skn3_maxguiex_Skn3CustomPointer_New:
 	movl	-4(%ebp),%eax
 	movl	$0,16(%eax)
 	movl	%ebp,4(%esp)
-	movl	$_235,(%esp)
+	movl	$_237,(%esp)
 	calll	*_bbOnDebugEnterScope
 	calll	*_bbOnDebugLeaveScope
 	mov	$0,%ebx
@@ -198,13 +200,13 @@ __skn3_maxguiex_Skn3CustomPointer_Delete:
 _103:
 	movl	8(%eax),%eax
 	decl	4(%eax)
-	jnz	_241
+	jnz	_243
 	movl	%eax,(%esp)
 	call	_bbGCFree
-_241:
+_243:
 	mov	$0,%eax
-	jmp	_239
-_239:
+	jmp	_241
+_241:
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
@@ -217,7 +219,7 @@ __skn3_maxguiex_PARAFORMAT2_New:
 	movl	8(%ebp),%eax
 	movl	%eax,-4(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_243,(%esp)
+	movl	$_245,(%esp)
 	calll	*_bbOnDebugEnterScope
 	movl	-4(%ebp),%eax
 	movl	%eax,(%esp)
@@ -335,7 +337,7 @@ __skn3_maxguiex_PARAFORMAT2_New:
 	movl	-4(%ebp),%eax
 	movw	$0,194(%eax)
 	movl	%ebp,4(%esp)
-	movl	$_242,(%esp)
+	movl	$_244,(%esp)
 	calll	*_bbOnDebugEnterScope
 	calll	*_bbOnDebugLeaveScope
 	mov	$0,%ebx
@@ -354,8 +356,8 @@ __skn3_maxguiex_PARAFORMAT2_Delete:
 	sub	$8,%esp
 _109:
 	mov	$0,%eax
-	jmp	_245
-_245:
+	jmp	_247
+_247:
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
@@ -376,24 +378,24 @@ _8:
 	movl	$0,-20(%ebp)
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_299,(%esp)
+	movl	$_301,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_246,(%esp)
+	movl	$_248,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%eax
 	cmpl	$0,8(%eax)
-	jne	_247
+	jne	_249
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_249,(%esp)
+	movl	$_251,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_248,(%esp)
+	movl	$_250,(%esp)
 	calll	*_bbOnDebugEnterStm
 	mov	$_1,%ebx
 	calll	*_bbOnDebugLeaveScope
 	jmp	_113
-_247:
-	movl	$_250,(%esp)
+_249:
+	movl	$_252,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$_7,8(%esp)
 	movl	$_9,4(%esp)
@@ -401,19 +403,19 @@ _247:
 	movl	%eax,(%esp)
 	call	_bbStringReplace
 	movl	%eax,-4(%ebp)
-	movl	$_251,(%esp)
+	movl	$_253,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$_7,4(%esp)
 	movl	-8(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_bbStringCompare
 	cmp	$0,%eax
-	je	_252
+	je	_254
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_254,(%esp)
+	movl	$_256,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_253,(%esp)
+	movl	$_255,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-8(%ebp),%eax
 	movl	%eax,8(%esp)
@@ -423,64 +425,64 @@ _247:
 	call	_bbStringReplace
 	movl	%eax,-4(%ebp)
 	calll	*_bbOnDebugLeaveScope
-_252:
-	movl	$_255,(%esp)
-	calll	*_bbOnDebugEnterStm
-	movl	$0,-12(%ebp)
+_254:
 	movl	$_257,(%esp)
 	calll	*_bbOnDebugEnterStm
-	movl	$0,-16(%ebp)
+	movl	$0,-12(%ebp)
 	movl	$_259,(%esp)
+	calll	*_bbOnDebugEnterStm
+	movl	$0,-16(%ebp)
+	movl	$_261,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$0,-12(%ebp)
 	movl	-4(%ebp),%eax
 	movl	8(%eax),%edi
-	jmp	_260
+	jmp	_262
 _12:
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_275,(%esp)
+	movl	$_277,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_262,(%esp)
+	movl	$_264,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%esi
 	movl	-12(%ebp),%ebx
 	cmpl	8(%esi),%ebx
-	jb	_265
+	jb	_267
 	call	_brl_blitz_ArrayBoundsError
-_265:
+_267:
 	movzwl	12(%esi,%ebx,2),%eax
 	mov	%eax,%eax
 	cmp	$32,%eax
 	setne	%al
 	movzbl	%al,%eax
 	cmp	$0,%eax
-	je	_269
+	je	_271
 	movl	-4(%ebp),%esi
 	movl	-12(%ebp),%ebx
 	cmpl	8(%esi),%ebx
-	jb	_268
+	jb	_270
 	call	_brl_blitz_ArrayBoundsError
-_268:
+_270:
 	movzwl	12(%esi,%ebx,2),%eax
 	mov	%eax,%eax
 	cmp	$47,%eax
 	setne	%al
 	movzbl	%al,%eax
-_269:
+_271:
 	cmp	$0,%eax
-	je	_271
+	je	_273
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_273,(%esp)
+	movl	$_275,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_272,(%esp)
+	movl	$_274,(%esp)
 	calll	*_bbOnDebugEnterStm
 	calll	*_bbOnDebugLeaveScope
 	calll	*_bbOnDebugLeaveScope
 	jmp	_11
-_271:
-	movl	$_274,(%esp)
+_273:
+	movl	$_276,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-12(%ebp),%eax
 	add	$1,%eax
@@ -488,92 +490,92 @@ _271:
 	calll	*_bbOnDebugLeaveScope
 _10:
 	addl	$1,-12(%ebp)
-_260:
+_262:
 	cmpl	%edi,-12(%ebp)
 	jl	_12
 _11:
-	movl	$_276,(%esp)
+	movl	$_278,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%eax
 	movl	8(%eax),%eax
 	subl	-16(%ebp),%eax
 	movl	%eax,-20(%ebp)
-	movl	$_278,(%esp)
+	movl	$_280,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%eax
 	movl	8(%eax),%eax
 	sub	$1,%eax
 	movl	%eax,-12(%ebp)
-	jmp	_279
+	jmp	_281
 _15:
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_293,(%esp)
+	movl	$_295,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_280,(%esp)
+	movl	$_282,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%esi
 	movl	-12(%ebp),%ebx
 	cmpl	8(%esi),%ebx
-	jb	_283
+	jb	_285
 	call	_brl_blitz_ArrayBoundsError
-_283:
+_285:
 	movzwl	12(%esi,%ebx,2),%eax
 	mov	%eax,%eax
 	cmp	$32,%eax
 	setne	%al
 	movzbl	%al,%eax
 	cmp	$0,%eax
-	je	_287
+	je	_289
 	movl	-4(%ebp),%esi
 	movl	-12(%ebp),%ebx
 	cmpl	8(%esi),%ebx
-	jb	_286
+	jb	_288
 	call	_brl_blitz_ArrayBoundsError
-_286:
+_288:
 	movzwl	12(%esi,%ebx,2),%eax
 	mov	%eax,%eax
 	cmp	$47,%eax
 	setne	%al
 	movzbl	%al,%eax
-_287:
+_289:
 	cmp	$0,%eax
-	je	_289
+	je	_291
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_291,(%esp)
+	movl	$_293,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_290,(%esp)
+	movl	$_292,(%esp)
 	calll	*_bbOnDebugEnterStm
 	calll	*_bbOnDebugLeaveScope
 	calll	*_bbOnDebugLeaveScope
 	jmp	_14
-_289:
-	movl	$_292,(%esp)
+_291:
+	movl	$_294,(%esp)
 	calll	*_bbOnDebugEnterStm
 	subl	$1,-20(%ebp)
 	calll	*_bbOnDebugLeaveScope
 _13:
 	addl	$-1,-12(%ebp)
-_279:
+_281:
 	cmpl	$0,-12(%ebp)
 	jge	_15
 _14:
-	movl	$_294,(%esp)
+	movl	$_296,(%esp)
 	calll	*_bbOnDebugEnterStm
 	cmpl	$0,-20(%ebp)
-	jg	_295
+	jg	_297
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_297,(%esp)
+	movl	$_299,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_296,(%esp)
+	movl	$_298,(%esp)
 	calll	*_bbOnDebugEnterStm
 	mov	$_1,%ebx
 	calll	*_bbOnDebugLeaveScope
 	jmp	_113
-_295:
-	movl	$_298,(%esp)
+_297:
+	movl	$_300,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-16(%ebp),%eax
 	addl	-20(%ebp),%eax
@@ -611,9 +613,9 @@ _16:
 	movl	$_bbNullObject,-28(%ebp)
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_335,(%esp)
+	movl	$_337,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_305,(%esp)
+	movl	$_307,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$8,8(%esp)
 	movl	$0,4(%esp)
@@ -626,12 +628,12 @@ _16:
 	movl	%eax,(%esp)
 	call	_bbStringCompare
 	cmp	$0,%eax
-	jne	_306
+	jne	_308
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_326,(%esp)
+	movl	$_328,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_307,(%esp)
+	movl	$_309,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$_7,4(%esp)
 	movl	$0,(%esp)
@@ -645,10 +647,10 @@ _16:
 	movl	%eax,(%esp)
 	call	_bbStringConcat
 	movl	%eax,-8(%ebp)
-	movl	$_309,(%esp)
+	movl	$_311,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$_1,-12(%ebp)
-	movl	$_311,(%esp)
+	movl	$_313,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%eax
 	movl	8(%eax),%eax
@@ -660,15 +662,15 @@ _16:
 	movl	%eax,(%esp)
 	call	_brl_filesystem_StripDir
 	movl	%eax,-16(%ebp)
-	movl	$_313,(%esp)
+	movl	$_315,(%esp)
 	calll	*_bbOnDebugEnterStm
 	jmp	_18
 _20:
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_315,(%esp)
+	movl	$_317,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_314,(%esp)
+	movl	$_316,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-12(%ebp),%eax
 	movl	%eax,(%esp)
@@ -693,7 +695,7 @@ _18:
 	cmp	$0,%eax
 	jne	_20
 _19:
-	movl	$_316,(%esp)
+	movl	$_318,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-16(%ebp),%ebx
 	movl	-12(%ebp),%eax
@@ -705,19 +707,19 @@ _19:
 	movl	%eax,(%esp)
 	call	_bbStringConcat
 	movl	%eax,-20(%ebp)
-	movl	$_318,(%esp)
+	movl	$_320,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_brl_stream_ReadStream
 	movl	%eax,-24(%ebp)
-	movl	$_320,(%esp)
+	movl	$_322,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-20(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_brl_stream_WriteStream
 	movl	%eax,-28(%ebp)
-	movl	$_322,(%esp)
+	movl	$_324,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$4096,8(%esp)
 	movl	-28(%ebp),%eax
@@ -725,23 +727,23 @@ _19:
 	movl	-24(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_brl_stream_CopyStream
-	movl	$_323,(%esp)
+	movl	$_325,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-28(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_brl_filesystem_CloseFile
-	movl	$_324,(%esp)
+	movl	$_326,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-24(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_brl_stream_CloseStream
-	movl	$_325,(%esp)
+	movl	$_327,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-20(%ebp),%ebx
 	calll	*_bbOnDebugLeaveScope
 	jmp	_116
-_306:
-	movl	$_334,(%esp)
+_308:
+	movl	$_336,(%esp)
 	calll	*_bbOnDebugEnterStm
 	mov	$_1,%ebx
 	jmp	_116
@@ -759,9 +761,9 @@ _skn3_maxguiex_RequestScrollbarSize:
 	push	%ebx
 	sub	$20,%esp
 	movl	%ebp,4(%esp)
-	movl	$_338,(%esp)
+	movl	$_340,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_337,(%esp)
+	movl	$_339,(%esp)
 	calll	*_bbOnDebugEnterStm
 	mov	$18,%ebx
 	jmp	_118
@@ -784,7 +786,7 @@ _skn3_maxguiex_SetComboBoxHeight:
 	movl	12(%ebp),%eax
 	movl	%eax,-8(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_340,(%esp)
+	movl	$_342,(%esp)
 	calll	*_bbOnDebugEnterScope
 	mov	$0,%ebx
 	jmp	_122
@@ -808,9 +810,9 @@ _skn3_maxguiex_GadgetScreenPosition:
 	movl	%eax,-8(%ebp)
 	movl	$_bbEmptyArray,-12(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_348,(%esp)
+	movl	$_350,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_345,(%esp)
+	movl	$_347,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$4,4(%esp)
 	movl	-4(%ebp),%eax
@@ -819,7 +821,7 @@ _skn3_maxguiex_GadgetScreenPosition:
 	movl	%eax,(%esp)
 	call	_skn3_absoluteFrom
 	movl	%eax,-12(%ebp)
-	movl	$_347,(%esp)
+	movl	$_349,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-12(%ebp),%ebx
 	jmp	_126
@@ -840,7 +842,7 @@ _skn3_maxguiex_DisableGadgetRedraw:
 	movl	8(%ebp),%eax
 	movl	%eax,-4(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_354,(%esp)
+	movl	$_356,(%esp)
 	calll	*_bbOnDebugEnterScope
 	mov	$0,%ebx
 	jmp	_129
@@ -861,7 +863,7 @@ _skn3_maxguiex_EnableGadgetRedraw:
 	movl	8(%ebp),%eax
 	movl	%eax,-4(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_356,(%esp)
+	movl	$_358,(%esp)
 	calll	*_bbOnDebugEnterScope
 	mov	$0,%ebx
 	jmp	_132
@@ -887,39 +889,39 @@ _skn3_maxguiex_MessageBox:
 	movl	%eax,-12(%ebp)
 	movl	$_bbEmptyString,-16(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_371,(%esp)
+	movl	$_373,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_358,(%esp)
+	movl	$_360,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	_bbAppTitle,%eax
 	movl	%eax,-16(%ebp)
-	movl	$_360,(%esp)
+	movl	$_362,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%ebx
 	incl	4(%ebx)
 	movl	_bbAppTitle,%eax
 	decl	4(%eax)
-	jnz	_364
+	jnz	_366
 	movl	%eax,(%esp)
 	call	_bbGCFree
-_364:
+_366:
 	movl	%ebx,_bbAppTitle
-	movl	$_365,(%esp)
+	movl	$_367,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$0,4(%esp)
 	movl	-8(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_brl_system_Notify
-	movl	$_366,(%esp)
+	movl	$_368,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-16(%ebp),%ebx
 	incl	4(%ebx)
 	movl	_bbAppTitle,%eax
 	decl	4(%eax)
-	jnz	_370
+	jnz	_372
 	movl	%eax,(%esp)
 	call	_bbGCFree
-_370:
+_372:
 	movl	%ebx,_bbAppTitle
 	mov	$0,%ebx
 	jmp	_137
@@ -945,9 +947,9 @@ _skn3_maxguiex_GadgetSizeForString:
 	movl	%eax,-12(%ebp)
 	movl	$_bbEmptyArray,-16(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_380,(%esp)
+	movl	$_382,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_377,(%esp)
+	movl	$_379,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-12(%ebp),%eax
 	movl	%eax,-20(%ebp)
@@ -962,7 +964,7 @@ _skn3_maxguiex_GadgetSizeForString:
 	movl	%eax,(%esp)
 	call	_skn3_stringDimensions
 	movl	%eax,-16(%ebp)
-	movl	$_379,(%esp)
+	movl	$_381,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-16(%ebp),%ebx
 	jmp	_142
@@ -984,37 +986,37 @@ _skn3_maxguiex_GetCreationGroup:
 	movl	%eax,-4(%ebp)
 	movl	$_bbNullObject,-8(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_394,(%esp)
+	movl	$_396,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_385,(%esp)
+	movl	$_387,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$_maxgui_maxgui_TProxyGadget,4(%esp)
 	movl	-4(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_bbObjectDowncast
 	movl	%eax,-8(%ebp)
-	movl	$_387,(%esp)
+	movl	$_389,(%esp)
 	calll	*_bbOnDebugEnterStm
 	cmpl	$_bbNullObject,-8(%ebp)
-	je	_388
+	je	_390
 	movl	%ebp,4(%esp)
-	movl	$_392,(%esp)
+	movl	$_394,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_389,(%esp)
+	movl	$_391,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-8(%ebp),%ebx
 	cmp	$_bbNullObject,%ebx
-	jne	_391
+	jne	_393
 	call	_brl_blitz_NullObjectError
-_391:
+_393:
 	movl	140(%ebx),%eax
 	movl	%eax,(%esp)
 	call	_skn3_maxguiex_GetCreationGroup
 	mov	%eax,%ebx
 	calll	*_bbOnDebugLeaveScope
 	jmp	_145
-_388:
-	movl	$_393,(%esp)
+_390:
+	movl	$_395,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%ebx
 	jmp	_145
@@ -1037,23 +1039,23 @@ _skn3_maxguiex_SetGadgetReadOnly:
 	movl	12(%ebp),%eax
 	movl	%eax,-8(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_405,(%esp)
+	movl	$_407,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_399,(%esp)
+	movl	$_401,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_maxgui_maxgui_GadgetClass
 	cmp	$5,%eax
-	je	_402
+	je	_404
 	cmp	$4,%eax
-	je	_402
-	jmp	_401
-_402:
+	je	_404
+	jmp	_403
+_404:
 	movl	%ebp,4(%esp)
-	movl	$_404,(%esp)
+	movl	$_406,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_403,(%esp)
+	movl	$_405,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-8(%ebp),%eax
 	cmp	$0,%eax
@@ -1068,8 +1070,8 @@ _402:
 	movl	%eax,(%esp)
 	call	_skn3_setReadOnly
 	calll	*_bbOnDebugLeaveScope
-	jmp	_401
-_401:
+	jmp	_403
+_403:
 	mov	$0,%ebx
 	jmp	_149
 _149:
@@ -1091,35 +1093,35 @@ _skn3_maxguiex_SetGadgetMaxLength:
 	movl	12(%ebp),%eax
 	movl	%eax,-8(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_418,(%esp)
+	movl	$_420,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_408,(%esp)
+	movl	$_410,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_maxgui_maxgui_GadgetClass
 	cmp	$4,%eax
-	je	_411
+	je	_413
 	cmp	$5,%eax
-	je	_411
-	jmp	_410
-_411:
+	je	_413
+	jmp	_412
+_413:
 	movl	%ebp,4(%esp)
-	movl	$_417,(%esp)
-	calll	*_bbOnDebugEnterScope
-	movl	$_412,(%esp)
-	calll	*_bbOnDebugEnterStm
-	cmpl	$0,-8(%ebp)
-	jge	_413
-	movl	%ebp,4(%esp)
-	movl	$_415,(%esp)
+	movl	$_419,(%esp)
 	calll	*_bbOnDebugEnterScope
 	movl	$_414,(%esp)
 	calll	*_bbOnDebugEnterStm
+	cmpl	$0,-8(%ebp)
+	jge	_415
+	movl	%ebp,4(%esp)
+	movl	$_417,(%esp)
+	calll	*_bbOnDebugEnterScope
+	movl	$_416,(%esp)
+	calll	*_bbOnDebugEnterStm
 	movl	$0,-8(%ebp)
 	calll	*_bbOnDebugLeaveScope
-_413:
-	movl	$_416,(%esp)
+_415:
+	movl	$_418,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-8(%ebp),%ebx
 	movl	$3,4(%esp)
@@ -1130,8 +1132,8 @@ _413:
 	movl	%eax,(%esp)
 	call	_skn3_setMaxLength
 	calll	*_bbOnDebugLeaveScope
-	jmp	_410
-_410:
+	jmp	_412
+_412:
 	mov	$0,%ebx
 	jmp	_153
 _153:
@@ -1151,30 +1153,30 @@ _skn3_maxguiex_GetGadgetMaxLength:
 	movl	8(%ebp),%eax
 	movl	%eax,-4(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_428,(%esp)
+	movl	$_430,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_420,(%esp)
+	movl	$_422,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_maxgui_maxgui_GadgetClass
 	cmp	$4,%eax
-	je	_423
+	je	_425
 	cmp	$5,%eax
-	je	_423
-	movl	%ebp,4(%esp)
-	movl	$_425,(%esp)
-	calll	*_bbOnDebugEnterScope
-	movl	$_424,(%esp)
-	calll	*_bbOnDebugEnterStm
-	mov	$0,%ebx
-	calll	*_bbOnDebugLeaveScope
-	jmp	_156
-_423:
+	je	_425
 	movl	%ebp,4(%esp)
 	movl	$_427,(%esp)
 	calll	*_bbOnDebugEnterScope
 	movl	$_426,(%esp)
+	calll	*_bbOnDebugEnterStm
+	mov	$0,%ebx
+	calll	*_bbOnDebugLeaveScope
+	jmp	_156
+_425:
+	movl	%ebp,4(%esp)
+	movl	$_429,(%esp)
+	calll	*_bbOnDebugEnterScope
+	movl	$_428,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$3,4(%esp)
 	movl	-4(%ebp),%eax
@@ -1209,79 +1211,79 @@ _skn3_maxguiex_LoadCustomPointer:
 	movl	$_bbEmptyArray,-20(%ebp)
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_496,(%esp)
+	movl	$_498,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_430,(%esp)
+	movl	$_432,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$_bbNullObject,-8(%ebp)
-	movl	$_432,(%esp)
+	movl	$_434,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_16
 	movl	%eax,-12(%ebp)
-	movl	$_434,(%esp)
+	movl	$_436,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$0,-16(%ebp)
-	movl	$_436,(%esp)
+	movl	$_438,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-12(%ebp),%eax
 	cmpl	$0,8(%eax)
-	jne	_437
+	jne	_439
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_439,(%esp)
+	movl	$_441,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_438,(%esp)
+	movl	$_440,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%eax
 	movl	%eax,-12(%ebp)
 	calll	*_bbOnDebugLeaveScope
-	jmp	_440
-_437:
+	jmp	_442
+_439:
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_442,(%esp)
+	movl	$_444,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_441,(%esp)
+	movl	$_443,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$1,-16(%ebp)
 	calll	*_bbOnDebugLeaveScope
-_440:
-	movl	$_443,(%esp)
+_442:
+	movl	$_445,(%esp)
 	calll	*_bbOnDebugEnterStm
 	cmpl	$_bbNullObject,__skn3_maxguiex_Skn3CustomPointer_all
-	jne	_444
+	jne	_446
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_450,(%esp)
+	movl	$_452,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_445,(%esp)
+	movl	$_447,(%esp)
 	calll	*_bbOnDebugEnterStm
 	call	_brl_map_CreateMap
 	mov	%eax,%ebx
 	incl	4(%ebx)
 	movl	__skn3_maxguiex_Skn3CustomPointer_all,%eax
 	decl	4(%eax)
-	jnz	_449
+	jnz	_451
 	movl	%eax,(%esp)
 	call	_bbGCFree
-_449:
+_451:
 	movl	%ebx,__skn3_maxguiex_Skn3CustomPointer_all
 	calll	*_bbOnDebugLeaveScope
-	jmp	_451
-_444:
+	jmp	_453
+_446:
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_455,(%esp)
+	movl	$_457,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_452,(%esp)
+	movl	$_454,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	__skn3_maxguiex_Skn3CustomPointer_all,%ebx
 	cmp	$_bbNullObject,%ebx
-	jne	_454
+	jne	_456
 	call	_brl_blitz_NullObjectError
-_454:
+_456:
 	movl	-4(%ebp),%eax
 	movl	%eax,4(%esp)
 	movl	%ebx,(%esp)
@@ -1292,44 +1294,44 @@ _454:
 	call	_bbObjectDowncast
 	movl	%eax,-8(%ebp)
 	calll	*_bbOnDebugLeaveScope
-_451:
-	movl	$_456,(%esp)
+_453:
+	movl	$_458,(%esp)
 	calll	*_bbOnDebugEnterStm
 	cmpl	$_bbNullObject,-8(%ebp)
-	jne	_457
+	jne	_459
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_480,(%esp)
+	movl	$_482,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_458,(%esp)
+	movl	$_460,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$_skn3_maxguiex_Skn3CustomPointer,(%esp)
 	call	_bbObjectNew
 	movl	%eax,-8(%ebp)
-	movl	$_459,(%esp)
+	movl	$_461,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-8(%ebp),%ebx
 	cmp	$_bbNullObject,%ebx
-	jne	_461
+	jne	_463
 	call	_brl_blitz_NullObjectError
-_461:
+_463:
 	movl	-4(%ebp),%eax
 	incl	4(%eax)
 	mov	%eax,%esi
 	movl	8(%ebx),%eax
 	decl	4(%eax)
-	jnz	_466
+	jnz	_468
 	movl	%eax,(%esp)
 	call	_bbGCFree
-_466:
+_468:
 	movl	%esi,8(%ebx)
-	movl	$_467,(%esp)
+	movl	$_469,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	__skn3_maxguiex_Skn3CustomPointer_all,%ebx
 	cmp	$_bbNullObject,%ebx
-	jne	_469
+	jne	_471
 	call	_brl_blitz_NullObjectError
-_469:
+_471:
 	movl	-8(%ebp),%eax
 	movl	%eax,8(%esp)
 	movl	-4(%ebp),%eax
@@ -1337,33 +1339,33 @@ _469:
 	movl	%ebx,(%esp)
 	movl	(%ebx),%eax
 	calll	*56(%eax)
-	movl	$_470,(%esp)
+	movl	$_472,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$0,4(%esp)
 	movl	-12(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_skn3_maxguiex_ExtractCursorHotspot
 	movl	%eax,-20(%ebp)
-	movl	$_472,(%esp)
+	movl	$_474,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-8(%ebp),%ebx
 	cmp	$_bbNullObject,%ebx
-	jne	_474
+	jne	_476
 	call	_brl_blitz_NullObjectError
-_474:
+_476:
 	mov	%ebx,%edi
 	mov	$0,%esi
 	movl	-20(%ebp),%eax
 	cmpl	20(%eax),%esi
-	jb	_477
-	call	_brl_blitz_ArrayBoundsError
-_477:
-	mov	$1,%ebx
-	movl	-20(%ebp),%eax
-	cmpl	20(%eax),%ebx
 	jb	_479
 	call	_brl_blitz_ArrayBoundsError
 _479:
+	mov	$1,%ebx
+	movl	-20(%ebp),%eax
+	cmpl	20(%eax),%ebx
+	jb	_481
+	call	_brl_blitz_ArrayBoundsError
+_481:
 	movl	-20(%ebp),%eax
 	movl	24(%eax,%ebx,4),%eax
 	movl	%eax,8(%esp)
@@ -1375,49 +1377,49 @@ _479:
 	call	_skn3_loadCustomPointer
 	movl	%eax,12(%edi)
 	calll	*_bbOnDebugLeaveScope
-_457:
-	movl	$_482,(%esp)
+_459:
+	movl	$_484,(%esp)
 	calll	*_bbOnDebugEnterStm
 	cmpl	$0,-16(%ebp)
-	je	_483
+	je	_485
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_485,(%esp)
+	movl	$_487,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_484,(%esp)
+	movl	$_486,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-12(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_brl_filesystem_DeleteFile
 	calll	*_bbOnDebugLeaveScope
-_483:
-	movl	$_486,(%esp)
+_485:
+	movl	$_488,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-8(%ebp),%ebx
 	cmp	$_bbNullObject,%ebx
-	jne	_488
+	jne	_490
 	call	_brl_blitz_NullObjectError
-_488:
+_490:
 	cmpl	$0,12(%ebx)
-	je	_489
+	je	_491
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_495,(%esp)
+	movl	$_497,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_490,(%esp)
+	movl	$_492,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-8(%ebp),%ebx
 	cmp	$_bbNullObject,%ebx
-	jne	_492
+	jne	_494
 	call	_brl_blitz_NullObjectError
-_492:
+_494:
 	addl	$1,16(%ebx)
-	movl	$_494,(%esp)
+	movl	$_496,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-8(%ebp),%ebx
 	calll	*_bbOnDebugLeaveScope
 	jmp	_159
-_489:
+_491:
 	mov	$_bbNullObject,%ebx
 	jmp	_159
 _159:
@@ -1439,30 +1441,30 @@ _skn3_maxguiex_SetCustomPointer:
 	movl	8(%ebp),%eax
 	movl	%eax,-4(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_506,(%esp)
-	calll	*_bbOnDebugEnterScope
-	movl	$_499,(%esp)
-	calll	*_bbOnDebugEnterStm
-	cmpl	$_bbNullObject,-4(%ebp)
-	je	_500
-	movl	%ebp,4(%esp)
-	movl	$_505,(%esp)
+	movl	$_508,(%esp)
 	calll	*_bbOnDebugEnterScope
 	movl	$_501,(%esp)
 	calll	*_bbOnDebugEnterStm
+	cmpl	$_bbNullObject,-4(%ebp)
+	je	_502
+	movl	%ebp,4(%esp)
+	movl	$_507,(%esp)
+	calll	*_bbOnDebugEnterScope
+	movl	$_503,(%esp)
+	calll	*_bbOnDebugEnterStm
 	movl	$-1,_maxgui_maxgui_lastPointer
-	movl	$_502,(%esp)
+	movl	$_504,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%ebx
 	cmp	$_bbNullObject,%ebx
-	jne	_504
+	jne	_506
 	call	_brl_blitz_NullObjectError
-_504:
+_506:
 	movl	12(%ebx),%eax
 	movl	%eax,(%esp)
 	call	_skn3_setCustomPointer
 	calll	*_bbOnDebugLeaveScope
-_500:
+_502:
 	mov	$0,%ebx
 	jmp	_162
 _162:
@@ -1484,88 +1486,88 @@ _skn3_maxguiex_FreeCustomPointer:
 	movl	%eax,-4(%ebp)
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_534,(%esp)
-	calll	*_bbOnDebugEnterScope
-	movl	$_508,(%esp)
-	calll	*_bbOnDebugEnterStm
-	cmpl	$_bbNullObject,-4(%ebp)
-	je	_509
-	mov	%ebp,%eax
-	movl	%eax,4(%esp)
-	movl	$_533,(%esp)
+	movl	$_536,(%esp)
 	calll	*_bbOnDebugEnterScope
 	movl	$_510,(%esp)
 	calll	*_bbOnDebugEnterStm
-	movl	-4(%ebp),%ebx
-	cmp	$_bbNullObject,%ebx
-	jne	_512
-	call	_brl_blitz_NullObjectError
-_512:
-	subl	$1,16(%ebx)
-	movl	$_514,(%esp)
+	cmpl	$_bbNullObject,-4(%ebp)
+	je	_511
+	mov	%ebp,%eax
+	movl	%eax,4(%esp)
+	movl	$_535,(%esp)
+	calll	*_bbOnDebugEnterScope
+	movl	$_512,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%ebx
 	cmp	$_bbNullObject,%ebx
-	jne	_516
+	jne	_514
 	call	_brl_blitz_NullObjectError
-_516:
+_514:
+	subl	$1,16(%ebx)
+	movl	$_516,(%esp)
+	calll	*_bbOnDebugEnterStm
+	movl	-4(%ebp),%ebx
+	cmp	$_bbNullObject,%ebx
+	jne	_518
+	call	_brl_blitz_NullObjectError
+_518:
 	cmpl	$0,16(%ebx)
-	jne	_517
+	jne	_519
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_532,(%esp)
+	movl	$_534,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_518,(%esp)
+	movl	$_520,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	__skn3_maxguiex_Skn3CustomPointer_all,%esi
 	cmp	$_bbNullObject,%esi
-	jne	_520
-	call	_brl_blitz_NullObjectError
-_520:
-	movl	-4(%ebp),%ebx
-	cmp	$_bbNullObject,%ebx
 	jne	_522
 	call	_brl_blitz_NullObjectError
 _522:
+	movl	-4(%ebp),%ebx
+	cmp	$_bbNullObject,%ebx
+	jne	_524
+	call	_brl_blitz_NullObjectError
+_524:
 	movl	8(%ebx),%eax
 	movl	%eax,4(%esp)
 	movl	%esi,(%esp)
 	movl	(%esi),%eax
 	calll	*68(%eax)
-	movl	$_523,(%esp)
+	movl	$_525,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%ebx
 	cmp	$_bbNullObject,%ebx
-	jne	_525
+	jne	_527
 	call	_brl_blitz_NullObjectError
-_525:
+_527:
 	call	_skn3_currentCursor
 	cmpl	12(%ebx),%eax
-	jne	_526
+	jne	_528
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_528,(%esp)
+	movl	$_530,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_527,(%esp)
+	movl	$_529,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$0,(%esp)
 	call	_maxgui_maxgui_SetPointer
 	calll	*_bbOnDebugLeaveScope
-_526:
-	movl	$_529,(%esp)
+_528:
+	movl	$_531,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%ebx
 	cmp	$_bbNullObject,%ebx
-	jne	_531
+	jne	_533
 	call	_brl_blitz_NullObjectError
-_531:
+_533:
 	movl	12(%ebx),%eax
 	movl	%eax,(%esp)
 	call	_skn3_freeCustomPointer
 	calll	*_bbOnDebugLeaveScope
-_517:
+_519:
 	calll	*_bbOnDebugLeaveScope
-_509:
+_511:
 	mov	$0,%ebx
 	jmp	_165
 _165:
@@ -1593,15 +1595,15 @@ _skn3_maxguiex_ExtractCursorHotspot:
 	movl	$0,-20(%ebp)
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_586,(%esp)
+	movl	$_588,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_536,(%esp)
+	movl	$_538,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$2,4(%esp)
-	movl	$_537,(%esp)
+	movl	$_539,(%esp)
 	call	_bbArrayNew1D
 	movl	%eax,-12(%ebp)
-	movl	$_539,(%esp)
+	movl	$_541,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%eax
 	movl	%eax,4(%esp)
@@ -1610,160 +1612,160 @@ _skn3_maxguiex_ExtractCursorHotspot:
 	movl	%eax,(%esp)
 	call	_brl_filesystem_ReadFile
 	movl	%eax,-16(%ebp)
-	movl	$_541,(%esp)
+	movl	$_543,(%esp)
 	calll	*_bbOnDebugEnterStm
 	cmpl	$_bbNullObject,-16(%ebp)
-	je	_542
+	je	_544
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_583,(%esp)
+	movl	$_585,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_543,(%esp)
+	movl	$_545,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-16(%ebp),%ebx
 	cmp	$_bbNullObject,%ebx
-	jne	_545
+	jne	_547
 	call	_brl_blitz_NullObjectError
-_545:
+_547:
 	movl	$2,4(%esp)
 	movl	%ebx,(%esp)
 	movl	(%ebx),%eax
 	calll	*60(%eax)
-	movl	$_546,(%esp)
+	movl	$_548,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-16(%ebp),%ebx
 	cmp	$_bbNullObject,%ebx
-	jne	_548
+	jne	_550
 	call	_brl_blitz_NullObjectError
-_548:
+_550:
 	movl	%ebx,(%esp)
 	movl	(%ebx),%eax
 	calll	*100(%eax)
 	movl	%eax,-20(%ebp)
-	movl	$_550,(%esp)
-	calll	*_bbOnDebugEnterStm
-	cmpl	$2,-20(%ebp)
-	jne	_551
-	mov	%ebp,%eax
-	movl	%eax,4(%esp)
-	movl	$_579,(%esp)
-	calll	*_bbOnDebugEnterScope
 	movl	$_552,(%esp)
 	calll	*_bbOnDebugEnterStm
+	cmpl	$2,-20(%ebp)
+	jne	_553
+	mov	%ebp,%eax
+	movl	%eax,4(%esp)
+	movl	$_581,(%esp)
+	calll	*_bbOnDebugEnterScope
+	movl	$_554,(%esp)
+	calll	*_bbOnDebugEnterStm
 	movl	-16(%ebp),%ebx
 	cmp	$_bbNullObject,%ebx
-	jne	_554
+	jne	_556
 	call	_brl_blitz_NullObjectError
-_554:
+_556:
 	movl	%ebx,(%esp)
 	movl	(%ebx),%eax
 	calll	*100(%eax)
 	movl	%eax,-20(%ebp)
-	movl	$_555,(%esp)
+	movl	$_557,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-20(%ebp),%eax
 	cmpl	%eax,-8(%ebp)
-	jge	_556
+	jge	_558
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_578,(%esp)
+	movl	$_580,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_557,(%esp)
+	movl	$_559,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-8(%ebp),%eax
 	imul	$12,%eax
 	add	$6,%eax
 	add	$4,%eax
 	movl	%eax,-20(%ebp)
-	movl	$_558,(%esp)
+	movl	$_560,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-16(%ebp),%ebx
 	cmp	$_bbNullObject,%ebx
-	jne	_560
+	jne	_562
 	call	_brl_blitz_NullObjectError
-_560:
+_562:
 	movl	%ebx,(%esp)
 	movl	(%ebx),%eax
 	calll	*56(%eax)
 	cmpl	%eax,-20(%ebp)
-	jge	_561
+	jge	_563
 	mov	%ebp,%eax
 	movl	%eax,4(%esp)
-	movl	$_577,(%esp)
+	movl	$_579,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_562,(%esp)
+	movl	$_564,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-16(%ebp),%ebx
 	cmp	$_bbNullObject,%ebx
-	jne	_564
+	jne	_566
 	call	_brl_blitz_NullObjectError
-_564:
+_566:
 	movl	-20(%ebp),%eax
 	movl	%eax,4(%esp)
 	movl	%ebx,(%esp)
 	movl	(%ebx),%eax
 	calll	*60(%eax)
-	movl	$_565,(%esp)
+	movl	$_567,(%esp)
 	calll	*_bbOnDebugEnterStm
 	mov	$0,%ebx
 	movl	-12(%ebp),%eax
 	cmpl	20(%eax),%ebx
-	jb	_567
+	jb	_569
 	call	_brl_blitz_ArrayBoundsError
-_567:
+_569:
 	movl	-12(%ebp),%eax
 	shl	$2,%ebx
 	add	%ebx,%eax
 	mov	%eax,%esi
 	movl	-16(%ebp),%ebx
 	cmp	$_bbNullObject,%ebx
-	jne	_570
+	jne	_572
 	call	_brl_blitz_NullObjectError
-_570:
+_572:
 	movl	%ebx,(%esp)
 	movl	(%ebx),%eax
 	calll	*100(%eax)
 	movl	%eax,24(%esi)
-	movl	$_571,(%esp)
+	movl	$_573,(%esp)
 	calll	*_bbOnDebugEnterStm
 	mov	$1,%ebx
 	movl	-12(%ebp),%eax
 	cmpl	20(%eax),%ebx
-	jb	_573
+	jb	_575
 	call	_brl_blitz_ArrayBoundsError
-_573:
+_575:
 	movl	-12(%ebp),%eax
 	shl	$2,%ebx
 	add	%ebx,%eax
 	mov	%eax,%esi
 	movl	-16(%ebp),%ebx
 	cmp	$_bbNullObject,%ebx
-	jne	_576
+	jne	_578
 	call	_brl_blitz_NullObjectError
-_576:
+_578:
 	movl	%ebx,(%esp)
 	movl	(%ebx),%eax
 	calll	*100(%eax)
 	movl	%eax,24(%esi)
 	calll	*_bbOnDebugLeaveScope
-_561:
+_563:
 	calll	*_bbOnDebugLeaveScope
-_556:
+_558:
 	calll	*_bbOnDebugLeaveScope
-_551:
-	movl	$_580,(%esp)
+_553:
+	movl	$_582,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-16(%ebp),%ebx
 	cmp	$_bbNullObject,%ebx
-	jne	_582
+	jne	_584
 	call	_brl_blitz_NullObjectError
-_582:
+_584:
 	movl	%ebx,(%esp)
 	movl	(%ebx),%eax
 	calll	*68(%eax)
 	calll	*_bbOnDebugLeaveScope
-_542:
-	movl	$_585,(%esp)
+_544:
+	movl	$_587,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-12(%ebp),%ebx
 	jmp	_169
@@ -1785,7 +1787,7 @@ _skn3_maxguiex_ListBatchLock:
 	movl	8(%ebp),%eax
 	movl	%eax,-4(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_589,(%esp)
+	movl	$_591,(%esp)
 	calll	*_bbOnDebugEnterScope
 	mov	$0,%ebx
 	jmp	_172
@@ -1816,9 +1818,9 @@ _skn3_maxguiex_ListBatchAdd:
 	movl	28(%ebp),%eax
 	movl	%eax,-24(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_592,(%esp)
+	movl	$_594,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_591,(%esp)
+	movl	$_593,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-24(%ebp),%eax
 	movl	%eax,20(%esp)
@@ -1852,7 +1854,7 @@ _skn3_maxguiex_ListBatchUnlock:
 	movl	8(%ebp),%eax
 	movl	%eax,-4(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_599,(%esp)
+	movl	$_601,(%esp)
 	calll	*_bbOnDebugEnterScope
 	mov	$0,%ebx
 	jmp	_183
@@ -1874,40 +1876,40 @@ _skn3_maxguiex_GadgetWindow:
 	movl	%eax,-4(%ebp)
 	movl	$_bbNullObject,-8(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_610,(%esp)
+	movl	$_612,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_601,(%esp)
+	movl	$_603,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_maxgui_maxgui_GadgetGroup
 	movl	%eax,-8(%ebp)
-	movl	$_603,(%esp)
+	movl	$_605,(%esp)
 	calll	*_bbOnDebugEnterStm
 	jmp	_22
 _24:
 	movl	%ebp,4(%esp)
-	movl	$_609,(%esp)
+	movl	$_611,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_604,(%esp)
+	movl	$_606,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-8(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_maxgui_maxgui_GadgetClass
 	add	$1,%eax
 	cmp	$0,%eax
-	je	_605
+	je	_607
 	movl	%ebp,4(%esp)
-	movl	$_607,(%esp)
+	movl	$_609,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_606,(%esp)
+	movl	$_608,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-8(%ebp),%ebx
 	calll	*_bbOnDebugLeaveScope
 	calll	*_bbOnDebugLeaveScope
 	jmp	_186
-_605:
-	movl	$_608,(%esp)
+_607:
+	movl	$_610,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-8(%ebp),%eax
 	movl	%eax,(%esp)
@@ -1939,9 +1941,9 @@ _skn3_maxguiex_SetWindowAlwaysOnTop:
 	movl	12(%ebp),%eax
 	movl	%eax,-8(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_613,(%esp)
+	movl	$_615,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_612,(%esp)
+	movl	$_614,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-8(%ebp),%ebx
 	movl	$3,4(%esp)
@@ -1970,9 +1972,9 @@ _skn3_maxguiex_BringWindowToTop:
 	movl	8(%ebp),%eax
 	movl	%eax,-4(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_618,(%esp)
+	movl	$_620,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_617,(%esp)
+	movl	$_619,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$3,4(%esp)
 	movl	-4(%ebp),%eax
@@ -1999,9 +2001,9 @@ _skn3_maxguiex_FocusWindow:
 	movl	8(%ebp),%eax
 	movl	%eax,-4(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_621,(%esp)
+	movl	$_623,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_620,(%esp)
+	movl	$_622,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$3,4(%esp)
 	movl	-4(%ebp),%eax
@@ -2028,9 +2030,9 @@ _skn3_maxguiex_GadgetToInt:
 	movl	8(%ebp),%eax
 	movl	%eax,-4(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_624,(%esp)
+	movl	$_626,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_623,(%esp)
+	movl	$_625,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$3,4(%esp)
 	movl	-4(%ebp),%eax
@@ -2056,39 +2058,39 @@ _skn3_maxguiex_SetColorPickerCustomColors:
 	movl	%eax,-4(%ebp)
 	movl	$0,-8(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_645,(%esp)
+	movl	$_647,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_626,(%esp)
+	movl	$_628,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%eax
 	movl	16(%eax),%eax
 	cmp	$0,%eax
-	je	_627
+	je	_629
 	movl	-4(%ebp),%eax
 	movl	20(%eax),%eax
 	cmp	$0,%eax
 	setg	%al
 	movzbl	%al,%eax
-_627:
+_629:
 	cmp	$0,%eax
-	je	_629
+	je	_631
 	movl	%ebp,4(%esp)
-	movl	$_644,(%esp)
-	calll	*_bbOnDebugEnterScope
-	movl	$_630,(%esp)
-	calll	*_bbOnDebugEnterStm
-	movl	-4(%ebp),%eax
-	cmpl	$15,20(%eax)
-	jge	_631
-	movl	%ebp,4(%esp)
-	movl	$_642,(%esp)
+	movl	$_646,(%esp)
 	calll	*_bbOnDebugEnterScope
 	movl	$_632,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%eax
+	cmpl	$15,20(%eax)
+	jge	_633
+	movl	%ebp,4(%esp)
+	movl	$_644,(%esp)
+	calll	*_bbOnDebugEnterScope
+	movl	$_634,(%esp)
+	calll	*_bbOnDebugEnterStm
+	movl	-4(%ebp),%eax
 	movl	20(%eax),%eax
 	movl	%eax,-8(%ebp)
-	movl	$_634,(%esp)
+	movl	$_636,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$15,12(%esp)
 	movl	$0,8(%esp)
@@ -2097,21 +2099,21 @@ _627:
 	movl	$_33,(%esp)
 	call	_bbArraySlice
 	movl	%eax,-4(%ebp)
-	movl	$_635,(%esp)
+	movl	$_637,(%esp)
 	calll	*_bbOnDebugEnterStm
-	jmp	_636
+	jmp	_638
 _27:
 	movl	%ebp,4(%esp)
-	movl	$_641,(%esp)
+	movl	$_643,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_637,(%esp)
+	movl	$_639,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-8(%ebp),%ebx
 	movl	-4(%ebp),%eax
 	cmpl	20(%eax),%ebx
-	jb	_639
+	jb	_641
 	call	_brl_blitz_ArrayBoundsError
-_639:
+_641:
 	movl	-4(%ebp),%eax
 	shl	$2,%ebx
 	add	%ebx,%eax
@@ -2119,19 +2121,19 @@ _639:
 	calll	*_bbOnDebugLeaveScope
 _25:
 	addl	$1,-8(%ebp)
-_636:
+_638:
 	cmpl	$15,-8(%ebp)
 	jl	_27
 _26:
 	calll	*_bbOnDebugLeaveScope
-_631:
-	movl	$_643,(%esp)
+_633:
+	movl	$_645,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_skn3_setColorPickerCustomColors
 	calll	*_bbOnDebugLeaveScope
-_629:
+_631:
 	mov	$0,%ebx
 	jmp	_202
 _202:
@@ -2148,7 +2150,7 @@ _skn3_maxguiex_ClearColorPickerCustomColors:
 	push	%ebx
 	sub	$20,%esp
 	movl	%ebp,4(%esp)
-	movl	$_648,(%esp)
+	movl	$_650,(%esp)
 	calll	*_bbOnDebugEnterScope
 	mov	$0,%ebx
 	jmp	_204
@@ -2169,7 +2171,7 @@ _skn3_maxguiex_RedrawGadgetFrame:
 	movl	8(%ebp),%eax
 	movl	%eax,-4(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_650,(%esp)
+	movl	$_652,(%esp)
 	calll	*_bbOnDebugEnterScope
 	mov	$0,%ebx
 	jmp	_207
@@ -2191,44 +2193,44 @@ _skn3_maxguiex_HideGadgetBorder:
 	movl	%eax,-4(%ebp)
 	movl	$0,-8(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_664,(%esp)
+	movl	$_666,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_652,(%esp)
+	movl	$_654,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_maxgui_maxgui_GadgetClass
 	cmp	$4,%eax
-	je	_655
-	jmp	_654
-_655:
+	je	_657
+	jmp	_656
+_657:
 	movl	%ebp,4(%esp)
-	movl	$_662,(%esp)
+	movl	$_664,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_656,(%esp)
+	movl	$_658,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$3,4(%esp)
 	movl	-4(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_maxgui_maxgui_QueryGadget
 	movl	%eax,-8(%ebp)
-	movl	$_658,(%esp)
+	movl	$_660,(%esp)
 	calll	*_bbOnDebugEnterStm
 	cmpl	$0,-8(%ebp)
-	je	_659
+	je	_661
 	movl	%ebp,4(%esp)
-	movl	$_661,(%esp)
+	movl	$_663,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_660,(%esp)
+	movl	$_662,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-8(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_skn3_removeTextFieldBorder
 	calll	*_bbOnDebugLeaveScope
-_659:
+_661:
 	calll	*_bbOnDebugLeaveScope
-	jmp	_654
-_654:
+	jmp	_656
+_656:
 	mov	$0,%ebx
 	jmp	_210
 _210:
@@ -2251,98 +2253,98 @@ _skn3_maxguiex_InstallGuiFont:
 	movl	$_bbEmptyString,-12(%ebp)
 	movl	$0,-16(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_694,(%esp)
+	movl	$_696,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_666,(%esp)
+	movl	$_668,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$0,-8(%ebp)
-	movl	$_668,(%esp)
+	movl	$_670,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_16
 	movl	%eax,-12(%ebp)
-	movl	$_670,(%esp)
+	movl	$_672,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$0,-16(%ebp)
-	movl	$_672,(%esp)
+	movl	$_674,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-12(%ebp),%eax
 	cmpl	$0,8(%eax)
-	jne	_673
+	jne	_675
 	movl	%ebp,4(%esp)
-	movl	$_675,(%esp)
+	movl	$_677,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_674,(%esp)
+	movl	$_676,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%eax
 	movl	%eax,-12(%ebp)
 	calll	*_bbOnDebugLeaveScope
-	jmp	_676
-_673:
+	jmp	_678
+_675:
 	movl	%ebp,4(%esp)
-	movl	$_678,(%esp)
+	movl	$_680,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_677,(%esp)
+	movl	$_679,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$1,-16(%ebp)
 	calll	*_bbOnDebugLeaveScope
-_676:
-	movl	$_679,(%esp)
+_678:
+	movl	$_681,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-12(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_brl_filesystem_FileType
 	cmp	$1,%eax
-	jne	_680
+	jne	_682
 	movl	%ebp,4(%esp)
-	movl	$_688,(%esp)
+	movl	$_690,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_681,(%esp)
+	movl	$_683,(%esp)
 	calll	*_bbOnDebugEnterStm
 	call	_skn3_systemex_GetOsVersion
 	cmp	$3,%eax
-	jge	_682
+	jge	_684
 	movl	%ebp,4(%esp)
-	movl	$_684,(%esp)
+	movl	$_686,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_683,(%esp)
+	movl	$_685,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-12(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_skn3_installFontFromFileWithATS
 	movl	%eax,-8(%ebp)
 	calll	*_bbOnDebugLeaveScope
-	jmp	_685
-_682:
+	jmp	_687
+_684:
 	movl	%ebp,4(%esp)
-	movl	$_687,(%esp)
+	movl	$_689,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_686,(%esp)
+	movl	$_688,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-12(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_skn3_installFontFromFileWithCT
 	movl	%eax,-8(%ebp)
 	calll	*_bbOnDebugLeaveScope
-_685:
+_687:
 	calll	*_bbOnDebugLeaveScope
-_680:
-	movl	$_689,(%esp)
+_682:
+	movl	$_691,(%esp)
 	calll	*_bbOnDebugEnterStm
 	cmpl	$0,-16(%ebp)
-	je	_690
+	je	_692
 	movl	%ebp,4(%esp)
-	movl	$_692,(%esp)
+	movl	$_694,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_691,(%esp)
+	movl	$_693,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-12(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_brl_filesystem_DeleteFile
 	calll	*_bbOnDebugLeaveScope
-_690:
-	movl	$_693,(%esp)
+_692:
+	movl	$_695,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-8(%ebp),%ebx
 	jmp	_213
@@ -2366,24 +2368,24 @@ _skn3_maxguiex_SetTextareaLineSpacing:
 	fstps	-8(%ebp)
 	movl	$0,-12(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_710,(%esp)
+	movl	$_712,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_696,(%esp)
+	movl	$_698,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_maxgui_maxgui_GadgetClass
 	cmp	$5,%eax
-	jne	_697
+	jne	_699
 	movl	%ebp,4(%esp)
-	movl	$_708,(%esp)
+	movl	$_710,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_698,(%esp)
+	movl	$_700,(%esp)
 	calll	*_bbOnDebugEnterStm
 	flds	-8(%ebp)
-	fsubs	_907
+	fsubs	_912
 	fstps	-8(%ebp)
-	movl	$_699,(%esp)
+	movl	$_701,(%esp)
 	calll	*_bbOnDebugEnterStm
 	flds	-8(%ebp)
 	fldz
@@ -2394,31 +2396,31 @@ _skn3_maxguiex_SetTextareaLineSpacing:
 	setae	%al
 	movzbl	%al,%eax
 	cmp	$0,%eax
-	jne	_700
+	jne	_702
 	movl	%ebp,4(%esp)
-	movl	$_702,(%esp)
+	movl	$_704,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_701,(%esp)
+	movl	$_703,(%esp)
 	calll	*_bbOnDebugEnterStm
 	fldz
 	fstps	-8(%ebp)
 	calll	*_bbOnDebugLeaveScope
-_700:
-	movl	$_703,(%esp)
+_702:
+	movl	$_705,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$3,4(%esp)
 	movl	-4(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_maxgui_maxgui_QueryGadget
 	movl	%eax,-12(%ebp)
-	movl	$_705,(%esp)
+	movl	$_707,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-12(%ebp),%eax
 	cmp	$0,%eax
 	setne	%al
 	movzbl	%al,%eax
 	cmp	$0,%eax
-	je	_706
+	je	_708
 	flds	-8(%ebp)
 	fstps	4(%esp)
 	movl	-12(%ebp),%eax
@@ -2427,11 +2429,11 @@ _700:
 	cmp	$1,%eax
 	sete	%al
 	movzbl	%al,%eax
-_706:
+_708:
 	mov	%eax,%ebx
 	calll	*_bbOnDebugLeaveScope
 	jmp	_217
-_697:
+_699:
 	mov	$0,%ebx
 	jmp	_217
 _217:
@@ -2452,41 +2454,41 @@ _skn3_maxguiex_ScrollTextAreaToTop:
 	movl	%eax,-4(%ebp)
 	movl	$0,-8(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_723,(%esp)
+	movl	$_725,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_714,(%esp)
+	movl	$_716,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_maxgui_maxgui_GadgetClass
 	cmp	$5,%eax
-	jne	_715
+	jne	_717
 	movl	%ebp,4(%esp)
-	movl	$_722,(%esp)
+	movl	$_724,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_716,(%esp)
+	movl	$_718,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$3,4(%esp)
 	movl	-4(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_maxgui_maxgui_QueryGadget
 	movl	%eax,-8(%ebp)
-	movl	$_718,(%esp)
+	movl	$_720,(%esp)
 	calll	*_bbOnDebugEnterStm
 	cmpl	$0,-8(%ebp)
-	je	_719
+	je	_721
 	movl	%ebp,4(%esp)
-	movl	$_721,(%esp)
+	movl	$_723,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_720,(%esp)
+	movl	$_722,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-8(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_skn3_scrollTextAreaToTop
 	calll	*_bbOnDebugLeaveScope
-_719:
+_721:
 	calll	*_bbOnDebugLeaveScope
-_715:
+_717:
 	mov	$0,%ebx
 	jmp	_220
 _220:
@@ -2507,41 +2509,41 @@ _skn3_maxguiex_ScrollTextAreaToBottom:
 	movl	%eax,-4(%ebp)
 	movl	$0,-8(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_734,(%esp)
+	movl	$_736,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_725,(%esp)
+	movl	$_727,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_maxgui_maxgui_GadgetClass
 	cmp	$5,%eax
-	jne	_726
+	jne	_728
 	movl	%ebp,4(%esp)
-	movl	$_733,(%esp)
+	movl	$_735,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_727,(%esp)
+	movl	$_729,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$3,4(%esp)
 	movl	-4(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_maxgui_maxgui_QueryGadget
 	movl	%eax,-8(%ebp)
-	movl	$_729,(%esp)
+	movl	$_731,(%esp)
 	calll	*_bbOnDebugEnterStm
 	cmpl	$0,-8(%ebp)
-	je	_730
+	je	_732
 	movl	%ebp,4(%esp)
-	movl	$_732,(%esp)
+	movl	$_734,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_731,(%esp)
+	movl	$_733,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-8(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_skn3_scrollTextAreaToBottom
 	calll	*_bbOnDebugLeaveScope
-_730:
+_732:
 	calll	*_bbOnDebugLeaveScope
-_726:
+_728:
 	mov	$0,%ebx
 	jmp	_223
 _223:
@@ -2562,41 +2564,41 @@ _skn3_maxguiex_ScrollTextAreaToCursor:
 	movl	%eax,-4(%ebp)
 	movl	$0,-8(%ebp)
 	movl	%ebp,4(%esp)
-	movl	$_745,(%esp)
+	movl	$_747,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_736,(%esp)
+	movl	$_738,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-4(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_maxgui_maxgui_GadgetClass
 	cmp	$5,%eax
-	jne	_737
+	jne	_739
 	movl	%ebp,4(%esp)
-	movl	$_744,(%esp)
+	movl	$_746,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_738,(%esp)
+	movl	$_740,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	$3,4(%esp)
 	movl	-4(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_maxgui_maxgui_QueryGadget
 	movl	%eax,-8(%ebp)
-	movl	$_740,(%esp)
+	movl	$_742,(%esp)
 	calll	*_bbOnDebugEnterStm
 	cmpl	$0,-8(%ebp)
-	je	_741
+	je	_743
 	movl	%ebp,4(%esp)
-	movl	$_743,(%esp)
+	movl	$_745,(%esp)
 	calll	*_bbOnDebugEnterScope
-	movl	$_742,(%esp)
+	movl	$_744,(%esp)
 	calll	*_bbOnDebugEnterStm
 	movl	-8(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_skn3_scrollTextAreaToCursor
 	calll	*_bbOnDebugLeaveScope
-_741:
+_743:
 	calll	*_bbOnDebugLeaveScope
-_737:
+_739:
 	mov	$0,%ebx
 	jmp	_226
 _226:
@@ -2607,23 +2609,44 @@ _226:
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
+_skn3_maxguiex_GetAppResourcesPath:
+	push	%ebp
+	mov	%esp,%ebp
+	push	%ebx
+	sub	$20,%esp
+	movl	%ebp,4(%esp)
+	movl	$_750,(%esp)
+	calll	*_bbOnDebugEnterScope
+	movl	$_749,(%esp)
+	calll	*_bbOnDebugEnterStm
+	call	_skn3_getBundlePath
+	mov	%eax,%ebx
+	jmp	_228
+_228:
+	calll	*_bbOnDebugLeaveScope
+	mov	%ebx,%eax
+	add	$20,%esp
+	pop	%ebx
+	mov	%ebp,%esp
+	pop	%ebp
+	ret
 	.data	
 	.align	4
-_232:
+_234:
 	.long	0
-_231:
+_233:
 	.asciz	"maxguiex"
 	.align	4
-_230:
+_232:
 	.long	1
-	.long	_231
+	.long	_233
 	.long	0
-_229:
+_231:
 	.asciz	"/Users/Skn3/Documents/projects/blitzmax/modules/skn3.mod/maxguiex.mod/maxguiex.bmx"
 	.align	4
-_228:
-	.long	_229
-	.long	140
+_230:
+	.long	_231
+	.long	139
 	.long	2
 	.align	4
 __skn3_maxguiex_Skn3CustomPointer_all:
@@ -3048,89 +3071,89 @@ _6:
 	.long	_bbObjectReserved
 	.long	_bbObjectReserved
 	.long	_bbObjectReserved
-_237:
+_239:
 	.asciz	"Self"
-_238:
+_240:
 	.asciz	":Skn3CustomPointer"
 	.align	4
-_236:
+_238:
 	.long	1
 	.long	_35
 	.long	2
-	.long	_237
-	.long	_238
+	.long	_239
+	.long	_240
 	.long	-4
 	.long	0
 	.align	4
-_235:
+_237:
 	.long	3
 	.long	0
 	.long	0
-_244:
+_246:
 	.asciz	":PARAFORMAT2"
 	.align	4
-_243:
+_245:
 	.long	1
 	.long	_35
 	.long	2
-	.long	_237
-	.long	_244
+	.long	_239
+	.long	_246
 	.long	-4
 	.long	0
 	.align	4
-_242:
+_244:
 	.long	3
 	.long	0
 	.long	0
-_300:
-	.asciz	"TrimAndFixPath"
-_301:
-	.asciz	"slash"
 _302:
-	.asciz	"index"
+	.asciz	"TrimAndFixPath"
 _303:
-	.asciz	"startIndex"
+	.asciz	"slash"
 _304:
+	.asciz	"index"
+_305:
+	.asciz	"startIndex"
+_306:
 	.asciz	"length"
 	.align	4
-_299:
+_301:
 	.long	1
-	.long	_300
+	.long	_302
 	.long	2
 	.long	_30
 	.long	_31
 	.long	-4
 	.long	2
-	.long	_301
+	.long	_303
 	.long	_31
 	.long	-8
 	.long	2
-	.long	_302
+	.long	_304
 	.long	_33
 	.long	-12
 	.long	2
-	.long	_303
+	.long	_305
 	.long	_33
 	.long	-16
 	.long	2
-	.long	_304
+	.long	_306
 	.long	_33
 	.long	-20
 	.long	0
 	.align	4
-_246:
-	.long	_229
-	.long	199
+_248:
+	.long	_231
+	.long	198
 	.long	2
 	.align	4
-_249:
+_251:
 	.long	3
 	.long	0
 	.long	0
 	.align	4
-_248:
-	.long	_229
-	.long	199
+_250:
+	.long	_231
+	.long	198
 	.long	21
 	.align	4
 _1:
@@ -3138,9 +3161,9 @@ _1:
 	.long	2147483647
 	.long	0
 	.align	4
-_250:
-	.long	_229
-	.long	202
+_252:
+	.long	_231
+	.long	201
 	.long	2
 	.align	4
 _7:
@@ -3155,130 +3178,130 @@ _9:
 	.long	1
 	.short	92
 	.align	4
-_251:
-	.long	_229
-	.long	203
+_253:
+	.long	_231
+	.long	202
 	.long	2
 	.align	4
-_254:
+_256:
 	.long	3
 	.long	0
 	.long	0
 	.align	4
-_253:
-	.long	_229
-	.long	203
+_255:
+	.long	_231
+	.long	202
 	.long	18
 	.align	4
-_255:
-	.long	_229
-	.long	206
-	.long	2
-	.align	4
 _257:
-	.long	_229
-	.long	207
+	.long	_231
+	.long	205
 	.long	2
 	.align	4
 _259:
-	.long	_229
-	.long	208
+	.long	_231
+	.long	206
 	.long	2
+	.align	4
+_261:
+	.long	_231
+	.long	207
+	.long	2
+	.align	4
+_277:
+	.long	3
+	.long	0
+	.long	0
+	.align	4
+_264:
+	.long	_231
+	.long	208
+	.long	3
 	.align	4
 _275:
 	.long	3
 	.long	0
 	.long	0
 	.align	4
-_262:
-	.long	_229
-	.long	209
-	.long	3
-	.align	4
-_273:
-	.long	3
-	.long	0
-	.long	0
-	.align	4
-_272:
-	.long	_229
-	.long	209
+_274:
+	.long	_231
+	.long	208
 	.long	46
 	.align	4
-_274:
-	.long	_229
-	.long	210
+_276:
+	.long	_231
+	.long	209
 	.long	3
 	.align	4
-_276:
-	.long	_229
+_278:
+	.long	_231
+	.long	212
+	.long	2
+	.align	4
+_280:
+	.long	_231
 	.long	213
 	.long	2
 	.align	4
-_278:
-	.long	_229
+_295:
+	.long	3
+	.long	0
+	.long	0
+	.align	4
+_282:
+	.long	_231
 	.long	214
-	.long	2
+	.long	3
 	.align	4
 _293:
 	.long	3
 	.long	0
 	.long	0
 	.align	4
-_280:
-	.long	_229
-	.long	215
-	.long	3
-	.align	4
-_291:
-	.long	3
-	.long	0
-	.long	0
-	.align	4
-_290:
-	.long	_229
-	.long	215
+_292:
+	.long	_231
+	.long	214
 	.long	46
 	.align	4
-_292:
-	.long	_229
-	.long	216
-	.long	3
-	.align	4
 _294:
-	.long	_229
-	.long	218
-	.long	2
-	.align	4
-_297:
+	.long	_231
+	.long	215
 	.long	3
-	.long	0
-	.long	0
 	.align	4
 _296:
-	.long	_229
-	.long	218
-	.long	17
+	.long	_231
+	.long	217
+	.long	2
+	.align	4
+_299:
+	.long	3
+	.long	0
+	.long	0
 	.align	4
 _298:
-	.long	_229
-	.long	221
+	.long	_231
+	.long	217
+	.long	17
+	.align	4
+_300:
+	.long	_231
+	.long	220
 	.long	2
-_336:
+_338:
 	.asciz	"IncBinToDisk"
 	.align	4
-_335:
+_337:
 	.long	1
-	.long	_336
+	.long	_338
 	.long	2
 	.long	_30
 	.long	_31
 	.long	-4
 	.long	0
 	.align	4
-_305:
-	.long	_229
-	.long	226
+_307:
+	.long	_231
+	.long	225
 	.long	2
 	.align	4
 _17:
@@ -3286,450 +3309,440 @@ _17:
 	.long	2147483647
 	.long	8
 	.short	105,110,99,98,105,110,58,58
-_327:
-	.asciz	"pathBase"
-_328:
-	.asciz	"pathCount"
 _329:
-	.asciz	"pathFile"
+	.asciz	"pathBase"
 _330:
-	.asciz	"path2"
+	.asciz	"pathCount"
 _331:
-	.asciz	"in"
+	.asciz	"pathFile"
 _332:
-	.asciz	":TStream"
+	.asciz	"path2"
 _333:
+	.asciz	"in"
+_334:
+	.asciz	":TStream"
+_335:
 	.asciz	"out"
 	.align	4
-_326:
+_328:
 	.long	3
 	.long	0
-	.long	2
-	.long	_327
-	.long	_31
-	.long	-8
-	.long	2
-	.long	_328
-	.long	_31
-	.long	-12
 	.long	2
 	.long	_329
 	.long	_31
-	.long	-16
+	.long	-8
 	.long	2
 	.long	_330
 	.long	_31
-	.long	-20
+	.long	-12
 	.long	2
 	.long	_331
+	.long	_31
+	.long	-16
+	.long	2
 	.long	_332
-	.long	-24
+	.long	_31
+	.long	-20
 	.long	2
 	.long	_333
-	.long	_332
+	.long	_334
+	.long	-24
+	.long	2
+	.long	_335
+	.long	_334
 	.long	-28
 	.long	0
 	.align	4
-_307:
-	.long	_229
-	.long	228
-	.long	3
-	.align	4
 _309:
-	.long	_229
-	.long	229
+	.long	_231
+	.long	227
 	.long	3
 	.align	4
 _311:
-	.long	_229
-	.long	230
+	.long	_231
+	.long	228
 	.long	3
 	.align	4
 _313:
-	.long	_229
-	.long	232
+	.long	_231
+	.long	229
 	.long	3
 	.align	4
 _315:
+	.long	_231
+	.long	231
+	.long	3
+	.align	4
+_317:
 	.long	3
 	.long	0
 	.long	0
-	.align	4
-_314:
-	.long	_229
-	.long	233
-	.long	4
 	.align	4
 _316:
-	.long	_229
-	.long	237
-	.long	3
+	.long	_231
+	.long	232
+	.long	4
 	.align	4
 _318:
-	.long	_229
-	.long	240
+	.long	_231
+	.long	236
 	.long	3
 	.align	4
 _320:
-	.long	_229
-	.long	241
+	.long	_231
+	.long	239
 	.long	3
 	.align	4
 _322:
-	.long	_229
-	.long	242
-	.long	3
-	.align	4
-_323:
-	.long	_229
-	.long	243
+	.long	_231
+	.long	240
 	.long	3
 	.align	4
 _324:
-	.long	_229
-	.long	244
+	.long	_231
+	.long	241
 	.long	3
 	.align	4
 _325:
-	.long	_229
-	.long	247
+	.long	_231
+	.long	242
 	.long	3
 	.align	4
-_334:
-	.long	_229
-	.long	251
-	.long	2
-_339:
-	.asciz	"RequestScrollbarSize"
+_326:
+	.long	_231
+	.long	243
+	.long	3
 	.align	4
-_338:
-	.long	1
-	.long	_339
-	.long	0
+_327:
+	.long	_231
+	.long	246
+	.long	3
 	.align	4
-_337:
-	.long	_229
-	.long	273
+_336:
+	.long	_231
+	.long	250
 	.long	2
 _341:
-	.asciz	"SetComboBoxHeight"
-_342:
-	.asciz	"comboBox"
-_343:
-	.asciz	":TGadget"
-_344:
-	.asciz	"Height"
+	.asciz	"RequestScrollbarSize"
 	.align	4
 _340:
 	.long	1
 	.long	_341
+	.long	0
+	.align	4
+_339:
+	.long	_231
+	.long	272
 	.long	2
-	.long	_342
+_343:
+	.asciz	"SetComboBoxHeight"
+_344:
+	.asciz	"comboBox"
+_345:
+	.asciz	":TGadget"
+_346:
+	.asciz	"Height"
+	.align	4
+_342:
+	.long	1
 	.long	_343
-	.long	-4
 	.long	2
 	.long	_344
+	.long	_345
+	.long	-4
+	.long	2
+	.long	_346
 	.long	_33
 	.long	-8
 	.long	0
-_349:
-	.asciz	"GadgetScreenPosition"
-_350:
-	.asciz	"gadget"
 _351:
-	.asciz	"client"
+	.asciz	"GadgetScreenPosition"
 _352:
-	.asciz	"Position"
+	.asciz	"gadget"
 _353:
+	.asciz	"client"
+_354:
+	.asciz	"Position"
+_355:
 	.asciz	"[]i"
 	.align	4
-_348:
+_350:
 	.long	1
-	.long	_349
+	.long	_351
 	.long	2
-	.long	_350
-	.long	_343
+	.long	_352
+	.long	_345
 	.long	-4
 	.long	2
-	.long	_351
+	.long	_353
 	.long	_33
 	.long	-8
 	.long	2
-	.long	_352
-	.long	_353
+	.long	_354
+	.long	_355
 	.long	-12
 	.long	0
 	.align	4
-_345:
-	.long	_229
-	.long	321
+_347:
+	.long	_231
+	.long	320
 	.long	3
 	.align	4
-_347:
-	.long	_229
-	.long	323
+_349:
+	.long	_231
+	.long	322
 	.long	2
-_355:
-	.asciz	"DisableGadgetRedraw"
-	.align	4
-_354:
-	.long	1
-	.long	_355
-	.long	2
-	.long	_350
-	.long	_343
-	.long	-4
-	.long	0
 _357:
-	.asciz	"EnableGadgetRedraw"
+	.asciz	"DisableGadgetRedraw"
 	.align	4
 _356:
 	.long	1
 	.long	_357
 	.long	2
-	.long	_350
-	.long	_343
+	.long	_352
+	.long	_345
 	.long	-4
 	.long	0
-_372:
-	.asciz	"MessageBox"
-_373:
-	.asciz	"title"
+_359:
+	.asciz	"EnableGadgetRedraw"
+	.align	4
+_358:
+	.long	1
+	.long	_359
+	.long	2
+	.long	_352
+	.long	_345
+	.long	-4
+	.long	0
 _374:
-	.asciz	"message"
+	.asciz	"MessageBox"
 _375:
-	.asciz	"parent"
+	.asciz	"title"
 _376:
+	.asciz	"message"
+_377:
+	.asciz	"parent"
+_378:
 	.asciz	"oldTitle"
 	.align	4
-_371:
+_373:
 	.long	1
-	.long	_372
-	.long	2
-	.long	_373
-	.long	_31
-	.long	-4
-	.long	2
 	.long	_374
-	.long	_31
-	.long	-8
 	.long	2
 	.long	_375
-	.long	_343
-	.long	-12
+	.long	_31
+	.long	-4
 	.long	2
 	.long	_376
 	.long	_31
+	.long	-8
+	.long	2
+	.long	_377
+	.long	_345
+	.long	-12
+	.long	2
+	.long	_378
+	.long	_31
 	.long	-16
 	.long	0
 	.align	4
-_358:
-	.long	_229
+_360:
+	.long	_231
+	.long	381
+	.long	2
+	.align	4
+_362:
+	.long	_231
 	.long	382
 	.long	2
 	.align	4
-_360:
-	.long	_229
+_367:
+	.long	_231
 	.long	383
 	.long	2
 	.align	4
-_365:
-	.long	_229
+_368:
+	.long	_231
 	.long	384
 	.long	2
-	.align	4
-_366:
-	.long	_229
-	.long	385
-	.long	2
-_381:
-	.asciz	"GadgetSizeForString"
-_382:
-	.asciz	"text"
 _383:
-	.asciz	"maxWidth"
+	.asciz	"GadgetSizeForString"
 _384:
+	.asciz	"text"
+_385:
+	.asciz	"maxWidth"
+_386:
 	.asciz	"result"
 	.align	4
-_380:
+_382:
 	.long	1
-	.long	_381
+	.long	_383
 	.long	2
-	.long	_350
-	.long	_343
+	.long	_352
+	.long	_345
 	.long	-4
 	.long	2
-	.long	_382
+	.long	_384
 	.long	_31
 	.long	-8
 	.long	2
-	.long	_383
+	.long	_385
 	.long	_33
 	.long	-12
 	.long	2
-	.long	_384
-	.long	_353
+	.long	_386
+	.long	_355
 	.long	-16
 	.long	0
 	.align	4
-_377:
-	.long	_229
+_379:
+	.long	_231
+	.long	453
+	.long	3
+	.align	4
+_381:
+	.long	_231
 	.long	454
 	.long	3
-	.align	4
-_379:
-	.long	_229
-	.long	455
-	.long	3
-_395:
-	.asciz	"GetCreationGroup"
-_396:
-	.asciz	"Gadget"
 _397:
-	.asciz	"tmpProxy"
+	.asciz	"GetCreationGroup"
 _398:
+	.asciz	"Gadget"
+_399:
+	.asciz	"tmpProxy"
+_400:
 	.asciz	":TProxyGadget"
 	.align	4
-_394:
+_396:
 	.long	1
-	.long	_395
+	.long	_397
 	.long	2
-	.long	_396
-	.long	_343
+	.long	_398
+	.long	_345
 	.long	-4
 	.long	2
-	.long	_397
-	.long	_398
+	.long	_399
+	.long	_400
 	.long	-8
 	.long	0
 	.align	4
-_385:
-	.long	_229
+_387:
+	.long	_231
+	.long	472
+	.long	2
+	.align	4
+_389:
+	.long	_231
 	.long	473
 	.long	2
 	.align	4
-_387:
-	.long	_229
-	.long	474
-	.long	2
-	.align	4
-_392:
+_394:
 	.long	3
 	.long	0
 	.long	0
 	.align	4
-_389:
-	.long	_229
-	.long	474
+_391:
+	.long	_231
+	.long	473
 	.long	19
 	.align	4
-_393:
-	.long	_229
-	.long	475
+_395:
+	.long	_231
+	.long	474
 	.long	2
-_406:
+_408:
 	.asciz	"SetGadgetReadOnly"
-_407:
+_409:
 	.asciz	"yes"
 	.align	4
-_405:
+_407:
 	.long	1
-	.long	_406
+	.long	_408
 	.long	2
-	.long	_350
-	.long	_343
+	.long	_352
+	.long	_345
 	.long	-4
 	.long	2
-	.long	_407
+	.long	_409
 	.long	_33
 	.long	-8
 	.long	0
 	.align	4
-_399:
-	.long	_229
-	.long	492
+_401:
+	.long	_231
+	.long	491
 	.long	2
 	.align	4
-_404:
+_406:
 	.long	3
 	.long	0
 	.long	0
 	.align	4
-_403:
-	.long	_229
-	.long	498
+_405:
+	.long	_231
+	.long	497
 	.long	5
-_419:
+_421:
 	.asciz	"SetGadgetMaxLength"
 	.align	4
-_418:
+_420:
 	.long	1
-	.long	_419
+	.long	_421
 	.long	2
-	.long	_350
-	.long	_343
+	.long	_352
+	.long	_345
 	.long	-4
 	.long	2
-	.long	_304
+	.long	_306
 	.long	_33
 	.long	-8
 	.long	0
 	.align	4
-_408:
-	.long	_229
-	.long	516
+_410:
+	.long	_231
+	.long	515
 	.long	2
+	.align	4
+_419:
+	.long	3
+	.long	0
+	.long	0
+	.align	4
+_414:
+	.long	_231
+	.long	521
+	.long	5
 	.align	4
 _417:
 	.long	3
 	.long	0
 	.long	0
 	.align	4
-_412:
-	.long	_229
-	.long	522
-	.long	5
-	.align	4
-_415:
-	.long	3
-	.long	0
-	.long	0
-	.align	4
-_414:
-	.long	_229
-	.long	522
+_416:
+	.long	_231
+	.long	521
 	.long	19
 	.align	4
-_416:
-	.long	_229
-	.long	523
+_418:
+	.long	_231
+	.long	522
 	.long	5
-_429:
+_431:
 	.asciz	"GetGadgetMaxLength"
 	.align	4
-_428:
+_430:
 	.long	1
-	.long	_429
+	.long	_431
 	.long	2
-	.long	_350
-	.long	_343
+	.long	_352
+	.long	_345
 	.long	-4
 	.long	0
 	.align	4
-_420:
-	.long	_229
-	.long	542
+_422:
+	.long	_231
+	.long	541
 	.long	2
-	.align	4
-_425:
-	.long	3
-	.long	0
-	.long	0
-	.align	4
-_424:
-	.long	_229
-	.long	550
-	.long	4
 	.align	4
 _427:
 	.long	3
@@ -3737,303 +3750,313 @@ _427:
 	.long	0
 	.align	4
 _426:
-	.long	_229
-	.long	547
+	.long	_231
+	.long	549
+	.long	4
+	.align	4
+_429:
+	.long	3
+	.long	0
+	.long	0
+	.align	4
+_428:
+	.long	_231
+	.long	546
 	.long	5
-_497:
+_499:
 	.asciz	"LoadCustomPointer"
-_498:
+_500:
 	.asciz	"deletePath2"
 	.align	4
-_496:
+_498:
 	.long	1
-	.long	_497
+	.long	_499
 	.long	2
 	.long	_30
 	.long	_31
 	.long	-4
 	.long	2
 	.long	_32
-	.long	_238
+	.long	_240
 	.long	-8
 	.long	2
-	.long	_330
+	.long	_332
 	.long	_31
 	.long	-12
 	.long	2
-	.long	_498
+	.long	_500
 	.long	_33
 	.long	-16
 	.long	0
 	.align	4
-_430:
-	.long	_229
-	.long	568
-	.long	2
-	.align	4
 _432:
-	.long	_229
-	.long	569
+	.long	_231
+	.long	567
 	.long	2
 	.align	4
 _434:
-	.long	_229
-	.long	570
+	.long	_231
+	.long	568
 	.long	2
 	.align	4
 _436:
-	.long	_229
-	.long	571
+	.long	_231
+	.long	569
 	.long	2
-	.align	4
-_439:
-	.long	3
-	.long	0
-	.long	0
 	.align	4
 _438:
-	.long	_229
-	.long	572
-	.long	3
-	.align	4
-_442:
-	.long	3
-	.long	0
-	.long	0
+	.long	_231
+	.long	570
+	.long	2
 	.align	4
 _441:
-	.long	_229
-	.long	574
 	.long	3
+	.long	0
+	.long	0
+	.align	4
+_440:
+	.long	_231
+	.long	571
+	.long	3
+	.align	4
+_444:
+	.long	3
+	.long	0
+	.long	0
 	.align	4
 _443:
-	.long	_229
-	.long	578
-	.long	2
-	.align	4
-_450:
+	.long	_231
+	.long	573
 	.long	3
-	.long	0
-	.long	0
 	.align	4
 _445:
-	.long	_229
-	.long	580
-	.long	3
-	.align	4
-_455:
-	.long	3
-	.long	0
-	.long	0
+	.long	_231
+	.long	577
+	.long	2
 	.align	4
 _452:
-	.long	_229
-	.long	583
+	.long	3
+	.long	0
+	.long	0
+	.align	4
+_447:
+	.long	_231
+	.long	579
 	.long	3
 	.align	4
-_456:
-	.long	_229
-	.long	587
+_457:
+	.long	3
+	.long	0
+	.long	0
+	.align	4
+_454:
+	.long	_231
+	.long	582
+	.long	3
+	.align	4
+_458:
+	.long	_231
+	.long	586
 	.long	2
-_481:
+_483:
 	.asciz	"offset"
 	.align	4
-_480:
+_482:
 	.long	3
 	.long	0
 	.long	2
-	.long	_481
-	.long	_353
+	.long	_483
+	.long	_355
 	.long	-20
 	.long	0
 	.align	4
-_458:
-	.long	_229
+_460:
+	.long	_231
+	.long	588
+	.long	3
+	.align	4
+_461:
+	.long	_231
 	.long	589
 	.long	3
 	.align	4
-_459:
-	.long	_229
+_469:
+	.long	_231
 	.long	590
 	.long	3
 	.align	4
-_467:
-	.long	_229
-	.long	591
-	.long	3
-	.align	4
-_470:
-	.long	_229
-	.long	598
-	.long	3
-	.align	4
 _472:
-	.long	_229
-	.long	600
+	.long	_231
+	.long	597
 	.long	3
 	.align	4
-_482:
-	.long	_229
-	.long	605
-	.long	2
-	.align	4
-_485:
+_474:
+	.long	_231
+	.long	599
 	.long	3
-	.long	0
-	.long	0
 	.align	4
 _484:
-	.long	_229
-	.long	605
-	.long	17
+	.long	_231
+	.long	604
+	.long	2
+	.align	4
+_487:
+	.long	3
+	.long	0
+	.long	0
 	.align	4
 _486:
-	.long	_229
-	.long	608
+	.long	_231
+	.long	604
+	.long	17
+	.align	4
+_488:
+	.long	_231
+	.long	607
 	.long	2
 	.align	4
-_495:
+_497:
 	.long	3
 	.long	0
 	.long	0
 	.align	4
-_490:
-	.long	_229
+_492:
+	.long	_231
+	.long	609
+	.long	3
+	.align	4
+_496:
+	.long	_231
 	.long	610
 	.long	3
-	.align	4
-_494:
-	.long	_229
-	.long	611
-	.long	3
-_507:
+_509:
 	.asciz	"SetCustomPointer"
 	.align	4
-_506:
+_508:
 	.long	1
-	.long	_507
+	.long	_509
 	.long	2
 	.long	_32
-	.long	_238
+	.long	_240
 	.long	-4
-	.long	0
-	.align	4
-_499:
-	.long	_229
-	.long	628
-	.long	2
-	.align	4
-_505:
-	.long	3
-	.long	0
 	.long	0
 	.align	4
 _501:
-	.long	_229
-	.long	629
+	.long	_231
+	.long	627
+	.long	2
+	.align	4
+_507:
+	.long	3
+	.long	0
+	.long	0
+	.align	4
+_503:
+	.long	_231
+	.long	628
 	.long	3
 	.align	4
-_502:
-	.long	_229
-	.long	635
+_504:
+	.long	_231
+	.long	634
 	.long	3
-_535:
+_537:
 	.asciz	"FreeCustomPointer"
 	.align	4
-_534:
+_536:
 	.long	1
-	.long	_535
+	.long	_537
 	.long	2
 	.long	_32
-	.long	_238
+	.long	_240
 	.long	-4
 	.long	0
 	.align	4
-_508:
-	.long	_229
-	.long	653
+_510:
+	.long	_231
+	.long	652
 	.long	2
 	.align	4
-_533:
+_535:
 	.long	3
 	.long	0
 	.long	0
 	.align	4
-_510:
-	.long	_229
+_512:
+	.long	_231
+	.long	654
+	.long	3
+	.align	4
+_516:
+	.long	_231
 	.long	655
 	.long	3
 	.align	4
-_514:
-	.long	_229
-	.long	656
-	.long	3
-	.align	4
-_532:
+_534:
 	.long	3
 	.long	0
 	.long	0
 	.align	4
-_518:
-	.long	_229
-	.long	658
+_520:
+	.long	_231
+	.long	657
 	.long	4
 	.align	4
-_523:
-	.long	_229
-	.long	668
+_525:
+	.long	_231
+	.long	667
 	.long	4
 	.align	4
-_528:
+_530:
 	.long	3
 	.long	0
 	.long	0
-	.align	4
-_527:
-	.long	_229
-	.long	668
-	.long	46
 	.align	4
 _529:
-	.long	_229
-	.long	669
+	.long	_231
+	.long	667
+	.long	46
+	.align	4
+_531:
+	.long	_231
+	.long	668
 	.long	4
-_587:
+_589:
 	.asciz	"ExtractCursorHotspot"
-_588:
+_590:
 	.asciz	"file"
 	.align	4
-_586:
+_588:
 	.long	1
-	.long	_587
+	.long	_589
 	.long	2
 	.long	_30
 	.long	_31
 	.long	-4
 	.long	2
-	.long	_302
+	.long	_304
 	.long	_33
 	.long	-8
 	.long	2
-	.long	_384
-	.long	_353
+	.long	_386
+	.long	_355
 	.long	-12
 	.long	2
-	.long	_588
-	.long	_332
+	.long	_590
+	.long	_334
 	.long	-16
 	.long	0
 	.align	4
-_536:
-	.long	_229
-	.long	690
+_538:
+	.long	_231
+	.long	689
 	.long	2
-_537:
+_539:
 	.asciz	"i"
 	.align	4
-_539:
-	.long	_229
-	.long	692
+_541:
+	.long	_231
+	.long	691
 	.long	2
 	.align	4
 _21:
@@ -4042,736 +4065,748 @@ _21:
 	.long	14
 	.short	108,105,116,116,108,101,101,110,100,105,97,110,58,58
 	.align	4
-_541:
-	.long	_229
-	.long	693
+_543:
+	.long	_231
+	.long	692
 	.long	2
-_584:
+_586:
 	.asciz	"temp"
 	.align	4
-_583:
+_585:
 	.long	3
 	.long	0
 	.long	2
-	.long	_584
+	.long	_586
 	.long	_33
 	.long	-20
 	.long	0
 	.align	4
-_543:
-	.long	_229
-	.long	695
+_545:
+	.long	_231
+	.long	694
 	.long	3
 	.align	4
-_546:
-	.long	_229
+_548:
+	.long	_231
+	.long	697
+	.long	3
+	.align	4
+_552:
+	.long	_231
 	.long	698
 	.long	3
 	.align	4
-_550:
-	.long	_229
-	.long	699
+_581:
 	.long	3
+	.long	0
+	.long	0
+	.align	4
+_554:
+	.long	_231
+	.long	700
+	.long	4
+	.align	4
+_557:
+	.long	_231
+	.long	701
+	.long	4
+	.align	4
+_580:
+	.long	3
+	.long	0
+	.long	0
+	.align	4
+_559:
+	.long	_231
+	.long	703
+	.long	5
+	.align	4
+_560:
+	.long	_231
+	.long	704
+	.long	5
 	.align	4
 _579:
 	.long	3
 	.long	0
 	.long	0
 	.align	4
-_552:
-	.long	_229
-	.long	701
-	.long	4
-	.align	4
-_555:
-	.long	_229
-	.long	702
-	.long	4
-	.align	4
-_578:
-	.long	3
-	.long	0
-	.long	0
-	.align	4
-_557:
-	.long	_229
-	.long	704
-	.long	5
-	.align	4
-_558:
-	.long	_229
+_564:
+	.long	_231
 	.long	705
-	.long	5
+	.long	6
 	.align	4
-_577:
-	.long	3
-	.long	0
-	.long	0
-	.align	4
-_562:
-	.long	_229
+_567:
+	.long	_231
 	.long	706
 	.long	6
 	.align	4
-_565:
-	.long	_229
+_573:
+	.long	_231
 	.long	707
 	.long	6
 	.align	4
-_571:
-	.long	_229
-	.long	708
-	.long	6
-	.align	4
-_580:
-	.long	_229
-	.long	714
+_582:
+	.long	_231
+	.long	713
 	.long	3
 	.align	4
-_585:
-	.long	_229
-	.long	718
+_587:
+	.long	_231
+	.long	717
 	.long	2
-_590:
+_592:
 	.asciz	"ListBatchLock"
 	.align	4
-_589:
+_591:
 	.long	1
-	.long	_590
+	.long	_592
 	.long	2
-	.long	_396
-	.long	_343
+	.long	_398
+	.long	_345
 	.long	-4
 	.long	0
-_593:
-	.asciz	"ListBatchAdd"
-_594:
-	.asciz	"flags"
 _595:
-	.asciz	"icon"
+	.asciz	"ListBatchAdd"
 _596:
-	.asciz	"tip"
+	.asciz	"flags"
 _597:
-	.asciz	"extra"
+	.asciz	"icon"
 _598:
+	.asciz	"tip"
+_599:
+	.asciz	"extra"
+_600:
 	.asciz	":Object"
 	.align	4
-_592:
+_594:
 	.long	1
-	.long	_593
+	.long	_595
 	.long	2
-	.long	_396
-	.long	_343
+	.long	_398
+	.long	_345
 	.long	-4
 	.long	2
-	.long	_382
+	.long	_384
 	.long	_31
 	.long	-8
 	.long	2
-	.long	_594
+	.long	_596
 	.long	_33
 	.long	-12
 	.long	2
-	.long	_595
+	.long	_597
 	.long	_33
 	.long	-16
 	.long	2
-	.long	_596
+	.long	_598
 	.long	_31
 	.long	-20
 	.long	2
-	.long	_597
-	.long	_598
+	.long	_599
+	.long	_600
 	.long	-24
 	.long	0
 	.align	4
-_591:
-	.long	_229
-	.long	812
+_593:
+	.long	_231
+	.long	811
 	.long	3
-_600:
+_602:
 	.asciz	"ListBatchUnlock"
 	.align	4
-_599:
+_601:
 	.long	1
-	.long	_600
+	.long	_602
 	.long	2
-	.long	_396
-	.long	_343
+	.long	_398
+	.long	_345
 	.long	-4
 	.long	0
-_611:
+_613:
 	.asciz	"GadgetWindow"
 	.align	4
-_610:
+_612:
 	.long	1
-	.long	_611
+	.long	_613
 	.long	2
-	.long	_396
-	.long	_343
+	.long	_398
+	.long	_345
 	.long	-4
 	.long	2
-	.long	_375
-	.long	_343
+	.long	_377
+	.long	_345
 	.long	-8
 	.long	0
 	.align	4
-_601:
-	.long	_229
+_603:
+	.long	_231
+	.long	863
+	.long	2
+	.align	4
+_605:
+	.long	_231
 	.long	864
 	.long	2
 	.align	4
-_603:
-	.long	_229
+_611:
+	.long	3
+	.long	0
+	.long	0
+	.align	4
+_606:
+	.long	_231
 	.long	865
-	.long	2
+	.long	3
 	.align	4
 _609:
 	.long	3
 	.long	0
 	.long	0
 	.align	4
-_604:
-	.long	_229
-	.long	866
-	.long	3
-	.align	4
-_607:
-	.long	3
-	.long	0
-	.long	0
-	.align	4
-_606:
-	.long	_229
-	.long	866
+_608:
+	.long	_231
+	.long	865
 	.long	42
 	.align	4
-_608:
-	.long	_229
-	.long	867
+_610:
+	.long	_231
+	.long	866
 	.long	3
-_614:
-	.asciz	"SetWindowAlwaysOnTop"
-_615:
-	.asciz	"Window"
 _616:
+	.asciz	"SetWindowAlwaysOnTop"
+_617:
+	.asciz	"Window"
+_618:
 	.asciz	"State"
 	.align	4
-_613:
+_615:
 	.long	1
-	.long	_614
+	.long	_616
 	.long	2
-	.long	_615
-	.long	_343
+	.long	_617
+	.long	_345
 	.long	-4
 	.long	2
-	.long	_616
+	.long	_618
 	.long	_33
 	.long	-8
 	.long	0
 	.align	4
-_612:
-	.long	_229
-	.long	895
+_614:
+	.long	_231
+	.long	894
 	.long	3
-_619:
+_621:
 	.asciz	"BringWindowToTop"
 	.align	4
-_618:
+_620:
 	.long	1
-	.long	_619
+	.long	_621
 	.long	2
-	.long	_615
-	.long	_343
+	.long	_617
+	.long	_345
 	.long	-4
 	.long	0
 	.align	4
-_617:
-	.long	_229
-	.long	916
+_619:
+	.long	_231
+	.long	915
 	.long	3
-_622:
+_624:
 	.asciz	"FocusWindow"
 	.align	4
-_621:
+_623:
 	.long	1
-	.long	_622
+	.long	_624
 	.long	2
-	.long	_615
-	.long	_343
+	.long	_617
+	.long	_345
 	.long	-4
 	.long	0
 	.align	4
-_620:
-	.long	_229
-	.long	938
+_622:
+	.long	_231
+	.long	937
 	.long	3
-_625:
+_627:
 	.asciz	"GadgetToInt"
 	.align	4
-_624:
+_626:
 	.long	1
-	.long	_625
+	.long	_627
 	.long	2
-	.long	_396
-	.long	_343
+	.long	_398
+	.long	_345
 	.long	-4
 	.long	0
 	.align	4
-_623:
-	.long	_229
-	.long	960
+_625:
+	.long	_231
+	.long	959
 	.long	3
-_646:
+_648:
 	.asciz	"SetColorPickerCustomColors"
-_647:
+_649:
 	.asciz	"colors"
 	.align	4
-_645:
+_647:
 	.long	1
-	.long	_646
+	.long	_648
 	.long	2
-	.long	_647
-	.long	_353
+	.long	_649
+	.long	_355
 	.long	-4
 	.long	0
 	.align	4
-_626:
-	.long	_229
-	.long	993
+_628:
+	.long	_231
+	.long	992
 	.long	3
+	.align	4
+_646:
+	.long	3
+	.long	0
+	.long	0
+	.align	4
+_632:
+	.long	_231
+	.long	994
+	.long	4
 	.align	4
 _644:
 	.long	3
 	.long	0
-	.long	0
-	.align	4
-_630:
-	.long	_229
-	.long	995
-	.long	4
-	.align	4
-_642:
-	.long	3
-	.long	0
 	.long	2
-	.long	_302
+	.long	_304
 	.long	_33
 	.long	-8
 	.long	0
 	.align	4
-_632:
-	.long	_229
+_634:
+	.long	_231
+	.long	995
+	.long	5
+	.align	4
+_636:
+	.long	_231
 	.long	996
 	.long	5
 	.align	4
-_634:
-	.long	_229
+_637:
+	.long	_231
 	.long	997
 	.long	5
 	.align	4
-_635:
-	.long	_229
-	.long	998
-	.long	5
-	.align	4
-_641:
+_643:
 	.long	3
 	.long	0
 	.long	0
 	.align	4
-_637:
-	.long	_229
-	.long	999
+_639:
+	.long	_231
+	.long	998
 	.long	6
 	.align	4
-_643:
-	.long	_229
-	.long	1002
+_645:
+	.long	_231
+	.long	1001
 	.long	4
-_649:
-	.asciz	"ClearColorPickerCustomColors"
-	.align	4
-_648:
-	.long	1
-	.long	_649
-	.long	0
 _651:
-	.asciz	"RedrawGadgetFrame"
+	.asciz	"ClearColorPickerCustomColors"
 	.align	4
 _650:
 	.long	1
 	.long	_651
-	.long	2
-	.long	_396
-	.long	_343
-	.long	-4
 	.long	0
-_665:
-	.asciz	"HideGadgetBorder"
-	.align	4
-_664:
-	.long	1
-	.long	_665
-	.long	2
-	.long	_396
-	.long	_343
-	.long	-4
-	.long	0
+_653:
+	.asciz	"RedrawGadgetFrame"
 	.align	4
 _652:
-	.long	_229
-	.long	1087
+	.long	1
+	.long	_653
+	.long	2
+	.long	_398
+	.long	_345
+	.long	-4
+	.long	0
+_667:
+	.asciz	"HideGadgetBorder"
+	.align	4
+_666:
+	.long	1
+	.long	_667
+	.long	2
+	.long	_398
+	.long	_345
+	.long	-4
+	.long	0
+	.align	4
+_654:
+	.long	_231
+	.long	1086
 	.long	3
-_663:
+_665:
 	.asciz	"nsview"
 	.align	4
-_662:
+_664:
 	.long	3
 	.long	0
 	.long	2
-	.long	_663
+	.long	_665
 	.long	_33
 	.long	-8
 	.long	0
 	.align	4
-_656:
-	.long	_229
+_658:
+	.long	_231
+	.long	1088
+	.long	5
+	.align	4
+_660:
+	.long	_231
 	.long	1089
 	.long	5
 	.align	4
-_658:
-	.long	_229
-	.long	1090
-	.long	5
-	.align	4
-_661:
+_663:
 	.long	3
 	.long	0
 	.long	0
 	.align	4
-_660:
-	.long	_229
-	.long	1090
+_662:
+	.long	_231
+	.long	1089
 	.long	15
-_695:
+_697:
 	.asciz	"InstallGuiFont"
 	.align	4
-_694:
+_696:
 	.long	1
-	.long	_695
+	.long	_697
 	.long	2
 	.long	_30
 	.long	_31
 	.long	-4
 	.long	2
-	.long	_384
+	.long	_386
 	.long	_33
 	.long	-8
 	.long	2
-	.long	_330
+	.long	_332
 	.long	_31
 	.long	-12
 	.long	2
-	.long	_498
+	.long	_500
 	.long	_33
 	.long	-16
 	.long	0
 	.align	4
-_666:
-	.long	_229
-	.long	1127
-	.long	3
-	.align	4
 _668:
-	.long	_229
-	.long	1130
+	.long	_231
+	.long	1126
 	.long	3
 	.align	4
 _670:
-	.long	_229
-	.long	1133
+	.long	_231
+	.long	1129
 	.long	3
 	.align	4
 _672:
-	.long	_229
-	.long	1134
+	.long	_231
+	.long	1132
 	.long	3
-	.align	4
-_675:
-	.long	3
-	.long	0
-	.long	0
 	.align	4
 _674:
-	.long	_229
-	.long	1135
-	.long	4
-	.align	4
-_678:
+	.long	_231
+	.long	1133
 	.long	3
-	.long	0
-	.long	0
 	.align	4
 _677:
-	.long	_229
-	.long	1137
+	.long	3
+	.long	0
+	.long	0
+	.align	4
+_676:
+	.long	_231
+	.long	1134
 	.long	4
+	.align	4
+_680:
+	.long	3
+	.long	0
+	.long	0
 	.align	4
 _679:
-	.long	_229
-	.long	1141
-	.long	3
-	.align	4
-_688:
-	.long	3
-	.long	0
-	.long	0
-	.align	4
-_681:
-	.long	_229
-	.long	1142
+	.long	_231
+	.long	1136
 	.long	4
 	.align	4
-_684:
+_681:
+	.long	_231
+	.long	1140
+	.long	3
+	.align	4
+_690:
 	.long	3
 	.long	0
 	.long	0
 	.align	4
 _683:
-	.long	_229
-	.long	1144
-	.long	5
+	.long	_231
+	.long	1141
+	.long	4
 	.align	4
-_687:
+_686:
 	.long	3
 	.long	0
 	.long	0
 	.align	4
-_686:
-	.long	_229
-	.long	1147
+_685:
+	.long	_231
+	.long	1143
 	.long	5
 	.align	4
 _689:
-	.long	_229
-	.long	1152
 	.long	3
+	.long	0
+	.long	0
 	.align	4
-_692:
-	.long	3
-	.long	0
-	.long	0
+_688:
+	.long	_231
+	.long	1146
+	.long	5
 	.align	4
 _691:
-	.long	_229
-	.long	1152
-	.long	18
+	.long	_231
+	.long	1151
+	.long	3
+	.align	4
+_694:
+	.long	3
+	.long	0
+	.long	0
 	.align	4
 _693:
-	.long	_229
-	.long	1154
+	.long	_231
+	.long	1151
+	.long	18
+	.align	4
+_695:
+	.long	_231
+	.long	1153
 	.long	3
-_711:
-	.asciz	"SetTextareaLineSpacing"
-_712:
-	.asciz	"lineSpacing"
 _713:
+	.asciz	"SetTextareaLineSpacing"
+_714:
+	.asciz	"lineSpacing"
+_715:
 	.asciz	"f"
 	.align	4
-_710:
+_712:
 	.long	1
-	.long	_711
+	.long	_713
 	.long	2
-	.long	_396
-	.long	_343
+	.long	_398
+	.long	_345
 	.long	-4
 	.long	2
-	.long	_712
-	.long	_713
+	.long	_714
+	.long	_715
 	.long	-8
 	.long	0
 	.align	4
-_696:
-	.long	_229
-	.long	1172
+_698:
+	.long	_231
+	.long	1171
 	.long	2
-_709:
+_711:
 	.asciz	"nsView"
 	.align	4
-_708:
+_710:
 	.long	3
 	.long	0
 	.long	2
-	.long	_709
+	.long	_711
 	.long	_33
 	.long	-12
 	.long	0
 	.align	4
-_698:
-	.long	_229
+_700:
+	.long	_231
+	.long	1186
+	.long	4
+	.align	4
+_912:
+	.long	0x3f800000
+	.align	4
+_701:
+	.long	_231
 	.long	1187
 	.long	4
 	.align	4
-_907:
-	.long	0x3f800000
-	.align	4
-_699:
-	.long	_229
-	.long	1188
-	.long	4
-	.align	4
-_702:
+_704:
 	.long	3
 	.long	0
 	.long	0
-	.align	4
-_701:
-	.long	_229
-	.long	1188
-	.long	23
 	.align	4
 _703:
-	.long	_229
-	.long	1190
-	.long	4
+	.long	_231
+	.long	1187
+	.long	23
 	.align	4
 _705:
-	.long	_229
-	.long	1191
+	.long	_231
+	.long	1189
 	.long	4
-_724:
+	.align	4
+_707:
+	.long	_231
+	.long	1190
+	.long	4
+_726:
 	.asciz	"ScrollTextAreaToTop"
 	.align	4
-_723:
+_725:
 	.long	1
-	.long	_724
+	.long	_726
 	.long	2
-	.long	_396
-	.long	_343
+	.long	_398
+	.long	_345
 	.long	-4
-	.long	0
-	.align	4
-_714:
-	.long	_229
-	.long	1198
-	.long	2
-	.align	4
-_722:
-	.long	3
-	.long	0
-	.long	2
-	.long	_709
-	.long	_33
-	.long	-8
 	.long	0
 	.align	4
 _716:
-	.long	_229
-	.long	1203
-	.long	4
-	.align	4
-_718:
-	.long	_229
-	.long	1204
-	.long	4
-	.align	4
-_721:
-	.long	3
-	.long	0
-	.long	0
-	.align	4
-_720:
-	.long	_229
-	.long	1204
-	.long	14
-_735:
-	.asciz	"ScrollTextAreaToBottom"
-	.align	4
-_734:
-	.long	1
-	.long	_735
-	.long	2
-	.long	_396
-	.long	_343
-	.long	-4
-	.long	0
-	.align	4
-_725:
-	.long	_229
-	.long	1211
+	.long	_231
+	.long	1208
 	.long	2
 	.align	4
-_733:
+_724:
 	.long	3
 	.long	0
 	.long	2
-	.long	_709
+	.long	_711
 	.long	_33
 	.long	-8
+	.long	0
+	.align	4
+_718:
+	.long	_231
+	.long	1213
+	.long	4
+	.align	4
+_720:
+	.long	_231
+	.long	1214
+	.long	4
+	.align	4
+_723:
+	.long	3
+	.long	0
+	.long	0
+	.align	4
+_722:
+	.long	_231
+	.long	1214
+	.long	14
+_737:
+	.asciz	"ScrollTextAreaToBottom"
+	.align	4
+_736:
+	.long	1
+	.long	_737
+	.long	2
+	.long	_398
+	.long	_345
+	.long	-4
 	.long	0
 	.align	4
 _727:
-	.long	_229
-	.long	1216
-	.long	4
-	.align	4
-_729:
-	.long	_229
-	.long	1217
-	.long	4
-	.align	4
-_732:
-	.long	3
-	.long	0
-	.long	0
-	.align	4
-_731:
-	.long	_229
-	.long	1217
-	.long	14
-_746:
-	.asciz	"ScrollTextAreaToCursor"
-	.align	4
-_745:
-	.long	1
-	.long	_746
-	.long	2
-	.long	_396
-	.long	_343
-	.long	-4
-	.long	0
-	.align	4
-_736:
-	.long	_229
-	.long	1224
+	.long	_231
+	.long	1232
 	.long	2
 	.align	4
-_744:
+_735:
 	.long	3
 	.long	0
 	.long	2
-	.long	_709
+	.long	_711
 	.long	_33
 	.long	-8
 	.long	0
 	.align	4
-_738:
-	.long	_229
-	.long	1229
+_729:
+	.long	_231
+	.long	1237
 	.long	4
 	.align	4
-_740:
-	.long	_229
-	.long	1230
+_731:
+	.long	_231
+	.long	1238
 	.long	4
 	.align	4
-_743:
+_734:
 	.long	3
 	.long	0
 	.long	0
 	.align	4
-_742:
-	.long	_229
-	.long	1230
+_733:
+	.long	_231
+	.long	1238
 	.long	14
+_748:
+	.asciz	"ScrollTextAreaToCursor"
+	.align	4
+_747:
+	.long	1
+	.long	_748
+	.long	2
+	.long	_398
+	.long	_345
+	.long	-4
+	.long	0
+	.align	4
+_738:
+	.long	_231
+	.long	1256
+	.long	2
+	.align	4
+_746:
+	.long	3
+	.long	0
+	.long	2
+	.long	_711
+	.long	_33
+	.long	-8
+	.long	0
+	.align	4
+_740:
+	.long	_231
+	.long	1261
+	.long	4
+	.align	4
+_742:
+	.long	_231
+	.long	1262
+	.long	4
+	.align	4
+_745:
+	.long	3
+	.long	0
+	.long	0
+	.align	4
+_744:
+	.long	_231
+	.long	1262
+	.long	14
+_751:
+	.asciz	"GetAppResourcesPath"
+	.align	4
+_750:
+	.long	1
+	.long	_751
+	.long	0
+	.align	4
+_749:
+	.long	_231
+	.long	1285
+	.long	3

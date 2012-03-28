@@ -1,4 +1,10 @@
+#if _WIN32
+
+#elif __APPLE__
+
 #import <maxgui.mod/cocoamaxgui.mod/cocoa.macos.m>
+#import <maxgui.mod/maxgui.mod/maxgui.h>
+#import <pub.mod/macos.mod/macos.h>
 
 @interface skn3TextFieldFormatter : NSFormatter {
 	int maxLength;
@@ -29,3 +35,5 @@ int skn3_scrollTextAreaToTop(TextView *gadget);
 int skn3_scrollTextAreaToBottom(TextView *gadget);
 int skn3_scrollTextAreaToCursor(TextView *gadget);
 BBString *skn3_getBundlePath();
+
+#endif

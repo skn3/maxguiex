@@ -1,6 +1,4 @@
-#include <pub.mod/macos.mod/macos.h>
-#include "maxguiex.h"
-
+#import <skn3.mod/maxguiex.mod/maxguiex.h>
 
 @implementation skn3TextFieldFormatter
 
@@ -234,5 +232,5 @@ int skn3_scrollTextAreaToCursor(TextView *gadget) {
 
 BBString *skn3_getBundlePath() {
 	//return a path to the application bundle
-	return stringFromNSString([[NSBundle mainBundle] resourcePath]);
+	return bbStringFromNSString([[NSBundle mainBundle] resourcePath]);
 }

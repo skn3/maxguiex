@@ -1,3 +1,5 @@
+ModuleInfo "History: 1.02"
+ModuleInfo "History: Added ScrollTextAreaToTop() ScrollTextAreaToBottom() ScrollTextAreaToCursor() functions"
 ModuleInfo "History: 1.01"
 ModuleInfo "History: Added SetTextAreaLineSpacing() function"
 ModuleInfo "History: 1.00"
@@ -28,6 +30,7 @@ skn3_setTextViewLineSpacing%(Gadget%,spacing#)="skn3_setTextViewLineSpacing"
 skn3_scrollTextAreaToTop%(Gadget%)="skn3_scrollTextAreaToTop"
 skn3_scrollTextAreaToBottom%(Gadget%)="skn3_scrollTextAreaToBottom"
 skn3_scrollTextAreaToCursor%(Gadget%)="skn3_scrollTextAreaToCursor"
+skn3_getBundlePath$()="skn3_getBundlePath"
 Skn3CustomPointer^Object{
 all:TMap&=mem:p("_skn3_maxguiex_Skn3CustomPointer_all")
 .path$&
@@ -68,3 +71,4 @@ SetTextareaLineSpacing%(Gadget:TGadget,lineSpacing#)="skn3_maxguiex_SetTextareaL
 ScrollTextAreaToTop%(Gadget:TGadget)="skn3_maxguiex_ScrollTextAreaToTop"
 ScrollTextAreaToBottom%(Gadget:TGadget)="skn3_maxguiex_ScrollTextAreaToBottom"
 ScrollTextAreaToCursor%(Gadget:TGadget)="skn3_maxguiex_ScrollTextAreaToCursor"
+GetAppResourcesPath$()="skn3_maxguiex_GetAppResourcesPath"
