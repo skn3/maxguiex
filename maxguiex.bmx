@@ -190,11 +190,9 @@ Type PARAFORMAT2
 End Type
 Public
 
-
-
 'internal functions
 Private
-Function TrimAndFixPath:String(path:String,slash:String="/")
+Function TrimAndFixPath:String(path:String,slash:String="/",keepRootSlash:Int=False)
 	'--- fix a path ---
 	'check for no path
 	If path.Length = 0 Return ""
@@ -206,27 +204,35 @@ Function TrimAndFixPath:String(path:String,slash:String="/")
 	'trim slashes
 	Local index:Int
 	Local startIndex:Int = 0
+	Local hasRootSlash:Int = False
+	Local slashAsc:Int = Asc(slash)
+	
 	For index = 0 Until path.length
-		If path[index] <> 32 And path[index] <> 47 Exit
+		If path[index] <> 32 And path[index] <> slashAsc Exit
 		startIndex = index+1
+		hasRootSlash = True
 	Next
 	
 	Local length:Int = path.length-startIndex
 	For index = path.Length-1 To 0 Step -1
-		If path[index] <> 32 And path[index] <> 47 Exit
+		If path[index] <> 32 And path[index] <> slashAsc Exit
 		length :- 1
 	Next
 	If length <= 0 Return ""
 	
+	'build new path
+	path = path[startIndex..startIndex+Length]
+	If hasRootSlash And keepRootSlash path = slash+path
+	
 	'return the result
-	Return path[startIndex..startIndex+length]
+	Return path
 End Function
 
 Function IncBinToDisk:String(path:String)
 	' --- just a helper function for copying an incbin to disk ---
 	If path[0..8].Tolower() = "incbin::"
 		'setup real path
-		Local pathBase:String = "/"+TrimAndFixPath(GetTempDirectory())+"/"
+		Local pathBase:String = TrimAndFixPath(GetTempDirectory(),"/",True)+"/"
 		Local pathCount:String = ""
 		Local pathFile:String = StripDir(path[8..])
 		
@@ -239,7 +245,12 @@ Function IncBinToDisk:String(path:String)
 
 		'copy file to temporary location
 		Local in:TStream = ReadStream(path)
+		If in = Null Return ""
 		Local out:TStream = WriteStream(path2)
+		If out = Null
+			CloseStream(in)
+			Return ""
+		EndIf
 		CopyStream(in,out)
 		CloseFile(out)
 		CloseStream(in)
