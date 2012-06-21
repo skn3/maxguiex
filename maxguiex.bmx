@@ -7,6 +7,8 @@ End Rem
 Module skn3.maxguiex
 SuperStrict
 
+ModuleInfo "History: 1.04"
+ModuleInfo "History: fixed broken GadgetWindow() function"
 ModuleInfo "History: 1.03"
 ModuleInfo "History: Added GetAppResourcesPath() and tweaked h files"
 ModuleInfo "History: 1.02"
@@ -875,7 +877,7 @@ Function GadgetWindow:TGadget(Gadget:TGadget)
 	' --- this will locate a gadgets window ---
 	Local parent:TGadget = GadgetGroup(Gadget)
 	While parent
-		If GadgetClass(parent) + GADGET_WINDOW Return parent
+		If GadgetClass(parent) = GADGET_WINDOW Return parent
 		parent = GadgetGroup(parent)
 	Wend
 End Function
