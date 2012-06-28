@@ -7,6 +7,8 @@ End Rem
 Module skn3.maxguiex
 SuperStrict
 
+ModuleInfo "History: 1.05"
+ModuleInfo "History: added PointOverGadget() function"
 ModuleInfo "History: 1.04"
 ModuleInfo "History: fixed broken GadgetWindow() function"
 ModuleInfo "History: 1.03"
@@ -264,6 +266,11 @@ Function IncBinToDisk:String(path:String)
 	'Return fail
 	Return ""
 End Function
+
+Function PointInRect:Int(pointX:Float,pointY:Float,rectX:Float,rectY:Float,rectWidth:Float,rectHeight:Float)
+	' --- returns true if point is inside rect ---
+	Return pointX >= rectX And pointX < rectX + rectwidth And pointY >= rectY And pointY < rectY + rectHeight
+End Function
 Public
 
 
@@ -335,6 +342,37 @@ Function GadgetScreenPosition:Int[](gadget:TGadget,client:Int=False)
 		Local Position:Int[] = skn3_absoluteFrom(QueryGadget(gadget,QUERY_NSVIEW_CLIENT))
 	?
 	Return Position
+End Function
+
+Rem
+bbdoc: Determin if a point is over a gadget. <b>[Win]</b>
+returns: True if over the target gadget.
+about:
+<b>Supported Platforms</b>
+<ul>
+	<li>Windows</li>
+	<li>Mac</li>
+</ul>
+<b>Info</b>
+<p>If a source gadget is provided it is assumed that the pointX and pointY are local coordinates for that source gadget (for example: local coordinates given in EVENT_MOUSEMOVE).</p>
+<p>If no source is provided teh function will assume the point is already in screen coordinates.</p>
+End Rem
+Function PointOverGadget:Int(pointX:Int,pointY:Int,targetGadget:TGadget,sourceGadget:TGadget=Null)
+	' --- returns true if the point is over the gadget ---
+	'check for skipping
+	If targetGadget = Null Or GadgetHidden(targetGadget) Return False
+	
+	'calculate point if source gadget is provided
+	If sourceGadget
+		Local sourcePosition:Int[] = GadgetScreenPosition(sourceGadget)
+		pointX = sourcePosition[0] + pointX
+		pointY = sourcePosition[1] + pointY
+	EndIf
+	
+	'get dimensions for gadget
+	Local targetPosition:Int[] = GadgetScreenPosition(targetGadget)
+	'test
+	Return PointInRect(pointX,pointY,targetPosition[0],targetPosition[1],GadgetWidth(targetGadget),GadgetHeight(targetGadget))
 End Function
 
 Rem
