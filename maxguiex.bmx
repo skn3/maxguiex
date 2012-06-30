@@ -4,21 +4,24 @@ about:
 <p>This is a module to add extended functionality to the maxgui module. Most of the functions work for windows and mac (sorry no linux) but please check documentation for each function to confirm support for the platform.</p>
 <p><b>Important!</b><br />The module requires the skn3.systemex module and skn3.funcs module.</p>
 End Rem
-'Module skn3.maxguiex
+Module skn3.maxguiex
 SuperStrict
 
-'ModuleInfo "History: 1.05"
-'ModuleInfo "History: added PointOverGadget() function"
-'ModuleInfo "History: 1.04"
-'ModuleInfo "History: fixed broken GadgetWindow() function"
-'ModuleInfo "History: 1.03"
-'ModuleInfo "History: Added GetAppResourcesPath() and tweaked h files"
-'ModuleInfo "History: 1.02"
-'ModuleInfo "History: Added ScrollTextAreaToTop() ScrollTextAreaToBottom() ScrollTextAreaToCursor() functions"
-'ModuleInfo "History: 1.01"
-'ModuleInfo "History: Added SetTextAreaLineSpacing() function"
-'ModuleInfo "History: 1.00"
-'ModuleInfo "History: Initial Release To Public"
+ModuleInfo "History: 1.06"
+ModuleInfo "History: added CreatePanelEx() function which creates an extended panel that can have new cool stuff"
+ModuleInfo "History: added SetPanelExGradient() function to set gradient backgrounds for extended panels"
+ModuleInfo "History: 1.05"
+ModuleInfo "History: added PointOverGadget() function"
+ModuleInfo "History: 1.04"
+ModuleInfo "History: fixed broken GadgetWindow() function"
+ModuleInfo "History: 1.03"
+ModuleInfo "History: Added GetAppResourcesPath() and tweaked h files"
+ModuleInfo "History: 1.02"
+ModuleInfo "History: Added ScrollTextAreaToTop() ScrollTextAreaToBottom() ScrollTextAreaToCursor() functions"
+ModuleInfo "History: 1.01"
+ModuleInfo "History: Added SetTextAreaLineSpacing() function"
+ModuleInfo "History: 1.00"
+ModuleInfo "History: Initial Release To Public"
 
 'platform stuff
 ?Win32
@@ -1340,10 +1343,229 @@ Function GetAppResourcesPath:String()
 	?
 End Function
 
-Type Skn3PanelEx Extends TNSGadget
+
+Rem
+bbdoc: A class to define the panel ex gadget.
+about:
+<b>Supported Platforms</b>
+<ul>
+	<li>Windows</li>
+	<li>Mac</li>
+</ul>
+<b>Info</b>
+<p>This is the gadget class for an extended panel.</p>
+End Rem
+?Win32
+Type Skn3PanelEx Extends TWindowsPanel
+	Field gradientOn:Int = False
+	Field gradientVertical:Int = True
+	Field gradientStartR:Int = 255
+	Field gradientStartG:Int = 255
+	Field gradientStartB:Int = 255
+	Field gradientEndR:Int = 0
+	Field gradientEndG:Int = 0
+	Field gradientEndB:Int = 0
+	
+	'hooks
+	Method WndProc:Int(hwnd:Int,MSG:Int,wp:Int,lp:Int)
+		' --- check for instant skip
+		Select MSG
+			Case WM_ERASEBKGND
+				If gradientOn = False
+					'call default behaviour
+					Return Super.WndProc(hwnd,MSG,wp,lp)
+				Else
+					'this is custom render time
+					If _type = PANELCANVAS Then Return 1
+					Local hdc:Int=wp,hdcCanvas:Int,hdcBitmap:Int,srcw:Int,srch:Int,x:Int,y:Int,xoffset:Int,yoffset:Int
+					Local clientRect:Int[4], UpdateRect:Int[4], clipRect:Int[4], windowRect:Int[4]
+					GetClipBox( hdc, clipRect )
+					GetWindowRect( hwnd, windowRect)
+					GetClientRect( hwnd, clientRect )
+					If Not GetUpdateRect( hwnd, UpdateRect, False) Then UpdateRect = clipRect
+					If IsRectEmpty(updateRect) Then updateRect = [0,0,windowRect[2]-windowRect[0],windowRect[3]-windowRect[1]]
+					
+					'If we are drawing a bitmap or using alpha then let's do some double-buffering stuff
+					If (hwnd <> _hwndclient) And ((_bitmap And _bitmapwidth And _bitmapheight) Or _alpha<1.0) Then
+						hdc = CreateCompatibleDC(wp)
+						hdcCanvas = CreateCompatibleBitmap(wp,windowRect[2]-windowRect[0],windowRect[3]-windowRect[1])
+						SelectObject( hdc, hdcCanvas )
+					EndIf
+					
+					'----------- draw gradient -----------------
+					Local previousBrush:Int
+					Local gradientSize:Int
+					Local gradientPosition:Int
+					Local gradientBrush:Int
+					Local gradientRect:Int[] = [UpdateRect[0],UpdateRect[1],UpdateRect[2],UpdateRect[3]]
+					Local gradientR:Float
+					Local gradientG:Float
+					Local gradientB:Float
+					Local gradientStepR:Float
+					Local gradientStepG:Float
+					Local gradientStepB:Float
+					
+					'which direction
+					If gradientVertical
+						gradientSize = Abs(clientRect[3]-clientRect[1])
+						gradientStepR = Float(gradientEndR - gradientStartR) / gradientSize
+						gradientStepG = Float(gradientEndG - gradientStartG) / gradientSize
+						gradientStepB = Float(gradientEndB - gradientStartB) / gradientSize
+						
+						'work out gradient start based on update rect
+						'actual gradietn size is based on client
+						gradientR = gradientStartR + ((UpdateRect[1]-clientRect[1]) * gradientStepR)
+						gradientG = gradientStartG + ((UpdateRect[1]-clientRect[1]) * gradientStepG)
+						gradientB = gradientStartB + ((UpdateRect[1]-clientRect[1]) * gradientStepB)
+						
+						'only render portion of update rect
+						For gradientPosition = UpdateRect[1] Until UpdateRect[3]
+							'create color brush
+							gradientBrush = CreateSolidBrush((Int(gradientB) Shl 16) | (Int(gradientG) Shl 8) | Int(gradientR))
+							previousBrush = SelectObject(hdc,gradientBrush)
+							
+							'update drawing rect
+							gradientRect[1] = gradientPosition
+							gradientRect[3] = gradientPosition+1
+							
+							'fill the color
+							FillRect(hdc,gradientRect,gradientBrush)
+							
+							'remove color brush
+							SelectObject(hdc,previousBrush)
+							DeleteObject(gradientBrush)
+							
+							'increase gradient counters
+							gradientR :+ gradientStepR
+							gradientG :+ gradientStepG
+							gradientB :+ gradientStepB
+						Next
+					Else
+						gradientSize = Abs(UpdateRect[2]-UpdateRect[0])
+						gradientStepR = Float(gradientEndR - gradientStartR) / gradientSize
+						gradientStepG = Float(gradientEndG - gradientStartG) / gradientSize
+						gradientStepB = Float(gradientEndB - gradientStartB) / gradientSize
+						
+						'work out gradient start based on update rect
+						'actual gradietn size is based on client
+						gradientR = gradientStartR + ((UpdateRect[0]-clientRect[0]) * gradientStepR)
+						gradientG = gradientStartG + ((UpdateRect[0]-clientRect[0]) * gradientStepG)
+						gradientB = gradientStartB + ((UpdateRect[0]-clientRect[0]) * gradientStepB)
+						
+						For gradientPosition = UpdateRect[0] Until UpdateRect[2]
+							'create color brush
+							gradientBrush = CreateSolidBrush((Int(gradientB) Shl 16) | (Int(gradientG) Shl 8) | Int(gradientR))
+							previousBrush = SelectObject(hdc,gradientBrush)
+							
+							'update drawing rect
+							gradientRect[0] = gradientPosition
+							gradientRect[2] = gradientPosition+1
+							
+							'fill the color
+							FillRect(hdc,gradientRect,gradientBrush)
+							
+							'remove color brush
+							SelectObject(hdc,previousBrush)
+							DeleteObject(gradientBrush)
+							
+							'increase gradient counters
+							gradientR :+ gradientStepR
+							gradientG :+ gradientStepG
+							gradientB :+ gradientStepB
+						Next
+					EndIf
+					
+					'If we aren't drawing to a bitmap or using alpha, then we can return now.
+					If Not ((hwnd <> _hwndclient) And ((_bitmap And _bitmapwidth And _bitmapheight) Or _alpha<1.0)) Then Return 1
+					
+					'draw teh image
+					If _bitmap And _bitmapwidth And _bitmapheight
+						hdcBitmap=CreateCompatibleDC(hdc)
+						SelectObject(hdcBitmap,_bitmap)
+						srcw=_bitmapwidth
+						srch=_bitmapheight
+						Select (_bitmapflags & (GADGETPIXMAP_ICON-1))
+							Case PANELPIXMAP_TILE
+								While y<windowRect[RECT_BOTTOM]-windowRect[RECT_TOP]
+									x=0
+									While x<windowRect[RECT_RIGHT]-windowRect[RECT_LEFT]
+										If _hasalpha
+											AlphaBlend_ hdc,x,y,srcw,srch,hdcBitmap,0,0,srcw,srch,$01ff0000
+										Else
+											BitBlt hdc,x,y,srcw,srch,hdcBitmap,0,0,ROP_SRCCOPY
+										EndIf
+										x:+srcw
+									Wend
+									y:+srch
+								Wend
+							Case PANELPIXMAP_CENTER
+								x=(windowRect[RECT_RIGHT]-windowRect[RECT_LEFT]-srcw)/2
+								y=(windowRect[RECT_BOTTOM]-windowRect[RECT_TOP]-srch)/2
+								If _hasalpha
+									AlphaBlend_ hdc,x,y,srcw,srch,hdcBitmap,0,0,srcw,srch,$01ff0000
+								Else
+									BitBlt hdc,x,y,srcw,srch,hdcBitmap,0,0,ROP_SRCCOPY
+								EndIf
+							
+							Case PANELPIXMAP_FIT, PANELPIXMAP_FIT2
+							
+								Local mx# = Float(windowRect[RECT_RIGHT]-windowRect[RECT_LEFT])/srcw
+								Local my# = Float(windowRect[RECT_BOTTOM]-windowRect[RECT_TOP])/srch
+								
+								If mx>my Then
+									If (_bitmapflags&(GADGETPIXMAP_ICON-1)) = PANELPIXMAP_FIT Then mx=my Else my=mx
+								EndIf
+								Local w:Int=mx*srcw
+								Local h:Int=mx*srch
+								x=(windowRect[RECT_RIGHT]-windowRect[RECT_LEFT]-w)/2
+								y=(windowRect[RECT_BOTTOM]-windowRect[RECT_TOP]-h)/2
+								SetStretchBltMode hdc,COLORONCOLOR
+	
+								If _hasalpha
+									AlphaBlend_ hdc,x,y,w,h,hdcBitmap,0,0,srcw,srch,$01ff0000
+								Else
+									StretchBlt hdc,x,y,w,h,hdcBitmap,0,0,srcw,srch,ROP_SRCCOPY
+								EndIf
+	
+							Case PANELPIXMAP_STRETCH
+								SetStretchBltMode hdc,COLORONCOLOR
+	
+								If _hasalpha
+									AlphaBlend_ hdc,0,0,windowRect[RECT_RIGHT]-windowRect[RECT_LEFT],windowRect[RECT_BOTTOM]-windowRect[RECT_TOP],hdcBitmap,0,0,srcw,srch,$01ff0000
+								Else
+									StretchBlt hdc,0,0,windowRect[RECT_RIGHT]-windowRect[RECT_LEFT],windowRect[RECT_BOTTOM]-windowRect[RECT_TOP],hdcBitmap,0,0,srcw,srch,ROP_SRCCOPY
+								EndIf
+							
+						EndSelect				
+						
+						DeleteDC(hdcBitmap)
+						
+					EndIf
+					
+					If _alpha < 1.0 Then
+						DrawParentBackground( wp, hwnd )
+						Local blendfunction:Int = ((Int(_alpha*255)&$FF) Shl 16)
+						AlphaBlend_(wp,updateRect[0],updateRect[1],updateRect[2]-updateRect[0],updateRect[3]-updateRect[1],hdc,updateRect[0],updateRect[1],updateRect[2]-updateRect[0],updateRect[3]-updateRect[1],blendfunction)
+					Else
+						BitBlt(wp,0,0,windowRect[2]-windowRect[0],windowRect[3]-windowRect[1],hdc,0,0,ROP_SRCCOPY)
+					EndIf
+					
+					Assert hdc <> wp, "hdc == wp! Please post a MaxGUI bug report."
+					
+					DeleteObject( hdcCanvas )
+					DeleteDC( hdc )
+					
+					Return 1
+				EndIf
+		End Select
+		
+		'call default behaviour
+		Return Super.WndProc(hwnd,MSG,wp,lp)
+	EndMethod
+	
+	'api
 	Method SetGradient(on:Int,r1:Int=0,b1:Int=0,g1:Int=0,r2:Int=0,b2:Int=0,g2:Int=0,vertical:Int=True)
 		' --- set the gradient for this ---
-		?win32
 		If on = False
 			If gradientOn
 				gradientOn = False
@@ -1369,19 +1591,69 @@ Type Skn3PanelEx Extends TNSGadget
 				EndIf
 			EndIf
 		EndIf
-		?macos
-			skn3_panelExSetGradient(Self,on,r1,g1,b1,r2,g2,b2,vertical)
-		?
 	End Method
 End Type
+?MacOs
+Type Skn3PanelEx Extends TNSGadget
+	'api
+	Method SetGradient(on:Int,r1:Int=0,b1:Int=0,g1:Int=0,r2:Int=0,b2:Int=0,g2:Int=0,vertical:Int=True)
+		' --- set the gradient for this ---
+		skn3_panelExSetGradient(Self,on,r1,g1,b1,r2,g2,b2,vertical)
+	End Method	
+End Type
+?
 
-Function CreatePanelEx:Skn3PanelEx(x:Int,y:Int,Width:Int,Height:Int,group:TGadget,Style:Int=0,text:String="")
+Rem
+bbdoc: Create a new extended panel. <b>[Win Mac]</b>
+returns: A Skn3PanelEx object.
+about:
+<b>Supported Platforms</b>
+<ul>
+	<li>Windows</li>
+	<li>Mac</li>
+</ul>
+<b>Info</b>
+<p>This function will create a new #Skn3PanelEx object but will return as TGadget.</p>
+End Rem
+Function CreatePanelEx:TGadget(x:Int,y:Int,Width:Int,Height:Int,group:TGadget,Style:Int=0,text:String="")
+	' --- create a new panel ex gadget ---
+	'fix group
+	group = GetCreationGroup(group)
+	
+	'these bits of code are ripped and tweaked versions of maxgui functions.
+	'they simply inject some additional stuff in at the right moment.
+	?Win32
+		'code ripped/modified from win32maxguiex
+		Local panel:TGadget = New Skn3PanelEx.Create(group,Style)
+		
+		If LocalizationMode() & LOCALIZATION_OVERRIDE Then
+			LocalizeGadget(panel,text,"")
+		Else
+			panel.SetText(Text)
+		EndIf
+		
+		If group Then panel._setparent group
+		panel.SetShape(x,y,Width,Height)
+		
+		'v0.51: Gadgets are now only shown when they have been sized, and the text set.
+		If TWindowsGadget(panel) Then
+			panel.SetFont(TWindowsGUIDriver.GDIFont)
+			If TWindowsGadget(group) Then
+				TWindowsGadget(panel)._forceDisable = Not( TWindowsGadget(group)._enabled And Not TWindowsGadget(group)._forceDisable )
+				panel.SetEnabled(Not (panel.State()&STATE_DISABLED))
+			EndIf
+			panel.SetShow(True)
+		EndIf
+		
+		If TWindowsGadget(panel) Then TWindowsGadget(panel).Sensitize()
+		
+		'return it
+		Return panel
 	?macos
 		'code ripped/modified from cocoagui.bmx
 		Local panel:Skn3PanelEx = New Skn3PanelEx
 	
 		'fix group
-		group = GetCreationGroup(group)
 		If Not group group = Desktop()
 		
 		'set properties
@@ -1423,4 +1695,21 @@ Function CreatePanelEx:Skn3PanelEx(x:Int,y:Int,Width:Int,Height:Int,group:TGadge
 		
 		Return panel
 	?
+End Function
+
+Rem
+bbdoc: Set the gradient properties for a panel. <b>[Win Mac]</b>
+about:
+<b>Supported Platforms</b>
+<ul>
+	<li>Windows</li>
+	<li>Mac</li>
+</ul>
+<b>Info</b>
+<p>If you turn the gradient off then the panel will act as a normal maxgui panel and show whatever color has been set as the background color.</p>
+End Rem
+Function SetPanelExGradient(Gadget:TGadget,on:Int,r1:Int=0,b1:Int=0,g1:Int=0,r2:Int=0,b2:Int=0,g2:Int=0,vertical:Int=True)
+	' --- modify the gradient for the panel ex ---
+	Local panel:Skn3PanelEx = Skn3PanelEx(Gadget)
+	If panel panel.SetGradient(on,r1,g1,b1,r2,g2,b2,vertical)
 End Function
