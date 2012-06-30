@@ -13,6 +13,16 @@
 - (int)maximumLength;
 @end
 
+@interface skn3_panelEx:PanelViewContent{
+	int gradientOn;
+	NSGradient *gradient;
+	int gradientVertical;
+}
+-(void)dealloc;
+-(void)drawRect:(NSRect)rect;
+-(void)setGradient:(int)on from:(NSColor*)color1 to:(NSColor*)color2 vertical:(int)vertical;
+@end
+
 BBArray * skn3_absoluteFrom(NSView *gadget);
 BBArray * skn3_stringDimensions(NSView *gadget,BBString *theText,float maxWidth);
 void skn3_setWindowAlwaysOnTop(NSWindow *window,int state);
@@ -35,5 +45,7 @@ int skn3_scrollTextAreaToTop(TextView *gadget);
 int skn3_scrollTextAreaToBottom(TextView *gadget);
 int skn3_scrollTextAreaToCursor(TextView *gadget);
 BBString *skn3_getBundlePath();
+void skn3_panelExInit(nsgadget *gadget);
+void skn3_panelExSetGradient(nsgadget *gadget,int on,int r1,int g1,int b1,int r2,int g2,int b2,int vertical);
 
 #endif

@@ -1415,7 +1415,7 @@ Function CreatePanelEx:Skn3PanelEx(x:Int,y:Int,Width:Int,Height:Int,group:TGadge
 		
 		panel.SetEnabled(panel.enabled)
 		
-		panel.SetLayout EDGE_CENTERED,EDGE_CENTERED,EDGE_CENTERED,EDGE_CENTERED
+		panelSetLayout EDGE_CENTERED,EDGE_CENTERED,EDGE_CENTERED,EDGE_CENTERED
 		
 		If group Then panel._SetParent group
 		panel.SetTextColor(0,0,0)

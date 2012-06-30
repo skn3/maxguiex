@@ -1,7 +1,8 @@
 #import <skn3.mod/maxguiex.mod/maxguiex.h>
 
+//--------------------------------------------------------------------------------
+//classes
 @implementation skn3TextFieldFormatter
-
 - (id)init {
 	[super init];
 	maxLength = INT_MAX;
@@ -37,10 +38,73 @@
 - (NSAttributedString *)attributedStringForObjectValue:(id)anObject withDefaultAttributes:(NSDictionary *)attributes {
 	return nil;
 }
+@end
 
+//extended PanelViewContent
+@implementation skn3_panelEx
+-(void)dealloc{
+	//cleanup myself!
+	if (gradient) { [gradient release]; }
+	[super dealloc];
+}
+
+-(void)drawRect:(NSRect)rect{
+	if (gradientOn) {
+		//get area we are drawing
+		NSRect dest = NSUnionRect(rect,[self frame]);
+		
+		//draw the gradient background
+		if (gradientVertical) {
+			[gradient drawInRect:dest angle:90.0];
+		} else {
+			[gradient drawInRect:dest angle:0.0];
+		}
+		
+		//call super to do default drawing behaviour (minus color background)
+		NSColor *oldColor = color;
+		color = nil;
+		[super drawRect:rect];
+		color = oldColor;
+		
+	} else {
+		//just do default panel behaviour
+		[super drawRect:rect];
+	}
+}
+
+-(void)setGradient:(int)on from:(NSColor*)color1 to:(NSColor*)color2 vertical:(int)vertical {
+	// --- change the gradient hoooorah! ---
+	if (on == 1) {
+		gradientOn = 1;
+		gradientVertical = vertical;
+	
+		//release old gradient
+		if (gradient) { [gradient release]; }
+		
+		//create new gradient object
+		gradient = [[NSGradient alloc] initWithStartingColor:color1 endingColor:color2];
+		
+		//repaint
+		[self setNeedsDisplay:YES];
+	} else {
+		if (gradientOn) {
+			gradientOn = 0;
+			
+			//release old gradient
+			if (gradient) {
+				[gradient release];
+				gradient = nil;
+			}
+			
+			//repaint
+			[self setNeedsDisplay:YES];
+		}
+	}
+}
 @end
 
 //--------------------------------------------------------------------------------
+//functions
 
 BBArray * skn3_absoluteFrom(NSView *gadget){
 	// should convert panel coordinates into top left screen coordinates
@@ -233,4 +297,67 @@ int skn3_scrollTextAreaToCursor(TextView *gadget) {
 BBString *skn3_getBundlePath() {
 	//return a path to the application bundle
 	return bbStringFromNSString([[NSBundle mainBundle] resourcePath]);
+}
+
+void skn3_panelExInit(nsgadget *gadget){
+	NSRect 				rect,vis;
+	NSString 			*text;
+	NSView				*view;
+	NSWindow		*window;
+	NSButton			*button;
+	NSTextField			*textfield;
+	TextView			*textarea;
+	NSControl 		*combobox;
+	Toolbar			*toolbar;
+	TabView				*tabber;
+	TreeView			*treeview;
+	HTMLView			*htmlview;
+	PanelView			*panel;
+	PanelViewContent		*pnlcontent;
+	CanvasView			*canvas;
+	ListView				*listbox;
+	NSText				*label;
+	NSBox				*box;
+	NSSlider				*slider;
+	NSScroller			*scroller;
+	NSStepper				*stepper;
+	NSProgressIndicator	*progbar;
+	NSMenu				*menu;
+	NSMenuItem			*menuitem;
+	NodeItem			*node,*parent;
+	nsgadget				*group;
+	int 					style,flags;
+	NSImage			*image;
+	
+	rect=NSMakeRect(gadget->x,gadget->y,gadget->w,gadget->h);
+	text=NSStringFromBBString(gadget->textarg);
+	style=gadget->style;flags=0;
+	group=gadget->group;
+	if (group==(nsgadget*)&bbNullObject) group=0;
+	if (group) view=gadget->group->view;
+	
+	switch (gadget->internalclass){
+		case GADGET_PANEL:
+			panel=[[PanelView alloc] initWithFrame:rect];
+			[panel setContentViewMargins:NSMakeSize(0.0,0.0)];
+			pnlcontent=[[skn3_panelEx alloc] initWithFrame:[[panel contentView] frame]];
+			[pnlcontent setAutoresizesSubviews:NO];
+			[panel setContentView:pnlcontent];
+			[panel setGadget:gadget];
+			[panel setStyle:style];
+			[panel setEnabled:true];
+			[panel setTitle:text];
+			[pnlcontent setAlpha:1.0];
+			if (view) [view addSubview:panel];
+			gadget->view=pnlcontent;
+			gadget->handle=panel;
+			break;
+	}
+
+}
+
+void skn3_panelExSetGradient(nsgadget *gadget,int on,int r1,int g1,int b1,int r2,int g2,int b2,int vertical) {
+	//--- change gradient of a penl ex gadget ---
+	skn3_panelEx *panelContent = ((skn3_panelEx *)gadget->view);
+	if (panelContent) { [panelContent setGradient:on from:[NSColor colorWithDeviceRed:r1/255.0 green:g1/255.0 blue:b1/255.0 alpha:1.0] to:[NSColor colorWithDeviceRed:r2/255.0 green:g2/255.0 blue:b2/255.0 alpha:1.0] vertical:vertical]; }
 }
