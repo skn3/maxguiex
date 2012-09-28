@@ -1,4 +1,4 @@
-#import <skn3.mod/maxguiex.mod/maxguiex.h>
+;#import <skn3.mod/maxguiex.mod/maxguiex.h>
 
 //--------------------------------------------------------------------------------
 //classes

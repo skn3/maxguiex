@@ -3,6 +3,123 @@
 	.reference	___bb_linkedlist_linkedlist
 	.reference	___bb_map_map
 	.reference	___bb_systemex_systemex
+	.reference	__maxgui_cocoamaxgui_TCocoaMaxGUIDriver_CocoaGuiFont
+	.reference	__maxgui_cocoamaxgui_TIntWrapper_Create
+	.reference	__maxgui_cocoamaxgui_TNSGadget_Activate
+	.reference	__maxgui_cocoamaxgui_TNSGadget_AddText
+	.reference	__maxgui_cocoamaxgui_TNSGadget_AreaLen
+	.reference	__maxgui_cocoamaxgui_TNSGadget_AreaText
+	.reference	__maxgui_cocoamaxgui_TNSGadget_AttachGraphics
+	.reference	__maxgui_cocoamaxgui_TNSGadget_CanvasGraphics
+	.reference	__maxgui_cocoamaxgui_TNSGadget_CharAt
+	.reference	__maxgui_cocoamaxgui_TNSGadget_CharX
+	.reference	__maxgui_cocoamaxgui_TNSGadget_CharY
+	.reference	__maxgui_cocoamaxgui_TNSGadget_Class
+	.reference	__maxgui_cocoamaxgui_TNSGadget_ClearListItems
+	.reference	__maxgui_cocoamaxgui_TNSGadget_ClientHeight
+	.reference	__maxgui_cocoamaxgui_TNSGadget_ClientWidth
+	.reference	__maxgui_cocoamaxgui_TNSGadget_CountKids
+	.reference	__maxgui_cocoamaxgui_TNSGadget_Create
+	.reference	__maxgui_cocoamaxgui_TNSGadget_Delete
+	.reference	__maxgui_cocoamaxgui_TNSGadget_ExcludeOthers
+	.reference	__maxgui_cocoamaxgui_TNSGadget_Free
+	.reference	__maxgui_cocoamaxgui_TNSGadget_GetCursorPos
+	.reference	__maxgui_cocoamaxgui_TNSGadget_GetMenu
+	.reference	__maxgui_cocoamaxgui_TNSGadget_GetProp
+	.reference	__maxgui_cocoamaxgui_TNSGadget_GetSelectionLength
+	.reference	__maxgui_cocoamaxgui_TNSGadget_GetStatusText
+	.reference	__maxgui_cocoamaxgui_TNSGadget_GetText
+	.reference	__maxgui_cocoamaxgui_TNSGadget_GetTooltip
+	.reference	__maxgui_cocoamaxgui_TNSGadget_InsertListItem
+	.reference	__maxgui_cocoamaxgui_TNSGadget_InsertNode
+	.reference	__maxgui_cocoamaxgui_TNSGadget_LineAt
+	.reference	__maxgui_cocoamaxgui_TNSGadget_LinkView
+	.reference	__maxgui_cocoamaxgui_TNSGadget_ListItemState
+	.reference	__maxgui_cocoamaxgui_TNSGadget_LockText
+	.reference	__maxgui_cocoamaxgui_TNSGadget_ModifyNode
+	.reference	__maxgui_cocoamaxgui_TNSGadget_New
+	.reference	__maxgui_cocoamaxgui_TNSGadget_PopupMenu
+	.reference	__maxgui_cocoamaxgui_TNSGadget_Query
+	.reference	__maxgui_cocoamaxgui_TNSGadget_RemoveColor
+	.reference	__maxgui_cocoamaxgui_TNSGadget_RemoveListItem
+	.reference	__maxgui_cocoamaxgui_TNSGadget_ReplaceText
+	.reference	__maxgui_cocoamaxgui_TNSGadget_Rethink
+	.reference	__maxgui_cocoamaxgui_TNSGadget_RootNode
+	.reference	__maxgui_cocoamaxgui_TNSGadget_Run
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SelectedNode
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SetAlpha
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SetColor
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SetEnabled
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SetFont
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SetHotKey
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SetIcon
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SetIconStrip
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SetListItem
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SetListItemState
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SetMaximumSize
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SetMinimumSize
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SetPixmap
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SetProp
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SetRange
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SetSelected
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SetSelection
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SetShow
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SetStatusText
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SetStep
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SetStyle
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SetTabs
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SetText
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SetTextColor
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SetTooltip
+	.reference	__maxgui_cocoamaxgui_TNSGadget_SetValue
+	.reference	__maxgui_cocoamaxgui_TNSGadget_State
+	.reference	__maxgui_cocoamaxgui_TNSGadget_ToView
+	.reference	__maxgui_cocoamaxgui_TNSGadget_UnlockText
+	.reference	__maxgui_cocoamaxgui_TNSGadget_UpdateMenu
+	.reference	__maxgui_maxgui_TGadget_CleanUp
+	.reference	__maxgui_maxgui_TGadget_Clear
+	.reference	__maxgui_maxgui_TGadget_DoLayout
+	.reference	__maxgui_maxgui_TGadget_GetGroup
+	.reference	__maxgui_maxgui_TGadget_GetHeight
+	.reference	__maxgui_maxgui_TGadget_GetSensitivity
+	.reference	__maxgui_maxgui_TGadget_GetWatch
+	.reference	__maxgui_maxgui_TGadget_GetWidth
+	.reference	__maxgui_maxgui_TGadget_GetXPos
+	.reference	__maxgui_maxgui_TGadget_GetYPos
+	.reference	__maxgui_maxgui_TGadget_Handle
+	.reference	__maxgui_maxgui_TGadget_HasDescendant
+	.reference	__maxgui_maxgui_TGadget_Insert
+	.reference	__maxgui_maxgui_TGadget_InsertItem
+	.reference	__maxgui_maxgui_TGadget_InsertItemFromKey
+	.reference	__maxgui_maxgui_TGadget_ItemCount
+	.reference	__maxgui_maxgui_TGadget_ItemExtra
+	.reference	__maxgui_maxgui_TGadget_ItemFlags
+	.reference	__maxgui_maxgui_TGadget_ItemIcon
+	.reference	__maxgui_maxgui_TGadget_ItemState
+	.reference	__maxgui_maxgui_TGadget_ItemText
+	.reference	__maxgui_maxgui_TGadget_ItemTip
+	.reference	__maxgui_maxgui_TGadget_KeysFromList
+	.reference	__maxgui_maxgui_TGadget_KeysFromObjectArray
+	.reference	__maxgui_maxgui_TGadget_LayoutKids
+	.reference	__maxgui_maxgui_TGadget_LockLayout
+	.reference	__maxgui_maxgui_TGadget_RemoveItem
+	.reference	__maxgui_maxgui_TGadget_SelectItem
+	.reference	__maxgui_maxgui_TGadget_SelectedItem
+	.reference	__maxgui_maxgui_TGadget_SelectedItems
+	.reference	__maxgui_maxgui_TGadget_SelectionChanged
+	.reference	__maxgui_maxgui_TGadget_SetArea
+	.reference	__maxgui_maxgui_TGadget_SetDataSource
+	.reference	__maxgui_maxgui_TGadget_SetFilter
+	.reference	__maxgui_maxgui_TGadget_SetItem
+	.reference	__maxgui_maxgui_TGadget_SetItemState
+	.reference	__maxgui_maxgui_TGadget_SetLayout
+	.reference	__maxgui_maxgui_TGadget_SetRect
+	.reference	__maxgui_maxgui_TGadget_SetSensitivity
+	.reference	__maxgui_maxgui_TGadget_SetShape
+	.reference	__maxgui_maxgui_TGadget_SetWatch
+	.reference	__maxgui_maxgui_TGadget_SyncData
+	.reference	__maxgui_maxgui_TGadget_SyncDataSource
+	.reference	__maxgui_maxgui_TGadget__setparent
 	.reference	_bbAppTitle
 	.reference	_bbArrayNew1D
 	.reference	_bbArraySlice
@@ -39,12 +156,17 @@
 	.reference	_brl_stream_ReadStream
 	.reference	_brl_stream_WriteStream
 	.reference	_brl_system_Notify
+	.reference	_maxgui_cocoamaxgui_GadgetMap
+	.reference	_maxgui_cocoamaxgui_TNSGadget
+	.reference	_maxgui_localization_LocalizationMode
 	.reference	_maxgui_maxgui_AddGadgetItem
+	.reference	_maxgui_maxgui_Desktop
 	.reference	_maxgui_maxgui_GadgetClass
 	.reference	_maxgui_maxgui_GadgetGroup
 	.reference	_maxgui_maxgui_GadgetHeight
 	.reference	_maxgui_maxgui_GadgetHidden
 	.reference	_maxgui_maxgui_GadgetWidth
+	.reference	_maxgui_maxgui_LocalizeGadget
 	.reference	_maxgui_maxgui_QueryGadget
 	.reference	_maxgui_maxgui_SetPointer
 	.reference	_maxgui_maxgui_TProxyGadget
@@ -59,6 +181,8 @@
 	.reference	_skn3_installFontFromFileWithATS
 	.reference	_skn3_installFontFromFileWithCT
 	.reference	_skn3_loadCustomPointer
+	.reference	_skn3_panelExInit
+	.reference	_skn3_panelExSetGradient
 	.reference	_skn3_removeTextFieldBorder
 	.reference	_skn3_scrollTextAreaToBottom
 	.reference	_skn3_scrollTextAreaToCursor
@@ -78,8 +202,12 @@
 	.globl	__skn3_maxguiex_Skn3CustomPointer_Delete
 	.globl	__skn3_maxguiex_Skn3CustomPointer_New
 	.globl	__skn3_maxguiex_Skn3CustomPointer_all
+	.globl	__skn3_maxguiex_Skn3PanelEx_Delete
+	.globl	__skn3_maxguiex_Skn3PanelEx_New
+	.globl	__skn3_maxguiex_Skn3PanelEx_SetGradient
 	.globl	_skn3_maxguiex_BringWindowToTop
 	.globl	_skn3_maxguiex_ClearColorPickerCustomColors
+	.globl	_skn3_maxguiex_CreatePanelEx
 	.globl	_skn3_maxguiex_DisableGadgetRedraw
 	.globl	_skn3_maxguiex_EnableGadgetRedraw
 	.globl	_skn3_maxguiex_ExtractCursorHotspot
@@ -110,22 +238,24 @@
 	.globl	_skn3_maxguiex_SetCustomPointer
 	.globl	_skn3_maxguiex_SetGadgetMaxLength
 	.globl	_skn3_maxguiex_SetGadgetReadOnly
+	.globl	_skn3_maxguiex_SetPanelExGradient
 	.globl	_skn3_maxguiex_SetTextareaLineSpacing
 	.globl	_skn3_maxguiex_SetWindowAlwaysOnTop
 	.globl	_skn3_maxguiex_Skn3CustomPointer
+	.globl	_skn3_maxguiex_Skn3PanelEx
 	.text	
 ___bb_maxguiex_maxguiex:
 	push	%ebp
 	mov	%esp,%ebp
 	sub	$8,%esp
-	cmpl	$0,_246
-	je	_247
+	cmpl	$0,_287
+	je	_288
 	mov	$0,%eax
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
-_247:
-	movl	$1,_246
+_288:
+	movl	$1,_287
 	call	___bb_blitz_blitz
 	call	___bb_map_map
 	call	___bb_linkedlist_linkedlist
@@ -135,9 +265,11 @@ _247:
 	call	_bbObjectRegisterType
 	movl	$_6,(%esp)
 	call	_bbObjectRegisterType
+	movl	$_skn3_maxguiex_Skn3PanelEx,(%esp)
+	call	_bbObjectRegisterType
 	mov	$0,%eax
-	jmp	_98
-_98:
+	jmp	_102
+_102:
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
@@ -156,8 +288,8 @@ __skn3_maxguiex_Skn3CustomPointer_New:
 	movl	$0,12(%ebx)
 	movl	$0,16(%ebx)
 	mov	$0,%eax
-	jmp	_101
-_101:
+	jmp	_105
+_105:
 	add	$4,%esp
 	pop	%ebx
 	mov	%ebp,%esp
@@ -168,16 +300,16 @@ __skn3_maxguiex_Skn3CustomPointer_Delete:
 	mov	%esp,%ebp
 	sub	$8,%esp
 	movl	8(%ebp),%eax
-_104:
+_108:
 	movl	8(%eax),%eax
 	decl	4(%eax)
-	jnz	_251
+	jnz	_292
 	movl	%eax,(%esp)
 	call	_bbGCFree
-_251:
+_292:
 	mov	$0,%eax
-	jmp	_249
-_249:
+	jmp	_290
+_290:
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
@@ -246,8 +378,8 @@ __skn3_maxguiex_PARAFORMAT2_New:
 	movw	$0,192(%ebx)
 	movw	$0,194(%ebx)
 	mov	$0,%eax
-	jmp	_107
-_107:
+	jmp	_111
+_111:
 	add	$4,%esp
 	pop	%ebx
 	mov	%ebp,%esp
@@ -257,10 +389,10 @@ __skn3_maxguiex_PARAFORMAT2_Delete:
 	push	%ebp
 	mov	%esp,%ebp
 	sub	$8,%esp
-_110:
+_114:
 	mov	$0,%eax
-	jmp	_252
-_252:
+	jmp	_293
+_293:
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
@@ -274,10 +406,10 @@ _8:
 	sub	$24,%esp
 	movl	8(%ebp),%ebx
 	cmpl	$0,8(%ebx)
-	jne	_253
+	jne	_294
 	mov	$_1,%eax
-	jmp	_115
-_253:
+	jmp	_119
+_294:
 	movl	$_7,8(%esp)
 	movl	$_9,4(%esp)
 	movl	%ebx,(%esp)
@@ -288,14 +420,14 @@ _253:
 	movl	%eax,(%esp)
 	call	_bbStringCompare
 	cmp	$0,%eax
-	je	_254
+	je	_295
 	movl	12(%ebp),%eax
 	movl	%eax,8(%esp)
 	movl	$_7,4(%esp)
 	movl	%ebx,(%esp)
 	call	_bbStringReplace
 	mov	%eax,%ebx
-_254:
+_295:
 	mov	$0,%edi
 	movl	$0,-4(%ebp)
 	movl	12(%ebp),%eax
@@ -304,7 +436,7 @@ _254:
 	mov	%eax,%esi
 	mov	$0,%edx
 	movl	8(%ebx),%ecx
-	jmp	_259
+	jmp	_300
 _12:
 	movzwl	12(%ebx,%edx,2),%eax
 	mov	%eax,%eax
@@ -312,24 +444,24 @@ _12:
 	setne	%al
 	movzbl	%al,%eax
 	cmp	$0,%eax
-	je	_261
+	je	_302
 	movzwl	12(%ebx,%edx,2),%eax
 	mov	%eax,%eax
 	cmp	%esi,%eax
 	setne	%al
 	movzbl	%al,%eax
-_261:
+_302:
 	cmp	$0,%eax
-	je	_263
+	je	_304
 	jmp	_11
-_263:
+_304:
 	mov	%edx,%eax
 	add	$1,%eax
 	mov	%eax,%edi
 	movl	$1,-4(%ebp)
 _10:
 	add	$1,%edx
-_259:
+_300:
 	cmp	%ecx,%edx
 	jl	_12
 _11:
@@ -339,7 +471,7 @@ _11:
 	movl	8(%ebx),%eax
 	sub	$1,%eax
 	mov	%eax,%edx
-	jmp	_265
+	jmp	_306
 _15:
 	movzwl	12(%ebx,%edx,2),%eax
 	mov	%eax,%eax
@@ -347,29 +479,29 @@ _15:
 	setne	%al
 	movzbl	%al,%eax
 	cmp	$0,%eax
-	je	_266
+	je	_307
 	movzwl	12(%ebx,%edx,2),%eax
 	mov	%eax,%eax
 	cmp	%esi,%eax
 	setne	%al
 	movzbl	%al,%eax
-_266:
+_307:
 	cmp	$0,%eax
-	je	_268
+	je	_309
 	jmp	_14
-_268:
+_309:
 	sub	$1,%ecx
 _13:
 	add	$-1,%edx
-_265:
+_306:
 	cmp	$0,%edx
 	jge	_15
 _14:
 	cmp	$0,%ecx
-	jg	_269
+	jg	_310
 	mov	$_1,%eax
-	jmp	_115
-_269:
+	jmp	_119
+_310:
 	mov	%edi,%eax
 	add	%ecx,%eax
 	movl	%eax,8(%esp)
@@ -379,20 +511,20 @@ _269:
 	mov	%eax,%ebx
 	movl	-4(%ebp),%eax
 	cmp	$0,%eax
-	je	_270
+	je	_311
 	movl	16(%ebp),%eax
-_270:
+_311:
 	cmp	$0,%eax
-	je	_272
+	je	_313
 	movl	%ebx,4(%esp)
 	movl	12(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_bbStringConcat
 	mov	%eax,%ebx
-_272:
+_313:
 	mov	%ebx,%eax
-	jmp	_115
-_115:
+	jmp	_119
+_119:
 	add	$24,%esp
 	pop	%edi
 	pop	%esi
@@ -418,7 +550,7 @@ _16:
 	movl	%eax,(%esp)
 	call	_bbStringCompare
 	cmp	$0,%eax
-	jne	_273
+	jne	_314
 	movl	$1,8(%esp)
 	movl	$_7,4(%esp)
 	movl	$0,(%esp)
@@ -472,20 +604,20 @@ _19:
 	call	_brl_stream_ReadStream
 	mov	%eax,%esi
 	cmp	$_bbNullObject,%esi
-	jne	_279
+	jne	_320
 	mov	$_1,%eax
-	jmp	_118
-_279:
+	jmp	_122
+_320:
 	movl	%edi,(%esp)
 	call	_brl_stream_WriteStream
 	mov	%eax,%ebx
 	cmp	$_bbNullObject,%ebx
-	jne	_281
+	jne	_322
 	movl	%esi,(%esp)
 	call	_brl_stream_CloseStream
 	mov	$_1,%eax
-	jmp	_118
-_281:
+	jmp	_122
+_322:
 	movl	$4096,8(%esp)
 	movl	%ebx,4(%esp)
 	movl	%esi,(%esp)
@@ -495,11 +627,11 @@ _281:
 	movl	%esi,(%esp)
 	call	_brl_stream_CloseStream
 	mov	%edi,%eax
-	jmp	_118
-_273:
+	jmp	_122
+_314:
 	mov	$_1,%eax
-	jmp	_118
-_118:
+	jmp	_122
+_122:
 	add	$12,%esp
 	pop	%edi
 	pop	%esi
@@ -524,13 +656,13 @@ _21:
 	setae	%al
 	movzbl	%al,%eax
 	cmp	$0,%eax
-	jne	_430
+	jne	_510
 	fstp	%st(0)
 	fstp	%st(0)
 	fxch	%st(1)
 	fstp	%st(0)
-	jmp	_282
-_430:
+	jmp	_323
+_510:
 	fxch	%st(1)
 	faddp	%st(0),%st(3)
 	fucomp	%st(2)
@@ -540,9 +672,9 @@ _430:
 	sahf
 	setb	%al
 	movzbl	%al,%eax
-_282:
+_323:
 	cmp	$0,%eax
-	je	_284
+	je	_325
 	fxch	%st(1)
 	fucom	%st(1)
 	fnstsw	%ax
@@ -550,23 +682,23 @@ _282:
 	setae	%al
 	movzbl	%al,%eax
 	fxch	%st(1)
-_284:
+_325:
 	cmp	$0,%eax
-	jne	_431
+	jne	_511
 	fstp	%st(0)
 	fstp	%st(0)
 	fstp	%st(0)
-	jmp	_286
-_431:
+	jmp	_327
+_511:
 	faddp	%st(0),%st(2)
 	fucompp
 	fnstsw	%ax
 	sahf
 	setb	%al
 	movzbl	%al,%eax
-_286:
-	jmp	_126
-_126:
+_327:
+	jmp	_130
+_130:
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
@@ -575,8 +707,8 @@ _skn3_maxguiex_RequestScrollbarSize:
 	mov	%esp,%ebp
 	sub	$8,%esp
 	mov	$18,%eax
-	jmp	_128
-_128:
+	jmp	_132
+_132:
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
@@ -585,8 +717,8 @@ _skn3_maxguiex_SetComboBoxHeight:
 	mov	%esp,%ebp
 	sub	$8,%esp
 	mov	$0,%eax
-	jmp	_132
-_132:
+	jmp	_136
+_136:
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
@@ -600,8 +732,8 @@ _skn3_maxguiex_GadgetScreenPosition:
 	call	_maxgui_maxgui_QueryGadget
 	movl	%eax,(%esp)
 	call	_skn3_absoluteFrom
-	jmp	_136
-_136:
+	jmp	_140
+_140:
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
@@ -620,18 +752,18 @@ _skn3_maxguiex_PointOverGadget:
 	sete	%al
 	movzbl	%al,%eax
 	cmp	$0,%eax
-	jne	_289
+	jne	_330
 	movl	$0,4(%esp)
 	movl	%esi,(%esp)
 	call	_maxgui_maxgui_GadgetHidden
-_289:
+_330:
 	cmp	$0,%eax
-	je	_291
+	je	_332
 	mov	$0,%eax
-	jmp	_142
-_291:
+	jmp	_146
+_332:
 	cmp	$_bbNullObject,%ebx
-	je	_292
+	je	_333
 	movl	$0,4(%esp)
 	movl	%ebx,(%esp)
 	call	_skn3_maxguiex_GadgetScreenPosition
@@ -641,7 +773,7 @@ _291:
 	movl	4+24(%eax),%eax
 	add	%edi,%eax
 	mov	%eax,%edi
-_292:
+_333:
 	movl	$0,4(%esp)
 	movl	%esi,(%esp)
 	call	_skn3_maxguiex_GadgetScreenPosition
@@ -672,8 +804,8 @@ _292:
 	fildl	-4(%ebp)
 	fstps	(%esp)
 	call	_21
-	jmp	_142
-_142:
+	jmp	_146
+_146:
 	add	$24,%esp
 	pop	%edi
 	pop	%esi
@@ -686,8 +818,8 @@ _skn3_maxguiex_DisableGadgetRedraw:
 	mov	%esp,%ebp
 	sub	$8,%esp
 	mov	$0,%eax
-	jmp	_145
-_145:
+	jmp	_149
+_149:
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
@@ -696,8 +828,8 @@ _skn3_maxguiex_EnableGadgetRedraw:
 	mov	%esp,%ebp
 	sub	$8,%esp
 	mov	$0,%eax
-	jmp	_148
-_148:
+	jmp	_152
+_152:
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
@@ -715,10 +847,10 @@ _skn3_maxguiex_MessageBox:
 	mov	%eax,%esi
 	movl	_bbAppTitle,%eax
 	decl	4(%eax)
-	jnz	_299
+	jnz	_340
 	movl	%eax,(%esp)
 	call	_bbGCFree
-_299:
+_340:
 	movl	%esi,_bbAppTitle
 	movl	$0,4(%esp)
 	movl	%edi,(%esp)
@@ -726,14 +858,14 @@ _299:
 	incl	4(%ebx)
 	movl	_bbAppTitle,%eax
 	decl	4(%eax)
-	jnz	_303
+	jnz	_344
 	movl	%eax,(%esp)
 	call	_bbGCFree
-_303:
+_344:
 	movl	%ebx,_bbAppTitle
 	mov	$0,%eax
-	jmp	_153
-_153:
+	jmp	_157
+_157:
 	add	$12,%esp
 	pop	%edi
 	pop	%esi
@@ -759,8 +891,8 @@ _skn3_maxguiex_GadgetSizeForString:
 	movl	%ebx,4(%esp)
 	movl	%eax,(%esp)
 	call	_skn3_stringDimensions
-	jmp	_158
-_158:
+	jmp	_162
+_162:
 	add	$16,%esp
 	pop	%ebx
 	mov	%ebp,%esp
@@ -776,15 +908,15 @@ _skn3_maxguiex_GetCreationGroup:
 	movl	%ebx,(%esp)
 	call	_bbObjectDowncast
 	cmp	$_bbNullObject,%eax
-	je	_306
+	je	_347
 	movl	140(%eax),%eax
 	movl	%eax,(%esp)
 	call	_skn3_maxguiex_GetCreationGroup
-	jmp	_161
-_306:
+	jmp	_165
+_347:
 	mov	%ebx,%eax
-	jmp	_161
-_161:
+	jmp	_165
+_165:
 	add	$20,%esp
 	pop	%ebx
 	mov	%ebp,%esp
@@ -801,11 +933,11 @@ _skn3_maxguiex_SetGadgetReadOnly:
 	movl	%esi,(%esp)
 	call	_maxgui_maxgui_GadgetClass
 	cmp	$5,%eax
-	je	_309
+	je	_350
 	cmp	$4,%eax
-	je	_309
-	jmp	_308
-_309:
+	je	_350
+	jmp	_349
+_350:
 	cmp	$0,%ebx
 	sete	%al
 	movzbl	%al,%eax
@@ -816,11 +948,11 @@ _309:
 	movl	%ebx,4(%esp)
 	movl	%eax,(%esp)
 	call	_skn3_setReadOnly
-	jmp	_308
-_308:
+	jmp	_349
+_349:
 	mov	$0,%eax
-	jmp	_165
-_165:
+	jmp	_169
+_169:
 	add	$16,%esp
 	pop	%esi
 	pop	%ebx
@@ -838,26 +970,26 @@ _skn3_maxguiex_SetGadgetMaxLength:
 	movl	%esi,(%esp)
 	call	_maxgui_maxgui_GadgetClass
 	cmp	$4,%eax
-	je	_312
+	je	_353
 	cmp	$5,%eax
-	je	_312
-	jmp	_311
-_312:
+	je	_353
+	jmp	_352
+_353:
 	cmp	$0,%ebx
-	jge	_313
+	jge	_354
 	mov	$0,%ebx
-_313:
+_354:
 	movl	$3,4(%esp)
 	movl	%esi,(%esp)
 	call	_maxgui_maxgui_QueryGadget
 	movl	%ebx,4(%esp)
 	movl	%eax,(%esp)
 	call	_skn3_setMaxLength
-	jmp	_311
-_311:
+	jmp	_352
+_352:
 	mov	$0,%eax
-	jmp	_169
-_169:
+	jmp	_173
+_173:
 	add	$16,%esp
 	pop	%esi
 	pop	%ebx
@@ -873,19 +1005,19 @@ _skn3_maxguiex_GetGadgetMaxLength:
 	movl	%ebx,(%esp)
 	call	_maxgui_maxgui_GadgetClass
 	cmp	$4,%eax
-	je	_316
+	je	_357
 	cmp	$5,%eax
-	je	_316
+	je	_357
 	mov	$0,%eax
-	jmp	_172
-_316:
+	jmp	_176
+_357:
 	movl	$3,4(%esp)
 	movl	%ebx,(%esp)
 	call	_maxgui_maxgui_QueryGadget
 	movl	%eax,(%esp)
 	call	_skn3_getMaxLength
-	jmp	_172
-_172:
+	jmp	_176
+_176:
 	add	$20,%esp
 	pop	%ebx
 	mov	%ebp,%esp
@@ -907,26 +1039,26 @@ _skn3_maxguiex_LoadCustomPointer:
 	movl	$0,-8(%ebp)
 	movl	-4(%ebp),%eax
 	cmpl	$0,8(%eax)
-	jne	_320
+	jne	_361
 	movl	%edi,-4(%ebp)
-	jmp	_321
-_320:
+	jmp	_362
+_361:
 	movl	$1,-8(%ebp)
-_321:
+_362:
 	cmpl	$_bbNullObject,__skn3_maxguiex_Skn3CustomPointer_all
-	jne	_322
+	jne	_363
 	call	_brl_map_CreateMap
 	incl	4(%eax)
 	mov	%eax,%ebx
 	movl	__skn3_maxguiex_Skn3CustomPointer_all,%eax
 	decl	4(%eax)
-	jnz	_326
+	jnz	_367
 	movl	%eax,(%esp)
 	call	_bbGCFree
-_326:
+_367:
 	movl	%ebx,__skn3_maxguiex_Skn3CustomPointer_all
-	jmp	_327
-_322:
+	jmp	_368
+_363:
 	movl	__skn3_maxguiex_Skn3CustomPointer_all,%eax
 	movl	%edi,4(%esp)
 	movl	%eax,(%esp)
@@ -936,9 +1068,9 @@ _322:
 	movl	%eax,(%esp)
 	call	_bbObjectDowncast
 	mov	%eax,%esi
-_327:
+_368:
 	cmp	$_bbNullObject,%esi
-	jne	_329
+	jne	_370
 	movl	$_skn3_maxguiex_Skn3CustomPointer,(%esp)
 	call	_bbObjectNew
 	mov	%eax,%esi
@@ -947,10 +1079,10 @@ _327:
 	mov	%eax,%ebx
 	movl	8(%esi),%eax
 	decl	4(%eax)
-	jnz	_333
+	jnz	_374
 	movl	%eax,(%esp)
 	call	_bbGCFree
-_333:
+_374:
 	movl	%ebx,8(%esi)
 	movl	__skn3_maxguiex_Skn3CustomPointer_all,%eax
 	movl	%esi,8(%esp)
@@ -970,22 +1102,22 @@ _333:
 	movl	%eax,(%esp)
 	call	_skn3_loadCustomPointer
 	movl	%eax,12(%esi)
-_329:
+_370:
 	cmpl	$0,-8(%ebp)
-	je	_336
+	je	_377
 	movl	-4(%ebp),%eax
 	movl	%eax,(%esp)
 	call	_brl_filesystem_DeleteFile
-_336:
+_377:
 	cmpl	$0,12(%esi)
-	je	_337
+	je	_378
 	addl	$1,16(%esi)
 	mov	%esi,%eax
-	jmp	_175
-_337:
+	jmp	_179
+_378:
 	mov	$_bbNullObject,%eax
-	jmp	_175
-_175:
+	jmp	_179
+_179:
 	add	$20,%esp
 	pop	%edi
 	pop	%esi
@@ -999,15 +1131,15 @@ _skn3_maxguiex_SetCustomPointer:
 	sub	$8,%esp
 	movl	8(%ebp),%eax
 	cmp	$_bbNullObject,%eax
-	je	_338
+	je	_379
 	movl	$-1,_maxgui_maxgui_lastPointer
 	movl	12(%eax),%eax
 	movl	%eax,(%esp)
 	call	_skn3_setCustomPointer
-_338:
+_379:
 	mov	$0,%eax
-	jmp	_178
-_178:
+	jmp	_182
+_182:
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
@@ -1018,10 +1150,10 @@ _skn3_maxguiex_FreeCustomPointer:
 	sub	$20,%esp
 	movl	8(%ebp),%ebx
 	cmp	$_bbNullObject,%ebx
-	je	_339
+	je	_380
 	subl	$1,16(%ebx)
 	cmpl	$0,16(%ebx)
-	jne	_340
+	jne	_381
 	movl	__skn3_maxguiex_Skn3CustomPointer_all,%edx
 	movl	8(%ebx),%eax
 	movl	%eax,4(%esp)
@@ -1030,18 +1162,18 @@ _skn3_maxguiex_FreeCustomPointer:
 	calll	*68(%eax)
 	call	_skn3_currentCursor
 	cmpl	12(%ebx),%eax
-	jne	_342
+	jne	_383
 	movl	$0,(%esp)
 	call	_maxgui_maxgui_SetPointer
-_342:
+_383:
 	movl	12(%ebx),%eax
 	movl	%eax,(%esp)
 	call	_skn3_freeCustomPointer
-_340:
-_339:
+_381:
+_380:
 	mov	$0,%eax
-	jmp	_181
-_181:
+	jmp	_185
+_185:
 	add	$20,%esp
 	pop	%ebx
 	mov	%ebp,%esp
@@ -1058,7 +1190,7 @@ _skn3_maxguiex_ExtractCursorHotspot:
 	movl	8(%ebp),%ebx
 	movl	12(%ebp),%edi
 	movl	$2,4(%esp)
-	movl	$_343,(%esp)
+	movl	$_384,(%esp)
 	call	_bbArrayNew1D
 	movl	%eax,-4(%ebp)
 	movl	%ebx,4(%esp)
@@ -1068,7 +1200,7 @@ _skn3_maxguiex_ExtractCursorHotspot:
 	call	_brl_filesystem_ReadFile
 	mov	%eax,%esi
 	cmp	$_bbNullObject,%esi
-	je	_346
+	je	_387
 	mov	%esi,%eax
 	movl	$2,4(%esp)
 	movl	%eax,(%esp)
@@ -1080,14 +1212,14 @@ _skn3_maxguiex_ExtractCursorHotspot:
 	calll	*100(%eax)
 	mov	%eax,%ebx
 	cmp	$2,%ebx
-	jne	_350
+	jne	_391
 	mov	%esi,%eax
 	movl	%eax,(%esp)
 	movl	(%eax),%eax
 	calll	*100(%eax)
 	mov	%eax,%ebx
 	cmp	%ebx,%edi
-	jge	_352
+	jge	_393
 	mov	%edi,%eax
 	imul	$12,%eax
 	add	$6,%eax
@@ -1098,7 +1230,7 @@ _skn3_maxguiex_ExtractCursorHotspot:
 	movl	(%eax),%eax
 	calll	*56(%eax)
 	cmp	%eax,%ebx
-	jge	_354
+	jge	_395
 	mov	%esi,%eax
 	movl	%ebx,4(%esp)
 	movl	%eax,(%esp)
@@ -1116,17 +1248,17 @@ _skn3_maxguiex_ExtractCursorHotspot:
 	calll	*100(%eax)
 	movl	-4(%ebp),%edx
 	movl	%eax,4+24(%edx)
-_354:
-_352:
-_350:
+_395:
+_393:
+_391:
 	mov	%esi,%eax
 	movl	%eax,(%esp)
 	movl	(%eax),%eax
 	calll	*68(%eax)
-_346:
+_387:
 	movl	-4(%ebp),%eax
-	jmp	_185
-_185:
+	jmp	_189
+_189:
 	add	$8,%esp
 	pop	%edi
 	pop	%esi
@@ -1139,8 +1271,8 @@ _skn3_maxguiex_ListBatchLock:
 	mov	%esp,%ebp
 	sub	$8,%esp
 	mov	$0,%eax
-	jmp	_188
-_188:
+	jmp	_192
+_192:
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
@@ -1165,8 +1297,8 @@ _skn3_maxguiex_ListBatchAdd:
 	movl	%edi,(%esp)
 	call	_maxgui_maxgui_AddGadgetItem
 	mov	$0,%eax
-	jmp	_196
-_196:
+	jmp	_200
+_200:
 	add	$28,%esp
 	pop	%edi
 	pop	%esi
@@ -1179,8 +1311,8 @@ _skn3_maxguiex_ListBatchUnlock:
 	mov	%esp,%ebp
 	sub	$8,%esp
 	mov	$0,%eax
-	jmp	_199
-_199:
+	jmp	_203
+_203:
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
@@ -1198,10 +1330,10 @@ _25:
 	movl	%ebx,(%esp)
 	call	_maxgui_maxgui_GadgetClass
 	cmp	$1,%eax
-	jne	_360
+	jne	_401
 	mov	%ebx,%eax
-	jmp	_202
-_360:
+	jmp	_206
+_401:
 	movl	%ebx,(%esp)
 	call	_maxgui_maxgui_GadgetGroup
 	mov	%eax,%ebx
@@ -1210,8 +1342,8 @@ _23:
 	jne	_25
 _24:
 	mov	$_bbNullObject,%eax
-	jmp	_202
-_202:
+	jmp	_206
+_206:
 	add	$4,%esp
 	pop	%ebx
 	mov	%ebp,%esp
@@ -1231,8 +1363,8 @@ _skn3_maxguiex_SetWindowAlwaysOnTop:
 	movl	%eax,(%esp)
 	call	_skn3_setWindowAlwaysOnTop
 	mov	$0,%eax
-	jmp	_206
-_206:
+	jmp	_210
+_210:
 	add	$20,%esp
 	pop	%ebx
 	mov	%ebp,%esp
@@ -1249,8 +1381,8 @@ _skn3_maxguiex_BringWindowToTop:
 	movl	%eax,(%esp)
 	call	_skn3_bringWindowToTop
 	mov	$0,%eax
-	jmp	_209
-_209:
+	jmp	_213
+_213:
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
@@ -1265,8 +1397,8 @@ _skn3_maxguiex_FocusWindow:
 	movl	%eax,(%esp)
 	call	_skn3_focusWindow
 	mov	$0,%eax
-	jmp	_212
-_212:
+	jmp	_216
+_216:
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
@@ -1278,8 +1410,8 @@ _skn3_maxguiex_GadgetToInt:
 	movl	$3,4(%esp)
 	movl	%eax,(%esp)
 	call	_maxgui_maxgui_QueryGadget
-	jmp	_215
-_215:
+	jmp	_219
+_219:
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
@@ -1291,16 +1423,16 @@ _skn3_maxguiex_SetColorPickerCustomColors:
 	movl	8(%ebp),%edx
 	movl	16(%edx),%eax
 	cmp	$0,%eax
-	je	_361
+	je	_402
 	movl	20(%edx),%eax
 	cmp	$0,%eax
 	setg	%al
 	movzbl	%al,%eax
-_361:
+_402:
 	cmp	$0,%eax
-	je	_363
+	je	_404
 	cmpl	$15,20(%edx)
-	jge	_364
+	jge	_405
 	movl	20(%edx),%ebx
 	movl	$15,12(%esp)
 	movl	$0,8(%esp)
@@ -1308,22 +1440,22 @@ _361:
 	movl	$_34,(%esp)
 	call	_bbArraySlice
 	mov	%eax,%edx
-	jmp	_366
+	jmp	_407
 _28:
 	movl	$16777215,24(%edx,%ebx,4)
 _26:
 	add	$1,%ebx
-_366:
+_407:
 	cmp	$15,%ebx
 	jl	_28
 _27:
-_364:
+_405:
 	movl	%edx,(%esp)
 	call	_skn3_setColorPickerCustomColors
-_363:
+_404:
 	mov	$0,%eax
-	jmp	_218
-_218:
+	jmp	_222
+_222:
 	add	$20,%esp
 	pop	%ebx
 	mov	%ebp,%esp
@@ -1334,8 +1466,8 @@ _skn3_maxguiex_ClearColorPickerCustomColors:
 	mov	%esp,%ebp
 	sub	$8,%esp
 	mov	$0,%eax
-	jmp	_220
-_220:
+	jmp	_224
+_224:
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
@@ -1344,8 +1476,8 @@ _skn3_maxguiex_RedrawGadgetFrame:
 	mov	%esp,%ebp
 	sub	$8,%esp
 	mov	$0,%eax
-	jmp	_223
-_223:
+	jmp	_227
+_227:
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
@@ -1358,22 +1490,22 @@ _skn3_maxguiex_HideGadgetBorder:
 	movl	%ebx,(%esp)
 	call	_maxgui_maxgui_GadgetClass
 	cmp	$4,%eax
-	je	_369
-	jmp	_368
-_369:
+	je	_410
+	jmp	_409
+_410:
 	movl	$3,4(%esp)
 	movl	%ebx,(%esp)
 	call	_maxgui_maxgui_QueryGadget
 	cmp	$0,%eax
-	je	_371
+	je	_412
 	movl	%eax,(%esp)
 	call	_skn3_removeTextFieldBorder
-_371:
-	jmp	_368
-_368:
+_412:
+	jmp	_409
+_409:
 	mov	$0,%eax
-	jmp	_226
-_226:
+	jmp	_230
+_230:
 	add	$20,%esp
 	pop	%ebx
 	mov	%ebp,%esp
@@ -1394,37 +1526,37 @@ _skn3_maxguiex_InstallGuiFont:
 	mov	%eax,%esi
 	movl	$0,-4(%ebp)
 	cmpl	$0,8(%esi)
-	jne	_375
+	jne	_416
 	mov	%ebx,%esi
-	jmp	_376
-_375:
+	jmp	_417
+_416:
 	movl	$1,-4(%ebp)
-_376:
+_417:
 	movl	%esi,(%esp)
 	call	_brl_filesystem_FileType
 	cmp	$1,%eax
-	jne	_377
+	jne	_418
 	call	_skn3_systemex_GetOsVersion
 	cmp	$3,%eax
-	jge	_378
+	jge	_419
 	movl	%esi,(%esp)
 	call	_skn3_installFontFromFileWithATS
 	mov	%eax,%edi
-	jmp	_379
-_378:
+	jmp	_420
+_419:
 	movl	%esi,(%esp)
 	call	_skn3_installFontFromFileWithCT
 	mov	%eax,%edi
-_379:
-_377:
+_420:
+_418:
 	cmpl	$0,-4(%ebp)
-	je	_380
+	je	_421
 	movl	%esi,(%esp)
 	call	_brl_filesystem_DeleteFile
-_380:
+_421:
 	mov	%edi,%eax
-	jmp	_229
-_229:
+	jmp	_233
+_233:
 	add	$8,%esp
 	pop	%edi
 	pop	%esi
@@ -1441,9 +1573,9 @@ _skn3_maxguiex_SetTextareaLineSpacing:
 	movl	%ebx,(%esp)
 	call	_maxgui_maxgui_GadgetClass
 	cmp	$5,%eax
-	jne	_381
+	jne	_422
 	flds	12(%ebp)
-	fsubs	_534
+	fsubs	_614
 	fstps	12(%ebp)
 	fldz
 	flds	12(%ebp)
@@ -1453,10 +1585,10 @@ _skn3_maxguiex_SetTextareaLineSpacing:
 	setae	%al
 	movzbl	%al,%eax
 	cmp	$0,%eax
-	jne	_382
-	flds	_535
+	jne	_423
+	flds	_615
 	fstps	12(%ebp)
-_382:
+_423:
 	movl	$3,4(%esp)
 	movl	%ebx,(%esp)
 	call	_maxgui_maxgui_QueryGadget
@@ -1465,7 +1597,7 @@ _382:
 	setne	%al
 	movzbl	%al,%eax
 	cmp	$0,%eax
-	je	_384
+	je	_425
 	flds	12(%ebp)
 	fstps	4(%esp)
 	movl	%edx,(%esp)
@@ -1473,12 +1605,12 @@ _382:
 	cmp	$1,%eax
 	sete	%al
 	movzbl	%al,%eax
-_384:
-	jmp	_233
-_381:
+_425:
+	jmp	_237
+_422:
 	mov	$0,%eax
-	jmp	_233
-_233:
+	jmp	_237
+_237:
 	add	$20,%esp
 	pop	%ebx
 	mov	%ebp,%esp
@@ -1493,19 +1625,19 @@ _skn3_maxguiex_ScrollTextAreaToTop:
 	movl	%ebx,(%esp)
 	call	_maxgui_maxgui_GadgetClass
 	cmp	$5,%eax
-	jne	_386
+	jne	_427
 	movl	$3,4(%esp)
 	movl	%ebx,(%esp)
 	call	_maxgui_maxgui_QueryGadget
 	cmp	$0,%eax
-	je	_388
+	je	_429
 	movl	%eax,(%esp)
 	call	_skn3_scrollTextAreaToTop
-_388:
-_386:
+_429:
+_427:
 	mov	$0,%eax
-	jmp	_236
-_236:
+	jmp	_240
+_240:
 	add	$20,%esp
 	pop	%ebx
 	mov	%ebp,%esp
@@ -1520,19 +1652,19 @@ _skn3_maxguiex_ScrollTextAreaToBottom:
 	movl	%ebx,(%esp)
 	call	_maxgui_maxgui_GadgetClass
 	cmp	$5,%eax
-	jne	_389
+	jne	_430
 	movl	$3,4(%esp)
 	movl	%ebx,(%esp)
 	call	_maxgui_maxgui_QueryGadget
 	cmp	$0,%eax
-	je	_391
+	je	_432
 	movl	%eax,(%esp)
 	call	_skn3_scrollTextAreaToBottom
-_391:
-_389:
+_432:
+_430:
 	mov	$0,%eax
-	jmp	_239
-_239:
+	jmp	_243
+_243:
 	add	$20,%esp
 	pop	%ebx
 	mov	%ebp,%esp
@@ -1547,19 +1679,19 @@ _skn3_maxguiex_ScrollTextAreaToCursor:
 	movl	%ebx,(%esp)
 	call	_maxgui_maxgui_GadgetClass
 	cmp	$5,%eax
-	jne	_392
+	jne	_433
 	movl	$3,4(%esp)
 	movl	%ebx,(%esp)
 	call	_maxgui_maxgui_QueryGadget
 	cmp	$0,%eax
-	je	_394
+	je	_435
 	movl	%eax,(%esp)
 	call	_skn3_scrollTextAreaToCursor
-_394:
-_392:
+_435:
+_433:
 	mov	$0,%eax
-	jmp	_242
-_242:
+	jmp	_246
+_246:
 	add	$20,%esp
 	pop	%ebx
 	mov	%ebp,%esp
@@ -1570,14 +1702,316 @@ _skn3_maxguiex_GetAppResourcesPath:
 	mov	%esp,%ebp
 	sub	$8,%esp
 	call	_skn3_getBundlePath
-	jmp	_244
-_244:
+	jmp	_248
+_248:
+	mov	%ebp,%esp
+	pop	%ebp
+	ret
+__skn3_maxguiex_Skn3PanelEx_New:
+	push	%ebp
+	mov	%esp,%ebp
+	push	%ebx
+	sub	$4,%esp
+	movl	8(%ebp),%ebx
+	movl	%ebx,(%esp)
+	call	__maxgui_cocoamaxgui_TNSGadget_New
+	movl	$_skn3_maxguiex_Skn3PanelEx,(%ebx)
+	mov	$0,%eax
+	jmp	_251
+_251:
+	add	$4,%esp
+	pop	%ebx
+	mov	%ebp,%esp
+	pop	%ebp
+	ret
+__skn3_maxguiex_Skn3PanelEx_Delete:
+	push	%ebp
+	mov	%esp,%ebp
+	sub	$8,%esp
+	movl	8(%ebp),%eax
+_254:
+	movl	$_maxgui_cocoamaxgui_TNSGadget,(%eax)
+	movl	%eax,(%esp)
+	call	__maxgui_cocoamaxgui_TNSGadget_Delete
+	mov	$0,%eax
+	jmp	_436
+_436:
+	mov	%ebp,%esp
+	pop	%ebp
+	ret
+__skn3_maxguiex_Skn3PanelEx_SetGradient:
+	push	%ebp
+	mov	%esp,%ebp
+	push	%ebx
+	push	%esi
+	push	%edi
+	sub	$44,%esp
+	movl	20(%ebp),%edi
+	movl	24(%ebp),%esi
+	movl	28(%ebp),%ebx
+	movl	32(%ebp),%ecx
+	movl	36(%ebp),%edx
+	movl	40(%ebp),%eax
+	movl	%eax,32(%esp)
+	movl	%ecx,28(%esp)
+	movl	%edx,24(%esp)
+	movl	%ebx,20(%esp)
+	movl	%edi,16(%esp)
+	movl	%esi,12(%esp)
+	movl	16(%ebp),%eax
+	movl	%eax,8(%esp)
+	movl	12(%ebp),%eax
+	movl	%eax,4(%esp)
+	movl	8(%ebp),%eax
+	movl	%eax,(%esp)
+	call	_skn3_panelExSetGradient
+	mov	$0,%eax
+	jmp	_265
+_265:
+	add	$44,%esp
+	pop	%edi
+	pop	%esi
+	pop	%ebx
+	mov	%ebp,%esp
+	pop	%ebp
+	ret
+_skn3_maxguiex_CreatePanelEx:
+	push	%ebp
+	mov	%esp,%ebp
+	push	%ebx
+	push	%esi
+	push	%edi
+	sub	$28,%esp
+	movl	24(%ebp),%edi
+	movl	%edi,(%esp)
+	call	_skn3_maxguiex_GetCreationGroup
+	mov	%eax,%edi
+	movl	$_skn3_maxguiex_Skn3PanelEx,(%esp)
+	call	_bbObjectNew
+	mov	%eax,%esi
+	cmp	$_bbNullObject,%edi
+	setne	%al
+	movzbl	%al,%eax
+	cmp	$0,%eax
+	jne	_438
+	call	_maxgui_maxgui_Desktop
+	mov	%eax,%edi
+_438:
+	movl	$3,144(%esi)
+	movl	$3,140(%esi)
+	mov	%edi,%eax
+	incl	4(%eax)
+	mov	%eax,%ebx
+	movl	12(%esi),%eax
+	decl	4(%eax)
+	jnz	_442
+	movl	%eax,(%esp)
+	call	_bbGCFree
+_442:
+	movl	%ebx,12(%esi)
+	movl	32(%ebp),%eax
+	incl	4(%eax)
+	mov	%eax,%ebx
+	movl	44(%esi),%eax
+	decl	4(%eax)
+	jnz	_446
+	movl	%eax,(%esp)
+	call	_bbGCFree
+_446:
+	movl	%ebx,44(%esi)
+	mov	%esi,%eax
+	movl	20(%ebp),%edx
+	movl	%edx,16(%esp)
+	movl	16(%ebp),%edx
+	movl	%edx,12(%esp)
+	movl	12(%ebp),%edx
+	movl	%edx,8(%esp)
+	movl	8(%ebp),%edx
+	movl	%edx,4(%esp)
+	movl	%eax,(%esp)
+	movl	(%eax),%eax
+	calll	*96(%eax)
+	movl	28(%ebp),%eax
+	movl	%eax,52(%esi)
+	movl	__maxgui_cocoamaxgui_TCocoaMaxGUIDriver_CocoaGuiFont,%eax
+	incl	4(%eax)
+	mov	%eax,%ebx
+	movl	184(%esi),%eax
+	decl	4(%eax)
+	jnz	_451
+	movl	%eax,(%esp)
+	call	_bbGCFree
+_451:
+	movl	%ebx,184(%esi)
+	movl	$_maxgui_cocoamaxgui_TNSGadget,4(%esp)
+	movl	%edi,(%esp)
+	call	_bbObjectDowncast
+	cmp	$_bbNullObject,%eax
+	je	_452
+	movl	$_maxgui_cocoamaxgui_TNSGadget,4(%esp)
+	movl	%edi,(%esp)
+	call	_bbObjectDowncast
+	movl	188(%eax),%eax
+	cmp	$0,%eax
+	je	_453
+	movl	$_maxgui_cocoamaxgui_TNSGadget,4(%esp)
+	movl	%edi,(%esp)
+	call	_bbObjectDowncast
+	movl	192(%eax),%eax
+	cmp	$0,%eax
+	sete	%al
+	movzbl	%al,%eax
+_453:
+	cmp	$0,%eax
+	sete	%al
+	movzbl	%al,%eax
+	movl	%eax,192(%esi)
+_452:
+	movl	%esi,(%esp)
+	call	_skn3_panelExInit
+	mov	$_bbEmptyString,%eax
+	incl	4(%eax)
+	mov	%eax,%ebx
+	movl	44(%esi),%eax
+	decl	4(%eax)
+	jnz	_458
+	movl	%eax,(%esp)
+	call	_bbGCFree
+_458:
+	movl	%ebx,44(%esi)
+	movl	_maxgui_cocoamaxgui_GadgetMap,%ebx
+	movl	%esi,8(%esp)
+	movl	148(%esi),%eax
+	movl	%eax,(%esp)
+	call	__maxgui_cocoamaxgui_TIntWrapper_Create
+	movl	%eax,4(%esp)
+	movl	%ebx,(%esp)
+	movl	(%ebx),%eax
+	calll	*56(%eax)
+	movl	152(%esi),%eax
+	cmp	$0,%eax
+	je	_460
+	movl	148(%esi),%eax
+	cmpl	152(%esi),%eax
+	setne	%al
+	movzbl	%al,%eax
+_460:
+	cmp	$0,%eax
+	je	_462
+	movl	_maxgui_cocoamaxgui_GadgetMap,%ebx
+	movl	%esi,8(%esp)
+	movl	152(%esi),%eax
+	movl	%eax,(%esp)
+	call	__maxgui_cocoamaxgui_TIntWrapper_Create
+	movl	%eax,4(%esp)
+	movl	%ebx,(%esp)
+	movl	(%ebx),%eax
+	calll	*56(%eax)
+_462:
+	mov	%esi,%eax
+	movl	%eax,(%esp)
+	movl	(%eax),%eax
+	calll	*100(%eax)
+	call	_maxgui_localization_LocalizationMode
+	and	$2,%eax
+	cmp	$0,%eax
+	je	_465
+	movl	$_1,8(%esp)
+	movl	32(%ebp),%eax
+	movl	%eax,4(%esp)
+	movl	%esi,(%esp)
+	call	_maxgui_maxgui_LocalizeGadget
+_465:
+	mov	%esi,%eax
+	movl	188(%esi),%edx
+	movl	%edx,4(%esp)
+	movl	%eax,(%esp)
+	movl	(%eax),%eax
+	calll	*284(%eax)
+	mov	%esi,%eax
+	movl	$0,16(%esp)
+	movl	$0,12(%esp)
+	movl	$0,8(%esp)
+	movl	$0,4(%esp)
+	movl	%eax,(%esp)
+	movl	(%eax),%eax
+	calll	*104(%eax)
+	cmp	$_bbNullObject,%edi
+	je	_468
+	mov	%esi,%eax
+	movl	$-1,8(%esp)
+	movl	%edi,4(%esp)
+	movl	%eax,(%esp)
+	movl	(%eax),%eax
+	calll	*56(%eax)
+_468:
+	mov	%esi,%eax
+	movl	$0,12(%esp)
+	movl	$0,8(%esp)
+	movl	$0,4(%esp)
+	movl	%eax,(%esp)
+	movl	(%eax),%eax
+	calll	*260(%eax)
+	mov	%esi,%eax
+	movl	%eax,(%esp)
+	movl	(%eax),%eax
+	calll	*488(%eax)
+	mov	%esi,%eax
+	jmp	_274
+_274:
+	add	$28,%esp
+	pop	%edi
+	pop	%esi
+	pop	%ebx
+	mov	%ebp,%esp
+	pop	%ebp
+	ret
+_skn3_maxguiex_SetPanelExGradient:
+	push	%ebp
+	mov	%esp,%ebp
+	push	%ebx
+	push	%esi
+	push	%edi
+	sub	$44,%esp
+	movl	8(%ebp),%eax
+	movl	32(%ebp),%edi
+	movl	36(%ebp),%esi
+	movl	40(%ebp),%ebx
+	movl	$_skn3_maxguiex_Skn3PanelEx,4(%esp)
+	movl	%eax,(%esp)
+	call	_bbObjectDowncast
+	cmp	$_bbNullObject,%eax
+	je	_473
+	movl	%ebx,32(%esp)
+	movl	%edi,28(%esp)
+	movl	%esi,24(%esp)
+	movl	28(%ebp),%edx
+	movl	%edx,20(%esp)
+	movl	20(%ebp),%edx
+	movl	%edx,16(%esp)
+	movl	24(%ebp),%edx
+	movl	%edx,12(%esp)
+	movl	16(%ebp),%edx
+	movl	%edx,8(%esp)
+	movl	12(%ebp),%edx
+	movl	%edx,4(%esp)
+	movl	%eax,(%esp)
+	movl	(%eax),%eax
+	calll	*500(%eax)
+_473:
+	mov	$0,%eax
+	jmp	_285
+_285:
+	add	$44,%esp
+	pop	%edi
+	pop	%esi
+	pop	%ebx
 	mov	%ebp,%esp
 	pop	%ebp
 	ret
 	.data	
 	.align	4
-_246:
+_287:
 	.long	0
 	.align	4
 __skn3_maxguiex_Skn3CustomPointer_all:
@@ -2002,6 +2436,157 @@ _6:
 	.long	_bbObjectReserved
 	.long	_bbObjectReserved
 	.long	_bbObjectReserved
+_99:
+	.asciz	"Skn3PanelEx"
+_100:
+	.asciz	"SetGradient"
+_101:
+	.asciz	"(i,i,i,i,i,i,i,i)i"
+	.align	4
+_98:
+	.long	2
+	.long	_99
+	.long	6
+	.long	_36
+	.long	_37
+	.long	16
+	.long	6
+	.long	_38
+	.long	_37
+	.long	20
+	.long	6
+	.long	_100
+	.long	_101
+	.long	500
+	.long	0
+	.align	4
+_skn3_maxguiex_Skn3PanelEx:
+	.long	_maxgui_cocoamaxgui_TNSGadget
+	.long	_bbObjectFree
+	.long	_98
+	.long	200
+	.long	__skn3_maxguiex_Skn3PanelEx_New
+	.long	__skn3_maxguiex_Skn3PanelEx_Delete
+	.long	_bbObjectToString
+	.long	_bbObjectCompare
+	.long	_bbObjectSendMessage
+	.long	_bbObjectReserved
+	.long	_bbObjectReserved
+	.long	_bbObjectReserved
+	.long	__maxgui_maxgui_TGadget_SetFilter
+	.long	__maxgui_maxgui_TGadget_HasDescendant
+	.long	__maxgui_maxgui_TGadget__setparent
+	.long	__maxgui_maxgui_TGadget_SelectionChanged
+	.long	__maxgui_maxgui_TGadget_Handle
+	.long	__maxgui_maxgui_TGadget_GetXPos
+	.long	__maxgui_maxgui_TGadget_GetYPos
+	.long	__maxgui_maxgui_TGadget_GetWidth
+	.long	__maxgui_maxgui_TGadget_GetHeight
+	.long	__maxgui_maxgui_TGadget_GetGroup
+	.long	__maxgui_maxgui_TGadget_SetShape
+	.long	__maxgui_maxgui_TGadget_SetArea
+	.long	__maxgui_maxgui_TGadget_SetRect
+	.long	__maxgui_maxgui_TGadget_LockLayout
+	.long	__maxgui_maxgui_TGadget_SetLayout
+	.long	__maxgui_maxgui_TGadget_LayoutKids
+	.long	__maxgui_maxgui_TGadget_DoLayout
+	.long	__maxgui_maxgui_TGadget_SetDataSource
+	.long	__maxgui_maxgui_TGadget_KeysFromList
+	.long	__maxgui_maxgui_TGadget_KeysFromObjectArray
+	.long	__maxgui_maxgui_TGadget_SyncDataSource
+	.long	__maxgui_maxgui_TGadget_SyncData
+	.long	__maxgui_maxgui_TGadget_InsertItemFromKey
+	.long	__maxgui_maxgui_TGadget_Clear
+	.long	__maxgui_maxgui_TGadget_InsertItem
+	.long	__maxgui_maxgui_TGadget_SetItem
+	.long	__maxgui_maxgui_TGadget_RemoveItem
+	.long	__maxgui_maxgui_TGadget_ItemCount
+	.long	__maxgui_maxgui_TGadget_ItemText
+	.long	__maxgui_maxgui_TGadget_ItemTip
+	.long	__maxgui_maxgui_TGadget_ItemFlags
+	.long	__maxgui_maxgui_TGadget_ItemIcon
+	.long	__maxgui_maxgui_TGadget_ItemExtra
+	.long	__maxgui_maxgui_TGadget_SetItemState
+	.long	__maxgui_maxgui_TGadget_ItemState
+	.long	__maxgui_maxgui_TGadget_SelectItem
+	.long	__maxgui_maxgui_TGadget_SelectedItem
+	.long	__maxgui_maxgui_TGadget_SelectedItems
+	.long	__maxgui_maxgui_TGadget_Insert
+	.long	__maxgui_cocoamaxgui_TNSGadget_Query
+	.long	__maxgui_maxgui_TGadget_CleanUp
+	.long	__maxgui_cocoamaxgui_TNSGadget_Free
+	.long	__maxgui_cocoamaxgui_TNSGadget_Rethink
+	.long	__maxgui_cocoamaxgui_TNSGadget_ClientWidth
+	.long	__maxgui_cocoamaxgui_TNSGadget_ClientHeight
+	.long	__maxgui_cocoamaxgui_TNSGadget_Activate
+	.long	__maxgui_cocoamaxgui_TNSGadget_State
+	.long	__maxgui_cocoamaxgui_TNSGadget_SetText
+	.long	__maxgui_cocoamaxgui_TNSGadget_GetText
+	.long	__maxgui_cocoamaxgui_TNSGadget_SetFont
+	.long	__maxgui_cocoamaxgui_TNSGadget_SetColor
+	.long	__maxgui_cocoamaxgui_TNSGadget_RemoveColor
+	.long	__maxgui_cocoamaxgui_TNSGadget_SetAlpha
+	.long	__maxgui_cocoamaxgui_TNSGadget_SetTextColor
+	.long	__maxgui_cocoamaxgui_TNSGadget_SetTooltip
+	.long	__maxgui_cocoamaxgui_TNSGadget_GetTooltip
+	.long	__maxgui_cocoamaxgui_TNSGadget_SetPixmap
+	.long	__maxgui_cocoamaxgui_TNSGadget_SetIconStrip
+	.long	__maxgui_cocoamaxgui_TNSGadget_SetShow
+	.long	__maxgui_cocoamaxgui_TNSGadget_SetEnabled
+	.long	__maxgui_cocoamaxgui_TNSGadget_SetSelected
+	.long	__maxgui_cocoamaxgui_TNSGadget_SetHotKey
+	.long	__maxgui_maxgui_TGadget_SetSensitivity
+	.long	__maxgui_maxgui_TGadget_GetSensitivity
+	.long	__maxgui_maxgui_TGadget_SetWatch
+	.long	__maxgui_maxgui_TGadget_GetWatch
+	.long	__maxgui_cocoamaxgui_TNSGadget_Class
+	.long	__maxgui_cocoamaxgui_TNSGadget_GetStatusText
+	.long	__maxgui_cocoamaxgui_TNSGadget_SetStatusText
+	.long	__maxgui_cocoamaxgui_TNSGadget_GetMenu
+	.long	__maxgui_cocoamaxgui_TNSGadget_PopupMenu
+	.long	__maxgui_cocoamaxgui_TNSGadget_UpdateMenu
+	.long	__maxgui_cocoamaxgui_TNSGadget_SetMinimumSize
+	.long	__maxgui_cocoamaxgui_TNSGadget_SetMaximumSize
+	.long	__maxgui_cocoamaxgui_TNSGadget_ClearListItems
+	.long	__maxgui_cocoamaxgui_TNSGadget_InsertListItem
+	.long	__maxgui_cocoamaxgui_TNSGadget_SetListItem
+	.long	__maxgui_cocoamaxgui_TNSGadget_RemoveListItem
+	.long	__maxgui_cocoamaxgui_TNSGadget_SetListItemState
+	.long	__maxgui_cocoamaxgui_TNSGadget_ListItemState
+	.long	__maxgui_cocoamaxgui_TNSGadget_RootNode
+	.long	__maxgui_cocoamaxgui_TNSGadget_InsertNode
+	.long	__maxgui_cocoamaxgui_TNSGadget_ModifyNode
+	.long	__maxgui_cocoamaxgui_TNSGadget_SelectedNode
+	.long	__maxgui_cocoamaxgui_TNSGadget_CountKids
+	.long	__maxgui_cocoamaxgui_TNSGadget_ReplaceText
+	.long	__maxgui_cocoamaxgui_TNSGadget_AddText
+	.long	__maxgui_cocoamaxgui_TNSGadget_AreaText
+	.long	__maxgui_cocoamaxgui_TNSGadget_AreaLen
+	.long	__maxgui_cocoamaxgui_TNSGadget_LockText
+	.long	__maxgui_cocoamaxgui_TNSGadget_UnlockText
+	.long	__maxgui_cocoamaxgui_TNSGadget_SetTabs
+	.long	__maxgui_cocoamaxgui_TNSGadget_GetCursorPos
+	.long	__maxgui_cocoamaxgui_TNSGadget_GetSelectionLength
+	.long	__maxgui_cocoamaxgui_TNSGadget_SetStyle
+	.long	__maxgui_cocoamaxgui_TNSGadget_SetSelection
+	.long	__maxgui_cocoamaxgui_TNSGadget_CharX
+	.long	__maxgui_cocoamaxgui_TNSGadget_CharY
+	.long	__maxgui_cocoamaxgui_TNSGadget_CharAt
+	.long	__maxgui_cocoamaxgui_TNSGadget_LineAt
+	.long	__maxgui_cocoamaxgui_TNSGadget_SetValue
+	.long	__maxgui_cocoamaxgui_TNSGadget_SetRange
+	.long	__maxgui_cocoamaxgui_TNSGadget_SetStep
+	.long	__maxgui_cocoamaxgui_TNSGadget_SetProp
+	.long	__maxgui_cocoamaxgui_TNSGadget_GetProp
+	.long	__maxgui_cocoamaxgui_TNSGadget_AttachGraphics
+	.long	__maxgui_cocoamaxgui_TNSGadget_CanvasGraphics
+	.long	__maxgui_cocoamaxgui_TNSGadget_Run
+	.long	__maxgui_cocoamaxgui_TNSGadget_Create
+	.long	__maxgui_cocoamaxgui_TNSGadget_ToView
+	.long	__maxgui_cocoamaxgui_TNSGadget_LinkView
+	.long	__maxgui_cocoamaxgui_TNSGadget_ExcludeOthers
+	.long	__maxgui_cocoamaxgui_TNSGadget_SetIcon
+	.long	__skn3_maxguiex_Skn3PanelEx_SetGradient
 	.align	4
 _1:
 	.long	_bbStringClass
@@ -2025,7 +2610,7 @@ _17:
 	.long	2147483647
 	.long	8
 	.short	105,110,99,98,105,110,58,58
-_343:
+_384:
 	.asciz	"i"
 	.align	4
 _22:
@@ -2034,8 +2619,8 @@ _22:
 	.long	14
 	.short	108,105,116,116,108,101,101,110,100,105,97,110,58,58
 	.align	4
-_534:
+_614:
 	.long	0x3f800000
 	.align	4
-_535:
+_615:
 	.long	0x0
